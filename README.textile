@@ -1,0 +1,4 @@
+This is a public repository for open-sourced parts of "WireframeSketcher rapid wireframing tool":http://wireframesketcher.com.
+
+For more details refer to "http://wireframesketcher.com/developers.html":http://wireframesketcher.com/developers.html.
+
