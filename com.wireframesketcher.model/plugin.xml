@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://wireframesketcher.com/model.ecore" 
+       class = "com.wireframesketcher.model.ModelPackage"
+       genModel = "model/model.genmodel" />
+    <package
+          class="com.wireframesketcher.model.story.StoryPackage"
+          genModel="model/model.genmodel"
+          uri="http://wireframesketcher.com/1.0/model/story">
+    </package> 
+  </extension>
+  <extension
+        point="org.eclipse.emf.ecore.extension_parser">
+     <parser
+           class="com.wireframesketcher.model.impl.ModelXMLResourceFactoryImpl"
+           type="screen">
+     </parser>
+     <parser
+           class="com.wireframesketcher.model.impl.ModelXMLResourceFactoryImpl"
+           type="story">
+     </parser>
+  </extension>
+
+</plugin>
+

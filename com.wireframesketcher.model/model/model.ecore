@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http://wireframesketcher.com/1.0/model.ecore" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//WidgetContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hRuler" lowerBound="1"
+        eType="#//ScreenRuler" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vRuler" lowerBound="1"
+        eType="#//ScreenRuler" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="font" eType="#//ScreenFont"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theme" eType="#//Theme"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScreenRuler">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guides" ordered="false"
+        upperBound="-1" eType="#//RulerGuide" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RulerGuide">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Widget" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//WidgetContainer"
+        eOpposite="#//WidgetContainer/widgets"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Absolute X position in pixels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Absolute Y position in pixels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="User-specified width in pixels. If -1 then look at measuredWidth."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="User-specified height in pixels. If -1 then look at measuredHeight."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptor" eType="#//WidgetDescriptor"
+        changeable="false" transient="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells if the widget is locked or not"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measuredWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Actual width in pixels."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measuredHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Actual height in pixels."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="User-specified custom widget ID."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="User-specified custom widget data."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tells whether the widget should be treated as annotation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Widget #//StateSupport #//ColorBackgroundSupport #//FontSupport #//IconSupport #//LinkSupport #//TextAlignmentSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//ButtonStyle"
+        defaultValueLiteral="square"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Checkbox" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Combo" eSuperTypes="#//Widget #//StateSupport #//FontSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//StateSupport #//IconSupport #//IconPositionSupport #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Placeholder" eSuperTypes="#//Widget #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextField" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Spinner" eSuperTypes="#//Widget #//StateSupport #//FontSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//Widget #//VerticalScrollbarSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="closeButton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles close button"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimizeButton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles minimize button"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximizeButton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles maximize button"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Browser" eSuperTypes="#//Widget #//VerticalScrollbarSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//LinkSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dummyText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true then Lorem Ipsum default text is used."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Panel" eSuperTypes="#//Widget #//ColorBackgroundSupport #//ColorAlphaSupport #//VerticalScrollbarSupport #//ColorForegroundSupport #//BorderStyleSupport #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Widget #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//Widget #//SelectionSupport #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ListSupport #//FontSupport #//ItemSupport #//ColorAlternativeSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Popup" eSuperTypes="#//Widget #//SelectionSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Widget #//SelectionSupport #//IconSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Widget #//SelectionSupport #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ListSupport #//FontSupport #//TextAlignmentSupport #//ColorAlternativeSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalLines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles vertical lines."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles vertical lines."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//Widget #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//SelectionSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Widget #//ColorForegroundSupport #//IconSupport #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextArea" eSuperTypes="#//Widget #//StateSupport #//VerticalScrollbarSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HScrollbar" eSuperTypes="#//Widget #//ValueSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VScrollbar" eSuperTypes="#//Widget #//ValueSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HLine" eSuperTypes="#//Widget #//ColorForegroundSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VLine" eSuperTypes="#//Widget #//ColorForegroundSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HSlider" eSuperTypes="#//Widget #//ValueSupport #//StateSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VSlider" eSuperTypes="#//Widget #//ValueSupport #//StateSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tabs" eSuperTypes="#//Widget #//SelectionSupport #//ItemSupport #//FontSupport"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ResizeMode">
+    <eLiterals name="Both" value="3"/>
+    <eLiterals name="Horizontal" value="1"/>
+    <eLiterals name="Vertical" value="2"/>
+    <eLiterals name="None"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WidgetDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resizeMode" eType="#//ResizeMode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textEditable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textWrappable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textLines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textCentered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextAlignment">
+    <eLiterals name="Left"/>
+    <eLiterals name="Center" value="1"/>
+    <eLiterals name="Right" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="IconDataType" instanceClassName="com.wireframesketcher.model.IconDesc"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="IconSize">
+    <eLiterals name="Small" literal="small"/>
+    <eLiterals name="Medium" value="1" literal="medium"/>
+    <eLiterals name="Large" value="2" literal="large"/>
+    <eLiterals name="XLarge" value="3" literal="xlarge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="FontSizeDataType" instanceClassName="java.lang.Integer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Font">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="#//FontSizeDataType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Font size."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles bold style."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles italics style."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underline" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles underline style."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WidgetContainer" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
+        eType="#//Widget" containment="true" resolveProxies="false" eOpposite="#//Widget/container">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Contained widgets."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WidgetGroup" eSuperTypes="#//Widget #//WidgetContainer #//LinkSupport #//NameSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Master" eSuperTypes="#//Widget #//LinkSupport">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="screen" eType="#//WidgetContainer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the master screen file. Can be absolute to workspace or relative."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimmed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles dimmed style rendering in design mode."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Widget #//LinkSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" eType="#//URIDataType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Image source file path. Can be absolute or relative."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grayscale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles grayscale image rendering."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScreenFont">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FontSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="font" lowerBound="1" eType="#//Font"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Text font."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ColorDataType" instanceClassName="com.wireframesketcher.model.ColorDesc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorForegroundSupport" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreground" eType="#//ColorDataType"
+        defaultValueLiteral="black">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Foreground color."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorBackgroundSupport" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="#//ColorDataType"
+        defaultValueLiteral="white">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Background color."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorAlphaSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="255">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Alpha. Possible values are between 0-255."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectionSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Selection index. Zero-based. Default: -1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextAlignmentSupport" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textAlignment" eType="#//TextAlignment">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Text alignment."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanSelectionSupport" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles selection."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Note" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgressBar" eSuperTypes="#//Widget #//ValueSupport #//ColorBackgroundSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Callout" eSuperTypes="#//Widget #//FontSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchField" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tooltip" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
+        eType="#//Position" defaultValueLiteral="bottomLeft">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Pointing arrow position."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScratchOut" eSuperTypes="#//Widget #//ColorForegroundSupport #//ColorAlphaSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BorderSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="border" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles border rendering."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateSupport" abstract="true" interface="true">
+    <eOperations name="isValidState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="state" eType="#//State"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="State">
+    <eLiterals name="Normal" literal="normal"/>
+    <eLiterals name="Disabled" value="1" literal="disabled"/>
+    <eLiterals name="Selected" value="2" literal="selected"/>
+    <eLiterals name="Focused" value="3" literal="focused"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Breadcrumbs" eSuperTypes="#//Widget #//FontSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkBar" eSuperTypes="#//Widget #//FontSupport #//SelectionSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Accordion" eSuperTypes="#//Widget #//SelectionSupport #//VerticalScrollbarSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VerticalScrollbarSupport" abstract="true"
+      interface="true" eSuperTypes="#//ValueSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalScrollbar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles vertical scrollbar."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateField" eSuperTypes="#//Widget #//StateSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VideoPlayer" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Map" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CoverFlow" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TabbedPane" eSuperTypes="#//Widget #//SelectionSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ItemSupport #//FontSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="#//Position"
+        defaultValueLiteral="top">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tabs position."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Position">
+    <eLiterals name="Top" literal="top"/>
+    <eLiterals name="Bottom" value="1" literal="bottom"/>
+    <eLiterals name="Left" value="2" literal="left"/>
+    <eLiterals name="Right" value="3" literal="right"/>
+    <eLiterals name="TopLeft" value="4" literal="topLeft"/>
+    <eLiterals name="TopRight" value="5" literal="topRight"/>
+    <eLiterals name="BottomLeft" value="6" literal="bottomLeft"/>
+    <eLiterals name="BottomRight" value="7" literal="bottomRight"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IconSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="#//IconDataType"
+        defaultValueLiteral="">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Icon. Format &quot;icon-name (icon-size)&quot;. Icon size values are small, medium, large and xlarge."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HSplitter" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VSplitter" eSuperTypes="#//Widget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Value for scrollbars, progress bars, sliders, etc. Possible values are between 0-100."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorPicker" eSuperTypes="#//Widget #//ColorBackgroundSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Arrow" eSuperTypes="#//Widget #//ColorForegroundSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="left" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles left arrow head."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="right" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles right arrow head."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Position"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CurlyBrace" eSuperTypes="#//Widget #//FontSupport #//ColorForegroundSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
+        eType="#//Position" defaultValueLiteral="left"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonBar" eSuperTypes="#//Widget #//SelectionSupport #//FontSupport #//ColorBackgroundSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BorderStyleSupport" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="border" eType="#//BorderStyle"
+        defaultValueLiteral="solid"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BorderStyle">
+    <eLiterals name="None" literal="none"/>
+    <eLiterals name="Solid" value="1" literal="solid"/>
+    <eLiterals name="SolidRounded" value="2" literal="solid-rounded"/>
+    <eLiterals name="DashedRounded" value="3" literal="dashed-rounded"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ButtonStyle">
+    <eLiterals name="PointLeft" literal="pointleft"/>
+    <eLiterals name="Square" value="1" literal="square"/>
+    <eLiterals name="PointRight" value="2" literal="pointright"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Circle" eSuperTypes="#//Widget #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorForegroundSupport #//BorderSupport #//IconSupport #//IconPositionSupport #//FontSupport #//LinkSupport #//TextAlignmentSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rectangle" eSuperTypes="#//Widget #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorForegroundSupport #//BorderStyleSupport #//IconSupport #//IconPositionSupport #//FontSupport #//LinkSupport #//TextAlignmentSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IconPositionSupport" abstract="true"
+      interface="true" eSuperTypes="#//IconSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconPosition" eType="#//Position"
+        defaultValueLiteral="left"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Row height in pixels."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalLines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Toggles horizontal lines."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chart" eSuperTypes="#//Widget">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chartType" eType="#//ChartType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ChartType">
+    <eLiterals name="Pie" literal="pie"/>
+    <eLiterals name="Line" value="1" literal="line"/>
+    <eLiterals name="Bar" value="2" literal="bar"/>
+    <eLiterals name="Column" value="3" literal="column"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CrossOut" eSuperTypes="#//Widget #//ColorForegroundSupport #//ColorAlphaSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" eSuperTypes="#//LinkSupport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relative X position in pixels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relative Y position in pixels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Item width in pixels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Item height in pixels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Widget items."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URIDataType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="URIDataType" instanceClassName="org.eclipse.emf.common.util.URI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Hotspot" eSuperTypes="#//Widget #//LinkSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NameSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Theme">
+    <eLiterals name="Default" literal="default"/>
+    <eLiterals name="Clean" value="1" literal="clean"/>
+    <eLiterals name="Sketch" value="2" literal="sketch"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorAlternativeSupport" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alternative" eType="#//ColorDataType"
+        defaultValueLiteral="white">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Alternative color for rows in lists and tables"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eSubpackages name="story" nsURI="http://wireframesketcher.com/1.0/model/story"
+      nsPrefix="story">
+    <eClassifiers xsi:type="ecore:EClass" name="Storyboard">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="panels" upperBound="-1"
+          eType="#//story/Panel" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Panel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="screen" eType="#//Screen"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="-2147483648">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Absolute X position in pixels"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="-2147483648">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Absolute Y position in pixels"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

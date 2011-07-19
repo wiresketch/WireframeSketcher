@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.wireframesketcher.spy.SpyHandler"
+            commandId="com.wireframesketcher.spy.spy">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.wireframesketcher.spy.category"
+            name="%Command_Category_Label">
+      </category>
+      <command
+            categoryId="com.wireframesketcher.spy.category"
+            id="com.wireframesketcher.spy.spy"
+            name="%Command_Spy_Label">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.wireframesketcher.spy.spy"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M2+M3+F5">
+      </key>
+   </extension>
+
+</plugin>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.wireframesketcher.model/src/java"
+    modelPluginID="com.wireframesketcher.model" modelName="Model" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="com.wireframesketcher" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <genEnums ecoreEnum="model.ecore#//ResizeMode">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ResizeMode/Both"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ResizeMode/Horizontal"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ResizeMode/Vertical"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ResizeMode/None"/>
+    </genEnums>
+    <genEnums ecoreEnum="model.ecore#//TextAlignment">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//TextAlignment/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//TextAlignment/Center"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//TextAlignment/Right"/>
+    </genEnums>
+    <genEnums ecoreEnum="model.ecore#//IconSize">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//IconSize/Small"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//IconSize/Medium"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//IconSize/Large"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//IconSize/XLarge"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//State">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//State/Normal"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//State/Disabled"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//State/Selected"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//State/Focused"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//Position">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/Top"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/Bottom"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/Right"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/TopLeft"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/TopRight"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/BottomLeft"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Position/BottomRight"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//BorderStyle">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//BorderStyle/None"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//BorderStyle/Solid"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//BorderStyle/SolidRounded"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//BorderStyle/DashedRounded"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//ButtonStyle">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ButtonStyle/PointLeft"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ButtonStyle/Square"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ButtonStyle/PointRight"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//ChartType">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ChartType/Pie"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ChartType/Line"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ChartType/Bar"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//ChartType/Column"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="model.ecore#//IconDataType"/>
+    <genDataTypes ecoreDataType="model.ecore#//FontSizeDataType"/>
+    <genDataTypes ecoreDataType="model.ecore#//ColorDataType"/>
+    <genDataTypes ecoreDataType="model.ecore#//URIDataType"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Screen">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Screen/hRuler"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Screen/vRuler"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Screen/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Screen/font"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ScreenRuler">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//ScreenRuler/guides"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//RulerGuide">
+      <genFeatures createChild="false" propertyCategory="Basic" propertyDescription="The position of the guide"
+          ecoreFeature="ecore:EAttribute model.ecore#//RulerGuide/position"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Widget" labelFeature="#//model/Widget/text">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Widget/container"/>
+      <genFeatures createChild="false" propertyCategory="Geometry" propertyDescription="The x coordinate of the widget"
+          ecoreFeature="ecore:EAttribute model.ecore#//Widget/x">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Geometry" propertyDescription="The y coordinate of the widget"
+          ecoreFeature="ecore:EAttribute model.ecore#//Widget/y">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Geometry" propertyDescription="The width of the widget"
+          ecoreFeature="ecore:EAttribute model.ecore#//Widget/width">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Geometry" propertyDescription="The height of the widget"
+          ecoreFeature="ecore:EAttribute model.ecore#//Widget/height">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Basic" propertyDescription="The text of the widget"
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute model.ecore#//Widget/text"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Widget/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/locked"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/measuredWidth"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/measuredHeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/customId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/customData"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Button" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Button/style"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Checkbox" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Combo" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Label" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Link" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Placeholder" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//RadioButton" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//TextField" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Spinner" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Window" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Browser" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Text" labelFeature="#//model/Widget/text">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Text/dummyText"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Area" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Panel" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Group" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//List" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Popup" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Menu" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Table" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Table/verticalLines"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Tree" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Icon" labelFeature="#//model/IconSupport/icon"/>
+    <genClasses image="false" ecoreClass="model.ecore#//TextArea" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//HScrollbar" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VScrollbar" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//HLine" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VLine" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//HSlider" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VSlider" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Tabs" labelFeature="#//model/Widget/text"/>
+    <genClasses provider="None" image="false" ecoreClass="model.ecore#//WidgetDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//WidgetDescriptor/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//WidgetDescriptor/resizeMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//WidgetDescriptor/textEditable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//WidgetDescriptor/textMultiline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//WidgetDescriptor/textWrappable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Font">
+      <genFeatures createChild="false" propertyDescription="The size of the font"
+          ecoreFeature="ecore:EAttribute model.ecore#//Font/size"/>
+      <genFeatures createChild="false" propertyDescription="The bold flag" ecoreFeature="ecore:EAttribute model.ecore#//Font/bold"/>
+      <genFeatures createChild="false" propertyDescription="The italic flag" ecoreFeature="ecore:EAttribute model.ecore#//Font/italic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Font/underline"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//WidgetContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//WidgetContainer/widgets"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//WidgetGroup" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Master" labelFeature="#//model/Widget/text">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Master/screen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Master/dimmed"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Image" labelFeature="#//model/Image/src">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Image/src"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Image/grayscale"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ScreenFont">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ScreenFont/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ScreenFont/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ScreenFont/bold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ScreenFont/italic"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//FontSupport">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//FontSupport/font"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ColorForegroundSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ColorForegroundSupport/foreground"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ColorBackgroundSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ColorBackgroundSupport/background"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ColorAlphaSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ColorAlphaSupport/alpha"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//SelectionSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//SelectionSupport/selection"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//TextAlignmentSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//TextAlignmentSupport/textAlignment"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//BooleanSelectionSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//BooleanSelectionSupport/selected"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Note" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//ProgressBar" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Callout" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//SearchField" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Tooltip" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Tooltip/position"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ScratchOut" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//BorderSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//BorderSupport/border"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//StateSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//StateSupport/state"/>
+      <genOperations ecoreOperation="model.ecore#//StateSupport/isValidState">
+        <genParameters ecoreParameter="model.ecore#//StateSupport/isValidState/state"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Breadcrumbs" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//LinkBar" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Accordion" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VerticalScrollbarSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VerticalScrollbarSupport/verticalScrollbar"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//DateField" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VideoPlayer" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Map" labelFeature="#//model/Widget/text"/>
+    <genClasses ecoreClass="model.ecore#//CoverFlow"/>
+    <genClasses image="false" ecoreClass="model.ecore#//TabbedPane" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//TabbedPane/position"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//IconSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//IconSupport/icon"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//HSplitter" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VSplitter" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//ValueSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ValueSupport/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ColorPicker" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Arrow" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Arrow/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Arrow/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Arrow/direction"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//CurlyBrace" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//CurlyBrace/position"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ButtonBar" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//BorderStyleSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//BorderStyleSupport/border"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Circle" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Rectangle" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//IconPositionSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//IconPositionSupport/iconPosition"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ListSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ListSupport/rowHeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ListSupport/horizontalLines"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Chart" labelFeature="#//model/Widget/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Chart/chartType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//CrossOut" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//Item" labelFeature="#//model/Item/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Item/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//ItemSupport">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ItemSupport/items"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//LinkSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//LinkSupport/link"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Hotspot" labelFeature="#//model/Widget/text"/>
+    <nestedGenPackages prefix="Story" disposableProviderFactory="true" ecorePackage="model.ecore#//story">
+      <genClasses image="false" ecoreClass="model.ecore#//story/Storyboard">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//story/Storyboard/panels"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//story/Panel">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//story/Panel/screen"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
