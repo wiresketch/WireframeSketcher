@@ -24,6 +24,8 @@ import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.IconDesc;
 import com.wireframesketcher.model.IconPositionSupport;
 import com.wireframesketcher.model.IconSupport;
+import com.wireframesketcher.model.LineStyle;
+import com.wireframesketcher.model.LineStyleSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
@@ -49,6 +51,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getTextAlignment <em>Text Alignment</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getLineStyle <em>Line Style</em>}</li>
  * </ul>
  * </p>
  *
@@ -222,6 +225,26 @@ public class CircleImpl extends WidgetImpl implements Circle {
 	 * @ordered
 	 */
 	protected TextAlignment textAlignment = TEXT_ALIGNMENT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LineStyle LINE_STYLE_EDEFAULT = LineStyle.SOLID;
+
+	/**
+	 * The cached value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected LineStyle lineStyle = LINE_STYLE_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Circle").resizeBoth().singleLine().centered().get();
 	
@@ -461,6 +484,27 @@ public class CircleImpl extends WidgetImpl implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LineStyle getLineStyle() {
+		return lineStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLineStyle(LineStyle newLineStyle) {
+		LineStyle oldLineStyle = lineStyle;
+		lineStyle = newLineStyle == null ? LINE_STYLE_EDEFAULT : newLineStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CIRCLE__LINE_STYLE, oldLineStyle, lineStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -496,6 +540,8 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				return getLink();
 			case ModelPackage.CIRCLE__TEXT_ALIGNMENT:
 				return getTextAlignment();
+			case ModelPackage.CIRCLE__LINE_STYLE:
+				return getLineStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -534,6 +580,9 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				return;
 			case ModelPackage.CIRCLE__TEXT_ALIGNMENT:
 				setTextAlignment((TextAlignment)newValue);
+				return;
+			case ModelPackage.CIRCLE__LINE_STYLE:
+				setLineStyle((LineStyle)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -574,6 +623,9 @@ public class CircleImpl extends WidgetImpl implements Circle {
 			case ModelPackage.CIRCLE__TEXT_ALIGNMENT:
 				setTextAlignment(TEXT_ALIGNMENT_EDEFAULT);
 				return;
+			case ModelPackage.CIRCLE__LINE_STYLE:
+				setLineStyle(LINE_STYLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -604,6 +656,8 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case ModelPackage.CIRCLE__TEXT_ALIGNMENT:
 				return textAlignment != TEXT_ALIGNMENT_EDEFAULT;
+			case ModelPackage.CIRCLE__LINE_STYLE:
+				return lineStyle != LINE_STYLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -666,6 +720,12 @@ public class CircleImpl extends WidgetImpl implements Circle {
 		if (baseClass == TextAlignmentSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.CIRCLE__TEXT_ALIGNMENT: return ModelPackage.TEXT_ALIGNMENT_SUPPORT__TEXT_ALIGNMENT;
+				default: return -1;
+			}
+		}
+		if (baseClass == LineStyleSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.CIRCLE__LINE_STYLE: return ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE;
 				default: return -1;
 			}
 		}
@@ -733,6 +793,12 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				default: return -1;
 			}
 		}
+		if (baseClass == LineStyleSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE: return ModelPackage.CIRCLE__LINE_STYLE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -762,6 +828,8 @@ public class CircleImpl extends WidgetImpl implements Circle {
 		result.append(link);
 		result.append(", textAlignment: ");
 		result.append(textAlignment);
+		result.append(", lineStyle: ");
+		result.append(lineStyle);
 		result.append(')');
 		return result.toString();
 	}

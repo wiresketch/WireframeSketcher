@@ -8,6 +8,8 @@ package com.wireframesketcher.model.impl;
 
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
+import com.wireframesketcher.model.LineStyle;
+import com.wireframesketcher.model.LineStyleSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.VLineImpl#getForeground <em>Foreground</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.VLineImpl#getLineStyle <em>Line Style</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +53,24 @@ public class VLineImpl extends WidgetImpl implements VLine {
 	 * @ordered
 	 */
 	protected ColorDesc foreground = FOREGROUND_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LineStyle LINE_STYLE_EDEFAULT = LineStyle.SOLID;
+	/**
+	 * The cached value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected LineStyle lineStyle = LINE_STYLE_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Vertical Line", ResizeMode.VERTICAL_LITERAL, false, false);
 	
 	/**
@@ -97,11 +118,34 @@ public class VLineImpl extends WidgetImpl implements VLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LineStyle getLineStyle() {
+		return lineStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLineStyle(LineStyle newLineStyle) {
+		LineStyle oldLineStyle = lineStyle;
+		lineStyle = newLineStyle == null ? LINE_STYLE_EDEFAULT : newLineStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.VLINE__LINE_STYLE, oldLineStyle, lineStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.VLINE__FOREGROUND:
 				return getForeground();
+			case ModelPackage.VLINE__LINE_STYLE:
+				return getLineStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,6 +160,9 @@ public class VLineImpl extends WidgetImpl implements VLine {
 		switch (featureID) {
 			case ModelPackage.VLINE__FOREGROUND:
 				setForeground((ColorDesc)newValue);
+				return;
+			case ModelPackage.VLINE__LINE_STYLE:
+				setLineStyle((LineStyle)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,6 +179,9 @@ public class VLineImpl extends WidgetImpl implements VLine {
 			case ModelPackage.VLINE__FOREGROUND:
 				setForeground(FOREGROUND_EDEFAULT);
 				return;
+			case ModelPackage.VLINE__LINE_STYLE:
+				setLineStyle(LINE_STYLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -146,6 +196,8 @@ public class VLineImpl extends WidgetImpl implements VLine {
 		switch (featureID) {
 			case ModelPackage.VLINE__FOREGROUND:
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
+			case ModelPackage.VLINE__LINE_STYLE:
+				return lineStyle != LINE_STYLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -160,6 +212,12 @@ public class VLineImpl extends WidgetImpl implements VLine {
 		if (baseClass == ColorForegroundSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.VLINE__FOREGROUND: return ModelPackage.COLOR_FOREGROUND_SUPPORT__FOREGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == LineStyleSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.VLINE__LINE_STYLE: return ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE;
 				default: return -1;
 			}
 		}
@@ -179,6 +237,12 @@ public class VLineImpl extends WidgetImpl implements VLine {
 				default: return -1;
 			}
 		}
+		if (baseClass == LineStyleSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE: return ModelPackage.VLINE__LINE_STYLE;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -194,6 +258,8 @@ public class VLineImpl extends WidgetImpl implements VLine {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (foreground: ");
 		result.append(foreground);
+		result.append(", lineStyle: ");
+		result.append(lineStyle);
 		result.append(')');
 		return result.toString();
 	}

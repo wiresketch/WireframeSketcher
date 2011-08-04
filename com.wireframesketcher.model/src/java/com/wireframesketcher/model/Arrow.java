@@ -25,7 +25,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Arrow extends Widget, ColorForegroundSupport {
+public interface Arrow extends Widget, ColorForegroundSupport, LineStyleSupport {
 	/**
 	 * Returns the value of the '<em><b>Left</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

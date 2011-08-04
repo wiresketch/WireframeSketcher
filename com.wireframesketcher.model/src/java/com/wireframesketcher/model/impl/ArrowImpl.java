@@ -14,6 +14,8 @@ import com.wireframesketcher.model.Arrow;
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
+import com.wireframesketcher.model.LineStyle;
+import com.wireframesketcher.model.LineStyleSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
@@ -28,6 +30,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.ArrowImpl#getForeground <em>Foreground</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ArrowImpl#getLineStyle <em>Line Style</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ArrowImpl#isLeft <em>Left</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ArrowImpl#isRight <em>Right</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ArrowImpl#getDirection <em>Direction</em>}</li>
@@ -56,6 +59,26 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 	 * @ordered
 	 */
 	protected ColorDesc foreground = FOREGROUND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LineStyle LINE_STYLE_EDEFAULT = LineStyle.SOLID;
+
+	/**
+	 * The cached value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected LineStyle lineStyle = LINE_STYLE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isLeft() <em>Left</em>}' attribute.
@@ -165,6 +188,27 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LineStyle getLineStyle() {
+		return lineStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLineStyle(LineStyle newLineStyle) {
+		LineStyle oldLineStyle = lineStyle;
+		lineStyle = newLineStyle == null ? LINE_STYLE_EDEFAULT : newLineStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ARROW__LINE_STYLE, oldLineStyle, lineStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isLeft() {
 		return left;
 	}
@@ -233,6 +277,8 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 		switch (featureID) {
 			case ModelPackage.ARROW__FOREGROUND:
 				return getForeground();
+			case ModelPackage.ARROW__LINE_STYLE:
+				return getLineStyle();
 			case ModelPackage.ARROW__LEFT:
 				return isLeft() ? Boolean.TRUE : Boolean.FALSE;
 			case ModelPackage.ARROW__RIGHT:
@@ -253,6 +299,9 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 		switch (featureID) {
 			case ModelPackage.ARROW__FOREGROUND:
 				setForeground((ColorDesc)newValue);
+				return;
+			case ModelPackage.ARROW__LINE_STYLE:
+				setLineStyle((LineStyle)newValue);
 				return;
 			case ModelPackage.ARROW__LEFT:
 				setLeft(((Boolean)newValue).booleanValue());
@@ -278,6 +327,9 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 			case ModelPackage.ARROW__FOREGROUND:
 				setForeground(FOREGROUND_EDEFAULT);
 				return;
+			case ModelPackage.ARROW__LINE_STYLE:
+				setLineStyle(LINE_STYLE_EDEFAULT);
+				return;
 			case ModelPackage.ARROW__LEFT:
 				setLeft(LEFT_EDEFAULT);
 				return;
@@ -301,6 +353,8 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 		switch (featureID) {
 			case ModelPackage.ARROW__FOREGROUND:
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
+			case ModelPackage.ARROW__LINE_STYLE:
+				return lineStyle != LINE_STYLE_EDEFAULT;
 			case ModelPackage.ARROW__LEFT:
 				return left != LEFT_EDEFAULT;
 			case ModelPackage.ARROW__RIGHT:
@@ -324,6 +378,12 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 				default: return -1;
 			}
 		}
+		if (baseClass == LineStyleSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.ARROW__LINE_STYLE: return ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -337,6 +397,12 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 		if (baseClass == ColorForegroundSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.COLOR_FOREGROUND_SUPPORT__FOREGROUND: return ModelPackage.ARROW__FOREGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == LineStyleSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE: return ModelPackage.ARROW__LINE_STYLE;
 				default: return -1;
 			}
 		}
@@ -355,6 +421,8 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (foreground: ");
 		result.append(foreground);
+		result.append(", lineStyle: ");
+		result.append(lineStyle);
 		result.append(", left: ");
 		result.append(left);
 		result.append(", right: ");

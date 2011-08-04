@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface HLine extends Widget, ColorForegroundSupport {
+public interface HLine extends Widget, ColorForegroundSupport, LineStyleSupport {
 } // HLine

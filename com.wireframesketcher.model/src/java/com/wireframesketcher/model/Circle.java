@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Circle extends Widget, ColorBackgroundSupport, ColorAlphaSupport, ColorForegroundSupport, BorderSupport, IconSupport, IconPositionSupport, FontSupport, LinkSupport, TextAlignmentSupport {
+public interface Circle extends Widget, ColorBackgroundSupport, ColorAlphaSupport, ColorForegroundSupport, BorderSupport, IconSupport, IconPositionSupport, FontSupport, LinkSupport, TextAlignmentSupport, LineStyleSupport {
 } // Circle

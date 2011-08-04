@@ -60,6 +60,8 @@ import com.wireframesketcher.model.Image;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.Label;
+import com.wireframesketcher.model.LineStyle;
+import com.wireframesketcher.model.LineStyleSupport;
 import com.wireframesketcher.model.Link;
 import com.wireframesketcher.model.LinkBar;
 import com.wireframesketcher.model.LinkSupport;
@@ -640,6 +642,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass lineStyleSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass hSplitterEClass = null;
 
 	/**
@@ -781,6 +790,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EEnum themeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum lineStyleEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2265,6 +2281,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLineStyleSupport() {
+		return lineStyleSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLineStyleSupport_LineStyle() {
+		return (EAttribute)lineStyleSupportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -2429,6 +2463,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EEnum getTheme() {
 		return themeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLineStyle() {
+		return lineStyleEEnum;
 	}
 
 	/**
@@ -2743,6 +2786,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		colorAlternativeSupportEClass = createEClass(COLOR_ALTERNATIVE_SUPPORT);
 		createEAttribute(colorAlternativeSupportEClass, COLOR_ALTERNATIVE_SUPPORT__ALTERNATIVE);
 
+		lineStyleSupportEClass = createEClass(LINE_STYLE_SUPPORT);
+		createEAttribute(lineStyleSupportEClass, LINE_STYLE_SUPPORT__LINE_STYLE);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -2753,6 +2799,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		buttonStyleEEnum = createEEnum(BUTTON_STYLE);
 		chartTypeEEnum = createEEnum(CHART_TYPE);
 		themeEEnum = createEEnum(THEME);
+		lineStyleEEnum = createEEnum(LINE_STYLE);
 
 		// Create data types
 		iconDataTypeEDataType = createEDataType(ICON_DATA_TYPE);
@@ -2911,8 +2958,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		vScrollbarEClass.getESuperTypes().add(this.getValueSupport());
 		hLineEClass.getESuperTypes().add(this.getWidget());
 		hLineEClass.getESuperTypes().add(this.getColorForegroundSupport());
+		hLineEClass.getESuperTypes().add(this.getLineStyleSupport());
 		vLineEClass.getESuperTypes().add(this.getWidget());
 		vLineEClass.getESuperTypes().add(this.getColorForegroundSupport());
+		vLineEClass.getESuperTypes().add(this.getLineStyleSupport());
 		hSliderEClass.getESuperTypes().add(this.getWidget());
 		hSliderEClass.getESuperTypes().add(this.getValueSupport());
 		hSliderEClass.getESuperTypes().add(this.getStateSupport());
@@ -2983,6 +3032,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		colorPickerEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		arrowEClass.getESuperTypes().add(this.getWidget());
 		arrowEClass.getESuperTypes().add(this.getColorForegroundSupport());
+		arrowEClass.getESuperTypes().add(this.getLineStyleSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getWidget());
 		curlyBraceEClass.getESuperTypes().add(this.getFontSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getColorForegroundSupport());
@@ -3001,6 +3051,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		circleEClass.getESuperTypes().add(this.getFontSupport());
 		circleEClass.getESuperTypes().add(this.getLinkSupport());
 		circleEClass.getESuperTypes().add(this.getTextAlignmentSupport());
+		circleEClass.getESuperTypes().add(this.getLineStyleSupport());
 		rectangleEClass.getESuperTypes().add(this.getWidget());
 		rectangleEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		rectangleEClass.getESuperTypes().add(this.getColorAlphaSupport());
@@ -3272,6 +3323,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(colorAlternativeSupportEClass, ColorAlternativeSupport.class, "ColorAlternativeSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColorAlternativeSupport_Alternative(), this.getColorDataType(), "alternative", "white", 0, 1, ColorAlternativeSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(lineStyleSupportEClass, LineStyleSupport.class, "LineStyleSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLineStyleSupport_LineStyle(), this.getLineStyle(), "lineStyle", "solid", 0, 1, LineStyleSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");
 		addEEnumLiteral(resizeModeEEnum, ResizeMode.BOTH_LITERAL);
@@ -3327,6 +3381,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(themeEEnum, Theme.DEFAULT);
 		addEEnumLiteral(themeEEnum, Theme.CLEAN);
 		addEEnumLiteral(themeEEnum, Theme.SKETCH);
+
+		initEEnum(lineStyleEEnum, LineStyle.class, "LineStyle");
+		addEEnumLiteral(lineStyleEEnum, LineStyle.SOLID);
+		addEEnumLiteral(lineStyleEEnum, LineStyle.DOTTED);
+		addEEnumLiteral(lineStyleEEnum, LineStyle.DASHED);
 
 		// Initialize data types
 		initEDataType(iconDataTypeEDataType, IconDesc.class, "IconDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

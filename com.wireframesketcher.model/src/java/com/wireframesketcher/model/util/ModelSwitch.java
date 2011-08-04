@@ -382,6 +382,7 @@ public class ModelSwitch<T> {
 				T result = caseHLine(hLine);
 				if (result == null) result = caseWidget(hLine);
 				if (result == null) result = caseColorForegroundSupport(hLine);
+				if (result == null) result = caseLineStyleSupport(hLine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -390,6 +391,7 @@ public class ModelSwitch<T> {
 				T result = caseVLine(vLine);
 				if (result == null) result = caseWidget(vLine);
 				if (result == null) result = caseColorForegroundSupport(vLine);
+				if (result == null) result = caseLineStyleSupport(vLine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -702,6 +704,7 @@ public class ModelSwitch<T> {
 				T result = caseArrow(arrow);
 				if (result == null) result = caseWidget(arrow);
 				if (result == null) result = caseColorForegroundSupport(arrow);
+				if (result == null) result = caseLineStyleSupport(arrow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -744,6 +747,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseFontSupport(circle);
 				if (result == null) result = caseLinkSupport(circle);
 				if (result == null) result = caseTextAlignmentSupport(circle);
+				if (result == null) result = caseLineStyleSupport(circle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -828,6 +832,12 @@ public class ModelSwitch<T> {
 			case ModelPackage.COLOR_ALTERNATIVE_SUPPORT: {
 				ColorAlternativeSupport colorAlternativeSupport = (ColorAlternativeSupport)theEObject;
 				T result = caseColorAlternativeSupport(colorAlternativeSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.LINE_STYLE_SUPPORT: {
+				LineStyleSupport lineStyleSupport = (LineStyleSupport)theEObject;
+				T result = caseLineStyleSupport(lineStyleSupport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1957,6 +1967,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseColorAlternativeSupport(ColorAlternativeSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line Style Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line Style Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLineStyleSupport(LineStyleSupport object) {
 		return null;
 	}
 

@@ -4769,13 +4769,22 @@ public interface ModelPackage extends EPackage {
 	int HLINE__FOREGROUND = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HLINE__LINE_STYLE = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>HLine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int HLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -4904,13 +4913,22 @@ public interface ModelPackage extends EPackage {
 	int VLINE__FOREGROUND = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VLINE__LINE_STYLE = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>VLine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int VLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -9123,13 +9141,22 @@ public interface ModelPackage extends EPackage {
 	int ARROW__FOREGROUND = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW__LINE_STYLE = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARROW__LEFT = WIDGET_FEATURE_COUNT + 1;
+	int ARROW__LEFT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' attribute.
@@ -9138,7 +9165,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARROW__RIGHT = WIDGET_FEATURE_COUNT + 2;
+	int ARROW__RIGHT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -9147,7 +9174,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARROW__DIRECTION = WIDGET_FEATURE_COUNT + 3;
+	int ARROW__DIRECTION = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Arrow</em>' class.
@@ -9156,7 +9183,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARROW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int ARROW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.CurlyBraceImpl <em>Curly Brace</em>}' class.
@@ -9730,13 +9757,22 @@ public interface ModelPackage extends EPackage {
 	int CIRCLE__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCLE__LINE_STYLE = WIDGET_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Circle</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
+	int CIRCLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -10659,6 +10695,34 @@ public interface ModelPackage extends EPackage {
 	int COLOR_ALTERNATIVE_SUPPORT_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyleSupport <em>Line Style Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.LineStyleSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyleSupport()
+	 * @generated
+	 */
+	int LINE_STYLE_SUPPORT = 85;
+
+	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STYLE_SUPPORT__LINE_STYLE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Line Style Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STYLE_SUPPORT_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10666,7 +10730,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 85;
+	int RESIZE_MODE = 86;
 
 
 	/**
@@ -10677,7 +10741,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 86;
+	int TEXT_ALIGNMENT = 87;
 
 
 	/**
@@ -10688,7 +10752,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 87;
+	int ICON_SIZE = 88;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -10698,7 +10762,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 88;
+	int STATE = 89;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -10708,7 +10772,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 89;
+	int POSITION = 90;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -10718,7 +10782,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 90;
+	int BORDER_STYLE = 91;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -10728,7 +10792,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 91;
+	int BUTTON_STYLE = 92;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -10738,7 +10802,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 92;
+	int CHART_TYPE = 93;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -10748,7 +10812,17 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 93;
+	int THEME = 94;
+
+	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.LineStyle
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
+	 * @generated
+	 */
+	int LINE_STYLE = 95;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -10758,7 +10832,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 94;
+	int ICON_DATA_TYPE = 96;
 
 
 	/**
@@ -10769,7 +10843,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 95;
+	int FONT_SIZE_DATA_TYPE = 97;
 
 
 	/**
@@ -10780,7 +10854,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 96;
+	int COLOR_DATA_TYPE = 98;
 
 
 	/**
@@ -10791,7 +10865,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 97;
+	int URI_DATA_TYPE = 99;
 
 
 	/**
@@ -12383,6 +12457,27 @@ public interface ModelPackage extends EPackage {
 	EAttribute getColorAlternativeSupport_Alternative();
 
 	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.LineStyleSupport <em>Line Style Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Style Support</em>'.
+	 * @see com.wireframesketcher.model.LineStyleSupport
+	 * @generated
+	 */
+	EClass getLineStyleSupport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.LineStyleSupport#getLineStyle <em>Line Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Style</em>'.
+	 * @see com.wireframesketcher.model.LineStyleSupport#getLineStyle()
+	 * @see #getLineStyleSupport()
+	 * @generated
+	 */
+	EAttribute getLineStyleSupport_LineStyle();
+
+	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12591,6 +12686,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTheme();
+
+	/**
+	 * Returns the meta object for enum '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Line Style</em>'.
+	 * @see com.wireframesketcher.model.LineStyle
+	 * @generated
+	 */
+	EEnum getLineStyle();
 
 	/**
 	 * Returns the meta object for data type '{@link com.wireframesketcher.model.IconDesc <em>Icon Data Type</em>}'.
@@ -14033,6 +14138,24 @@ public interface ModelPackage extends EPackage {
 		EAttribute COLOR_ALTERNATIVE_SUPPORT__ALTERNATIVE = eINSTANCE.getColorAlternativeSupport_Alternative();
 
 		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.LineStyleSupport <em>Line Style Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.LineStyleSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyleSupport()
+		 * @generated
+		 */
+		EClass LINE_STYLE_SUPPORT = eINSTANCE.getLineStyleSupport();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE_STYLE_SUPPORT__LINE_STYLE = eINSTANCE.getLineStyleSupport_LineStyle();
+
+		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14221,6 +14344,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum THEME = eINSTANCE.getTheme();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.LineStyle
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
+		 * @generated
+		 */
+		EEnum LINE_STYLE = eINSTANCE.getLineStyle();
 
 		/**
 		 * The meta object literal for the '<em>Icon Data Type</em>' data type.
