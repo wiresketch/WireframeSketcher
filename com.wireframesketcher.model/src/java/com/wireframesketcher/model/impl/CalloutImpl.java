@@ -264,7 +264,7 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 			case ModelPackage.CALLOUT__BACKGROUND:
 				return getBackground();
 			case ModelPackage.CALLOUT__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.CALLOUT__LINK:
 				return getLink();
 		}
@@ -286,7 +286,7 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.CALLOUT__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.CALLOUT__LINK:
 				setLink((URI)newValue);

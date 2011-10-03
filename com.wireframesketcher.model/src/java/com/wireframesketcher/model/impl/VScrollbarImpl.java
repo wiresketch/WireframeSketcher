@@ -99,7 +99,7 @@ public class VScrollbarImpl extends WidgetImpl implements VScrollbar {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.VSCROLLBAR__VALUE:
-				return new Integer(getValue());
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,7 +113,7 @@ public class VScrollbarImpl extends WidgetImpl implements VScrollbar {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.VSCROLLBAR__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -7,6 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: com.wireframesketcher.model,
+ com.wireframesketcher.model.overrides,
+ com.wireframesketcher.model.overrides.util,
  com.wireframesketcher.model.story,
  com.wireframesketcher.model.story.util,
  com.wireframesketcher.model.util

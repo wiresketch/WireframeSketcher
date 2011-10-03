@@ -9,16 +9,20 @@ package com.wireframesketcher.model.impl;
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
+import com.wireframesketcher.model.Font;
+import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.Group;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ValueSupport;
 import com.wireframesketcher.model.VerticalScrollbarSupport;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -32,6 +36,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.wireframesketcher.model.impl.GroupImpl#isVerticalScrollbar <em>Vertical Scrollbar</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.GroupImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.GroupImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.GroupImpl#getFont <em>Font</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,6 +115,15 @@ public class GroupImpl extends WidgetImpl implements Group {
 	 * @ordered
 	 */
 	protected int alpha = ALPHA_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getFont() <em>Font</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFont()
+	 * @generated
+	 * @ordered
+	 */
+	protected Font font;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Group", ResizeMode.BOTH_LITERAL, true, false);
 	
 	/**
@@ -118,6 +132,7 @@ public class GroupImpl extends WidgetImpl implements Group {
 	 */
 	protected GroupImpl() {
 		super();
+		setFont(ModelFactory.eINSTANCE.createFont());
 		descriptor = DESCRIPTOR;
 	}
 
@@ -220,17 +235,76 @@ public class GroupImpl extends WidgetImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Font getFont() {
+		return font;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFont(Font newFont, NotificationChain msgs) {
+		Font oldFont = font;
+		font = newFont;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.GROUP__FONT, oldFont, newFont);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFont(Font newFont) {
+		if (newFont != font) {
+			NotificationChain msgs = null;
+			if (font != null)
+				msgs = ((InternalEObject)font).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.GROUP__FONT, null, msgs);
+			if (newFont != null)
+				msgs = ((InternalEObject)newFont).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.GROUP__FONT, null, msgs);
+			msgs = basicSetFont(newFont, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.GROUP__FONT, newFont, newFont));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.GROUP__FONT:
+				return basicSetFont(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.GROUP__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.GROUP__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.GROUP__BACKGROUND:
 				return getBackground();
 			case ModelPackage.GROUP__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
+			case ModelPackage.GROUP__FONT:
+				return getFont();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,16 +318,19 @@ public class GroupImpl extends WidgetImpl implements Group {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.GROUP__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.GROUP__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.GROUP__BACKGROUND:
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.GROUP__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
+				return;
+			case ModelPackage.GROUP__FONT:
+				setFont((Font)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,6 +356,9 @@ public class GroupImpl extends WidgetImpl implements Group {
 			case ModelPackage.GROUP__ALPHA:
 				setAlpha(ALPHA_EDEFAULT);
 				return;
+			case ModelPackage.GROUP__FONT:
+				setFont((Font)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -299,6 +379,8 @@ public class GroupImpl extends WidgetImpl implements Group {
 				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
 			case ModelPackage.GROUP__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
+			case ModelPackage.GROUP__FONT:
+				return font != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -334,6 +416,12 @@ public class GroupImpl extends WidgetImpl implements Group {
 				default: return -1;
 			}
 		}
+		if (baseClass == FontSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.GROUP__FONT: return ModelPackage.FONT_SUPPORT__FONT;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -365,6 +453,12 @@ public class GroupImpl extends WidgetImpl implements Group {
 		if (baseClass == ColorAlphaSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA: return ModelPackage.GROUP__ALPHA;
+				default: return -1;
+			}
+		}
+		if (baseClass == FontSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.FONT_SUPPORT__FONT: return ModelPackage.GROUP__FONT;
 				default: return -1;
 			}
 		}

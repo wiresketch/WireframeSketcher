@@ -312,13 +312,13 @@ public class ItemImpl extends EObjectImpl implements Item {
 			case ModelPackage.ITEM__LINK:
 				return getLink();
 			case ModelPackage.ITEM__X:
-				return new Integer(getX());
+				return getX();
 			case ModelPackage.ITEM__Y:
-				return new Integer(getY());
+				return getY();
 			case ModelPackage.ITEM__WIDTH:
-				return new Integer(getWidth());
+				return getWidth();
 			case ModelPackage.ITEM__HEIGHT:
-				return new Integer(getHeight());
+				return getHeight();
 			case ModelPackage.ITEM__TEXT:
 				return getText();
 		}
@@ -337,16 +337,16 @@ public class ItemImpl extends EObjectImpl implements Item {
 				setLink((URI)newValue);
 				return;
 			case ModelPackage.ITEM__X:
-				setX(((Integer)newValue).intValue());
+				setX((Integer)newValue);
 				return;
 			case ModelPackage.ITEM__Y:
-				setY(((Integer)newValue).intValue());
+				setY((Integer)newValue);
 				return;
 			case ModelPackage.ITEM__WIDTH:
-				setWidth(((Integer)newValue).intValue());
+				setWidth((Integer)newValue);
 				return;
 			case ModelPackage.ITEM__HEIGHT:
-				setHeight(((Integer)newValue).intValue());
+				setHeight((Integer)newValue);
 				return;
 			case ModelPackage.ITEM__TEXT:
 				setText((String)newValue);

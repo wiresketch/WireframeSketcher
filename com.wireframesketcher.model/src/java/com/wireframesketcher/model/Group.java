@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Group extends Widget, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport {
+public interface Group extends Widget, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, FontSupport {
 } // Group

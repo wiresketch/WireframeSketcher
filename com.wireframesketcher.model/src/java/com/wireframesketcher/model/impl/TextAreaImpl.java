@@ -391,9 +391,9 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 			case ModelPackage.TEXT_AREA__STATE:
 				return getState();
 			case ModelPackage.TEXT_AREA__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.TEXT_AREA__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.TEXT_AREA__FONT:
 				return getFont();
 			case ModelPackage.TEXT_AREA__TEXT_ALIGNMENT:
@@ -401,7 +401,7 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 			case ModelPackage.TEXT_AREA__BACKGROUND:
 				return getBackground();
 			case ModelPackage.TEXT_AREA__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -418,10 +418,10 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				setState((State)newValue);
 				return;
 			case ModelPackage.TEXT_AREA__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.TEXT_AREA__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.TEXT_AREA__FONT:
 				setFont((Font)newValue);
@@ -433,7 +433,7 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.TEXT_AREA__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

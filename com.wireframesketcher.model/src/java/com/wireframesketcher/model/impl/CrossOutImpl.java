@@ -145,7 +145,7 @@ public class CrossOutImpl extends WidgetImpl implements CrossOut {
 			case ModelPackage.CROSS_OUT__FOREGROUND:
 				return getForeground();
 			case ModelPackage.CROSS_OUT__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,7 +162,7 @@ public class CrossOutImpl extends WidgetImpl implements CrossOut {
 				setForeground((ColorDesc)newValue);
 				return;
 			case ModelPackage.CROSS_OUT__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

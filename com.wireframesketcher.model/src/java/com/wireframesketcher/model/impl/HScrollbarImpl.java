@@ -99,7 +99,7 @@ public class HScrollbarImpl extends WidgetImpl implements HScrollbar {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.HSCROLLBAR__VALUE:
-				return new Integer(getValue());
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,7 +113,7 @@ public class HScrollbarImpl extends WidgetImpl implements HScrollbar {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.HSCROLLBAR__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

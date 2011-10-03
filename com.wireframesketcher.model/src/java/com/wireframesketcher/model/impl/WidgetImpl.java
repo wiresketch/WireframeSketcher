@@ -26,6 +26,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getX <em>X</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getY <em>Y</em>}</li>
@@ -45,6 +46,26 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * @generated
  */
 public abstract class WidgetImpl extends EObjectImpl implements Widget {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected Long id = ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getX() <em>X</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -291,8 +312,29 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(Long newId) {
+		Long oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WIDGET__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WidgetContainer getContainer() {
-		if (eContainerFeatureID != ModelPackage.WIDGET__CONTAINER) return null;
+		if (eContainerFeatureID() != ModelPackage.WIDGET__CONTAINER) return null;
 		return (WidgetContainer)eContainer();
 	}
 
@@ -312,7 +354,7 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	 * @generated
 	 */
 	public void setContainer(WidgetContainer newContainer) {
-		if (newContainer != eInternalContainer() || (eContainerFeatureID != ModelPackage.WIDGET__CONTAINER && newContainer != null)) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != ModelPackage.WIDGET__CONTAINER && newContainer != null)) {
 			if (EcoreUtil.isAncestor(this, newContainer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -600,7 +642,7 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case ModelPackage.WIDGET__CONTAINER:
 				return eInternalContainer().eInverseRemove(this, ModelPackage.WIDGET_CONTAINER__WIDGETS, WidgetContainer.class, msgs);
 		}
@@ -614,32 +656,34 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__ID:
+				return getId();
 			case ModelPackage.WIDGET__CONTAINER:
 				return getContainer();
 			case ModelPackage.WIDGET__X:
-				return new Integer(getX());
+				return getX();
 			case ModelPackage.WIDGET__Y:
-				return new Integer(getY());
+				return getY();
 			case ModelPackage.WIDGET__WIDTH:
-				return new Integer(getWidth());
+				return getWidth();
 			case ModelPackage.WIDGET__HEIGHT:
-				return new Integer(getHeight());
+				return getHeight();
 			case ModelPackage.WIDGET__TEXT:
 				return getText();
 			case ModelPackage.WIDGET__DESCRIPTOR:
 				return getDescriptor();
 			case ModelPackage.WIDGET__LOCKED:
-				return isLocked() ? Boolean.TRUE : Boolean.FALSE;
+				return isLocked();
 			case ModelPackage.WIDGET__MEASURED_WIDTH:
-				return new Integer(getMeasuredWidth());
+				return getMeasuredWidth();
 			case ModelPackage.WIDGET__MEASURED_HEIGHT:
-				return new Integer(getMeasuredHeight());
+				return getMeasuredHeight();
 			case ModelPackage.WIDGET__CUSTOM_ID:
 				return getCustomId();
 			case ModelPackage.WIDGET__CUSTOM_DATA:
 				return getCustomData();
 			case ModelPackage.WIDGET__ANNOTATION:
-				return isAnnotation() ? Boolean.TRUE : Boolean.FALSE;
+				return isAnnotation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -651,32 +695,35 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__ID:
+				setId((Long)newValue);
+				return;
 			case ModelPackage.WIDGET__CONTAINER:
 				setContainer((WidgetContainer)newValue);
 				return;
 			case ModelPackage.WIDGET__X:
-				setX(((Integer)newValue).intValue());
+				setX((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET__Y:
-				setY(((Integer)newValue).intValue());
+				setY((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET__WIDTH:
-				setWidth(((Integer)newValue).intValue());
+				setWidth((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET__HEIGHT:
-				setHeight(((Integer)newValue).intValue());
+				setHeight((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET__TEXT:
 				setText((String)newValue);
 				return;
 			case ModelPackage.WIDGET__LOCKED:
-				setLocked(((Boolean)newValue).booleanValue());
+				setLocked((Boolean)newValue);
 				return;
 			case ModelPackage.WIDGET__MEASURED_WIDTH:
-				setMeasuredWidth(((Integer)newValue).intValue());
+				setMeasuredWidth((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET__MEASURED_HEIGHT:
-				setMeasuredHeight(((Integer)newValue).intValue());
+				setMeasuredHeight((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET__CUSTOM_ID:
 				setCustomId((String)newValue);
@@ -685,7 +732,7 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 				setCustomData((String)newValue);
 				return;
 			case ModelPackage.WIDGET__ANNOTATION:
-				setAnnotation(((Boolean)newValue).booleanValue());
+				setAnnotation((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -698,6 +745,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case ModelPackage.WIDGET__CONTAINER:
 				setContainer((WidgetContainer)null);
 				return;
@@ -745,6 +795,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ModelPackage.WIDGET__CONTAINER:
 				return getContainer() != null;
 			case ModelPackage.WIDGET__X:
@@ -784,7 +836,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (x: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", x: ");
 		result.append(x);
 		result.append(", y: ");
 		result.append(y);

@@ -481,7 +481,7 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 			case ModelPackage.RECTANGLE__BACKGROUND:
 				return getBackground();
 			case ModelPackage.RECTANGLE__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.RECTANGLE__FOREGROUND:
 				return getForeground();
 			case ModelPackage.RECTANGLE__BORDER:
@@ -512,7 +512,7 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.RECTANGLE__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.RECTANGLE__FOREGROUND:
 				setForeground((ColorDesc)newValue);

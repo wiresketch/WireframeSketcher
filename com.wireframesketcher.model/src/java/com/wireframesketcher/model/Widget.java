@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.wireframesketcher.model.Widget#getId <em>Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Widget#getContainer <em>Container</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Widget#getX <em>X</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Widget#getY <em>Y</em>}</li>
@@ -36,6 +37,31 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Widget extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Resource-wide identifier
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(Long)
+	 * @see com.wireframesketcher.model.ModelPackage#getWidget_Id()
+	 * @model id="true" derived="true"
+	 * @generated
+	 */
+	Long getId();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.Widget#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(Long value);
+
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.wireframesketcher.model.WidgetContainer#getWidgets <em>Widgets</em>}'.
@@ -253,7 +279,7 @@ public interface Widget extends EObject {
 	 * @return the value of the '<em>Measured Width</em>' attribute.
 	 * @see #setMeasuredWidth(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getWidget_MeasuredWidth()
-	 * @model default="-1"
+	 * @model default="-1" derived="true"
 	 * @generated
 	 */
 	int getMeasuredWidth();
@@ -283,7 +309,7 @@ public interface Widget extends EObject {
 	 * @return the value of the '<em>Measured Height</em>' attribute.
 	 * @see #setMeasuredHeight(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getWidget_MeasuredHeight()
-	 * @model default="-1"
+	 * @model default="-1" derived="true"
 	 * @generated
 	 */
 	int getMeasuredHeight();

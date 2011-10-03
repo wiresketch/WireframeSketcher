@@ -21,6 +21,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Widget" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"
+        derived="true" iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resource-wide identifier"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//WidgetContainer"
         eOpposite="#//WidgetContainer/widgets"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
@@ -55,13 +61,13 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="measuredWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1">
+        defaultValueLiteral="-1" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Actual width in pixels."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="measuredHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1">
+        defaultValueLiteral="-1" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Actual height in pixels."/>
       </eAnnotations>
@@ -124,7 +130,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//Widget"/>
   <eClassifiers xsi:type="ecore:EClass" name="Panel" eSuperTypes="#//Widget #//ColorBackgroundSupport #//ColorAlphaSupport #//VerticalScrollbarSupport #//ColorForegroundSupport #//BorderStyleSupport #//LinkSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Widget #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Widget #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//FontSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//Widget #//SelectionSupport #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ListSupport #//FontSupport #//ItemSupport #//ColorAlternativeSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Popup" eSuperTypes="#//Widget #//SelectionSupport #//ItemSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Widget #//SelectionSupport #//IconSupport #//ItemSupport"/>
@@ -222,6 +228,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimmed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Toggles dimmed style rendering in design mode."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="overrides" eType="#//overrides/Overrides"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Local overrides"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//WidgetContainer"
+        transient="true" derived="true" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Local instance of referenced component with overrides applied."/>
+        <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -456,25 +475,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="CrossOut" eSuperTypes="#//Widget #//ColorForegroundSupport #//ColorAlphaSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Item" eSuperTypes="#//LinkSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1">
+        defaultValueLiteral="-1" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Relative X position in pixels"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1">
+        defaultValueLiteral="-1" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Relative Y position in pixels"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1">
+        defaultValueLiteral="-1" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Item width in pixels"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1">
+        defaultValueLiteral="-1" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Item height in pixels"/>
       </eAnnotations>
@@ -553,6 +572,115 @@
           <details key="documentation" value="Absolute Y position in pixels"/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="overrides" nsURI="http://wireframesketcher.com/1.0/model/overrides"
+      nsPrefix="o">
+    <eClassifiers xsi:type="ecore:EClass" name="Overrides" eSuperTypes="#//overrides/WidgetContainerOverrides">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
+          eType="#//overrides/WidgetOverrides" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WidgetOverrides" eSuperTypes="#//overrides/WidgetContainerOverrides #//overrides/Reference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Absolute X position in pixels"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Absolute Y position in pixels"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+          defaultValueLiteral="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="User-specified width in pixels. If -1 then look at measuredWidth."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+          defaultValueLiteral="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="User-specified height in pixels. If -1 then look at measuredHeight."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URIDataType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" eType="#//URIDataType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Image source file path. Can be absolute or relative."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+          eType="#//overrides/StringToStringMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="font" eType="#//overrides/FontOverrides"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//overrides/ItemOverrides" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="itemChanges" upperBound="-1"
+          eType="#//overrides/Operation" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FontOverrides">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1"
+          eType="#//FontSizeDataType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Font size."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Toggles bold style."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Toggles italics style."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="underline" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Toggles underline style."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemOverrides" eSuperTypes="#//overrides/Reference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URIDataType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Move" eSuperTypes="#//overrides/Operation #//overrides/Reference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Delete" eSuperTypes="#//overrides/Operation #//overrides/Reference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Insert" eSuperTypes="#//overrides/Operation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WidgetContainerOverrides" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="widgetChanges" upperBound="-1"
+          eType="#//overrides/Operation" containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

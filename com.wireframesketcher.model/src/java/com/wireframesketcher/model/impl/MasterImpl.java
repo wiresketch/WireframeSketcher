@@ -6,19 +6,20 @@
  */
 package com.wireframesketcher.model.impl;
 
-import com.wireframesketcher.model.LinkSupport;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.ModelPackage;
-import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.ResizeMode;
-import com.wireframesketcher.model.Screen;
+import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetDescriptor;
+import com.wireframesketcher.model.overrides.Overrides;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +31,8 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.MasterImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.MasterImpl#getScreen <em>Screen</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.MasterImpl#isDimmed <em>Dimmed</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.MasterImpl#getOverrides <em>Overrides</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.MasterImpl#getInstance <em>Instance</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,7 +59,7 @@ public class MasterImpl extends WidgetImpl implements Master {
 	 */
 	protected URI link = LINK_EDEFAULT;
 
-	private static final WidgetDescriptor DESCRIPTOR = describe("Component", ResizeMode.NONE_LITERAL, false, false);
+	private static final WidgetDescriptor DESCRIPTOR = describe("Component", ResizeMode.BOTH_LITERAL, false, false);
 	
 	/**
 	 * The cached value of the '{@link #getScreen() <em>Screen</em>}' reference.
@@ -88,6 +91,31 @@ public class MasterImpl extends WidgetImpl implements Master {
 	 */
 	protected boolean dimmed = DIMMED_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getOverrides() <em>Overrides</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOverrides()
+	 * @generated
+	 * @ordered
+	 */
+	protected Overrides overrides;
+
+	/**
+	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstance()
+	 * @generated
+	 * @ordered
+	 */
+	protected WidgetContainer instance;
+
+	/**
+	 * A helper for managing overrides
+	 */
+	private final OverridesHelper overridesHelper = new OverridesHelper(this);
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,6 +220,109 @@ public class MasterImpl extends WidgetImpl implements Master {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Overrides getOverrides() {
+		return overrides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOverrides(Overrides newOverrides, NotificationChain msgs) {
+		Overrides oldOverrides = overrides;
+		overrides = newOverrides;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MASTER__OVERRIDES, oldOverrides, newOverrides);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOverrides(Overrides newOverrides) {
+		if (newOverrides != overrides) {
+			NotificationChain msgs = null;
+			if (overrides != null)
+				msgs = ((InternalEObject)overrides).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MASTER__OVERRIDES, null, msgs);
+			if (newOverrides != null)
+				msgs = ((InternalEObject)newOverrides).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MASTER__OVERRIDES, null, msgs);
+			msgs = basicSetOverrides(newOverrides, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MASTER__OVERRIDES, newOverrides, newOverrides));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public WidgetContainer getInstance() {
+		overridesHelper.computeInstance();
+		return instance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInstance(WidgetContainer newInstance, NotificationChain msgs) {
+		WidgetContainer oldInstance = instance;
+		instance = newInstance;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MASTER__INSTANCE, oldInstance, newInstance);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInstance(WidgetContainer newInstance) {
+		if (newInstance != instance) {
+			NotificationChain msgs = null;
+			if (instance != null)
+				msgs = ((InternalEObject)instance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MASTER__INSTANCE, null, msgs);
+			if (newInstance != null)
+				msgs = ((InternalEObject)newInstance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MASTER__INSTANCE, null, msgs);
+			msgs = basicSetInstance(newInstance, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MASTER__INSTANCE, newInstance, newInstance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.MASTER__OVERRIDES:
+				return basicSetOverrides(null, msgs);
+			case ModelPackage.MASTER__INSTANCE:
+				return basicSetInstance(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -201,7 +332,11 @@ public class MasterImpl extends WidgetImpl implements Master {
 				if (resolve) return getScreen();
 				return basicGetScreen();
 			case ModelPackage.MASTER__DIMMED:
-				return isDimmed() ? Boolean.TRUE : Boolean.FALSE;
+				return isDimmed();
+			case ModelPackage.MASTER__OVERRIDES:
+				return getOverrides();
+			case ModelPackage.MASTER__INSTANCE:
+				return getInstance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -221,7 +356,13 @@ public class MasterImpl extends WidgetImpl implements Master {
 				setScreen((WidgetContainer)newValue);
 				return;
 			case ModelPackage.MASTER__DIMMED:
-				setDimmed(((Boolean)newValue).booleanValue());
+				setDimmed((Boolean)newValue);
+				return;
+			case ModelPackage.MASTER__OVERRIDES:
+				setOverrides((Overrides)newValue);
+				return;
+			case ModelPackage.MASTER__INSTANCE:
+				setInstance((WidgetContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,6 +385,12 @@ public class MasterImpl extends WidgetImpl implements Master {
 			case ModelPackage.MASTER__DIMMED:
 				setDimmed(DIMMED_EDEFAULT);
 				return;
+			case ModelPackage.MASTER__OVERRIDES:
+				setOverrides((Overrides)null);
+				return;
+			case ModelPackage.MASTER__INSTANCE:
+				setInstance((WidgetContainer)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,6 +409,10 @@ public class MasterImpl extends WidgetImpl implements Master {
 				return screen != null;
 			case ModelPackage.MASTER__DIMMED:
 				return dimmed != DIMMED_EDEFAULT;
+			case ModelPackage.MASTER__OVERRIDES:
+				return overrides != null;
+			case ModelPackage.MASTER__INSTANCE:
+				return instance != null;
 		}
 		return super.eIsSet(featureID);
 	}

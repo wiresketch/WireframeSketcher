@@ -149,7 +149,7 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.HSLIDER__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.HSLIDER__STATE:
 				return getState();
 		}
@@ -165,7 +165,7 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.HSLIDER__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.HSLIDER__STATE:
 				setState((State)newValue);

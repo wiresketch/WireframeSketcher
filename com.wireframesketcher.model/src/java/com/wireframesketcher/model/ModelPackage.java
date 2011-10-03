@@ -229,13 +229,22 @@ public interface ModelPackage extends EPackage {
 	int WIDGET = 3;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__CONTAINER = 0;
+	int WIDGET__CONTAINER = 1;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -244,7 +253,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__X = 1;
+	int WIDGET__X = 2;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -253,7 +262,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__Y = 2;
+	int WIDGET__Y = 3;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -262,7 +271,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__WIDTH = 3;
+	int WIDGET__WIDTH = 4;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -271,7 +280,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__HEIGHT = 4;
+	int WIDGET__HEIGHT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -280,7 +289,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__TEXT = 5;
+	int WIDGET__TEXT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
@@ -289,7 +298,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__DESCRIPTOR = 6;
+	int WIDGET__DESCRIPTOR = 7;
 
 	/**
 	 * The feature id for the '<em><b>Locked</b></em>' attribute.
@@ -298,7 +307,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__LOCKED = 7;
+	int WIDGET__LOCKED = 8;
 
 	/**
 	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
@@ -307,7 +316,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__MEASURED_WIDTH = 8;
+	int WIDGET__MEASURED_WIDTH = 9;
 
 	/**
 	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
@@ -316,7 +325,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__MEASURED_HEIGHT = 9;
+	int WIDGET__MEASURED_HEIGHT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
@@ -325,7 +334,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__CUSTOM_ID = 10;
+	int WIDGET__CUSTOM_ID = 11;
 
 	/**
 	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
@@ -334,7 +343,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__CUSTOM_DATA = 11;
+	int WIDGET__CUSTOM_DATA = 12;
 
 	/**
 	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
@@ -343,7 +352,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__ANNOTATION = 12;
+	int WIDGET__ANNOTATION = 13;
 
 	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
@@ -352,7 +361,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_FEATURE_COUNT = 13;
+	int WIDGET_FEATURE_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ButtonImpl <em>Button</em>}' class.
@@ -363,6 +372,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int BUTTON = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -564,6 +582,15 @@ public interface ModelPackage extends EPackage {
 	int CHECKBOX = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKBOX__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,6 +763,15 @@ public interface ModelPackage extends EPackage {
 	int COMBO = 6;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -888,6 +924,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int LABEL = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -1089,6 +1134,15 @@ public interface ModelPackage extends EPackage {
 	int LINK = 8;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1252,6 +1306,15 @@ public interface ModelPackage extends EPackage {
 	int PLACEHOLDER = 9;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEHOLDER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1395,6 +1458,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int RADIO_BUTTON = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_BUTTON__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -1567,6 +1639,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int TEXT_FIELD = 11;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FIELD__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -1880,6 +1961,15 @@ public interface ModelPackage extends EPackage {
 	int SPINNER = 12;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2022,6 +2112,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -2195,6 +2294,15 @@ public interface ModelPackage extends EPackage {
 	int WINDOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2337,6 +2445,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -2508,6 +2625,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -2726,6 +2852,15 @@ public interface ModelPackage extends EPackage {
 	int PANEL = 17;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PANEL__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2915,6 +3050,15 @@ public interface ModelPackage extends EPackage {
 	int PANEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3068,13 +3212,31 @@ public interface ModelPackage extends EPackage {
 	int GROUP__ALPHA = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__FONT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int GROUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -3302,6 +3464,15 @@ public interface ModelPackage extends EPackage {
 	int LIST_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3444,6 +3615,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int POPUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -3597,6 +3777,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -3842,6 +4031,15 @@ public interface ModelPackage extends EPackage {
 	int TABLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4031,6 +4229,15 @@ public interface ModelPackage extends EPackage {
 	int TREE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICON__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4182,6 +4389,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ICON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -4373,6 +4589,15 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSCROLLBAR__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4508,6 +4733,15 @@ public interface ModelPackage extends EPackage {
 	int HSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSCROLLBAR__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4641,6 +4875,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HLINE__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -4787,6 +5030,15 @@ public interface ModelPackage extends EPackage {
 	int HLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VLINE__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4929,6 +5181,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSLIDER__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -5075,6 +5336,15 @@ public interface ModelPackage extends EPackage {
 	int HSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSLIDER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5217,6 +5487,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABS__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -5490,6 +5769,15 @@ public interface ModelPackage extends EPackage {
 	int WIDGET_GROUP = 36;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_GROUP__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5653,6 +5941,15 @@ public interface ModelPackage extends EPackage {
 	int MASTER = 37;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5797,13 +6094,31 @@ public interface ModelPackage extends EPackage {
 	int MASTER__DIMMED = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Overrides</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTER__OVERRIDES = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTER__INSTANCE = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Master</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MASTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int MASTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ImageImpl <em>Image</em>}' class.
@@ -5814,6 +6129,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int IMAGE = 38;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -6230,6 +6554,15 @@ public interface ModelPackage extends EPackage {
 	int NOTE = 47;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6411,6 +6744,15 @@ public interface ModelPackage extends EPackage {
 	int PROGRESS_BAR = 48;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRESS_BAR__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6563,6 +6905,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CALLOUT = 49;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -6737,6 +7088,15 @@ public interface ModelPackage extends EPackage {
 	int SEARCH_FIELD = 50;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6871,6 +7231,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int TOOLTIP = 51;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -7043,6 +7412,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int SCRATCH_OUT = 52;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRATCH_OUT__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -7255,6 +7633,15 @@ public interface ModelPackage extends EPackage {
 	int BREADCRUMBS = 55;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7407,6 +7794,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int LINK_BAR = 56;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_BAR__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -7570,6 +7966,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int ACCORDION = 57;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCORDION__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -7879,6 +8284,15 @@ public interface ModelPackage extends EPackage {
 	int VERTICAL_SCROLLBAR_SUPPORT_FEATURE_COUNT = VALUE_SUPPORT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8014,6 +8428,15 @@ public interface ModelPackage extends EPackage {
 	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_PLAYER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8138,6 +8561,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIDEO_PLAYER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAP__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -8266,6 +8698,15 @@ public interface ModelPackage extends EPackage {
 	int MAP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVER_FLOW__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8390,6 +8831,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COVER_FLOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABBED_PANE__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -8608,6 +9058,15 @@ public interface ModelPackage extends EPackage {
 	int ICON_SUPPORT_FEATURE_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSPLITTER__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8732,6 +9191,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HSPLITTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSPLITTER__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -8868,6 +9336,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int COLOR_PICKER = 68;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_PICKER__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -9013,6 +9490,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int ARROW = 69;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -9196,6 +9682,15 @@ public interface ModelPackage extends EPackage {
 	int CURLY_BRACE = 70;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CURLY_BRACE__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9357,6 +9852,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int BUTTON_BAR = 71;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_BAR__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -9557,6 +10061,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CIRCLE = 73;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCLE__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -9783,6 +10296,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int RECTANGLE = 74;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -10076,6 +10598,15 @@ public interface ModelPackage extends EPackage {
 	int CHART = 77;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART__ID = WIDGET__ID;
+
+	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10219,6 +10750,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CROSS_OUT = 78;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSS_OUT__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -10502,6 +11042,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int HOTSPOT = 82;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTSPOT__ID = WIDGET__ID;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -10984,6 +11533,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getWidget();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.Widget#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.wireframesketcher.model.Widget#getId()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_Id();
 
 	/**
 	 * Returns the meta object for the container reference '{@link com.wireframesketcher.model.Widget#getContainer <em>Container</em>}'.
@@ -11587,6 +12147,28 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMaster_Dimmed();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.wireframesketcher.model.Master#getOverrides <em>Overrides</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Overrides</em>'.
+	 * @see com.wireframesketcher.model.Master#getOverrides()
+	 * @see #getMaster()
+	 * @generated
+	 */
+	EReference getMaster_Overrides();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.wireframesketcher.model.Master#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Instance</em>'.
+	 * @see com.wireframesketcher.model.Master#getInstance()
+	 * @see #getMaster()
+	 * @generated
+	 */
+	EReference getMaster_Instance();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.Image <em>Image</em>}'.
@@ -12860,6 +13442,14 @@ public interface ModelPackage extends EPackage {
 		EClass WIDGET = eINSTANCE.getWidget();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__ID = eINSTANCE.getWidget_Id();
+
+		/**
 		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -13362,6 +13952,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MASTER__DIMMED = eINSTANCE.getMaster_Dimmed();
+
+		/**
+		 * The meta object literal for the '<em><b>Overrides</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MASTER__OVERRIDES = eINSTANCE.getMaster_Overrides();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MASTER__INSTANCE = eINSTANCE.getMaster_Instance();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.ImageImpl <em>Image</em>}' class.

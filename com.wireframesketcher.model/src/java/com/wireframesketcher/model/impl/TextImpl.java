@@ -317,7 +317,7 @@ public class TextImpl extends WidgetImpl implements Text {
 			case ModelPackage.TEXT__LINK:
 				return getLink();
 			case ModelPackage.TEXT__DUMMY_TEXT:
-				return isDummyText() ? Boolean.TRUE : Boolean.FALSE;
+				return isDummyText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,7 +343,7 @@ public class TextImpl extends WidgetImpl implements Text {
 				setLink((URI)newValue);
 				return;
 			case ModelPackage.TEXT__DUMMY_TEXT:
-				setDummyText(((Boolean)newValue).booleanValue());
+				setDummyText((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

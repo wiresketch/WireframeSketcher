@@ -554,19 +554,19 @@ public class ListImpl extends WidgetImpl implements List {
 			case ModelPackage.LIST__SELECTION:
 				return getSelection();
 			case ModelPackage.LIST__BORDER:
-				return isBorder() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorder();
 			case ModelPackage.LIST__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.LIST__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.LIST__BACKGROUND:
 				return getBackground();
 			case ModelPackage.LIST__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.LIST__ROW_HEIGHT:
-				return new Integer(getRowHeight());
+				return getRowHeight();
 			case ModelPackage.LIST__HORIZONTAL_LINES:
-				return isHorizontalLines() ? Boolean.TRUE : Boolean.FALSE;
+				return isHorizontalLines();
 			case ModelPackage.LIST__FONT:
 				return getFont();
 			case ModelPackage.LIST__ITEMS:
@@ -590,25 +590,25 @@ public class ListImpl extends WidgetImpl implements List {
 				setSelection((String)newValue);
 				return;
 			case ModelPackage.LIST__BORDER:
-				setBorder(((Boolean)newValue).booleanValue());
+				setBorder((Boolean)newValue);
 				return;
 			case ModelPackage.LIST__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.LIST__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.LIST__BACKGROUND:
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.LIST__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.LIST__ROW_HEIGHT:
-				setRowHeight(((Integer)newValue).intValue());
+				setRowHeight((Integer)newValue);
 				return;
 			case ModelPackage.LIST__HORIZONTAL_LINES:
-				setHorizontalLines(((Boolean)newValue).booleanValue());
+				setHorizontalLines((Boolean)newValue);
 				return;
 			case ModelPackage.LIST__FONT:
 				setFont((Font)newValue);

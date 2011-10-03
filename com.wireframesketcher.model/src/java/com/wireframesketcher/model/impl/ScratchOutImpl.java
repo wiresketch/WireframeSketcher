@@ -149,7 +149,7 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 			case ModelPackage.SCRATCH_OUT__FOREGROUND:
 				return getForeground();
 			case ModelPackage.SCRATCH_OUT__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,7 +166,7 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 				setForeground((ColorDesc)newValue);
 				return;
 			case ModelPackage.SCRATCH_OUT__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

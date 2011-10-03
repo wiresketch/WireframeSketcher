@@ -142,7 +142,7 @@ public class ProgressBarImpl extends WidgetImpl implements ProgressBar {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.PROGRESS_BAR__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.PROGRESS_BAR__BACKGROUND:
 				return getBackground();
 		}
@@ -158,7 +158,7 @@ public class ProgressBarImpl extends WidgetImpl implements ProgressBar {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.PROGRESS_BAR__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.PROGRESS_BAR__BACKGROUND:
 				setBackground((ColorDesc)newValue);

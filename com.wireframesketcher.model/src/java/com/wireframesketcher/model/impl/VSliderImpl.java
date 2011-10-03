@@ -149,7 +149,7 @@ public class VSliderImpl extends WidgetImpl implements VSlider {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.VSLIDER__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.VSLIDER__STATE:
 				return getState();
 		}
@@ -165,7 +165,7 @@ public class VSliderImpl extends WidgetImpl implements VSlider {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.VSLIDER__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.VSLIDER__STATE:
 				setState((State)newValue);

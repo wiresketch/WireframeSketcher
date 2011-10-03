@@ -280,9 +280,9 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 			case ModelPackage.ARROW__LINE_STYLE:
 				return getLineStyle();
 			case ModelPackage.ARROW__LEFT:
-				return isLeft() ? Boolean.TRUE : Boolean.FALSE;
+				return isLeft();
 			case ModelPackage.ARROW__RIGHT:
-				return isRight() ? Boolean.TRUE : Boolean.FALSE;
+				return isRight();
 			case ModelPackage.ARROW__DIRECTION:
 				return getDirection();
 		}
@@ -304,10 +304,10 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 				setLineStyle((LineStyle)newValue);
 				return;
 			case ModelPackage.ARROW__LEFT:
-				setLeft(((Boolean)newValue).booleanValue());
+				setLeft((Boolean)newValue);
 				return;
 			case ModelPackage.ARROW__RIGHT:
-				setRight(((Boolean)newValue).booleanValue());
+				setRight((Boolean)newValue);
 				return;
 			case ModelPackage.ARROW__DIRECTION:
 				setDirection((Position)newValue);

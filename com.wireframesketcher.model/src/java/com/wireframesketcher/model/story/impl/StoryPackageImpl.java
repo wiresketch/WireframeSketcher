@@ -10,6 +10,8 @@ import com.wireframesketcher.model.ModelPackage;
 
 import com.wireframesketcher.model.impl.ModelPackageImpl;
 
+import com.wireframesketcher.model.overrides.OverridesPackage;
+import com.wireframesketcher.model.overrides.impl.OverridesPackageImpl;
 import com.wireframesketcher.model.story.Panel;
 import com.wireframesketcher.model.story.StoryFactory;
 import com.wireframesketcher.model.story.StoryPackage;
@@ -70,20 +72,10 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link StoryPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -95,24 +87,30 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 		if (isInited) return (StoryPackage)EPackage.Registry.INSTANCE.getEPackage(StoryPackage.eNS_URI);
 
 		// Obtain or create and register package
-		StoryPackageImpl theStoryPackage = (StoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof StoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new StoryPackageImpl());
+		StoryPackageImpl theStoryPackage = (StoryPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StoryPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StoryPackageImpl());
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
 		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
+		OverridesPackageImpl theOverridesPackage = (OverridesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(OverridesPackage.eNS_URI) instanceof OverridesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(OverridesPackage.eNS_URI) : OverridesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStoryPackage.createPackageContents();
 		theModelPackage.createPackageContents();
+		theOverridesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theStoryPackage.initializePackageContents();
 		theModelPackage.initializePackageContents();
+		theOverridesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theStoryPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(StoryPackage.eNS_URI, theStoryPackage);
 		return theStoryPackage;
 	}
 

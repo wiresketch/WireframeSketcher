@@ -141,9 +141,9 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.BROWSER__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.BROWSER__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,10 +157,10 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.BROWSER__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.BROWSER__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -40,7 +40,7 @@ public interface Item extends LinkSupport {
 	 * @return the value of the '<em>X</em>' attribute.
 	 * @see #setX(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getItem_X()
-	 * @model default="-1"
+	 * @model default="-1" derived="true"
 	 * @generated
 	 */
 	int getX();
@@ -66,7 +66,7 @@ public interface Item extends LinkSupport {
 	 * @return the value of the '<em>Y</em>' attribute.
 	 * @see #setY(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getItem_Y()
-	 * @model default="-1"
+	 * @model default="-1" derived="true"
 	 * @generated
 	 */
 	int getY();
@@ -92,7 +92,7 @@ public interface Item extends LinkSupport {
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getItem_Width()
-	 * @model default="-1"
+	 * @model default="-1" derived="true"
 	 * @generated
 	 */
 	int getWidth();
@@ -118,7 +118,7 @@ public interface Item extends LinkSupport {
 	 * @return the value of the '<em>Height</em>' attribute.
 	 * @see #setHeight(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getItem_Height()
-	 * @model default="-1"
+	 * @model default="-1" derived="true"
 	 * @generated
 	 */
 	int getHeight();

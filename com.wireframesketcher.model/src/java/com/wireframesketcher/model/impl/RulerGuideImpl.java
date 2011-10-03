@@ -99,7 +99,7 @@ public class RulerGuideImpl extends EObjectImpl implements RulerGuide {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.RULER_GUIDE__POSITION:
-				return new Integer(getPosition());
+				return getPosition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,7 +113,7 @@ public class RulerGuideImpl extends EObjectImpl implements RulerGuide {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.RULER_GUIDE__POSITION:
-				setPosition(((Integer)newValue).intValue());
+				setPosition((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

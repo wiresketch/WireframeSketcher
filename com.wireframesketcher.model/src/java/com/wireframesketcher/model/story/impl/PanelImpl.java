@@ -193,9 +193,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 				if (resolve) return getScreen();
 				return basicGetScreen();
 			case StoryPackage.PANEL__X:
-				return new Integer(getX());
+				return getX();
 			case StoryPackage.PANEL__Y:
-				return new Integer(getY());
+				return getY();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,10 +212,10 @@ public class PanelImpl extends EObjectImpl implements Panel {
 				setScreen((Screen)newValue);
 				return;
 			case StoryPackage.PANEL__X:
-				setX(((Integer)newValue).intValue());
+				setX((Integer)newValue);
 				return;
 			case StoryPackage.PANEL__Y:
-				setY(((Integer)newValue).intValue());
+				setY((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

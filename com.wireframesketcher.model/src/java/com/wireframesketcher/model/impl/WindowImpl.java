@@ -261,15 +261,15 @@ public class WindowImpl extends WidgetImpl implements Window {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.WINDOW__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.WINDOW__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
-				return isCloseButton() ? Boolean.TRUE : Boolean.FALSE;
+				return isCloseButton();
 			case ModelPackage.WINDOW__MINIMIZE_BUTTON:
-				return isMinimizeButton() ? Boolean.TRUE : Boolean.FALSE;
+				return isMinimizeButton();
 			case ModelPackage.WINDOW__MAXIMIZE_BUTTON:
-				return isMaximizeButton() ? Boolean.TRUE : Boolean.FALSE;
+				return isMaximizeButton();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,19 +283,19 @@ public class WindowImpl extends WidgetImpl implements Window {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.WINDOW__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.WINDOW__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
-				setCloseButton(((Boolean)newValue).booleanValue());
+				setCloseButton((Boolean)newValue);
 				return;
 			case ModelPackage.WINDOW__MINIMIZE_BUTTON:
-				setMinimizeButton(((Boolean)newValue).booleanValue());
+				setMinimizeButton((Boolean)newValue);
 				return;
 			case ModelPackage.WINDOW__MAXIMIZE_BUTTON:
-				setMaximizeButton(((Boolean)newValue).booleanValue());
+				setMaximizeButton((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

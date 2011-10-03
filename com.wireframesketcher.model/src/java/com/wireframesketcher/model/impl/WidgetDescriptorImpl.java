@@ -314,13 +314,13 @@ public class WidgetDescriptorImpl extends EObjectImpl implements WidgetDescripto
 			case ModelPackage.WIDGET_DESCRIPTOR__RESIZE_MODE:
 				return getResizeMode();
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_EDITABLE:
-				return isTextEditable() ? Boolean.TRUE : Boolean.FALSE;
+				return isTextEditable();
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_WRAPPABLE:
-				return isTextWrappable() ? Boolean.TRUE : Boolean.FALSE;
+				return isTextWrappable();
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_LINES:
-				return new Integer(getTextLines());
+				return getTextLines();
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_CENTERED:
-				return isTextCentered() ? Boolean.TRUE : Boolean.FALSE;
+				return isTextCentered();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -340,16 +340,16 @@ public class WidgetDescriptorImpl extends EObjectImpl implements WidgetDescripto
 				setResizeMode((ResizeMode)newValue);
 				return;
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_EDITABLE:
-				setTextEditable(((Boolean)newValue).booleanValue());
+				setTextEditable((Boolean)newValue);
 				return;
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_WRAPPABLE:
-				setTextWrappable(((Boolean)newValue).booleanValue());
+				setTextWrappable((Boolean)newValue);
 				return;
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_LINES:
-				setTextLines(((Integer)newValue).intValue());
+				setTextLines((Integer)newValue);
 				return;
 			case ModelPackage.WIDGET_DESCRIPTOR__TEXT_CENTERED:
-				setTextCentered(((Boolean)newValue).booleanValue());
+				setTextCentered((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

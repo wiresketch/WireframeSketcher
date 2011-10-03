@@ -424,13 +424,13 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 			case ModelPackage.TABBED_PANE__SELECTION:
 				return getSelection();
 			case ModelPackage.TABBED_PANE__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.TABBED_PANE__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.TABBED_PANE__BACKGROUND:
 				return getBackground();
 			case ModelPackage.TABBED_PANE__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.TABBED_PANE__ITEMS:
 				return getItems();
 			case ModelPackage.TABBED_PANE__FONT:
@@ -454,16 +454,16 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 				setSelection((String)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__BACKGROUND:
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__ITEMS:
 				getItems().clear();

@@ -190,7 +190,7 @@ public class ImageImpl extends WidgetImpl implements Image {
 			case ModelPackage.IMAGE__SRC:
 				return getSrc();
 			case ModelPackage.IMAGE__GRAYSCALE:
-				return isGrayscale() ? Boolean.TRUE : Boolean.FALSE;
+				return isGrayscale();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,7 +210,7 @@ public class ImageImpl extends WidgetImpl implements Image {
 				setSrc((URI)newValue);
 				return;
 			case ModelPackage.IMAGE__GRAYSCALE:
-				setGrayscale(((Boolean)newValue).booleanValue());
+				setGrayscale((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

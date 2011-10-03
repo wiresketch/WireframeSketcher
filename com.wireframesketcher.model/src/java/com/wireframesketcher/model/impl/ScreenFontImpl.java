@@ -227,11 +227,11 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 			case ModelPackage.SCREEN_FONT__NAME:
 				return getName();
 			case ModelPackage.SCREEN_FONT__SIZE:
-				return new Integer(getSize());
+				return getSize();
 			case ModelPackage.SCREEN_FONT__BOLD:
-				return isBold() ? Boolean.TRUE : Boolean.FALSE;
+				return isBold();
 			case ModelPackage.SCREEN_FONT__ITALIC:
-				return isItalic() ? Boolean.TRUE : Boolean.FALSE;
+				return isItalic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,13 +248,13 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 				setName((String)newValue);
 				return;
 			case ModelPackage.SCREEN_FONT__SIZE:
-				setSize(((Integer)newValue).intValue());
+				setSize((Integer)newValue);
 				return;
 			case ModelPackage.SCREEN_FONT__BOLD:
-				setBold(((Boolean)newValue).booleanValue());
+				setBold((Boolean)newValue);
 				return;
 			case ModelPackage.SCREEN_FONT__ITALIC:
-				setItalic(((Boolean)newValue).booleanValue());
+				setItalic((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

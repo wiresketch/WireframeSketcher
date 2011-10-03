@@ -351,11 +351,11 @@ public class PanelImpl extends WidgetImpl implements Panel {
 			case ModelPackage.PANEL__BACKGROUND:
 				return getBackground();
 			case ModelPackage.PANEL__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.PANEL__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.PANEL__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.PANEL__FOREGROUND:
 				return getForeground();
 			case ModelPackage.PANEL__BORDER:
@@ -378,13 +378,13 @@ public class PanelImpl extends WidgetImpl implements Panel {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.PANEL__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.PANEL__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.PANEL__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.PANEL__FOREGROUND:
 				setForeground((ColorDesc)newValue);

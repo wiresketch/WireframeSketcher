@@ -271,7 +271,7 @@ public class CheckboxImpl extends WidgetImpl implements Checkbox {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.CHECKBOX__SELECTED:
-				return isSelected() ? Boolean.TRUE : Boolean.FALSE;
+				return isSelected();
 			case ModelPackage.CHECKBOX__STATE:
 				return getState();
 			case ModelPackage.CHECKBOX__LINK:
@@ -291,7 +291,7 @@ public class CheckboxImpl extends WidgetImpl implements Checkbox {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.CHECKBOX__SELECTED:
-				setSelected(((Boolean)newValue).booleanValue());
+				setSelected((Boolean)newValue);
 				return;
 			case ModelPackage.CHECKBOX__STATE:
 				setState((State)newValue);

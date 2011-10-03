@@ -350,15 +350,15 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.TREE__BORDER:
-				return isBorder() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorder();
 			case ModelPackage.TREE__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.TREE__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.TREE__BACKGROUND:
 				return getBackground();
 			case ModelPackage.TREE__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.TREE__SELECTION:
 				return getSelection();
 			case ModelPackage.TREE__ITEMS:
@@ -377,19 +377,19 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.TREE__BORDER:
-				setBorder(((Boolean)newValue).booleanValue());
+				setBorder((Boolean)newValue);
 				return;
 			case ModelPackage.TREE__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.TREE__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.TREE__BACKGROUND:
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.TREE__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.TREE__SELECTION:
 				setSelection((String)newValue);

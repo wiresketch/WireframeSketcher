@@ -315,7 +315,7 @@ public class TextFieldImpl extends WidgetImpl implements TextField {
 			case ModelPackage.TEXT_FIELD__BACKGROUND:
 				return getBackground();
 			case ModelPackage.TEXT_FIELD__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -341,7 +341,7 @@ public class TextFieldImpl extends WidgetImpl implements TextField {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.TEXT_FIELD__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

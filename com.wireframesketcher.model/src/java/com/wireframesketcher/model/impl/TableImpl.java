@@ -624,19 +624,19 @@ public class TableImpl extends WidgetImpl implements Table {
 			case ModelPackage.TABLE__SELECTION:
 				return getSelection();
 			case ModelPackage.TABLE__BORDER:
-				return isBorder() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorder();
 			case ModelPackage.TABLE__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.TABLE__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.TABLE__BACKGROUND:
 				return getBackground();
 			case ModelPackage.TABLE__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.TABLE__ROW_HEIGHT:
-				return new Integer(getRowHeight());
+				return getRowHeight();
 			case ModelPackage.TABLE__HORIZONTAL_LINES:
-				return isHorizontalLines() ? Boolean.TRUE : Boolean.FALSE;
+				return isHorizontalLines();
 			case ModelPackage.TABLE__FONT:
 				return getFont();
 			case ModelPackage.TABLE__TEXT_ALIGNMENT:
@@ -644,9 +644,9 @@ public class TableImpl extends WidgetImpl implements Table {
 			case ModelPackage.TABLE__ALTERNATIVE:
 				return getAlternative();
 			case ModelPackage.TABLE__VERTICAL_LINES:
-				return isVerticalLines() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalLines();
 			case ModelPackage.TABLE__HEADER:
-				return isHeader() ? Boolean.TRUE : Boolean.FALSE;
+				return isHeader();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -663,25 +663,25 @@ public class TableImpl extends WidgetImpl implements Table {
 				setSelection((String)newValue);
 				return;
 			case ModelPackage.TABLE__BORDER:
-				setBorder(((Boolean)newValue).booleanValue());
+				setBorder((Boolean)newValue);
 				return;
 			case ModelPackage.TABLE__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.TABLE__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.TABLE__BACKGROUND:
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.TABLE__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.TABLE__ROW_HEIGHT:
-				setRowHeight(((Integer)newValue).intValue());
+				setRowHeight((Integer)newValue);
 				return;
 			case ModelPackage.TABLE__HORIZONTAL_LINES:
-				setHorizontalLines(((Boolean)newValue).booleanValue());
+				setHorizontalLines((Boolean)newValue);
 				return;
 			case ModelPackage.TABLE__FONT:
 				setFont((Font)newValue);
@@ -693,10 +693,10 @@ public class TableImpl extends WidgetImpl implements Table {
 				setAlternative((ColorDesc)newValue);
 				return;
 			case ModelPackage.TABLE__VERTICAL_LINES:
-				setVerticalLines(((Boolean)newValue).booleanValue());
+				setVerticalLines((Boolean)newValue);
 				return;
 			case ModelPackage.TABLE__HEADER:
-				setHeader(((Boolean)newValue).booleanValue());
+				setHeader((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

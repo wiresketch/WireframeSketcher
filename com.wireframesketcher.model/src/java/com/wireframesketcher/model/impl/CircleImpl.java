@@ -525,11 +525,11 @@ public class CircleImpl extends WidgetImpl implements Circle {
 			case ModelPackage.CIRCLE__BACKGROUND:
 				return getBackground();
 			case ModelPackage.CIRCLE__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.CIRCLE__FOREGROUND:
 				return getForeground();
 			case ModelPackage.CIRCLE__BORDER:
-				return isBorder() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorder();
 			case ModelPackage.CIRCLE__ICON:
 				return getIcon();
 			case ModelPackage.CIRCLE__ICON_POSITION:
@@ -558,13 +558,13 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.CIRCLE__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.CIRCLE__FOREGROUND:
 				setForeground((ColorDesc)newValue);
 				return;
 			case ModelPackage.CIRCLE__BORDER:
-				setBorder(((Boolean)newValue).booleanValue());
+				setBorder((Boolean)newValue);
 				return;
 			case ModelPackage.CIRCLE__ICON:
 				setIcon((IconDesc)newValue);

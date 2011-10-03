@@ -153,9 +153,9 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseTextAlignmentSupport(label);
 				if (result == null) result = caseColorForegroundSupport(label);
 				if (result == null) result = caseStateSupport(label);
-				if (result == null) result = caseIconSupport(label);
 				if (result == null) result = caseIconPositionSupport(label);
 				if (result == null) result = caseLinkSupport(label);
+				if (result == null) result = caseIconSupport(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -266,6 +266,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseVerticalScrollbarSupport(group);
 				if (result == null) result = caseColorBackgroundSupport(group);
 				if (result == null) result = caseColorAlphaSupport(group);
+				if (result == null) result = caseFontSupport(group);
 				if (result == null) result = caseValueSupport(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -742,12 +743,12 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorAlphaSupport(circle);
 				if (result == null) result = caseColorForegroundSupport(circle);
 				if (result == null) result = caseBorderSupport(circle);
-				if (result == null) result = caseIconSupport(circle);
 				if (result == null) result = caseIconPositionSupport(circle);
 				if (result == null) result = caseFontSupport(circle);
 				if (result == null) result = caseLinkSupport(circle);
 				if (result == null) result = caseTextAlignmentSupport(circle);
 				if (result == null) result = caseLineStyleSupport(circle);
+				if (result == null) result = caseIconSupport(circle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -759,11 +760,11 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorAlphaSupport(rectangle);
 				if (result == null) result = caseColorForegroundSupport(rectangle);
 				if (result == null) result = caseBorderStyleSupport(rectangle);
-				if (result == null) result = caseIconSupport(rectangle);
 				if (result == null) result = caseIconPositionSupport(rectangle);
 				if (result == null) result = caseFontSupport(rectangle);
 				if (result == null) result = caseLinkSupport(rectangle);
 				if (result == null) result = caseTextAlignmentSupport(rectangle);
+				if (result == null) result = caseIconSupport(rectangle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -115,6 +115,8 @@ import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetDescriptor;
 import com.wireframesketcher.model.WidgetGroup;
 import com.wireframesketcher.model.Window;
+import com.wireframesketcher.model.overrides.OverridesPackage;
+import com.wireframesketcher.model.overrides.impl.OverridesPackageImpl;
 import com.wireframesketcher.model.story.StoryPackage;
 import com.wireframesketcher.model.story.impl.StoryPackageImpl;
 import org.eclipse.emf.common.util.URI;
@@ -853,20 +855,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link ModelPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -878,24 +870,30 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		if (isInited) return (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ModelPackageImpl());
+		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ModelPackageImpl());
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
 		StoryPackageImpl theStoryPackage = (StoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StoryPackage.eNS_URI) instanceof StoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StoryPackage.eNS_URI) : StoryPackage.eINSTANCE);
+		OverridesPackageImpl theOverridesPackage = (OverridesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(OverridesPackage.eNS_URI) instanceof OverridesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(OverridesPackage.eNS_URI) : OverridesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
 		theStoryPackage.createPackageContents();
+		theOverridesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModelPackage.initializePackageContents();
 		theStoryPackage.initializePackageContents();
+		theOverridesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModelPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, theModelPackage);
 		return theModelPackage;
 	}
 
@@ -1003,8 +1001,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getWidget_Id() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getWidget_Container() {
-		return (EReference)widgetEClass.getEStructuralFeatures().get(0);
+		return (EReference)widgetEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1013,15 +1020,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EAttribute getWidget_X() {
-		return (EAttribute)widgetEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWidget_Y() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1030,7 +1028,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_Width() {
+	public EAttribute getWidget_Y() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1039,7 +1037,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_Height() {
+	public EAttribute getWidget_Width() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1048,7 +1046,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_Text() {
+	public EAttribute getWidget_Height() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1057,8 +1055,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getWidget_Text() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getWidget_Descriptor() {
-		return (EReference)widgetEClass.getEStructuralFeatures().get(6);
+		return (EReference)widgetEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1067,15 +1074,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EAttribute getWidget_Locked() {
-		return (EAttribute)widgetEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWidget_MeasuredWidth() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1084,7 +1082,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_MeasuredHeight() {
+	public EAttribute getWidget_MeasuredWidth() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1093,7 +1091,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_CustomId() {
+	public EAttribute getWidget_MeasuredHeight() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1102,7 +1100,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_CustomData() {
+	public EAttribute getWidget_CustomId() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -1111,8 +1109,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidget_Annotation() {
+	public EAttribute getWidget_CustomData() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_Annotation() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1509,6 +1516,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EAttribute getMaster_Dimmed() {
 		return (EAttribute)masterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMaster_Overrides() {
+		return (EReference)masterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMaster_Instance() {
+		return (EReference)masterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2552,6 +2577,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(rulerGuideEClass, RULER_GUIDE__POSITION);
 
 		widgetEClass = createEClass(WIDGET);
+		createEAttribute(widgetEClass, WIDGET__ID);
 		createEReference(widgetEClass, WIDGET__CONTAINER);
 		createEAttribute(widgetEClass, WIDGET__X);
 		createEAttribute(widgetEClass, WIDGET__Y);
@@ -2653,6 +2679,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		masterEClass = createEClass(MASTER);
 		createEReference(masterEClass, MASTER__SCREEN);
 		createEAttribute(masterEClass, MASTER__DIMMED);
+		createEReference(masterEClass, MASTER__OVERRIDES);
+		createEReference(masterEClass, MASTER__INSTANCE);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__SRC);
@@ -2833,9 +2861,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Obtain other dependent packages
 		StoryPackage theStoryPackage = (StoryPackage)EPackage.Registry.INSTANCE.getEPackage(StoryPackage.eNS_URI);
+		OverridesPackage theOverridesPackage = (OverridesPackage)EPackage.Registry.INSTANCE.getEPackage(OverridesPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theStoryPackage);
+		getESubpackages().add(theOverridesPackage);
 
 		// Create type parameters
 
@@ -2907,6 +2937,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		groupEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		groupEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		groupEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		groupEClass.getESuperTypes().add(this.getFontSupport());
 		listEClass.getESuperTypes().add(this.getWidget());
 		listEClass.getESuperTypes().add(this.getSelectionSupport());
 		listEClass.getESuperTypes().add(this.getBorderSupport());
@@ -3086,6 +3117,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getRulerGuide_Position(), ecorePackage.getEInt(), "position", null, 0, 1, RulerGuide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(widgetEClass, Widget.class, "Widget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWidget_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_Container(), this.getWidgetContainer(), this.getWidgetContainer_Widgets(), "container", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_X(), ecorePackage.getEInt(), "x", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_Y(), ecorePackage.getEInt(), "y", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3094,8 +3126,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getWidget_Text(), ecorePackage.getEString(), "text", "", 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidget_Descriptor(), this.getWidgetDescriptor(), null, "descriptor", null, 0, 1, Widget.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_Locked(), ecorePackage.getEBoolean(), "locked", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWidget_MeasuredWidth(), ecorePackage.getEInt(), "measuredWidth", "-1", 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWidget_MeasuredHeight(), ecorePackage.getEInt(), "measuredHeight", "-1", 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MeasuredWidth(), ecorePackage.getEInt(), "measuredWidth", "-1", 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_MeasuredHeight(), ecorePackage.getEInt(), "measuredHeight", "-1", 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_CustomId(), ecorePackage.getEString(), "customId", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_CustomData(), ecorePackage.getEString(), "customData", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_Annotation(), ecorePackage.getEBoolean(), "annotation", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3187,6 +3219,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(masterEClass, Master.class, "Master", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMaster_Screen(), this.getWidgetContainer(), null, "screen", null, 0, 1, Master.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMaster_Dimmed(), ecorePackage.getEBoolean(), "dimmed", null, 0, 1, Master.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaster_Overrides(), theOverridesPackage.getOverrides(), null, "overrides", null, 0, 1, Master.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaster_Instance(), this.getWidgetContainer(), null, "instance", null, 0, 1, Master.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImage_Src(), this.getURIDataType(), "src", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3303,10 +3337,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(crossOutEClass, CrossOut.class, "CrossOut", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getItem_X(), ecorePackage.getEInt(), "x", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Y(), ecorePackage.getEInt(), "y", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Width(), ecorePackage.getEInt(), "width", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Height(), ecorePackage.getEInt(), "height", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_X(), ecorePackage.getEInt(), "x", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Y(), ecorePackage.getEInt(), "y", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Width(), ecorePackage.getEInt(), "width", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Height(), ecorePackage.getEInt(), "height", "-1", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Text(), ecorePackage.getEString(), "text", "", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemSupportEClass, ItemSupport.class, "ItemSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

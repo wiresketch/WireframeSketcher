@@ -312,7 +312,7 @@ public class NoteImpl extends WidgetImpl implements Note {
 			case ModelPackage.NOTE__BACKGROUND:
 				return getBackground();
 			case ModelPackage.NOTE__ALPHA:
-				return new Integer(getAlpha());
+				return getAlpha();
 			case ModelPackage.NOTE__LINK:
 				return getLink();
 		}
@@ -337,7 +337,7 @@ public class NoteImpl extends WidgetImpl implements Note {
 				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.NOTE__ALPHA:
-				setAlpha(((Integer)newValue).intValue());
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.NOTE__LINK:
 				setLink((URI)newValue);

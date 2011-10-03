@@ -271,7 +271,7 @@ public class RadioButtonImpl extends WidgetImpl implements RadioButton {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.RADIO_BUTTON__SELECTED:
-				return isSelected() ? Boolean.TRUE : Boolean.FALSE;
+				return isSelected();
 			case ModelPackage.RADIO_BUTTON__STATE:
 				return getState();
 			case ModelPackage.RADIO_BUTTON__LINK:
@@ -291,7 +291,7 @@ public class RadioButtonImpl extends WidgetImpl implements RadioButton {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.RADIO_BUTTON__SELECTED:
-				setSelected(((Boolean)newValue).booleanValue());
+				setSelected((Boolean)newValue);
 				return;
 			case ModelPackage.RADIO_BUTTON__STATE:
 				setState((State)newValue);

@@ -234,9 +234,9 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 			case ModelPackage.ACCORDION__SELECTION:
 				return getSelection();
 			case ModelPackage.ACCORDION__VALUE:
-				return new Integer(getValue());
+				return getValue();
 			case ModelPackage.ACCORDION__VERTICAL_SCROLLBAR:
-				return isVerticalScrollbar() ? Boolean.TRUE : Boolean.FALSE;
+				return isVerticalScrollbar();
 			case ModelPackage.ACCORDION__ITEMS:
 				return getItems();
 		}
@@ -256,10 +256,10 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 				setSelection((String)newValue);
 				return;
 			case ModelPackage.ACCORDION__VALUE:
-				setValue(((Integer)newValue).intValue());
+				setValue((Integer)newValue);
 				return;
 			case ModelPackage.ACCORDION__VERTICAL_SCROLLBAR:
-				setVerticalScrollbar(((Boolean)newValue).booleanValue());
+				setVerticalScrollbar((Boolean)newValue);
 				return;
 			case ModelPackage.ACCORDION__ITEMS:
 				getItems().clear();
