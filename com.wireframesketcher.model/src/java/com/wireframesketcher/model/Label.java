@@ -17,6 +17,6 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Label extends Widget, FontSupport, TextAlignmentSupport, ColorForegroundSupport, StateSupport, IconSupport, IconPositionSupport, LinkSupport {
+public interface Label extends Widget, FontSupport, TextAlignmentSupport, ColorForegroundSupport, StateSupport, IconSupport, IconPositionSupport, LinkSupport, RotationSupport {
 
 } // Label

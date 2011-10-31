@@ -126,6 +126,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.CROSS_OUT: return createCrossOut();
 			case ModelPackage.ITEM: return createItem();
 			case ModelPackage.HOTSPOT: return createHotspot();
+			case ModelPackage.SVG_IMAGE: return createSVGImage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -762,6 +763,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Hotspot createHotspot() {
 		HotspotImpl hotspot = new HotspotImpl();
 		return hotspot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SVGImage createSVGImage() {
+		SVGImageImpl svgImage = new SVGImageImpl();
+		return svgImage;
 	}
 
 	/**

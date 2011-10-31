@@ -82,7 +82,9 @@ import com.wireframesketcher.model.ProgressBar;
 import com.wireframesketcher.model.RadioButton;
 import com.wireframesketcher.model.Rectangle;
 import com.wireframesketcher.model.ResizeMode;
+import com.wireframesketcher.model.RotationSupport;
 import com.wireframesketcher.model.RulerGuide;
+import com.wireframesketcher.model.SVGImage;
 import com.wireframesketcher.model.ScratchOut;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.ScreenFont;
@@ -645,6 +647,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass lineStyleSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rotationSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass svgImageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2324,6 +2340,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRotationSupport() {
+		return rotationSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRotationSupport_Rotation() {
+		return (EAttribute)rotationSupportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSVGImage() {
+		return svgImageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSVGImage_Src() {
+		return (EAttribute)svgImageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -2817,6 +2869,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		lineStyleSupportEClass = createEClass(LINE_STYLE_SUPPORT);
 		createEAttribute(lineStyleSupportEClass, LINE_STYLE_SUPPORT__LINE_STYLE);
 
+		rotationSupportEClass = createEClass(ROTATION_SUPPORT);
+		createEAttribute(rotationSupportEClass, ROTATION_SUPPORT__ROTATION);
+
+		svgImageEClass = createEClass(SVG_IMAGE);
+		createEAttribute(svgImageEClass, SVG_IMAGE__SRC);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -2896,6 +2954,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		labelEClass.getESuperTypes().add(this.getIconSupport());
 		labelEClass.getESuperTypes().add(this.getIconPositionSupport());
 		labelEClass.getESuperTypes().add(this.getLinkSupport());
+		labelEClass.getESuperTypes().add(this.getRotationSupport());
 		linkEClass.getESuperTypes().add(this.getWidget());
 		linkEClass.getESuperTypes().add(this.getFontSupport());
 		linkEClass.getESuperTypes().add(this.getStateSupport());
@@ -3101,6 +3160,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		itemEClass.getESuperTypes().add(this.getLinkSupport());
 		hotspotEClass.getESuperTypes().add(this.getWidget());
 		hotspotEClass.getESuperTypes().add(this.getLinkSupport());
+		svgImageEClass.getESuperTypes().add(this.getWidget());
+		svgImageEClass.getESuperTypes().add(this.getLinkSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3359,6 +3420,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(lineStyleSupportEClass, LineStyleSupport.class, "LineStyleSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLineStyleSupport_LineStyle(), this.getLineStyle(), "lineStyle", "solid", 0, 1, LineStyleSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rotationSupportEClass, RotationSupport.class, "RotationSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRotationSupport_Rotation(), ecorePackage.getEInt(), "rotation", null, 0, 1, RotationSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(svgImageEClass, SVGImage.class, "SVGImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSVGImage_Src(), this.getURIDataType(), "src", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");

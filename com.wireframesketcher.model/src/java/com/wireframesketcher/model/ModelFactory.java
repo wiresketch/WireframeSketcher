@@ -512,6 +512,15 @@ public interface ModelFactory extends EFactory {
 	Hotspot createHotspot();
 
 	/**
+	 * Returns a new object of class '<em>SVG Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SVG Image</em>'.
+	 * @generated
+	 */
+	SVGImage createSVGImage();
+
+	/**
 	 * Returns a new object of class '<em>Spinner</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1115,13 +1115,22 @@ public interface ModelPackage extends EPackage {
 	int LABEL__LINK = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ROTATION = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+	int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LinkImpl <em>Link</em>}' class.
@@ -11272,6 +11281,197 @@ public interface ModelPackage extends EPackage {
 	int LINE_STYLE_SUPPORT_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.RotationSupport <em>Rotation Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.RotationSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotationSupport()
+	 * @generated
+	 */
+	int ROTATION_SUPPORT = 86;
+
+	/**
+	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROTATION_SUPPORT__ROTATION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Rotation Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROTATION_SUPPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.impl.SVGImageImpl <em>SVG Image</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.impl.SVGImageImpl
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSVGImage()
+	 * @generated
+	 */
+	int SVG_IMAGE = 87;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__ID = WIDGET__ID;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__CONTAINER = WIDGET__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__X = WIDGET__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__Y = WIDGET__Y;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__WIDTH = WIDGET__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__HEIGHT = WIDGET__HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__TEXT = WIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__DESCRIPTOR = WIDGET__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__LOCKED = WIDGET__LOCKED;
+
+	/**
+	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__MEASURED_WIDTH = WIDGET__MEASURED_WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__MEASURED_HEIGHT = WIDGET__MEASURED_HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__CUSTOM_ID = WIDGET__CUSTOM_ID;
+
+	/**
+	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__CUSTOM_DATA = WIDGET__CUSTOM_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__LINK = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Src</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__SRC = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>SVG Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11279,7 +11479,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 86;
+	int RESIZE_MODE = 88;
 
 
 	/**
@@ -11290,7 +11490,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 87;
+	int TEXT_ALIGNMENT = 89;
 
 
 	/**
@@ -11301,7 +11501,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 88;
+	int ICON_SIZE = 90;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -11311,7 +11511,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 89;
+	int STATE = 91;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -11321,7 +11521,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 90;
+	int POSITION = 92;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -11331,7 +11531,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 91;
+	int BORDER_STYLE = 93;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -11341,7 +11541,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 92;
+	int BUTTON_STYLE = 94;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -11351,7 +11551,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 93;
+	int CHART_TYPE = 95;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -11361,7 +11561,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 94;
+	int THEME = 96;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -11371,7 +11571,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 95;
+	int LINE_STYLE = 97;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -11381,7 +11581,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 96;
+	int ICON_DATA_TYPE = 98;
 
 
 	/**
@@ -11392,7 +11592,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 97;
+	int FONT_SIZE_DATA_TYPE = 99;
 
 
 	/**
@@ -11403,7 +11603,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 98;
+	int COLOR_DATA_TYPE = 100;
 
 
 	/**
@@ -11414,7 +11614,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 99;
+	int URI_DATA_TYPE = 101;
 
 
 	/**
@@ -13058,6 +13258,48 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLineStyleSupport_LineStyle();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.RotationSupport <em>Rotation Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rotation Support</em>'.
+	 * @see com.wireframesketcher.model.RotationSupport
+	 * @generated
+	 */
+	EClass getRotationSupport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.RotationSupport#getRotation <em>Rotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rotation</em>'.
+	 * @see com.wireframesketcher.model.RotationSupport#getRotation()
+	 * @see #getRotationSupport()
+	 * @generated
+	 */
+	EAttribute getRotationSupport_Rotation();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.SVGImage <em>SVG Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SVG Image</em>'.
+	 * @see com.wireframesketcher.model.SVGImage
+	 * @generated
+	 */
+	EClass getSVGImage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.SVGImage#getSrc <em>Src</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Src</em>'.
+	 * @see com.wireframesketcher.model.SVGImage#getSrc()
+	 * @see #getSVGImage()
+	 * @generated
+	 */
+	EAttribute getSVGImage_Src();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
@@ -14760,6 +15002,42 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LINE_STYLE_SUPPORT__LINE_STYLE = eINSTANCE.getLineStyleSupport_LineStyle();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.RotationSupport <em>Rotation Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.RotationSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotationSupport()
+		 * @generated
+		 */
+		EClass ROTATION_SUPPORT = eINSTANCE.getRotationSupport();
+
+		/**
+		 * The meta object literal for the '<em><b>Rotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROTATION_SUPPORT__ROTATION = eINSTANCE.getRotationSupport_Rotation();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SVGImageImpl <em>SVG Image</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.impl.SVGImageImpl
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSVGImage()
+		 * @generated
+		 */
+		EClass SVG_IMAGE = eINSTANCE.getSVGImage();
+
+		/**
+		 * The meta object literal for the '<em><b>Src</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SVG_IMAGE__SRC = eINSTANCE.getSVGImage_Src();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.

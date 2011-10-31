@@ -155,6 +155,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseStateSupport(label);
 				if (result == null) result = caseIconPositionSupport(label);
 				if (result == null) result = caseLinkSupport(label);
+				if (result == null) result = caseRotationSupport(label);
 				if (result == null) result = caseIconSupport(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -839,6 +840,20 @@ public class ModelSwitch<T> {
 			case ModelPackage.LINE_STYLE_SUPPORT: {
 				LineStyleSupport lineStyleSupport = (LineStyleSupport)theEObject;
 				T result = caseLineStyleSupport(lineStyleSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.ROTATION_SUPPORT: {
+				RotationSupport rotationSupport = (RotationSupport)theEObject;
+				T result = caseRotationSupport(rotationSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.SVG_IMAGE: {
+				SVGImage svgImage = (SVGImage)theEObject;
+				T result = caseSVGImage(svgImage);
+				if (result == null) result = caseWidget(svgImage);
+				if (result == null) result = caseLinkSupport(svgImage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1983,6 +1998,36 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseLineStyleSupport(LineStyleSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rotation Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rotation Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRotationSupport(RotationSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SVG Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SVG Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSVGImage(SVGImage object) {
 		return null;
 	}
 
