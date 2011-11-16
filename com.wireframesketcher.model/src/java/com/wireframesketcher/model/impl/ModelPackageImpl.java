@@ -3444,6 +3444,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(iconSizeEEnum, IconSize.MEDIUM_LITERAL);
 		addEEnumLiteral(iconSizeEEnum, IconSize.LARGE_LITERAL);
 		addEEnumLiteral(iconSizeEEnum, IconSize.XLARGE_LITERAL);
+		addEEnumLiteral(iconSizeEEnum, IconSize.CUSTOM_LITERAL);
 
 		initEEnum(stateEEnum, State.class, "State");
 		addEEnumLiteral(stateEEnum, State.NORMAL);

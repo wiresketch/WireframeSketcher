@@ -74,4 +74,23 @@ public final class IconDesc {
 
 		return new IconDesc(name, size);
 	}
+	
+	public IconSize getActualSize(int w, int h) {
+		IconSize size;
+		
+		if (w == -1 && h == -1)
+			size = getSize();
+		else if (w == 16 && h == 16)
+			size = IconSize.SMALL_LITERAL;
+		else if (w == 24 && h == 24)
+			size = IconSize.MEDIUM_LITERAL;
+		else if (w == 32 && h == 32)
+			size = IconSize.LARGE_LITERAL;
+		else if (w == 48 && h == 48)
+			size = IconSize.XLARGE_LITERAL;
+		else
+			size = IconSize.CUSTOM_LITERAL;
+
+		return size;
+	}
 }

@@ -57,7 +57,15 @@ public enum IconSize implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	XLARGE_LITERAL(3, "XLarge", "xlarge");
+	XLARGE_LITERAL(3, "XLarge", "xlarge"), /**
+	 * The '<em><b>Custom</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CUSTOM
+	 * @generated
+	 * @ordered
+	 */
+	CUSTOM_LITERAL(4, "Custom", "custom");
 	/**
 	 * The '<em><b>Small</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -119,6 +127,21 @@ public enum IconSize implements Enumerator
 	public static final int XLARGE = 3;
 
 	/**
+	 * The '<em><b>Custom</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Custom</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CUSTOM_LITERAL
+	 * @model name="Custom" literal="custom"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CUSTOM = 4;
+
+	/**
 	 * An array of all the '<em><b>Icon Size</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +153,7 @@ public enum IconSize implements Enumerator
 			MEDIUM_LITERAL,
 			LARGE_LITERAL,
 			XLARGE_LITERAL,
+			CUSTOM_LITERAL,
 		};
 
 	/**
@@ -184,6 +208,7 @@ public enum IconSize implements Enumerator
 			case MEDIUM: return MEDIUM_LITERAL;
 			case LARGE: return LARGE_LITERAL;
 			case XLARGE: return XLARGE_LITERAL;
+			case CUSTOM: return CUSTOM_LITERAL;
 		}
 		return null;
 	}
@@ -257,5 +282,21 @@ public enum IconSize implements Enumerator
 	@Override
 	public String toString() {
 		return literal;
+	}
+	
+	public static int getSizePixels(IconSize size) {
+		switch (size.getValue()) {
+		case SMALL:
+			return 16;
+		case MEDIUM:
+			return 24;
+		case LARGE:
+			return 32;
+		case XLARGE:
+			return 48;
+		case CUSTOM:
+			return -1;
+		}
+		throw new IllegalArgumentException(size.toString());
 	}
 }

@@ -100,7 +100,7 @@ public class IconImpl extends WidgetImpl implements Icon {
 	 */
 	protected URI link = LINK_EDEFAULT;
 
-	private static final WidgetDescriptor DESCRIPTOR = describe("Icon", ResizeMode.NONE_LITERAL, false, false);
+	private static final WidgetDescriptor DESCRIPTOR = describe("Icon", ResizeMode.BOTH_LITERAL, false, false);
 
 	/**
 	 * <!-- begin-user-doc -->

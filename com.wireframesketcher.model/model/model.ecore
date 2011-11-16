@@ -184,6 +184,7 @@
     <eLiterals name="Medium" value="1" literal="medium"/>
     <eLiterals name="Large" value="2" literal="large"/>
     <eLiterals name="XLarge" value="3" literal="xlarge"/>
+    <eLiterals name="Custom" value="4" literal="custom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="FontSizeDataType" instanceClassName="java.lang.Integer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Font">
