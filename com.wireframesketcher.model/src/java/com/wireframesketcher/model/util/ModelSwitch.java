@@ -854,6 +854,9 @@ public class ModelSwitch<T> {
 				T result = caseSVGImage(svgImage);
 				if (result == null) result = caseWidget(svgImage);
 				if (result == null) result = caseLinkSupport(svgImage);
+				if (result == null) result = caseColorBackgroundSupport(svgImage);
+				if (result == null) result = caseColorForegroundSupport(svgImage);
+				if (result == null) result = caseColorAlphaSupport(svgImage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

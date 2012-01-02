@@ -560,7 +560,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SVGImage" eSuperTypes="#//Widget #//LinkSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="SVGImage" eSuperTypes="#//Widget #//LinkSupport #//ColorBackgroundSupport #//ColorForegroundSupport #//ColorAlphaSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" eType="#//URIDataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Image source file path. Can be absolute or relative."/>

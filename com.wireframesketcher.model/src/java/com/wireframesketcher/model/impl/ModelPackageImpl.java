@@ -3162,6 +3162,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		hotspotEClass.getESuperTypes().add(this.getLinkSupport());
 		svgImageEClass.getESuperTypes().add(this.getWidget());
 		svgImageEClass.getESuperTypes().add(this.getLinkSupport());
+		svgImageEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		svgImageEClass.getESuperTypes().add(this.getColorForegroundSupport());
+		svgImageEClass.getESuperTypes().add(this.getColorAlphaSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

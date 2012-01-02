@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.URI;
  * @model
  * @generated
  */
-public interface SVGImage extends Widget, LinkSupport {
+public interface SVGImage extends Widget, LinkSupport, ColorBackgroundSupport, ColorForegroundSupport, ColorAlphaSupport {
 	/**
 	 * Returns the value of the '<em><b>Src</b></em>' attribute.
 	 * <!-- begin-user-doc -->

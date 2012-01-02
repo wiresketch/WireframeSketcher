@@ -11454,13 +11454,40 @@ public interface ModelPackage extends EPackage {
 	int SVG_IMAGE__LINK = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__BACKGROUND = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__FOREGROUND = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__ALPHA = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Src</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SVG_IMAGE__SRC = WIDGET_FEATURE_COUNT + 1;
+	int SVG_IMAGE__SRC = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>SVG Image</em>' class.
@@ -11469,7 +11496,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
