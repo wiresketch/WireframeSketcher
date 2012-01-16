@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.Rotation90;
+import com.wireframesketcher.model.RotationSupport;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.SVGImage;
 import com.wireframesketcher.model.WidgetDescriptor;
@@ -33,6 +35,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getRotation <em>Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getSrc <em>Src</em>}</li>
  * </ul>
  * </p>
@@ -119,6 +122,26 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	 * @ordered
 	 */
 	protected int alpha = ALPHA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRotation() <em>Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ROTATION_EDEFAULT = Rotation90._0;
+
+	/**
+	 * The cached value of the '{@link #getRotation() <em>Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 rotation = ROTATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSrc() <em>Src</em>}' attribute.
@@ -251,6 +274,27 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getRotation() {
+		return rotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRotation(Rotation90 newRotation) {
+		Rotation90 oldRotation = rotation;
+		rotation = newRotation == null ? ROTATION_EDEFAULT : newRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SVG_IMAGE__ROTATION, oldRotation, rotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getSrc() {
 		return src;
 	}
@@ -283,6 +327,8 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return getForeground();
 			case ModelPackage.SVG_IMAGE__ALPHA:
 				return getAlpha();
+			case ModelPackage.SVG_IMAGE__ROTATION:
+				return getRotation();
 			case ModelPackage.SVG_IMAGE__SRC:
 				return getSrc();
 		}
@@ -308,6 +354,9 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return;
 			case ModelPackage.SVG_IMAGE__ALPHA:
 				setAlpha((Integer)newValue);
+				return;
+			case ModelPackage.SVG_IMAGE__ROTATION:
+				setRotation((Rotation90)newValue);
 				return;
 			case ModelPackage.SVG_IMAGE__SRC:
 				setSrc((URI)newValue);
@@ -336,6 +385,9 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 			case ModelPackage.SVG_IMAGE__ALPHA:
 				setAlpha(ALPHA_EDEFAULT);
 				return;
+			case ModelPackage.SVG_IMAGE__ROTATION:
+				setRotation(ROTATION_EDEFAULT);
+				return;
 			case ModelPackage.SVG_IMAGE__SRC:
 				setSrc(SRC_EDEFAULT);
 				return;
@@ -359,6 +411,8 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
 			case ModelPackage.SVG_IMAGE__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
+			case ModelPackage.SVG_IMAGE__ROTATION:
+				return rotation != ROTATION_EDEFAULT;
 			case ModelPackage.SVG_IMAGE__SRC:
 				return SRC_EDEFAULT == null ? src != null : !SRC_EDEFAULT.equals(src);
 		}
@@ -396,6 +450,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				default: return -1;
 			}
 		}
+		if (baseClass == RotationSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SVG_IMAGE__ROTATION: return ModelPackage.ROTATION_SUPPORT__ROTATION;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -430,6 +490,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				default: return -1;
 			}
 		}
+		if (baseClass == RotationSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ROTATION_SUPPORT__ROTATION: return ModelPackage.SVG_IMAGE__ROTATION;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -451,6 +517,8 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 		result.append(foreground);
 		result.append(", alpha: ");
 		result.append(alpha);
+		result.append(", rotation: ");
+		result.append(rotation);
 		result.append(", src: ");
 		result.append(src);
 		result.append(')');

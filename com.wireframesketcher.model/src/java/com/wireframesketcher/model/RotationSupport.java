@@ -27,27 +27,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface RotationSupport extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Rotation</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.wireframesketcher.model.Rotation90}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Rotation in degrees from 0 to 360
+	 * Rotation in degrees in 90° increments
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rotation</em>' attribute.
-	 * @see #setRotation(int)
+	 * @see com.wireframesketcher.model.Rotation90
+	 * @see #setRotation(Rotation90)
 	 * @see com.wireframesketcher.model.ModelPackage#getRotationSupport_Rotation()
 	 * @model
 	 * @generated
 	 */
-	int getRotation();
+	Rotation90 getRotation();
 
 	/**
 	 * Sets the value of the '{@link com.wireframesketcher.model.RotationSupport#getRotation <em>Rotation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Rotation</em>' attribute.
+	 * @see com.wireframesketcher.model.Rotation90
 	 * @see #getRotation()
 	 * @generated
 	 */
-	void setRotation(int value);
+	void setRotation(Rotation90 value);
 
 } // RotationSupport

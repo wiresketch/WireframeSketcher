@@ -24,6 +24,7 @@ import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.RotationSupport;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.StateSupport;
@@ -50,6 +51,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getState <em>State</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getIconPosition <em>Icon Position</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getRotation <em>Rotation</em>}</li>
@@ -150,6 +152,26 @@ public class LabelImpl extends WidgetImpl implements Label {
 	protected IconDesc icon = ICON_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ICON_ROTATION_EDEFAULT = Rotation90._0;
+
+	/**
+	 * The cached value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 iconRotation = ICON_ROTATION_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getIconPosition() <em>Icon Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,7 +218,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ROTATION_EDEFAULT = 0;
+	protected static final Rotation90 ROTATION_EDEFAULT = Rotation90._0;
 
 	/**
 	 * The cached value of the '{@link #getRotation() <em>Rotation</em>}' attribute.
@@ -206,7 +228,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected int rotation = ROTATION_EDEFAULT;
+	protected Rotation90 rotation = ROTATION_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Label", ResizeMode.HORIZONTAL_LITERAL);
 	
@@ -279,6 +301,27 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getIconRotation() {
+		return iconRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconRotation(Rotation90 newIconRotation) {
+		Rotation90 oldIconRotation = iconRotation;
+		iconRotation = newIconRotation == null ? ICON_ROTATION_EDEFAULT : newIconRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.LABEL__ICON_ROTATION, oldIconRotation, iconRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Position getIconPosition() {
 		return iconPosition;
 	}
@@ -321,7 +364,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getRotation() {
+	public Rotation90 getRotation() {
 		return rotation;
 	}
 
@@ -330,10 +373,10 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void setRotation(int newRotation) {
-		int oldRotation = rotation;
-		rotation = newRotation;
-		descriptor = (rotation / 90) % 2 == 0 ? DESCRIPTOR : ROTATED_DESCRIPTOR;
+	public void setRotation(Rotation90 newRotation) {
+		Rotation90 oldRotation = rotation;
+		rotation = newRotation == null ? ROTATION_EDEFAULT : newRotation;
+		descriptor = (rotation.getValue() / 90) % 2 == 0 ? DESCRIPTOR : ROTATED_DESCRIPTOR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.LABEL__ROTATION, oldRotation, rotation));
 	}
@@ -463,6 +506,8 @@ public class LabelImpl extends WidgetImpl implements Label {
 				return getState();
 			case ModelPackage.LABEL__ICON:
 				return getIcon();
+			case ModelPackage.LABEL__ICON_ROTATION:
+				return getIconRotation();
 			case ModelPackage.LABEL__ICON_POSITION:
 				return getIconPosition();
 			case ModelPackage.LABEL__LINK:
@@ -496,6 +541,9 @@ public class LabelImpl extends WidgetImpl implements Label {
 			case ModelPackage.LABEL__ICON:
 				setIcon((IconDesc)newValue);
 				return;
+			case ModelPackage.LABEL__ICON_ROTATION:
+				setIconRotation((Rotation90)newValue);
+				return;
 			case ModelPackage.LABEL__ICON_POSITION:
 				setIconPosition((Position)newValue);
 				return;
@@ -503,7 +551,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 				setLink((URI)newValue);
 				return;
 			case ModelPackage.LABEL__ROTATION:
-				setRotation((Integer)newValue);
+				setRotation((Rotation90)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -531,6 +579,9 @@ public class LabelImpl extends WidgetImpl implements Label {
 				return;
 			case ModelPackage.LABEL__ICON:
 				setIcon(ICON_EDEFAULT);
+				return;
+			case ModelPackage.LABEL__ICON_ROTATION:
+				setIconRotation(ICON_ROTATION_EDEFAULT);
 				return;
 			case ModelPackage.LABEL__ICON_POSITION:
 				setIconPosition(ICON_POSITION_EDEFAULT);
@@ -563,6 +614,8 @@ public class LabelImpl extends WidgetImpl implements Label {
 				return state != STATE_EDEFAULT;
 			case ModelPackage.LABEL__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+			case ModelPackage.LABEL__ICON_ROTATION:
+				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.LABEL__ICON_POSITION:
 				return iconPosition != ICON_POSITION_EDEFAULT;
 			case ModelPackage.LABEL__LINK:
@@ -607,6 +660,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 		if (baseClass == IconSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.LABEL__ICON: return ModelPackage.ICON_SUPPORT__ICON;
+				case ModelPackage.LABEL__ICON_ROTATION: return ModelPackage.ICON_SUPPORT__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -665,6 +719,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 		if (baseClass == IconSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ICON_SUPPORT__ICON: return ModelPackage.LABEL__ICON;
+				case ModelPackage.ICON_SUPPORT__ICON_ROTATION: return ModelPackage.LABEL__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -707,6 +762,8 @@ public class LabelImpl extends WidgetImpl implements Label {
 		result.append(state);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", iconRotation: ");
+		result.append(iconRotation);
 		result.append(", iconPosition: ");
 		result.append(iconPosition);
 		result.append(", link: ");

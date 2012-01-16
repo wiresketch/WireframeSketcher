@@ -29,6 +29,7 @@ import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
 import com.wireframesketcher.model.Rectangle;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextAlignmentSupport;
 import com.wireframesketcher.model.ResizeMode;
@@ -46,6 +47,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getBorder <em>Border</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getIconPosition <em>Icon Position</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.RectangleImpl#getLink <em>Link</em>}</li>
@@ -154,6 +156,26 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 	 * @ordered
 	 */
 	protected IconDesc icon = ICON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ICON_ROTATION_EDEFAULT = Rotation90._0;
+
+	/**
+	 * The cached value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 iconRotation = ICON_ROTATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getIconPosition() <em>Icon Position</em>}' attribute.
@@ -355,6 +377,27 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getIconRotation() {
+		return iconRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconRotation(Rotation90 newIconRotation) {
+		Rotation90 oldIconRotation = iconRotation;
+		iconRotation = newIconRotation == null ? ICON_ROTATION_EDEFAULT : newIconRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECTANGLE__ICON_ROTATION, oldIconRotation, iconRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Position getIconPosition() {
 		return iconPosition;
 	}
@@ -488,6 +531,8 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 				return getBorder();
 			case ModelPackage.RECTANGLE__ICON:
 				return getIcon();
+			case ModelPackage.RECTANGLE__ICON_ROTATION:
+				return getIconRotation();
 			case ModelPackage.RECTANGLE__ICON_POSITION:
 				return getIconPosition();
 			case ModelPackage.RECTANGLE__FONT:
@@ -522,6 +567,9 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 				return;
 			case ModelPackage.RECTANGLE__ICON:
 				setIcon((IconDesc)newValue);
+				return;
+			case ModelPackage.RECTANGLE__ICON_ROTATION:
+				setIconRotation((Rotation90)newValue);
 				return;
 			case ModelPackage.RECTANGLE__ICON_POSITION:
 				setIconPosition((Position)newValue);
@@ -562,6 +610,9 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 			case ModelPackage.RECTANGLE__ICON:
 				setIcon(ICON_EDEFAULT);
 				return;
+			case ModelPackage.RECTANGLE__ICON_ROTATION:
+				setIconRotation(ICON_ROTATION_EDEFAULT);
+				return;
 			case ModelPackage.RECTANGLE__ICON_POSITION:
 				setIconPosition(ICON_POSITION_EDEFAULT);
 				return;
@@ -596,6 +647,8 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 				return border != BORDER_EDEFAULT;
 			case ModelPackage.RECTANGLE__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+			case ModelPackage.RECTANGLE__ICON_ROTATION:
+				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.RECTANGLE__ICON_POSITION:
 				return iconPosition != ICON_POSITION_EDEFAULT;
 			case ModelPackage.RECTANGLE__FONT:
@@ -642,6 +695,7 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 		if (baseClass == IconSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.RECTANGLE__ICON: return ModelPackage.ICON_SUPPORT__ICON;
+				case ModelPackage.RECTANGLE__ICON_ROTATION: return ModelPackage.ICON_SUPPORT__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -706,6 +760,7 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 		if (baseClass == IconSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ICON_SUPPORT__ICON: return ModelPackage.RECTANGLE__ICON;
+				case ModelPackage.ICON_SUPPORT__ICON_ROTATION: return ModelPackage.RECTANGLE__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -756,6 +811,8 @@ public class RectangleImpl extends WidgetImpl implements Rectangle {
 		result.append(border);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", iconRotation: ");
+		result.append(iconRotation);
 		result.append(", iconPosition: ");
 		result.append(iconPosition);
 		result.append(", link: ");

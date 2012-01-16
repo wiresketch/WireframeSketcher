@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.wireframesketcher.model.IconSupport#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.IconSupport#getIconRotation <em>Icon Rotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,5 +55,33 @@ public interface IconSupport extends EObject {
 	 * @generated
 	 */
 	void setIcon(IconDesc value);
+
+	/**
+	 * Returns the value of the '<em><b>Icon Rotation</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.wireframesketcher.model.Rotation90}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Rotation in degrees in 90° increments
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Icon Rotation</em>' attribute.
+	 * @see com.wireframesketcher.model.Rotation90
+	 * @see #setIconRotation(Rotation90)
+	 * @see com.wireframesketcher.model.ModelPackage#getIconSupport_IconRotation()
+	 * @model
+	 * @generated
+	 */
+	Rotation90 getIconRotation();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.IconSupport#getIconRotation <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Icon Rotation</em>' attribute.
+	 * @see com.wireframesketcher.model.Rotation90
+	 * @see #getIconRotation()
+	 * @generated
+	 */
+	void setIconRotation(Rotation90 value);
 
 } // IconSupport

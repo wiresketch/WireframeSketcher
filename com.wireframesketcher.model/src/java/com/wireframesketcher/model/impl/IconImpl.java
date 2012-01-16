@@ -14,6 +14,7 @@ import com.wireframesketcher.model.IconSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.IconImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.IconImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.IconImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.IconImpl#getLink <em>Link</em>}</li>
  * </ul>
  * </p>
@@ -79,6 +81,26 @@ public class IconImpl extends WidgetImpl implements Icon {
 	 * @ordered
 	 */
 	protected IconDesc icon = ICON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ICON_ROTATION_EDEFAULT = Rotation90._0;
+
+	/**
+	 * The cached value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 iconRotation = ICON_ROTATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLink() <em>Link</em>}' attribute.
@@ -168,6 +190,27 @@ public class IconImpl extends WidgetImpl implements Icon {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getIconRotation() {
+		return iconRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconRotation(Rotation90 newIconRotation) {
+		Rotation90 oldIconRotation = iconRotation;
+		iconRotation = newIconRotation == null ? ICON_ROTATION_EDEFAULT : newIconRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ICON__ICON_ROTATION, oldIconRotation, iconRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getLink() {
 		return link;
 	}
@@ -196,6 +239,8 @@ public class IconImpl extends WidgetImpl implements Icon {
 				return getForeground();
 			case ModelPackage.ICON__ICON:
 				return getIcon();
+			case ModelPackage.ICON__ICON_ROTATION:
+				return getIconRotation();
 			case ModelPackage.ICON__LINK:
 				return getLink();
 		}
@@ -215,6 +260,9 @@ public class IconImpl extends WidgetImpl implements Icon {
 				return;
 			case ModelPackage.ICON__ICON:
 				setIcon((IconDesc)newValue);
+				return;
+			case ModelPackage.ICON__ICON_ROTATION:
+				setIconRotation((Rotation90)newValue);
 				return;
 			case ModelPackage.ICON__LINK:
 				setLink((URI)newValue);
@@ -237,6 +285,9 @@ public class IconImpl extends WidgetImpl implements Icon {
 			case ModelPackage.ICON__ICON:
 				setIcon(ICON_EDEFAULT);
 				return;
+			case ModelPackage.ICON__ICON_ROTATION:
+				setIconRotation(ICON_ROTATION_EDEFAULT);
+				return;
 			case ModelPackage.ICON__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
@@ -256,6 +307,8 @@ public class IconImpl extends WidgetImpl implements Icon {
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
 			case ModelPackage.ICON__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+			case ModelPackage.ICON__ICON_ROTATION:
+				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.ICON__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 		}
@@ -278,6 +331,7 @@ public class IconImpl extends WidgetImpl implements Icon {
 		if (baseClass == IconSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.ICON__ICON: return ModelPackage.ICON_SUPPORT__ICON;
+				case ModelPackage.ICON__ICON_ROTATION: return ModelPackage.ICON_SUPPORT__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -306,6 +360,7 @@ public class IconImpl extends WidgetImpl implements Icon {
 		if (baseClass == IconSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ICON_SUPPORT__ICON: return ModelPackage.ICON__ICON;
+				case ModelPackage.ICON_SUPPORT__ICON_ROTATION: return ModelPackage.ICON__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -332,6 +387,8 @@ public class IconImpl extends WidgetImpl implements Icon {
 		result.append(foreground);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", iconRotation: ");
+		result.append(iconRotation);
 		result.append(", link: ");
 		result.append(link);
 		result.append(')');

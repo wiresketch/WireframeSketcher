@@ -160,6 +160,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createThemeFromString(eDataType, initialValue);
 			case ModelPackage.LINE_STYLE:
 				return createLineStyleFromString(eDataType, initialValue);
+			case ModelPackage.ROTATION90:
+				return createRotation90FromString(eDataType, initialValue);
 			case ModelPackage.ICON_DATA_TYPE:
 				return createIconDataTypeFromString(eDataType, initialValue);
 			case ModelPackage.FONT_SIZE_DATA_TYPE:
@@ -201,6 +203,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertThemeToString(eDataType, instanceValue);
 			case ModelPackage.LINE_STYLE:
 				return convertLineStyleToString(eDataType, instanceValue);
+			case ModelPackage.ROTATION90:
+				return convertRotation90ToString(eDataType, instanceValue);
 			case ModelPackage.ICON_DATA_TYPE:
 				return convertIconDataTypeToString(eDataType, instanceValue);
 			case ModelPackage.FONT_SIZE_DATA_TYPE:
@@ -1076,6 +1080,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * @generated
 	 */
 	public String convertLineStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Rotation90 createRotation90FromString(EDataType eDataType, String initialValue) {
+		Rotation90 result = Rotation90.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRotation90ToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

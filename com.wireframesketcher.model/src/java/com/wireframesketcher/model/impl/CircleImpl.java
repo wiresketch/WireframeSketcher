@@ -30,6 +30,7 @@ import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextAlignmentSupport;
 import com.wireframesketcher.model.ResizeMode;
@@ -47,6 +48,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#isBorder <em>Border</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getIconPosition <em>Icon Position</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CircleImpl#getLink <em>Link</em>}</li>
@@ -157,6 +159,26 @@ public class CircleImpl extends WidgetImpl implements Circle {
 	 * @ordered
 	 */
 	protected IconDesc icon = ICON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ICON_ROTATION_EDEFAULT = Rotation90._0;
+
+	/**
+	 * The cached value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 iconRotation = ICON_ROTATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getIconPosition() <em>Icon Position</em>}' attribute.
@@ -378,6 +400,27 @@ public class CircleImpl extends WidgetImpl implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getIconRotation() {
+		return iconRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconRotation(Rotation90 newIconRotation) {
+		Rotation90 oldIconRotation = iconRotation;
+		iconRotation = newIconRotation == null ? ICON_ROTATION_EDEFAULT : newIconRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CIRCLE__ICON_ROTATION, oldIconRotation, iconRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Position getIconPosition() {
 		return iconPosition;
 	}
@@ -532,6 +575,8 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				return isBorder();
 			case ModelPackage.CIRCLE__ICON:
 				return getIcon();
+			case ModelPackage.CIRCLE__ICON_ROTATION:
+				return getIconRotation();
 			case ModelPackage.CIRCLE__ICON_POSITION:
 				return getIconPosition();
 			case ModelPackage.CIRCLE__FONT:
@@ -568,6 +613,9 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				return;
 			case ModelPackage.CIRCLE__ICON:
 				setIcon((IconDesc)newValue);
+				return;
+			case ModelPackage.CIRCLE__ICON_ROTATION:
+				setIconRotation((Rotation90)newValue);
 				return;
 			case ModelPackage.CIRCLE__ICON_POSITION:
 				setIconPosition((Position)newValue);
@@ -611,6 +659,9 @@ public class CircleImpl extends WidgetImpl implements Circle {
 			case ModelPackage.CIRCLE__ICON:
 				setIcon(ICON_EDEFAULT);
 				return;
+			case ModelPackage.CIRCLE__ICON_ROTATION:
+				setIconRotation(ICON_ROTATION_EDEFAULT);
+				return;
 			case ModelPackage.CIRCLE__ICON_POSITION:
 				setIconPosition(ICON_POSITION_EDEFAULT);
 				return;
@@ -648,6 +699,8 @@ public class CircleImpl extends WidgetImpl implements Circle {
 				return border != BORDER_EDEFAULT;
 			case ModelPackage.CIRCLE__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+			case ModelPackage.CIRCLE__ICON_ROTATION:
+				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.CIRCLE__ICON_POSITION:
 				return iconPosition != ICON_POSITION_EDEFAULT;
 			case ModelPackage.CIRCLE__FONT:
@@ -696,6 +749,7 @@ public class CircleImpl extends WidgetImpl implements Circle {
 		if (baseClass == IconSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.CIRCLE__ICON: return ModelPackage.ICON_SUPPORT__ICON;
+				case ModelPackage.CIRCLE__ICON_ROTATION: return ModelPackage.ICON_SUPPORT__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -766,6 +820,7 @@ public class CircleImpl extends WidgetImpl implements Circle {
 		if (baseClass == IconSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ICON_SUPPORT__ICON: return ModelPackage.CIRCLE__ICON;
+				case ModelPackage.ICON_SUPPORT__ICON_ROTATION: return ModelPackage.CIRCLE__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -822,6 +877,8 @@ public class CircleImpl extends WidgetImpl implements Circle {
 		result.append(border);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", iconRotation: ");
+		result.append(iconRotation);
 		result.append(", iconPosition: ");
 		result.append(iconPosition);
 		result.append(", link: ");

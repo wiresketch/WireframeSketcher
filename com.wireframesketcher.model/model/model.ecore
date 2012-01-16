@@ -396,6 +396,11 @@
         <details key="documentation" value="Icon. Format &quot;icon-name (icon-size)&quot;. Icon size values are small, medium, large and xlarge."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconRotation" eType="#//Rotation90">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Rotation in degrees in 90° increments"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HSplitter" eSuperTypes="#//Widget"/>
   <eClassifiers xsi:type="ecore:EClass" name="VSplitter" eSuperTypes="#//Widget"/>
@@ -554,18 +559,24 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RotationSupport" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotation" eType="#//Rotation90">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Rotation in degrees from 0 to 360"/>
+        <details key="documentation" value="Rotation in degrees in 90° increments"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SVGImage" eSuperTypes="#//Widget #//LinkSupport #//ColorBackgroundSupport #//ColorForegroundSupport #//ColorAlphaSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="SVGImage" eSuperTypes="#//Widget #//LinkSupport #//ColorBackgroundSupport #//ColorForegroundSupport #//ColorAlphaSupport #//RotationSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" eType="#//URIDataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Image source file path. Can be absolute or relative."/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Rotation90">
+    <eLiterals name="_0" literal="0"/>
+    <eLiterals name="_90" value="90" literal="90"/>
+    <eLiterals name="_180" value="180" literal="180"/>
+    <eLiterals name="_270" value="270" literal="270"/>
   </eClassifiers>
   <eSubpackages name="story" nsURI="http://wireframesketcher.com/1.0/model/story"
       nsPrefix="story">

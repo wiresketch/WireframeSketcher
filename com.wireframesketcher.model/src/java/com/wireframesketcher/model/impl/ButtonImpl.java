@@ -22,6 +22,7 @@ import com.wireframesketcher.model.IconSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.StateSupport;
 import com.wireframesketcher.model.TextAlignment;
@@ -44,6 +45,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getStyle <em>Style</em>}</li>
@@ -122,6 +124,26 @@ public class ButtonImpl extends WidgetImpl implements Button {
 	 * @ordered
 	 */
 	protected IconDesc icon = ICON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ICON_ROTATION_EDEFAULT = Rotation90._0;
+
+	/**
+	 * The cached value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 iconRotation = ICON_ROTATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLink() <em>Link</em>}' attribute.
@@ -314,6 +336,27 @@ public class ButtonImpl extends WidgetImpl implements Button {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getIconRotation() {
+		return iconRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconRotation(Rotation90 newIconRotation) {
+		Rotation90 oldIconRotation = iconRotation;
+		iconRotation = newIconRotation == null ? ICON_ROTATION_EDEFAULT : newIconRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BUTTON__ICON_ROTATION, oldIconRotation, iconRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getLink() {
 		return link;
 	}
@@ -410,6 +453,8 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				return getFont();
 			case ModelPackage.BUTTON__ICON:
 				return getIcon();
+			case ModelPackage.BUTTON__ICON_ROTATION:
+				return getIconRotation();
 			case ModelPackage.BUTTON__LINK:
 				return getLink();
 			case ModelPackage.BUTTON__TEXT_ALIGNMENT:
@@ -439,6 +484,9 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				return;
 			case ModelPackage.BUTTON__ICON:
 				setIcon((IconDesc)newValue);
+				return;
+			case ModelPackage.BUTTON__ICON_ROTATION:
+				setIconRotation((Rotation90)newValue);
 				return;
 			case ModelPackage.BUTTON__LINK:
 				setLink((URI)newValue);
@@ -473,6 +521,9 @@ public class ButtonImpl extends WidgetImpl implements Button {
 			case ModelPackage.BUTTON__ICON:
 				setIcon(ICON_EDEFAULT);
 				return;
+			case ModelPackage.BUTTON__ICON_ROTATION:
+				setIconRotation(ICON_ROTATION_EDEFAULT);
+				return;
 			case ModelPackage.BUTTON__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
@@ -502,6 +553,8 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				return font != null;
 			case ModelPackage.BUTTON__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+			case ModelPackage.BUTTON__ICON_ROTATION:
+				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.BUTTON__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case ModelPackage.BUTTON__TEXT_ALIGNMENT:
@@ -540,6 +593,7 @@ public class ButtonImpl extends WidgetImpl implements Button {
 		if (baseClass == IconSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.BUTTON__ICON: return ModelPackage.ICON_SUPPORT__ICON;
+				case ModelPackage.BUTTON__ICON_ROTATION: return ModelPackage.ICON_SUPPORT__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -586,6 +640,7 @@ public class ButtonImpl extends WidgetImpl implements Button {
 		if (baseClass == IconSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ICON_SUPPORT__ICON: return ModelPackage.BUTTON__ICON;
+				case ModelPackage.ICON_SUPPORT__ICON_ROTATION: return ModelPackage.BUTTON__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -620,6 +675,8 @@ public class ButtonImpl extends WidgetImpl implements Button {
 		result.append(background);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", iconRotation: ");
+		result.append(iconRotation);
 		result.append(", link: ");
 		result.append(link);
 		result.append(", textAlignment: ");

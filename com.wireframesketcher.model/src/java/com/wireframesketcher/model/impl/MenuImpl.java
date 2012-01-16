@@ -13,6 +13,7 @@ import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.Menu;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.SelectionSupport;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getSelection <em>Selection</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
@@ -79,6 +81,24 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * @ordered
 	 */
 	protected IconDesc icon = ICON_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Rotation90 ICON_ROTATION_EDEFAULT = Rotation90._0;
+	/**
+	 * The cached value of the '{@link #getIconRotation() <em>Icon Rotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconRotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Rotation90 iconRotation = ICON_ROTATION_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -156,6 +176,27 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Rotation90 getIconRotation() {
+		return iconRotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconRotation(Rotation90 newIconRotation) {
+		Rotation90 oldIconRotation = iconRotation;
+		iconRotation = newIconRotation == null ? ICON_ROTATION_EDEFAULT : newIconRotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MENU__ICON_ROTATION, oldIconRotation, iconRotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Item> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.MENU__ITEMS);
@@ -189,6 +230,8 @@ public class MenuImpl extends WidgetImpl implements Menu {
 				return getSelection();
 			case ModelPackage.MENU__ICON:
 				return getIcon();
+			case ModelPackage.MENU__ICON_ROTATION:
+				return getIconRotation();
 			case ModelPackage.MENU__ITEMS:
 				return getItems();
 		}
@@ -209,6 +252,9 @@ public class MenuImpl extends WidgetImpl implements Menu {
 				return;
 			case ModelPackage.MENU__ICON:
 				setIcon((IconDesc)newValue);
+				return;
+			case ModelPackage.MENU__ICON_ROTATION:
+				setIconRotation((Rotation90)newValue);
 				return;
 			case ModelPackage.MENU__ITEMS:
 				getItems().clear();
@@ -232,6 +278,9 @@ public class MenuImpl extends WidgetImpl implements Menu {
 			case ModelPackage.MENU__ICON:
 				setIcon(ICON_EDEFAULT);
 				return;
+			case ModelPackage.MENU__ICON_ROTATION:
+				setIconRotation(ICON_ROTATION_EDEFAULT);
+				return;
 			case ModelPackage.MENU__ITEMS:
 				getItems().clear();
 				return;
@@ -251,6 +300,8 @@ public class MenuImpl extends WidgetImpl implements Menu {
 				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
 			case ModelPackage.MENU__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
+			case ModelPackage.MENU__ICON_ROTATION:
+				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.MENU__ITEMS:
 				return items != null && !items.isEmpty();
 		}
@@ -273,6 +324,7 @@ public class MenuImpl extends WidgetImpl implements Menu {
 		if (baseClass == IconSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.MENU__ICON: return ModelPackage.ICON_SUPPORT__ICON;
+				case ModelPackage.MENU__ICON_ROTATION: return ModelPackage.ICON_SUPPORT__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -301,6 +353,7 @@ public class MenuImpl extends WidgetImpl implements Menu {
 		if (baseClass == IconSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ICON_SUPPORT__ICON: return ModelPackage.MENU__ICON;
+				case ModelPackage.ICON_SUPPORT__ICON_ROTATION: return ModelPackage.MENU__ICON_ROTATION;
 				default: return -1;
 			}
 		}
@@ -327,6 +380,8 @@ public class MenuImpl extends WidgetImpl implements Menu {
 		result.append(selection);
 		result.append(", icon: ");
 		result.append(icon);
+		result.append(", iconRotation: ");
+		result.append(iconRotation);
 		result.append(')');
 		return result.toString();
 	}

@@ -536,13 +536,22 @@ public interface ModelPackage extends EPackage {
 	int BUTTON__ICON = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__ICON_ROTATION = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON__LINK = WIDGET_FEATURE_COUNT + 4;
+	int BUTTON__LINK = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
@@ -551,7 +560,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 5;
+	int BUTTON__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
@@ -560,7 +569,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON__STYLE = WIDGET_FEATURE_COUNT + 6;
+	int BUTTON__STYLE = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Button</em>' class.
@@ -569,7 +578,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+	int BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.CheckboxImpl <em>Checkbox</em>}' class.
@@ -1097,13 +1106,22 @@ public interface ModelPackage extends EPackage {
 	int LABEL__ICON = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ICON_ROTATION = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Icon Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ICON_POSITION = WIDGET_FEATURE_COUNT + 5;
+	int LABEL__ICON_POSITION = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -1112,7 +1130,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__LINK = WIDGET_FEATURE_COUNT + 6;
+	int LABEL__LINK = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
@@ -1121,7 +1139,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL__ROTATION = WIDGET_FEATURE_COUNT + 7;
+	int LABEL__ROTATION = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Label</em>' class.
@@ -1130,7 +1148,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
+	int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LinkImpl <em>Link</em>}' class.
@@ -3770,13 +3788,22 @@ public interface ModelPackage extends EPackage {
 	int MENU__ICON = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__ICON_ROTATION = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU__ITEMS = WIDGET_FEATURE_COUNT + 2;
+	int MENU__ITEMS = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Menu</em>' class.
@@ -3785,7 +3812,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int MENU_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4382,13 +4409,22 @@ public interface ModelPackage extends EPackage {
 	int ICON__ICON = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICON__ICON_ROTATION = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICON__LINK = WIDGET_FEATURE_COUNT + 2;
+	int ICON__LINK = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Icon</em>' class.
@@ -4397,7 +4433,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int ICON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9058,13 +9094,22 @@ public interface ModelPackage extends EPackage {
 	int ICON_SUPPORT__ICON = 0;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICON_SUPPORT__ICON_ROTATION = 1;
+
+	/**
 	 * The number of structural features of the '<em>Icon Support</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICON_SUPPORT_FEATURE_COUNT = 1;
+	int ICON_SUPPORT_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10243,13 +10288,22 @@ public interface ModelPackage extends EPackage {
 	int CIRCLE__ICON = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCLE__ICON_ROTATION = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Icon Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE__ICON_POSITION = WIDGET_FEATURE_COUNT + 5;
+	int CIRCLE__ICON_POSITION = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -10258,7 +10312,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE__FONT = WIDGET_FEATURE_COUNT + 6;
+	int CIRCLE__FONT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -10267,7 +10321,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE__LINK = WIDGET_FEATURE_COUNT + 7;
+	int CIRCLE__LINK = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
@@ -10276,7 +10330,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 8;
+	int CIRCLE__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
@@ -10285,7 +10339,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE__LINE_STYLE = WIDGET_FEATURE_COUNT + 9;
+	int CIRCLE__LINE_STYLE = WIDGET_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Circle</em>' class.
@@ -10294,7 +10348,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CIRCLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
+	int CIRCLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -10478,13 +10532,22 @@ public interface ModelPackage extends EPackage {
 	int RECTANGLE__ICON = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__ICON_ROTATION = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Icon Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECTANGLE__ICON_POSITION = WIDGET_FEATURE_COUNT + 5;
+	int RECTANGLE__ICON_POSITION = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -10493,7 +10556,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECTANGLE__FONT = WIDGET_FEATURE_COUNT + 6;
+	int RECTANGLE__FONT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -10502,7 +10565,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECTANGLE__LINK = WIDGET_FEATURE_COUNT + 7;
+	int RECTANGLE__LINK = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
@@ -10511,7 +10574,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECTANGLE__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 8;
+	int RECTANGLE__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Rectangle</em>' class.
@@ -10520,7 +10583,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECTANGLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
+	int RECTANGLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.IconPositionSupport <em>Icon Position Support</em>}' class.
@@ -10540,6 +10603,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ICON_POSITION_SUPPORT__ICON = ICON_SUPPORT__ICON;
+
+	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICON_POSITION_SUPPORT__ICON_ROTATION = ICON_SUPPORT__ICON_ROTATION;
 
 	/**
 	 * The feature id for the '<em><b>Icon Position</b></em>' attribute.
@@ -11481,13 +11553,22 @@ public interface ModelPackage extends EPackage {
 	int SVG_IMAGE__ALPHA = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__ROTATION = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Src</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SVG_IMAGE__SRC = WIDGET_FEATURE_COUNT + 4;
+	int SVG_IMAGE__SRC = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>SVG Image</em>' class.
@@ -11496,7 +11577,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
@@ -11601,6 +11682,16 @@ public interface ModelPackage extends EPackage {
 	int LINE_STYLE = 97;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.Rotation90
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
+	 * @generated
+	 */
+	int ROTATION90 = 98;
+
+	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11608,7 +11699,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 98;
+	int ICON_DATA_TYPE = 99;
 
 
 	/**
@@ -11619,7 +11710,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 99;
+	int FONT_SIZE_DATA_TYPE = 100;
 
 
 	/**
@@ -11630,7 +11721,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 100;
+	int COLOR_DATA_TYPE = 101;
 
 
 	/**
@@ -11641,7 +11732,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 101;
+	int URI_DATA_TYPE = 102;
 
 
 	/**
@@ -12877,6 +12968,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getIconSupport_Icon();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.IconSupport#getIconRotation <em>Icon Rotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icon Rotation</em>'.
+	 * @see com.wireframesketcher.model.IconSupport#getIconRotation()
+	 * @see #getIconSupport()
+	 * @generated
+	 */
+	EAttribute getIconSupport_IconRotation();
+
+	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.ValueSupport <em>Value Support</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13547,6 +13649,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getLineStyle();
+
+	/**
+	 * Returns the meta object for enum '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Rotation90</em>'.
+	 * @see com.wireframesketcher.model.Rotation90
+	 * @generated
+	 */
+	EEnum getRotation90();
 
 	/**
 	 * Returns the meta object for data type '{@link com.wireframesketcher.model.IconDesc <em>Icon Data Type</em>}'.
@@ -14661,6 +14773,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute ICON_SUPPORT__ICON = eINSTANCE.getIconSupport_Icon();
 
 		/**
+		 * The meta object literal for the '<em><b>Icon Rotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ICON_SUPPORT__ICON_ROTATION = eINSTANCE.getIconSupport_IconRotation();
+
+		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.HSplitterImpl <em>HSplitter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15265,6 +15385,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum LINE_STYLE = eINSTANCE.getLineStyle();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.Rotation90
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
+		 * @generated
+		 */
+		EEnum ROTATION90 = eINSTANCE.getRotation90();
 
 		/**
 		 * The meta object literal for the '<em>Icon Data Type</em>' data type.

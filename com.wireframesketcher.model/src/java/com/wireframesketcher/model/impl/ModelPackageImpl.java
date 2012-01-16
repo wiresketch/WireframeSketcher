@@ -82,6 +82,7 @@ import com.wireframesketcher.model.ProgressBar;
 import com.wireframesketcher.model.RadioButton;
 import com.wireframesketcher.model.Rectangle;
 import com.wireframesketcher.model.ResizeMode;
+import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.RotationSupport;
 import com.wireframesketcher.model.RulerGuide;
 import com.wireframesketcher.model.SVGImage;
@@ -815,6 +816,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EEnum lineStyleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum rotation90EEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1971,6 +1979,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIconSupport_IconRotation() {
+		return (EAttribute)iconSupportEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHSplitter() {
 		return hSplitterEClass;
 	}
@@ -2556,6 +2573,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRotation90() {
+		return rotation90EEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getIconDataType() {
 		return iconDataTypeEDataType;
 	}
@@ -2806,6 +2832,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		iconSupportEClass = createEClass(ICON_SUPPORT);
 		createEAttribute(iconSupportEClass, ICON_SUPPORT__ICON);
+		createEAttribute(iconSupportEClass, ICON_SUPPORT__ICON_ROTATION);
 
 		hSplitterEClass = createEClass(HSPLITTER);
 
@@ -2886,6 +2913,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		chartTypeEEnum = createEEnum(CHART_TYPE);
 		themeEEnum = createEEnum(THEME);
 		lineStyleEEnum = createEEnum(LINE_STYLE);
+		rotation90EEnum = createEEnum(ROTATION90);
 
 		// Create data types
 		iconDataTypeEDataType = createEDataType(ICON_DATA_TYPE);
@@ -3165,6 +3193,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		svgImageEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		svgImageEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		svgImageEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		svgImageEClass.getESuperTypes().add(this.getRotationSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3361,6 +3390,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(iconSupportEClass, IconSupport.class, "IconSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIconSupport_Icon(), this.getIconDataType(), "icon", "", 0, 1, IconSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIconSupport_IconRotation(), this.getRotation90(), "iconRotation", null, 0, 1, IconSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hSplitterEClass, HSplitter.class, "HSplitter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3425,7 +3455,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getLineStyleSupport_LineStyle(), this.getLineStyle(), "lineStyle", "solid", 0, 1, LineStyleSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rotationSupportEClass, RotationSupport.class, "RotationSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRotationSupport_Rotation(), ecorePackage.getEInt(), "rotation", null, 0, 1, RotationSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRotationSupport_Rotation(), this.getRotation90(), "rotation", null, 0, 1, RotationSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(svgImageEClass, SVGImage.class, "SVGImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSVGImage_Src(), this.getURIDataType(), "src", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3491,6 +3521,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(lineStyleEEnum, LineStyle.SOLID);
 		addEEnumLiteral(lineStyleEEnum, LineStyle.DOTTED);
 		addEEnumLiteral(lineStyleEEnum, LineStyle.DASHED);
+
+		initEEnum(rotation90EEnum, Rotation90.class, "Rotation90");
+		addEEnumLiteral(rotation90EEnum, Rotation90._0);
+		addEEnumLiteral(rotation90EEnum, Rotation90._90);
+		addEEnumLiteral(rotation90EEnum, Rotation90._180);
+		addEEnumLiteral(rotation90EEnum, Rotation90._270);
 
 		// Initialize data types
 		initEDataType(iconDataTypeEDataType, IconDesc.class, "IconDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
