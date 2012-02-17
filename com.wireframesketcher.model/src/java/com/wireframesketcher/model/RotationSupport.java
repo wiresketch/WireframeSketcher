@@ -31,7 +31,7 @@ public interface RotationSupport extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Rotation in degrees in 90° increments
+	 * Rotation in degrees in 90 degree increments
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rotation</em>' attribute.
 	 * @see com.wireframesketcher.model.Rotation90
