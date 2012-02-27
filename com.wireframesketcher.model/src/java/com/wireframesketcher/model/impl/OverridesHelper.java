@@ -228,7 +228,7 @@ class OverridesHelper {
 		protected String getRelativeURI(EObject object) {
 			String uri = getURI(object);
 			String containerUri = getURI(object.eContainer());
-			if (uri.startsWith(containerUri)) {
+			if (uri.startsWith("/") && uri.startsWith(containerUri)) {
 				uri = uri.substring(containerUri.length());
 				if (uri.length() == 0)
 					uri = null;
@@ -268,20 +268,23 @@ class OverridesHelper {
 			}
 		}
 
-		protected String getAbsoluteURI(Reference ref) {
+		protected String getAbsoluteURI(EObject container, Reference ref) {
 			String uri = ref.getRef();
 			if (uri == null)
 				return null;
 
-			if (uri.startsWith("/"))
-				uri = getLeftURI() + uri;
+			if (uri.startsWith("/")) {
+				String containerUri = container == leftRoot ? getLeftURI()
+						: getURI(container);
+				uri = containerUri + uri;
+			}
 			return uri;
 		}
 
 		protected String getWidgetURI(Widget widget) {
 			String uri = getURI(widget);
 			String leftUri = getLeftURI();
-			if (uri.startsWith(leftUri)) {
+			if (uri.startsWith("/") && uri.startsWith(leftUri)) {
 				uri = uri.substring(leftUri.length());
 				if (uri.length() == 0)
 					uri = null;
@@ -373,7 +376,7 @@ class OverridesHelper {
 				WidgetContainer right) {
 			EList<Widget> leftValue = left.getWidgets();
 			EList<Widget> rightValue = right.getWidgets();
-			if (leftValue.size() != 0 && rightValue.size() != 0) {
+			if (leftValue.size() != 0 || rightValue.size() != 0) {
 				Widget[] leftAry = leftValue.toArray(new Widget[leftValue
 						.size()]);
 				Widget[] rightAry = rightValue.toArray(new Widget[rightValue
@@ -815,7 +818,7 @@ class OverridesHelper {
 				return;
 
 			for (WidgetOverrides widgetOverrides : overrides.getWidgets()) {
-				String uri = getAbsoluteURI(widgetOverrides);
+				String uri = getAbsoluteURI(leftRoot, widgetOverrides);
 
 				EObject eObject = getObjectForURI(uri);
 				if (!(eObject instanceof Widget))
@@ -854,7 +857,8 @@ class OverridesHelper {
 			for (Operation operation : overrides.getWidgetChanges()) {
 				if (operation instanceof Delete) {
 					Delete delete = (Delete) operation;
-					EObject eObject = getObjectForURI(getAbsoluteURI(delete));
+					EObject eObject = getObjectForURI(getAbsoluteURI(left,
+							delete));
 					if (!(eObject instanceof Widget))
 						continue;
 
@@ -864,7 +868,7 @@ class OverridesHelper {
 				} else if (operation instanceof Move) {
 					Move move = (Move) operation;
 
-					EObject eObject = getObjectForURI(getAbsoluteURI(move));
+					EObject eObject = getObjectForURI(getAbsoluteURI(left, move));
 					if (!(eObject instanceof Widget))
 						continue;
 
