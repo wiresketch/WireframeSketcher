@@ -11706,7 +11706,7 @@ public interface ModelPackage extends EPackage {
 	 * The meta object id for the '<em>Font Size Data Type</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Integer
+	 * @see com.wireframesketcher.model.FontSize
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
@@ -13672,12 +13672,12 @@ public interface ModelPackage extends EPackage {
 	EDataType getIconDataType();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Integer <em>Font Size Data Type</em>}'.
+	 * Returns the meta object for data type '{@link com.wireframesketcher.model.FontSize <em>Font Size Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Font Size Data Type</em>'.
-	 * @see java.lang.Integer
-	 * @model instanceClass="java.lang.Integer"
+	 * @see com.wireframesketcher.model.FontSize
+	 * @model instanceClass="com.wireframesketcher.model.FontSize"
 	 * @generated
 	 */
 	EDataType getFontSizeDataType();
@@ -15410,7 +15410,7 @@ public interface ModelPackage extends EPackage {
 		 * The meta object literal for the '<em>Font Size Data Type</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Integer
+		 * @see com.wireframesketcher.model.FontSize
 		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 		 * @generated
 		 */

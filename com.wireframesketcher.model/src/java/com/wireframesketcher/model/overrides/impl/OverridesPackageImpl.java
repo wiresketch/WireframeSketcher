@@ -275,7 +275,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidgetOverrides_Src() {
+	public EAttribute getWidgetOverrides_NoLink() {
 		return (EAttribute)widgetOverridesEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -284,8 +284,8 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_Attributes() {
-		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(7);
+	public EAttribute getWidgetOverrides_Src() {
+		return (EAttribute)widgetOverridesEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -293,7 +293,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_Font() {
+	public EReference getWidgetOverrides_Attributes() {
 		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -302,7 +302,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_Items() {
+	public EReference getWidgetOverrides_Font() {
 		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -311,8 +311,17 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_ItemChanges() {
+	public EReference getWidgetOverrides_Items() {
 		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWidgetOverrides_ItemChanges() {
+		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -385,6 +394,15 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 */
 	public EAttribute getItemOverrides_Link() {
 		return (EAttribute)itemOverridesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getItemOverrides_NoLink() {
+		return (EAttribute)itemOverridesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -551,6 +569,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__HEIGHT);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__TEXT);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__LINK);
+		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__NO_LINK);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__SRC);
 		createEReference(widgetOverridesEClass, WIDGET_OVERRIDES__ATTRIBUTES);
 		createEReference(widgetOverridesEClass, WIDGET_OVERRIDES__FONT);
@@ -566,6 +585,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 		itemOverridesEClass = createEClass(ITEM_OVERRIDES);
 		createEAttribute(itemOverridesEClass, ITEM_OVERRIDES__TEXT);
 		createEAttribute(itemOverridesEClass, ITEM_OVERRIDES__LINK);
+		createEAttribute(itemOverridesEClass, ITEM_OVERRIDES__NO_LINK);
 
 		stringToStringMapEClass = createEClass(STRING_TO_STRING_MAP);
 		createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__KEY);
@@ -641,6 +661,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 		initEAttribute(getWidgetOverrides_Height(), ecorePackage.getEIntegerObject(), "height", "-1", 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Text(), ecorePackage.getEString(), "text", "", 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Link(), theModelPackage.getURIDataType(), "link", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidgetOverrides_NoLink(), ecorePackage.getEBoolean(), "noLink", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Src(), theModelPackage.getURIDataType(), "src", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidgetOverrides_Attributes(), this.getStringToStringMap(), null, "attributes", null, 0, -1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWidgetOverrides_Font(), this.getFontOverrides(), null, "font", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -656,6 +677,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 		initEClass(itemOverridesEClass, ItemOverrides.class, "ItemOverrides", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getItemOverrides_Text(), ecorePackage.getEString(), "text", "", 0, 1, ItemOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItemOverrides_Link(), theModelPackage.getURIDataType(), "link", null, 0, 1, ItemOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItemOverrides_NoLink(), ecorePackage.getEBoolean(), "noLink", null, 0, 1, ItemOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToStringMapEClass, Map.Entry.class, "StringToStringMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToStringMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

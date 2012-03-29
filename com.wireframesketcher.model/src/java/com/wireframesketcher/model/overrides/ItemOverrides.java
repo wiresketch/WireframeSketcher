@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.overrides.ItemOverrides#getText <em>Text</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.ItemOverrides#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.overrides.ItemOverrides#isNoLink <em>No Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,4 +80,29 @@ public interface ItemOverrides extends Reference {
 	 * @generated
 	 */
 	void setLink(URI value);
+
+	/**
+	 * Returns the value of the '<em><b>No Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that the link is deleted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>No Link</em>' attribute.
+	 * @see #setNoLink(boolean)
+	 * @see com.wireframesketcher.model.overrides.OverridesPackage#getItemOverrides_NoLink()
+	 * @model
+	 * @generated
+	 */
+	boolean isNoLink();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.overrides.ItemOverrides#isNoLink <em>No Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>No Link</em>' attribute.
+	 * @see #isNoLink()
+	 * @generated
+	 */
+	void setNoLink(boolean value);
 } // ItemOverrides

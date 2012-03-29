@@ -40,12 +40,12 @@ public interface Font extends EObject {
 	 * Font size.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Size</em>' attribute.
-	 * @see #setSize(Integer)
+	 * @see #setSize(FontSize)
 	 * @see com.wireframesketcher.model.ModelPackage#getFont_Size()
 	 * @model dataType="com.wireframesketcher.model.FontSizeDataType" required="true"
 	 * @generated
 	 */
-	Integer getSize();
+	FontSize getSize();
 
 	/**
 	 * Sets the value of the '{@link com.wireframesketcher.model.Font#getSize <em>Size</em>}' attribute.
@@ -55,7 +55,7 @@ public interface Font extends EObject {
 	 * @see #getSize()
 	 * @generated
 	 */
-	void setSize(Integer value);
+	void setSize(FontSize value);
 
 	/**
 	 * Returns the value of the '<em><b>Bold</b></em>' attribute.

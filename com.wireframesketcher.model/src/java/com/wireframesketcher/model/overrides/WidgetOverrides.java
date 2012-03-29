@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getHeight <em>Height</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getText <em>Text</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#isNoLink <em>No Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getSrc <em>Src</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getFont <em>Font</em>}</li>
@@ -208,6 +209,31 @@ public interface WidgetOverrides extends WidgetContainerOverrides, Reference {
 	 * @generated
 	 */
 	void setLink(URI value);
+
+	/**
+	 * Returns the value of the '<em><b>No Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that the link is deleted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>No Link</em>' attribute.
+	 * @see #setNoLink(boolean)
+	 * @see com.wireframesketcher.model.overrides.OverridesPackage#getWidgetOverrides_NoLink()
+	 * @model
+	 * @generated
+	 */
+	boolean isNoLink();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.overrides.WidgetOverrides#isNoLink <em>No Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>No Link</em>' attribute.
+	 * @see #isNoLink()
+	 * @generated
+	 */
+	void setNoLink(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Src</b></em>' attribute.

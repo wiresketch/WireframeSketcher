@@ -63,12 +63,12 @@ public interface ScreenFont extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Size</em>' attribute.
-	 * @see #setSize(int)
+	 * @see #setSize(FontSize)
 	 * @see com.wireframesketcher.model.ModelPackage#getScreenFont_Size()
-	 * @model required="true"
+	 * @model dataType="com.wireframesketcher.model.FontSizeDataType" required="true"
 	 * @generated
 	 */
-	int getSize();
+	FontSize getSize();
 
 	/**
 	 * Sets the value of the '{@link com.wireframesketcher.model.ScreenFont#getSize <em>Size</em>}' attribute.
@@ -78,7 +78,7 @@ public interface ScreenFont extends EObject {
 	 * @see #getSize()
 	 * @generated
 	 */
-	void setSize(int value);
+	void setSize(FontSize value);
 
 	/**
 	 * Returns the value of the '<em><b>Bold</b></em>' attribute.

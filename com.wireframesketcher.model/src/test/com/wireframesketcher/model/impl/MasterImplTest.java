@@ -267,4 +267,146 @@ public class MasterImplTest extends TestCase {
 				resetIds((WidgetContainer) widget);
 		}
 	}
+
+	public void testDeleteWidgetLink() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setId(new Long(1));
+		button.setLink(URI.createURI("link.screen"));
+		a.getWidgets().add(button);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		// Remove the link for button
+		((Button) master.getInstance().getWidgets().get(0)).setLink(null);
+
+		Overrides overrides = master.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+
+		WidgetOverrides widgetOverrides = overrides.getWidgets().get(0);
+
+		assertNull(widgetOverrides.getLink());
+		assertTrue(widgetOverrides.isNoLink());
+
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		// Test that the link delete is properly applied
+		assertNull(((Button) master.getInstance().getWidgets().get(0))
+				.getLink());
+
+		((Button) master.getInstance().getWidgets().get(0)).setLink(URI
+				.createURI("link1.screen"));
+		overrides = master.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+
+		widgetOverrides = overrides.getWidgets().get(0);
+
+		assertEquals(URI.createURI("link1.screen"), widgetOverrides.getLink());
+		assertFalse(widgetOverrides.isNoLink());
+
+		((Button) master.getInstance().getWidgets().get(0)).setLink(URI
+				.createURI("link.screen"));
+		overrides = master.getOverrides();
+		assertNull(overrides);
+	}
+
+	public void testDeleteItemLink() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		ButtonBar buttonBar = ModelFactory.eINSTANCE.createButtonBar();
+		buttonBar.setId(new Long(1));
+		buttonBar.setX(10);
+		buttonBar.setY(0);
+		buttonBar.setText("Item1,Item2,Item3");
+		Item item1 = ModelFactory.eINSTANCE.createItem();
+		item1.setText("Item1");
+		item1.setLink(URI.createURI("link1.screen"));
+		buttonBar.getItems().add(item1);
+		Item item2 = ModelFactory.eINSTANCE.createItem();
+		item2.setText("Item2");
+		item2.setLink(URI.createURI("link2.screen"));
+		buttonBar.getItems().add(item2);
+		Item item3 = ModelFactory.eINSTANCE.createItem();
+		item3.setText("Item3");
+		item3.setLink(URI.createURI("link3.screen"));
+		buttonBar.getItems().add(item3);
+		a.getWidgets().add(buttonBar);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		ButtonBar buttonBarInstance = (ButtonBar) master.getInstance()
+				.getWidgets().get(0);
+
+		// Remove the link for button
+		buttonBarInstance.getItems().get(1).setLink(null);
+
+		Overrides overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals(1, wo.getItems().size());
+		ItemOverrides io = wo.getItems().get(0);
+		assertEquals("@items.1", io.getRef());
+		assertNull(io.getLink());
+		assertTrue(io.isNoLink());
+
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		buttonBarInstance = (ButtonBar) master.getInstance().getWidgets()
+				.get(0);
+
+		// Test that the link delete is properly applied
+		assertNull(buttonBarInstance.getItems().get(1).getLink());
+
+		buttonBarInstance.getItems().get(1).setLink(
+				URI.createURI("link1.screen"));
+
+		overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals(1, wo.getItems().size());
+		io = wo.getItems().get(0);
+		assertEquals("@items.1", io.getRef());
+		assertEquals(URI.createURI("link1.screen"), io.getLink());
+		assertFalse(io.isNoLink());
+
+		buttonBarInstance.getItems().get(1).setLink(
+				URI.createURI("link2.screen"));
+
+		overrides = master.getOverrides();
+
+		assertNull(overrides);
+	}
 }

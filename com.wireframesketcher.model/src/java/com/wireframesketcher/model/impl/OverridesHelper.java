@@ -522,6 +522,10 @@ class OverridesHelper {
 						throw new IllegalStateException();
 
 					ItemOverrides o = getItemOverrides(leftItem);
+
+					if (feature == OverridesPackage.Literals.ITEM_OVERRIDES__LINK)
+						o.setNoLink(rightValue == null);
+
 					o.eSet(feature, rightValue);
 				}
 			}
@@ -577,6 +581,9 @@ class OverridesHelper {
 					if (feature != null) {
 						if (!(feature instanceof EAttribute))
 							throw new IllegalStateException();
+
+						if (feature == OverridesPackage.Literals.WIDGET_OVERRIDES__LINK)
+							o.setNoLink(rightValue == null);
 
 						o.eSet(feature, rightValue);
 					} else {
@@ -674,6 +681,8 @@ class OverridesHelper {
 
 				if (!eq(leftValue, rightValue)) {
 					if (f != null) {
+						if (f == OverridesPackage.Literals.WIDGET_OVERRIDES__LINK)
+							widgetOverrides.setNoLink(rightValue == null);
 						widgetOverrides.eSet(f, rightValue);
 					} else {
 						widgetOverrides.getAttributes().put(
@@ -683,6 +692,8 @@ class OverridesHelper {
 					}
 				} else {
 					if (f != null) {
+						if (f == OverridesPackage.Literals.WIDGET_OVERRIDES__LINK)
+							widgetOverrides.setNoLink(false);
 						widgetOverrides.eUnset(f);
 					} else {
 						widgetOverrides.getAttributes().remove(
@@ -738,8 +749,13 @@ class OverridesHelper {
 					throw new IllegalStateException();
 
 				if (!eq(leftValue, rightValue)) {
+					if (f == OverridesPackage.Literals.ITEM_OVERRIDES__LINK)
+						itemOverrides.setNoLink(rightValue == null);
+
 					itemOverrides.eSet(f, rightValue);
 				} else {
+					if (f == OverridesPackage.Literals.ITEM_OVERRIDES__LINK)
+						itemOverrides.setNoLink(false);
 					itemOverrides.eUnset(f);
 				}
 
@@ -972,12 +988,30 @@ class OverridesHelper {
 				if (!objectOverrides.eIsSet(eAttribute))
 					continue;
 
-				EStructuralFeature feature = eClass
-						.getEStructuralFeature(eAttribute.getName());
-				if (!(feature instanceof EAttribute))
-					continue;
+				if (eAttribute == OverridesPackage.Literals.WIDGET_OVERRIDES__NO_LINK) {
+					EStructuralFeature feature = eClass
+							.getEStructuralFeature(OverridesPackage.Literals.WIDGET_OVERRIDES__LINK
+									.getName());
+					if (!(feature instanceof EAttribute))
+						continue;
 
-				object.eSet(feature, objectOverrides.eGet(eAttribute));
+					object.eUnset(feature);
+				} else if (eAttribute == OverridesPackage.Literals.ITEM_OVERRIDES__NO_LINK) {
+					EStructuralFeature feature = eClass
+							.getEStructuralFeature(OverridesPackage.Literals.ITEM_OVERRIDES__LINK
+									.getName());
+					if (!(feature instanceof EAttribute))
+						continue;
+
+					object.eUnset(feature);
+				} else {
+					EStructuralFeature feature = eClass
+							.getEStructuralFeature(eAttribute.getName());
+					if (!(feature instanceof EAttribute))
+						continue;
+
+					object.eSet(feature, objectOverrides.eGet(eAttribute));
+				}
 			}
 		}
 

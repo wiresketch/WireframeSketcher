@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.ItemOverridesImpl#getText <em>Text</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.ItemOverridesImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.overrides.impl.ItemOverridesImpl#isNoLink <em>No Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +69,24 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 	 */
 	protected URI link = LINK_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #isNoLink() <em>No Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNoLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NO_LINK_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isNoLink() <em>No Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNoLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean noLink = NO_LINK_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,6 +153,27 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNoLink() {
+		return noLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNoLink(boolean newNoLink) {
+		boolean oldNoLink = noLink;
+		noLink = newNoLink;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OverridesPackage.ITEM_OVERRIDES__NO_LINK, oldNoLink, noLink));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -141,6 +181,8 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 				return getText();
 			case OverridesPackage.ITEM_OVERRIDES__LINK:
 				return getLink();
+			case OverridesPackage.ITEM_OVERRIDES__NO_LINK:
+				return isNoLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +200,9 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 				return;
 			case OverridesPackage.ITEM_OVERRIDES__LINK:
 				setLink((URI)newValue);
+				return;
+			case OverridesPackage.ITEM_OVERRIDES__NO_LINK:
+				setNoLink((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,6 +222,9 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 			case OverridesPackage.ITEM_OVERRIDES__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
+			case OverridesPackage.ITEM_OVERRIDES__NO_LINK:
+				setNoLink(NO_LINK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +241,8 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			case OverridesPackage.ITEM_OVERRIDES__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
+			case OverridesPackage.ITEM_OVERRIDES__NO_LINK:
+				return noLink != NO_LINK_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,6 +261,8 @@ public class ItemOverridesImpl extends ReferenceImpl implements ItemOverrides {
 		result.append(text);
 		result.append(", link: ");
 		result.append(link);
+		result.append(", noLink: ");
+		result.append(noLink);
 		result.append(')');
 		return result.toString();
 	}

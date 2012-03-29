@@ -44,6 +44,7 @@ import com.wireframesketcher.model.CrossOut;
 import com.wireframesketcher.model.CurlyBrace;
 import com.wireframesketcher.model.DateField;
 import com.wireframesketcher.model.Font;
+import com.wireframesketcher.model.FontSize;
 import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.Group;
 import com.wireframesketcher.model.HLine;
@@ -3321,7 +3322,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(screenFontEClass, ScreenFont.class, "ScreenFont", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScreenFont_Name(), ecorePackage.getEString(), "name", null, 0, 1, ScreenFont.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScreenFont_Size(), ecorePackage.getEInt(), "size", null, 1, 1, ScreenFont.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScreenFont_Size(), this.getFontSizeDataType(), "size", null, 1, 1, ScreenFont.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreenFont_Bold(), ecorePackage.getEBoolean(), "bold", null, 1, 1, ScreenFont.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreenFont_Italic(), ecorePackage.getEBoolean(), "italic", null, 1, 1, ScreenFont.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3530,7 +3531,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Initialize data types
 		initEDataType(iconDataTypeEDataType, IconDesc.class, "IconDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(fontSizeDataTypeEDataType, Integer.class, "FontSizeDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(fontSizeDataTypeEDataType, FontSize.class, "FontSizeDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(colorDataTypeEDataType, ColorDesc.class, "ColorDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(uriDataTypeEDataType, URI.class, "URIDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 

@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.overrides;
 
+import com.wireframesketcher.model.FontSize;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -37,12 +38,12 @@ public interface FontOverrides extends EObject {
 	 * Font size.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Size</em>' attribute.
-	 * @see #setSize(Integer)
+	 * @see #setSize(FontSize)
 	 * @see com.wireframesketcher.model.overrides.OverridesPackage#getFontOverrides_Size()
 	 * @model dataType="com.wireframesketcher.model.FontSizeDataType" required="true"
 	 * @generated
 	 */
-	Integer getSize();
+	FontSize getSize();
 
 	/**
 	 * Sets the value of the '{@link com.wireframesketcher.model.overrides.FontOverrides#getSize <em>Size</em>}' attribute.
@@ -52,7 +53,7 @@ public interface FontOverrides extends EObject {
 	 * @see #getSize()
 	 * @generated
 	 */
-	void setSize(Integer value);
+	void setSize(FontSize value);
 
 	/**
 	 * Returns the value of the '<em><b>Bold</b></em>' attribute.

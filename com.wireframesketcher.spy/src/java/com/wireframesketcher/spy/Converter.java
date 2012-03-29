@@ -12,7 +12,6 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.custom.StyledText;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -24,7 +23,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.CoolBar;
 import org.eclipse.swt.widgets.CoolItem;
 import org.eclipse.swt.widgets.DateTime;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
@@ -52,6 +50,7 @@ import org.eclipse.swt.widgets.TreeItem;
 
 import com.wireframesketcher.model.Checkbox;
 import com.wireframesketcher.model.ColorDesc;
+import com.wireframesketcher.model.FontSize;
 import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.Icon;
 import com.wireframesketcher.model.IconDesc;
@@ -82,25 +81,13 @@ public class Converter {
 
 	private final Screen screen;
 
-	private final Point fontExtents;
-
 	private Point origin = new Point(25, 25);
 
 	public Converter(Shell shell) {
 		this.shell = shell;
 		this.screen = factory.createScreen();
-		this.fontExtents = computeFontExtents(shell.getDisplay(), shell
-				.getDisplay().getSystemFont());
+		this.screen.getFont().setSize(FontSize.inPixels(12));
 		convert(shell);
-	}
-
-	private static Point computeFontExtents(Display display, Font font) {
-		GC gc = new GC(display);
-		try {
-			return gc.textExtent("");
-		} finally {
-			gc.dispose();
-		}
 	}
 
 	private void convert(Control control) {
@@ -163,9 +150,10 @@ public class Converter {
 		widget.setX(origin.x + x);
 		widget.setY(origin.y + y);
 		if ((widget.getDescriptor().getResizeMode().getValue() & ResizeMode.HORIZONTAL) != 0
-				&& !(widget instanceof com.wireframesketcher.model.Label))
+				&& !(widget instanceof com.wireframesketcher.model.Label || widget instanceof Icon))
 			widget.setWidth(width);
-		if ((widget.getDescriptor().getResizeMode().getValue() & ResizeMode.VERTICAL) != 0)
+		if ((widget.getDescriptor().getResizeMode().getValue() & ResizeMode.VERTICAL) != 0
+				&& !(widget instanceof Icon))
 			widget.setHeight(height);
 
 		screen.getWidgets().add(widget);
@@ -490,19 +478,19 @@ public class Converter {
 		}
 
 		boolean checkTable = (control.getStyle() & SWT.CHECK) != 0;
-		
+
 		TableItem[] items = control.getItems();
 		for (int i = 0; i < items.length; i++) {
 			TableItem item = items[i];
 
 			if (isItemVisible(item)) {
-				if(checkTable) {
-					if(item.getChecked())
+				if (checkTable) {
+					if (item.getChecked())
 						content.append("[x] ");
 					else
 						content.append("[ ] ");
 				}
-				
+
 				if (columns.length > 0) {
 					for (int j = 0; j < columns.length; j++) {
 						content.append(item.getText(j));
@@ -549,8 +537,8 @@ public class Converter {
 				&& selection[0].getControl() != null
 				&& selection[0].getControl().isVisible()) {
 			tabs = factory.createTabbedPane();
-			
-			if((control.getStyle() & SWT.BOTTOM) != 0)
+
+			if ((control.getStyle() & SWT.BOTTOM) != 0)
 				((TabbedPane) tabs).setPosition(Position.BOTTOM);
 		} else {
 			tabs = factory.createTabs();
@@ -582,8 +570,8 @@ public class Converter {
 		if (selection != null && selection.getControl() != null
 				&& selection.getControl().isVisible()) {
 			tabs = factory.createTabbedPane();
-			
-			if((control.getStyle() & SWT.BOTTOM) != 0)
+
+			if ((control.getStyle() & SWT.BOTTOM) != 0)
 				((TabbedPane) tabs).setPosition(Position.BOTTOM);
 		} else {
 			tabs = factory.createTabs();
@@ -720,10 +708,6 @@ public class Converter {
 
 			add(textField, control);
 		}
-	}
-
-	private int computeTabsHeight() {
-		return (int) (fontExtents.y * 1.8) - 1;
 	}
 
 	private boolean isItemVisible(TableItem item) {

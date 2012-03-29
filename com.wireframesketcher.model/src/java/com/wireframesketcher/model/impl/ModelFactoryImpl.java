@@ -1125,11 +1125,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Integer createFontSizeDataTypeFromString(EDataType eDataType, String initialValue) {
-		if(initialValue == null || initialValue.length() == 0)
-			return null;
-		
-		return (Integer)super.createFromString(eDataType, initialValue);
+	public FontSize createFontSizeDataTypeFromString(EDataType eDataType, String initialValue) {
+		return FontSize.createFromString(initialValue);
 	}
 
 	/**
@@ -1140,7 +1137,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 		if(instanceValue == null)
 			return "";
 		
-		return super.convertToString(eDataType, instanceValue);
+		return ((FontSize) instanceValue).toString();
 	}
 
 	/**

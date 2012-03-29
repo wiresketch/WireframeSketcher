@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.overrides.impl;
 
+import com.wireframesketcher.model.FontSize;
 import com.wireframesketcher.model.overrides.FontOverrides;
 import com.wireframesketcher.model.overrides.OverridesPackage;
 
@@ -40,7 +41,7 @@ public class FontOverridesImpl extends EObjectImpl implements FontOverrides {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer SIZE_EDEFAULT = null;
+	protected static final FontSize SIZE_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,7 +50,7 @@ public class FontOverridesImpl extends EObjectImpl implements FontOverrides {
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer size = SIZE_EDEFAULT;
+	protected FontSize size = SIZE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getBold() <em>Bold</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -129,7 +130,7 @@ public class FontOverridesImpl extends EObjectImpl implements FontOverrides {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getSize() {
+	public FontSize getSize() {
 		return size;
 	}
 
@@ -138,8 +139,8 @@ public class FontOverridesImpl extends EObjectImpl implements FontOverrides {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSize(Integer newSize) {
-		Integer oldSize = size;
+	public void setSize(FontSize newSize) {
+		FontSize oldSize = size;
 		size = newSize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OverridesPackage.FONT_OVERRIDES__SIZE, oldSize, size));
@@ -237,7 +238,7 @@ public class FontOverridesImpl extends EObjectImpl implements FontOverrides {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case OverridesPackage.FONT_OVERRIDES__SIZE:
-				setSize((Integer)newValue);
+				setSize((FontSize)newValue);
 				return;
 			case OverridesPackage.FONT_OVERRIDES__BOLD:
 				setBold((Boolean)newValue);

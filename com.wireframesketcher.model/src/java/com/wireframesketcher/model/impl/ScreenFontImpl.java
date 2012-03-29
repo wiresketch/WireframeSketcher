@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.FontSize;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ScreenFont;
 
@@ -61,7 +62,7 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int SIZE_EDEFAULT = 0;
+	protected static final FontSize SIZE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
@@ -71,7 +72,7 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 	 * @generated
 	 * @ordered
 	 */
-	protected int size = SIZE_EDEFAULT;
+	protected FontSize size = SIZE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isBold() <em>Bold</em>}' attribute.
@@ -158,7 +159,7 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSize() {
+	public FontSize getSize() {
 		return size;
 	}
 
@@ -167,8 +168,8 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSize(int newSize) {
-		int oldSize = size;
+	public void setSize(FontSize newSize) {
+		FontSize oldSize = size;
 		size = newSize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCREEN_FONT__SIZE, oldSize, size));
@@ -248,7 +249,7 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 				setName((String)newValue);
 				return;
 			case ModelPackage.SCREEN_FONT__SIZE:
-				setSize((Integer)newValue);
+				setSize((FontSize)newValue);
 				return;
 			case ModelPackage.SCREEN_FONT__BOLD:
 				setBold((Boolean)newValue);
@@ -295,7 +296,7 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 			case ModelPackage.SCREEN_FONT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.SCREEN_FONT__SIZE:
-				return size != SIZE_EDEFAULT;
+				return SIZE_EDEFAULT == null ? size != null : !SIZE_EDEFAULT.equals(size);
 			case ModelPackage.SCREEN_FONT__BOLD:
 				return bold != BOLD_EDEFAULT;
 			case ModelPackage.SCREEN_FONT__ITALIC:

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import com.wireframesketcher.model.Font;
+import com.wireframesketcher.model.FontSize;
 import com.wireframesketcher.model.ModelPackage;
 
 /**
@@ -39,7 +40,7 @@ public class FontImpl extends EObjectImpl implements Font {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer SIZE_EDEFAULT = null;
+	protected static final FontSize SIZE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
@@ -49,7 +50,7 @@ public class FontImpl extends EObjectImpl implements Font {
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer size = SIZE_EDEFAULT;
+	protected FontSize size = SIZE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBold() <em>Bold</em>}' attribute.
@@ -135,7 +136,7 @@ public class FontImpl extends EObjectImpl implements Font {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getSize() {
+	public FontSize getSize() {
 		return size;
 	}
 
@@ -144,8 +145,8 @@ public class FontImpl extends EObjectImpl implements Font {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSize(Integer newSize) {
-		Integer oldSize = size;
+	public void setSize(FontSize newSize) {
+		FontSize oldSize = size;
 		size = newSize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FONT__SIZE, oldSize, size));
@@ -243,7 +244,7 @@ public class FontImpl extends EObjectImpl implements Font {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.FONT__SIZE:
-				setSize((Integer)newValue);
+				setSize((FontSize)newValue);
 				return;
 			case ModelPackage.FONT__BOLD:
 				setBold((Boolean)newValue);

@@ -186,7 +186,7 @@
     <eLiterals name="XLarge" value="3" literal="xlarge"/>
     <eLiterals name="Custom" value="4" literal="custom"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="FontSizeDataType" instanceClassName="java.lang.Integer"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FontSizeDataType" instanceClassName="com.wireframesketcher.model.FontSize"/>
   <eClassifiers xsi:type="ecore:EClass" name="Font">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="#//FontSizeDataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -259,7 +259,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScreenFont">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="#//FontSizeDataType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -637,6 +637,11 @@
           <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="noLink" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Indicates that the link is deleted."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" eType="#//URIDataType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Image source file path. Can be absolute or relative."/>
@@ -684,6 +689,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URIDataType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="noLink" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Indicates that the link is deleted."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
