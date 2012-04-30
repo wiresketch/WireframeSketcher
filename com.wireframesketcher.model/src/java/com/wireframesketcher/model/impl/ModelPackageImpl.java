@@ -3008,6 +3008,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		windowEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		browserEClass.getESuperTypes().add(this.getWidget());
 		browserEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
+		browserEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		textEClass.getESuperTypes().add(this.getWidget());
 		textEClass.getESuperTypes().add(this.getFontSupport());
 		textEClass.getESuperTypes().add(this.getTextAlignmentSupport());

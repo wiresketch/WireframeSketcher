@@ -224,6 +224,7 @@ public class ModelSwitch<T> {
 				T result = caseBrowser(browser);
 				if (result == null) result = caseWidget(browser);
 				if (result == null) result = caseVerticalScrollbarSupport(browser);
+				if (result == null) result = caseColorBackgroundSupport(browser);
 				if (result == null) result = caseValueSupport(browser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

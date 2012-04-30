@@ -58,6 +58,10 @@ public class Persister {
 		getSaveOptions().putAll(
 				ModelXMLResourceFactoryImpl.DEFAULT_SAVE_OPTIONS);
 		getSaveOptions().put(XMLResource.OPTION_URI_HANDLER, uriHandler);
+		// Force the use of intermediary buffer on save so that
+		// we don't lose previous data in case of an error
+		getSaveOptions().put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 	}
 
 	public ResourceSet getResourceSet() {

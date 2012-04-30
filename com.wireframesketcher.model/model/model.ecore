@@ -120,7 +120,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Browser" eSuperTypes="#//Widget #//VerticalScrollbarSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Browser" eSuperTypes="#//Widget #//VerticalScrollbarSupport #//ColorBackgroundSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//LinkSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dummyText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

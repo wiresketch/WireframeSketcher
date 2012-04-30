@@ -2465,13 +2465,22 @@ public interface ModelPackage extends EPackage {
 	int BROWSER__VERTICAL_SCROLLBAR = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER__BACKGROUND = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Browser</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
