@@ -142,6 +142,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(combo);
 				if (result == null) result = caseStateSupport(combo);
 				if (result == null) result = caseFontSupport(combo);
+				if (result == null) result = caseColorBorderSupport(combo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -198,6 +199,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseTextAlignmentSupport(textField);
 				if (result == null) result = caseColorBackgroundSupport(textField);
 				if (result == null) result = caseColorAlphaSupport(textField);
+				if (result == null) result = caseColorBorderSupport(textField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,6 +209,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(spinner);
 				if (result == null) result = caseStateSupport(spinner);
 				if (result == null) result = caseFontSupport(spinner);
+				if (result == null) result = caseColorBorderSupport(spinner);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -360,6 +363,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseTextAlignmentSupport(textArea);
 				if (result == null) result = caseColorBackgroundSupport(textArea);
 				if (result == null) result = caseColorAlphaSupport(textArea);
+				if (result == null) result = caseColorBorderSupport(textArea);
 				if (result == null) result = caseValueSupport(textArea);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -494,6 +498,12 @@ public class ModelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.COLOR_BORDER_SUPPORT: {
+				ColorBorderSupport colorBorderSupport = (ColorBorderSupport)theEObject;
+				T result = caseColorBorderSupport(colorBorderSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.COLOR_ALPHA_SUPPORT: {
 				ColorAlphaSupport colorAlphaSupport = (ColorAlphaSupport)theEObject;
 				T result = caseColorAlphaSupport(colorAlphaSupport);
@@ -554,6 +564,9 @@ public class ModelSwitch<T> {
 				SearchField searchField = (SearchField)theEObject;
 				T result = caseSearchField(searchField);
 				if (result == null) result = caseWidget(searchField);
+				if (result == null) result = caseFontSupport(searchField);
+				if (result == null) result = caseStateSupport(searchField);
+				if (result == null) result = caseColorBorderSupport(searchField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -630,6 +643,7 @@ public class ModelSwitch<T> {
 				T result = caseDateField(dateField);
 				if (result == null) result = caseWidget(dateField);
 				if (result == null) result = caseStateSupport(dateField);
+				if (result == null) result = caseColorBorderSupport(dateField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1358,6 +1372,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseColorBackgroundSupport(ColorBackgroundSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Color Border Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Color Border Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColorBorderSupport(ColorBorderSupport object) {
 		return null;
 	}
 

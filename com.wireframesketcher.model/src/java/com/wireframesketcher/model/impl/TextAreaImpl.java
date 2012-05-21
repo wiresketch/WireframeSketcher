@@ -8,6 +8,7 @@ package com.wireframesketcher.model.impl;
 
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
+import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -43,6 +44,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getBorderColor <em>Border Color</em>}</li>
  * </ul>
  * </p>
  *
@@ -167,6 +169,24 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 	 * @ordered
 	 */
 	protected int alpha = ALPHA_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getBorderColor() <em>Border Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ColorDesc BORDER_COLOR_EDEFAULT = (ColorDesc)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getColorDataType(), "black");
+	/**
+	 * The cached value of the '{@link #getBorderColor() <em>Border Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColorDesc borderColor = BORDER_COLOR_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Text Area", ResizeMode.BOTH_LITERAL, true, true, true);
 	
 	/**
@@ -361,6 +381,27 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColorDesc getBorderColor() {
+		return borderColor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBorderColor(ColorDesc newBorderColor) {
+		ColorDesc oldBorderColor = borderColor;
+		borderColor = newBorderColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TEXT_AREA__BORDER_COLOR, oldBorderColor, borderColor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
@@ -402,6 +443,8 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				return getBackground();
 			case ModelPackage.TEXT_AREA__ALPHA:
 				return getAlpha();
+			case ModelPackage.TEXT_AREA__BORDER_COLOR:
+				return getBorderColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -434,6 +477,9 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				return;
 			case ModelPackage.TEXT_AREA__ALPHA:
 				setAlpha((Integer)newValue);
+				return;
+			case ModelPackage.TEXT_AREA__BORDER_COLOR:
+				setBorderColor((ColorDesc)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -468,6 +514,9 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 			case ModelPackage.TEXT_AREA__ALPHA:
 				setAlpha(ALPHA_EDEFAULT);
 				return;
+			case ModelPackage.TEXT_AREA__BORDER_COLOR:
+				setBorderColor(BORDER_COLOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -494,6 +543,8 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
 			case ModelPackage.TEXT_AREA__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
+			case ModelPackage.TEXT_AREA__BORDER_COLOR:
+				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -544,6 +595,12 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 		if (baseClass == ColorAlphaSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.TEXT_AREA__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorBorderSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TEXT_AREA__BORDER_COLOR: return ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR;
 				default: return -1;
 			}
 		}
@@ -599,6 +656,12 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBorderSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR: return ModelPackage.TEXT_AREA__BORDER_COLOR;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -624,6 +687,8 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 		result.append(background);
 		result.append(", alpha: ");
 		result.append(alpha);
+		result.append(", borderColor: ");
+		result.append(borderColor);
 		result.append(')');
 		return result.toString();
 	}

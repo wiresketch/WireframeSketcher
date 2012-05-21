@@ -35,6 +35,7 @@ import com.wireframesketcher.model.Circle;
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorAlternativeSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
+import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
 import com.wireframesketcher.model.ColorPicker;
@@ -362,6 +363,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass colorBackgroundSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass colorBorderSupportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1692,6 +1700,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getColorBorderSupport() {
+		return colorBorderSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColorBorderSupport_BorderColor() {
+		return (EAttribute)colorBorderSupportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColorAlphaSupport() {
 		return colorAlphaSupportEClass;
 	}
@@ -2394,6 +2420,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSVGImage_HFlip() {
+		return (EAttribute)svgImageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSVGImage_VFlip() {
+		return (EAttribute)svgImageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -2780,6 +2824,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		colorBackgroundSupportEClass = createEClass(COLOR_BACKGROUND_SUPPORT);
 		createEAttribute(colorBackgroundSupportEClass, COLOR_BACKGROUND_SUPPORT__BACKGROUND);
 
+		colorBorderSupportEClass = createEClass(COLOR_BORDER_SUPPORT);
+		createEAttribute(colorBorderSupportEClass, COLOR_BORDER_SUPPORT__BORDER_COLOR);
+
 		colorAlphaSupportEClass = createEClass(COLOR_ALPHA_SUPPORT);
 		createEAttribute(colorAlphaSupportEClass, COLOR_ALPHA_SUPPORT__ALPHA);
 
@@ -2902,6 +2949,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		svgImageEClass = createEClass(SVG_IMAGE);
 		createEAttribute(svgImageEClass, SVG_IMAGE__SRC);
+		createEAttribute(svgImageEClass, SVG_IMAGE__HFLIP);
+		createEAttribute(svgImageEClass, SVG_IMAGE__VFLIP);
 
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
@@ -2975,6 +3024,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		comboEClass.getESuperTypes().add(this.getWidget());
 		comboEClass.getESuperTypes().add(this.getStateSupport());
 		comboEClass.getESuperTypes().add(this.getFontSupport());
+		comboEClass.getESuperTypes().add(this.getColorBorderSupport());
 		labelEClass.getESuperTypes().add(this.getWidget());
 		labelEClass.getESuperTypes().add(this.getFontSupport());
 		labelEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3001,9 +3051,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textFieldEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		textFieldEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		textFieldEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		textFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
 		spinnerEClass.getESuperTypes().add(this.getWidget());
 		spinnerEClass.getESuperTypes().add(this.getStateSupport());
 		spinnerEClass.getESuperTypes().add(this.getFontSupport());
+		spinnerEClass.getESuperTypes().add(this.getColorBorderSupport());
 		windowEClass.getESuperTypes().add(this.getWidget());
 		windowEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		browserEClass.getESuperTypes().add(this.getWidget());
@@ -3072,6 +3124,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textAreaEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		textAreaEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		textAreaEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		textAreaEClass.getESuperTypes().add(this.getColorBorderSupport());
 		hScrollbarEClass.getESuperTypes().add(this.getWidget());
 		hScrollbarEClass.getESuperTypes().add(this.getValueSupport());
 		vScrollbarEClass.getESuperTypes().add(this.getWidget());
@@ -3115,6 +3168,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		calloutEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		calloutEClass.getESuperTypes().add(this.getLinkSupport());
 		searchFieldEClass.getESuperTypes().add(this.getWidget());
+		searchFieldEClass.getESuperTypes().add(this.getFontSupport());
+		searchFieldEClass.getESuperTypes().add(this.getStateSupport());
+		searchFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
 		tooltipEClass.getESuperTypes().add(this.getWidget());
 		tooltipEClass.getESuperTypes().add(this.getFontSupport());
 		tooltipEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3136,6 +3192,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		verticalScrollbarSupportEClass.getESuperTypes().add(this.getValueSupport());
 		dateFieldEClass.getESuperTypes().add(this.getWidget());
 		dateFieldEClass.getESuperTypes().add(this.getStateSupport());
+		dateFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
 		videoPlayerEClass.getESuperTypes().add(this.getWidget());
 		mapEClass.getESuperTypes().add(this.getWidget());
 		coverFlowEClass.getESuperTypes().add(this.getWidget());
@@ -3336,6 +3393,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(colorBackgroundSupportEClass, ColorBackgroundSupport.class, "ColorBackgroundSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColorBackgroundSupport_Background(), this.getColorDataType(), "background", "white", 0, 1, ColorBackgroundSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(colorBorderSupportEClass, ColorBorderSupport.class, "ColorBorderSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColorBorderSupport_BorderColor(), this.getColorDataType(), "borderColor", "black", 0, 1, ColorBorderSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(colorAlphaSupportEClass, ColorAlphaSupport.class, "ColorAlphaSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColorAlphaSupport_Alpha(), ecorePackage.getEInt(), "alpha", "255", 0, 1, ColorAlphaSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3461,6 +3521,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(svgImageEClass, SVGImage.class, "SVGImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSVGImage_Src(), this.getURIDataType(), "src", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSVGImage_HFlip(), ecorePackage.getEBoolean(), "hFlip", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSVGImage_VFlip(), ecorePackage.getEBoolean(), "vFlip", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");

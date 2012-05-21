@@ -6,6 +6,8 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.ColorBorderSupport;
+import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +33,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getState <em>State</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getFont <em>Font</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getBorderColor <em>Border Color</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +68,24 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	 * @ordered
 	 */
 	protected Font font;
+	/**
+	 * The default value of the '{@link #getBorderColor() <em>Border Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ColorDesc BORDER_COLOR_EDEFAULT = (ColorDesc)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getColorDataType(), "black");
+	/**
+	 * The cached value of the '{@link #getBorderColor() <em>Border Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColorDesc borderColor = BORDER_COLOR_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Combo", ResizeMode.HORIZONTAL_LITERAL, true, true);
 	
 	/**
@@ -154,6 +175,27 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColorDesc getBorderColor() {
+		return borderColor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBorderColor(ColorDesc newBorderColor) {
+		ColorDesc oldBorderColor = borderColor;
+		borderColor = newBorderColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMBO__BORDER_COLOR, oldBorderColor, borderColor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED; 
@@ -185,6 +227,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return getState();
 			case ModelPackage.COMBO__FONT:
 				return getFont();
+			case ModelPackage.COMBO__BORDER_COLOR:
+				return getBorderColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,6 +246,9 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return;
 			case ModelPackage.COMBO__FONT:
 				setFont((Font)newValue);
+				return;
+			case ModelPackage.COMBO__BORDER_COLOR:
+				setBorderColor((ColorDesc)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,6 +268,9 @@ public class ComboImpl extends WidgetImpl implements Combo {
 			case ModelPackage.COMBO__FONT:
 				setFont((Font)null);
 				return;
+			case ModelPackage.COMBO__BORDER_COLOR:
+				setBorderColor(BORDER_COLOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,6 +287,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return state != STATE_EDEFAULT;
 			case ModelPackage.COMBO__FONT:
 				return font != null;
+			case ModelPackage.COMBO__BORDER_COLOR:
+				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -257,6 +309,12 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		if (baseClass == FontSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.COMBO__FONT: return ModelPackage.FONT_SUPPORT__FONT;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorBorderSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.COMBO__BORDER_COLOR: return ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR;
 				default: return -1;
 			}
 		}
@@ -282,6 +340,12 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBorderSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR: return ModelPackage.COMBO__BORDER_COLOR;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -297,6 +361,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (state: ");
 		result.append(state);
+		result.append(", borderColor: ");
+		result.append(borderColor);
 		result.append(')');
 		return result.toString();
 	}

@@ -244,6 +244,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createColorBackgroundSupportAdapter();
 			}
 			@Override
+			public Adapter caseColorBorderSupport(ColorBorderSupport object) {
+				return createColorBorderSupportAdapter();
+			}
+			@Override
 			public Adapter caseColorAlphaSupport(ColorAlphaSupport object) {
 				return createColorAlphaSupportAdapter();
 			}
@@ -902,6 +906,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColorBackgroundSupportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.ColorBorderSupport <em>Color Border Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.ColorBorderSupport
+	 * @generated
+	 */
+	public Adapter createColorBorderSupportAdapter() {
 		return null;
 	}
 

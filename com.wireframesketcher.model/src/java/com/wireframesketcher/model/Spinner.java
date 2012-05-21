@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Spinner extends Widget, StateSupport, FontSupport {
+public interface Spinner extends Widget, StateSupport, FontSupport, ColorBorderSupport {
 } // Spinner

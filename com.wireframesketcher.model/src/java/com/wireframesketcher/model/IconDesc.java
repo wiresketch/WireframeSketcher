@@ -1,6 +1,8 @@
 package com.wireframesketcher.model;
 
 public final class IconDesc {
+	public static final String ASSETS_PREFIX = "assets/";
+
 	private final String name;
 
 	private final IconSize size;
@@ -24,9 +26,9 @@ public final class IconDesc {
 	}
 
 	public IconDesc resize(IconSize newSize) {
-		if(size == newSize)
+		if (size == newSize)
 			return this;
-		
+
 		return new IconDesc(name, newSize);
 	}
 
@@ -74,10 +76,10 @@ public final class IconDesc {
 
 		return new IconDesc(name, size);
 	}
-	
+
 	public IconSize getActualSize(int w, int h) {
 		IconSize size;
-		
+
 		if (w == -1 && h == -1)
 			size = getSize();
 		else if (w == 16 && h == 16)
@@ -92,5 +94,13 @@ public final class IconDesc {
 			size = IconSize.CUSTOM_LITERAL;
 
 		return size;
+	}
+
+	public static IconDesc createAssetIcon(String name, IconSize size) {
+		return new IconDesc(ASSETS_PREFIX + name, size);
+	}
+
+	public boolean isAssetIcon() {
+		return name.startsWith(ASSETS_PREFIX);
 	}
 }

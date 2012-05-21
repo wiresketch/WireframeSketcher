@@ -37,6 +37,8 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getRotation <em>Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getSrc <em>Src</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#isHFlip <em>HFlip</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#isVFlip <em>VFlip</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,6 +164,46 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	 * @ordered
 	 */
 	protected URI src = SRC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHFlip() <em>HFlip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHFlip()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HFLIP_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHFlip() <em>HFlip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHFlip()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hFlip = HFLIP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isVFlip() <em>VFlip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVFlip()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VFLIP_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isVFlip() <em>VFlip</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVFlip()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean vFlip = VFLIP_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("SVG Image", ResizeMode.BOTH_LITERAL, false, false);
 	
@@ -316,6 +358,48 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isHFlip() {
+		return hFlip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHFlip(boolean newHFlip) {
+		boolean oldHFlip = hFlip;
+		hFlip = newHFlip;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SVG_IMAGE__HFLIP, oldHFlip, hFlip));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isVFlip() {
+		return vFlip;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVFlip(boolean newVFlip) {
+		boolean oldVFlip = vFlip;
+		vFlip = newVFlip;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SVG_IMAGE__VFLIP, oldVFlip, vFlip));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -331,6 +415,10 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return getRotation();
 			case ModelPackage.SVG_IMAGE__SRC:
 				return getSrc();
+			case ModelPackage.SVG_IMAGE__HFLIP:
+				return isHFlip();
+			case ModelPackage.SVG_IMAGE__VFLIP:
+				return isVFlip();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,6 +448,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return;
 			case ModelPackage.SVG_IMAGE__SRC:
 				setSrc((URI)newValue);
+				return;
+			case ModelPackage.SVG_IMAGE__HFLIP:
+				setHFlip((Boolean)newValue);
+				return;
+			case ModelPackage.SVG_IMAGE__VFLIP:
+				setVFlip((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -391,6 +485,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 			case ModelPackage.SVG_IMAGE__SRC:
 				setSrc(SRC_EDEFAULT);
 				return;
+			case ModelPackage.SVG_IMAGE__HFLIP:
+				setHFlip(HFLIP_EDEFAULT);
+				return;
+			case ModelPackage.SVG_IMAGE__VFLIP:
+				setVFlip(VFLIP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -415,6 +515,10 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return rotation != ROTATION_EDEFAULT;
 			case ModelPackage.SVG_IMAGE__SRC:
 				return SRC_EDEFAULT == null ? src != null : !SRC_EDEFAULT.equals(src);
+			case ModelPackage.SVG_IMAGE__HFLIP:
+				return hFlip != HFLIP_EDEFAULT;
+			case ModelPackage.SVG_IMAGE__VFLIP:
+				return vFlip != VFLIP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -521,6 +625,10 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 		result.append(rotation);
 		result.append(", src: ");
 		result.append(src);
+		result.append(", hFlip: ");
+		result.append(hFlip);
+		result.append(", vFlip: ");
+		result.append(vFlip);
 		result.append(')');
 		return result.toString();
 	}

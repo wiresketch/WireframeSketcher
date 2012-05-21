@@ -916,13 +916,22 @@ public interface ModelPackage extends EPackage {
 	int COMBO__FONT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__BORDER_COLOR = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Combo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LabelImpl <em>Label</em>}' class.
@@ -1839,13 +1848,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT_FIELD__ALPHA = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FIELD__BORDER_COLOR = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Text Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int TEXT_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.WindowImpl <em>Window</em>}' class.
@@ -2132,13 +2150,22 @@ public interface ModelPackage extends EPackage {
 	int SPINNER__FONT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__BORDER_COLOR = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Spinner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4634,13 +4661,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA__ALPHA = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__BORDER_COLOR = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Text Area</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6486,6 +6522,34 @@ public interface ModelPackage extends EPackage {
 	int COLOR_BACKGROUND_SUPPORT_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.ColorBorderSupport <em>Color Border Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.ColorBorderSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorBorderSupport()
+	 * @generated
+	 */
+	int COLOR_BORDER_SUPPORT = 43;
+
+	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_BORDER_SUPPORT__BORDER_COLOR = 0;
+
+	/**
+	 * The number of structural features of the '<em>Color Border Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_BORDER_SUPPORT_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ColorAlphaSupport <em>Color Alpha Support</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6493,7 +6557,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorAlphaSupport()
 	 * @generated
 	 */
-	int COLOR_ALPHA_SUPPORT = 43;
+	int COLOR_ALPHA_SUPPORT = 44;
 
 	/**
 	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
@@ -6521,7 +6585,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionSupport()
 	 * @generated
 	 */
-	int SELECTION_SUPPORT = 44;
+	int SELECTION_SUPPORT = 45;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -6549,7 +6613,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignmentSupport()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT_SUPPORT = 45;
+	int TEXT_ALIGNMENT_SUPPORT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
@@ -6577,7 +6641,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBooleanSelectionSupport()
 	 * @generated
 	 */
-	int BOOLEAN_SELECTION_SUPPORT = 46;
+	int BOOLEAN_SELECTION_SUPPORT = 47;
 
 	/**
 	 * The feature id for the '<em><b>Selected</b></em>' attribute.
@@ -6605,7 +6669,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getNote()
 	 * @generated
 	 */
-	int NOTE = 47;
+	int NOTE = 48;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6795,7 +6859,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getProgressBar()
 	 * @generated
 	 */
-	int PROGRESS_BAR = 48;
+	int PROGRESS_BAR = 49;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6958,7 +7022,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getCallout()
 	 * @generated
 	 */
-	int CALLOUT = 49;
+	int CALLOUT = 50;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7139,7 +7203,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSearchField()
 	 * @generated
 	 */
-	int SEARCH_FIELD = 50;
+	int SEARCH_FIELD = 51;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7268,13 +7332,40 @@ public interface ModelPackage extends EPackage {
 	int SEARCH_FIELD__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__FONT = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__STATE = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__BORDER_COLOR = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Search Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+	int SEARCH_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.TooltipImpl <em>Tooltip</em>}' class.
@@ -7284,7 +7375,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTooltip()
 	 * @generated
 	 */
-	int TOOLTIP = 51;
+	int TOOLTIP = 52;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7465,7 +7556,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getScratchOut()
 	 * @generated
 	 */
-	int SCRATCH_OUT = 52;
+	int SCRATCH_OUT = 53;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7628,7 +7719,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderSupport()
 	 * @generated
 	 */
-	int BORDER_SUPPORT = 53;
+	int BORDER_SUPPORT = 54;
 
 	/**
 	 * The feature id for the '<em><b>Border</b></em>' attribute.
@@ -7656,7 +7747,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getStateSupport()
 	 * @generated
 	 */
-	int STATE_SUPPORT = 54;
+	int STATE_SUPPORT = 55;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -7684,7 +7775,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBreadcrumbs()
 	 * @generated
 	 */
-	int BREADCRUMBS = 55;
+	int BREADCRUMBS = 56;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7847,7 +7938,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLinkBar()
 	 * @generated
 	 */
-	int LINK_BAR = 56;
+	int LINK_BAR = 57;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8019,7 +8110,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getAccordion()
 	 * @generated
 	 */
-	int ACCORDION = 57;
+	int ACCORDION = 58;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8200,7 +8291,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVerticalScrollbarSupport()
 	 * @generated
 	 */
-	int VERTICAL_SCROLLBAR_SUPPORT = 58;
+	int VERTICAL_SCROLLBAR_SUPPORT = 59;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.DateFieldImpl <em>Date Field</em>}' class.
@@ -8210,7 +8301,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getDateField()
 	 * @generated
 	 */
-	int DATE_FIELD = 59;
+	int DATE_FIELD = 60;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.VideoPlayerImpl <em>Video Player</em>}' class.
@@ -8220,7 +8311,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVideoPlayer()
 	 * @generated
 	 */
-	int VIDEO_PLAYER = 60;
+	int VIDEO_PLAYER = 61;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.MapImpl <em>Map</em>}' class.
@@ -8230,7 +8321,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 61;
+	int MAP = 62;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.CoverFlowImpl <em>Cover Flow</em>}' class.
@@ -8240,7 +8331,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getCoverFlow()
 	 * @generated
 	 */
-	int COVER_FLOW = 62;
+	int COVER_FLOW = 63;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.TabbedPaneImpl <em>Tabbed Pane</em>}' class.
@@ -8250,7 +8341,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTabbedPane()
 	 * @generated
 	 */
-	int TABBED_PANE = 63;
+	int TABBED_PANE = 64;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.IconSupport <em>Icon Support</em>}' class.
@@ -8260,7 +8351,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSupport()
 	 * @generated
 	 */
-	int ICON_SUPPORT = 64;
+	int ICON_SUPPORT = 65;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.HSplitterImpl <em>HSplitter</em>}' class.
@@ -8270,7 +8361,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getHSplitter()
 	 * @generated
 	 */
-	int HSPLITTER = 65;
+	int HSPLITTER = 66;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.VSplitterImpl <em>VSplitter</em>}' class.
@@ -8280,7 +8371,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVSplitter()
 	 * @generated
 	 */
-	int VSPLITTER = 66;
+	int VSPLITTER = 67;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ValueSupport <em>Value Support</em>}' class.
@@ -8290,7 +8381,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getValueSupport()
 	 * @generated
 	 */
-	int VALUE_SUPPORT = 67;
+	int VALUE_SUPPORT = 68;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -8473,13 +8564,22 @@ public interface ModelPackage extends EPackage {
 	int DATE_FIELD__STATE = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Border Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__BORDER_COLOR = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Date Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9398,7 +9498,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorPicker()
 	 * @generated
 	 */
-	int COLOR_PICKER = 68;
+	int COLOR_PICKER = 69;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9552,7 +9652,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getArrow()
 	 * @generated
 	 */
-	int ARROW = 69;
+	int ARROW = 70;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9742,7 +9842,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getCurlyBrace()
 	 * @generated
 	 */
-	int CURLY_BRACE = 70;
+	int CURLY_BRACE = 71;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9914,7 +10014,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonBar()
 	 * @generated
 	 */
-	int BUTTON_BAR = 71;
+	int BUTTON_BAR = 72;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10095,7 +10195,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyleSupport()
 	 * @generated
 	 */
-	int BORDER_STYLE_SUPPORT = 72;
+	int BORDER_STYLE_SUPPORT = 73;
 
 	/**
 	 * The feature id for the '<em><b>Border</b></em>' attribute.
@@ -10123,7 +10223,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getCircle()
 	 * @generated
 	 */
-	int CIRCLE = 73;
+	int CIRCLE = 74;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10367,7 +10467,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 74;
+	int RECTANGLE = 75;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10602,7 +10702,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconPositionSupport()
 	 * @generated
 	 */
-	int ICON_POSITION_SUPPORT = 75;
+	int ICON_POSITION_SUPPORT = 76;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -10648,7 +10748,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getListSupport()
 	 * @generated
 	 */
-	int LIST_SUPPORT = 76;
+	int LIST_SUPPORT = 77;
 
 	/**
 	 * The feature id for the '<em><b>Row Height</b></em>' attribute.
@@ -10685,7 +10785,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChart()
 	 * @generated
 	 */
-	int CHART = 77;
+	int CHART = 78;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10839,7 +10939,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getCrossOut()
 	 * @generated
 	 */
-	int CROSS_OUT = 78;
+	int CROSS_OUT = 79;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -11002,7 +11102,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLinkSupport()
 	 * @generated
 	 */
-	int LINK_SUPPORT = 81;
+	int LINK_SUPPORT = 82;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -11030,7 +11130,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getItem()
 	 * @generated
 	 */
-	int ITEM = 79;
+	int ITEM = 80;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -11103,7 +11203,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getItemSupport()
 	 * @generated
 	 */
-	int ITEM_SUPPORT = 80;
+	int ITEM_SUPPORT = 81;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -11131,7 +11231,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getHotspot()
 	 * @generated
 	 */
-	int HOTSPOT = 82;
+	int HOTSPOT = 83;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -11285,7 +11385,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getNameSupport()
 	 * @generated
 	 */
-	int NAME_SUPPORT = 83;
+	int NAME_SUPPORT = 84;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -11313,7 +11413,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorAlternativeSupport()
 	 * @generated
 	 */
-	int COLOR_ALTERNATIVE_SUPPORT = 84;
+	int COLOR_ALTERNATIVE_SUPPORT = 85;
 
 	/**
 	 * The feature id for the '<em><b>Alternative</b></em>' attribute.
@@ -11341,7 +11441,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyleSupport()
 	 * @generated
 	 */
-	int LINE_STYLE_SUPPORT = 85;
+	int LINE_STYLE_SUPPORT = 86;
 
 	/**
 	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
@@ -11369,7 +11469,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotationSupport()
 	 * @generated
 	 */
-	int ROTATION_SUPPORT = 86;
+	int ROTATION_SUPPORT = 87;
 
 	/**
 	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
@@ -11397,7 +11497,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSVGImage()
 	 * @generated
 	 */
-	int SVG_IMAGE = 87;
+	int SVG_IMAGE = 88;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -11580,13 +11680,31 @@ public interface ModelPackage extends EPackage {
 	int SVG_IMAGE__SRC = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>HFlip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__HFLIP = WIDGET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>VFlip</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__VFLIP = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>SVG Image</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
@@ -11596,7 +11714,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 88;
+	int RESIZE_MODE = 89;
 
 
 	/**
@@ -11607,7 +11725,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 89;
+	int TEXT_ALIGNMENT = 90;
 
 
 	/**
@@ -11618,7 +11736,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 90;
+	int ICON_SIZE = 91;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -11628,7 +11746,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 91;
+	int STATE = 92;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -11638,7 +11756,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 92;
+	int POSITION = 93;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -11648,7 +11766,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 93;
+	int BORDER_STYLE = 94;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -11658,7 +11776,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 94;
+	int BUTTON_STYLE = 95;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -11668,7 +11786,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 95;
+	int CHART_TYPE = 96;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -11678,7 +11796,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 96;
+	int THEME = 97;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -11688,7 +11806,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 97;
+	int LINE_STYLE = 98;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -11698,7 +11816,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 98;
+	int ROTATION90 = 99;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -11708,7 +11826,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 99;
+	int ICON_DATA_TYPE = 100;
 
 
 	/**
@@ -11719,7 +11837,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 100;
+	int FONT_SIZE_DATA_TYPE = 101;
 
 
 	/**
@@ -11730,7 +11848,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 101;
+	int COLOR_DATA_TYPE = 102;
 
 
 	/**
@@ -11741,7 +11859,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 102;
+	int URI_DATA_TYPE = 103;
 
 
 	/**
@@ -12647,6 +12765,27 @@ public interface ModelPackage extends EPackage {
 	EAttribute getColorBackgroundSupport_Background();
 
 	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.ColorBorderSupport <em>Color Border Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Color Border Support</em>'.
+	 * @see com.wireframesketcher.model.ColorBorderSupport
+	 * @generated
+	 */
+	EClass getColorBorderSupport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.ColorBorderSupport#getBorderColor <em>Border Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Border Color</em>'.
+	 * @see com.wireframesketcher.model.ColorBorderSupport#getBorderColor()
+	 * @see #getColorBorderSupport()
+	 * @generated
+	 */
+	EAttribute getColorBorderSupport_BorderColor();
+
+	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.ColorAlphaSupport <em>Color Alpha Support</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13438,6 +13577,28 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSVGImage_Src();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.SVGImage#isHFlip <em>HFlip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>HFlip</em>'.
+	 * @see com.wireframesketcher.model.SVGImage#isHFlip()
+	 * @see #getSVGImage()
+	 * @generated
+	 */
+	EAttribute getSVGImage_HFlip();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.SVGImage#isVFlip <em>VFlip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>VFlip</em>'.
+	 * @see com.wireframesketcher.model.SVGImage#isVFlip()
+	 * @see #getSVGImage()
+	 * @generated
+	 */
+	EAttribute getSVGImage_VFlip();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
@@ -14482,6 +14643,24 @@ public interface ModelPackage extends EPackage {
 		EAttribute COLOR_BACKGROUND_SUPPORT__BACKGROUND = eINSTANCE.getColorBackgroundSupport_Background();
 
 		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.ColorBorderSupport <em>Color Border Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.ColorBorderSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorBorderSupport()
+		 * @generated
+		 */
+		EClass COLOR_BORDER_SUPPORT = eINSTANCE.getColorBorderSupport();
+
+		/**
+		 * The meta object literal for the '<em><b>Border Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLOR_BORDER_SUPPORT__BORDER_COLOR = eINSTANCE.getColorBorderSupport_BorderColor();
+
+		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.ColorAlphaSupport <em>Color Alpha Support</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15194,6 +15373,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SVG_IMAGE__SRC = eINSTANCE.getSVGImage_Src();
+
+		/**
+		 * The meta object literal for the '<em><b>HFlip</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SVG_IMAGE__HFLIP = eINSTANCE.getSVGImage_HFlip();
+
+		/**
+		 * The meta object literal for the '<em><b>VFlip</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SVG_IMAGE__VFLIP = eINSTANCE.getSVGImage_VFlip();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.
