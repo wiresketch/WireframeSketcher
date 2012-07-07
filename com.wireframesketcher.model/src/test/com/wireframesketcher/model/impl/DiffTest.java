@@ -137,6 +137,11 @@ public class DiffTest extends TestCase {
 		assertEquals(2, diff.length);
 		assertEquals(Diff.Edit.insert(4, 3), diff[0]);
 		assertEquals(Diff.Edit.delete(3, 3), diff[1]);
+		
+		diff = diffWithMoves("abcde", "baced");
+		assertEquals(2, diff.length);
+		assertEquals(Diff.Edit.move(3, 5), diff[0]);
+		assertEquals(Diff.Edit.move(0, 2), diff[1]);
 	}
 
 	private static Edit[] diff(String s1, String s2) {

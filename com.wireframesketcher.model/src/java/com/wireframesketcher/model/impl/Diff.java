@@ -168,7 +168,7 @@ class Diff {
 							&& comparator.compare(a[c1.index0], inserted) == 0) {
 						processed[i] = true;
 						processed[k] = true;
-						moves.add(k, Edit.move(tmpDelta + c1.index0, delta
+						moves.add(Edit.move(tmpDelta + c1.index0, delta
 								+ c0.index0));
 						delta--;
 						break;
