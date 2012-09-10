@@ -567,6 +567,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseFontSupport(searchField);
 				if (result == null) result = caseStateSupport(searchField);
 				if (result == null) result = caseColorBorderSupport(searchField);
+				if (result == null) result = caseLinkSupport(searchField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

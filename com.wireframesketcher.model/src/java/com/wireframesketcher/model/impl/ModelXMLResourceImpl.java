@@ -46,7 +46,7 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 		if (object instanceof NameSupport) {
 			String name = ((NameSupport) object).getName();
 			if (name != null)
-				return name;
+				return encodeFragment(name);
 		}
 
 		return super.getURIFragment(object);
@@ -59,6 +59,7 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 	@Override
 	public EObject getEObject(String uriFragment) {
 		EList<EObject> contents = getContents();
+		String name = URI.decode(uriFragment);
 		for (int i = 0; i < contents.size(); i++) {
 			EObject root = contents.get(i);
 
@@ -67,7 +68,7 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 				EObject child = children.get(j);
 
 				if (child instanceof NameSupport
-						&& uriFragment.equals(((NameSupport) child).getName()))
+						&& name.equals(((NameSupport) child).getName()))
 					return child;
 			}
 		}
@@ -150,5 +151,31 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 		}
 
 		return object instanceof Screen && getContents().contains(object);
+	}
+
+	private static final String[] ESCAPE = { "%00", "%01", "%02", "%03", "%04",
+			"%05", "%06", "%07", "%08", "%09", "%0A", "%0B", "%0C", "%0D",
+			"%0E", "%0F", "%10", "%11", "%12", "%13", "%14", "%15", "%16",
+			"%17", "%18", "%19", "%1A", "%1B", "%1C", "%1D", "%1E", "%1F",
+			"%20", null, "%22", "%23", null, "%25", "%26", "%27", null, null,
+			null, null, "%2C", null, null, "%2F", null, null, null, null, null,
+			null, null, null, null, null, "%3A", null, "%3C", null, "%3E",
+			null, };
+
+	private static String encodeFragment(String s) {
+		int length = s.length();
+		StringBuilder result = new StringBuilder(length + 2);
+		for (int i = 0; i < length; ++i) {
+			char character = s.charAt(i);
+			if (character < ESCAPE.length) {
+				String escape = ESCAPE[character];
+				if (escape != null) {
+					result.append(escape);
+					continue;
+				}
+			}
+			result.append(character);
+		}
+		return result.toString();
 	}
 }

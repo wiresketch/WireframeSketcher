@@ -7359,13 +7359,22 @@ public interface ModelPackage extends EPackage {
 	int SEARCH_FIELD__BORDER_COLOR = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__LINK = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Search Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int SEARCH_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.TooltipImpl <em>Tooltip</em>}' class.

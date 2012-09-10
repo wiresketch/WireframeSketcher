@@ -10,12 +10,14 @@ import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
@@ -34,6 +36,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getState <em>State</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getBorderColor <em>Border Color</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getLink <em>Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,6 +92,26 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 	 * @ordered
 	 */
 	protected ColorDesc borderColor = BORDER_COLOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLink() <em>Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI LINK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLink() <em>Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI link = LINK_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Search Field", ResizeMode.HORIZONTAL_LITERAL);
 	
@@ -200,6 +223,27 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI getLink() {
+		return link;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLink(URI newLink) {
+		URI oldLink = link;
+		link = newLink;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SEARCH_FIELD__LINK, oldLink, link));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
@@ -233,6 +277,8 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				return getState();
 			case ModelPackage.SEARCH_FIELD__BORDER_COLOR:
 				return getBorderColor();
+			case ModelPackage.SEARCH_FIELD__LINK:
+				return getLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +299,9 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				return;
 			case ModelPackage.SEARCH_FIELD__BORDER_COLOR:
 				setBorderColor((ColorDesc)newValue);
+				return;
+			case ModelPackage.SEARCH_FIELD__LINK:
+				setLink((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,6 +324,9 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 			case ModelPackage.SEARCH_FIELD__BORDER_COLOR:
 				setBorderColor(BORDER_COLOR_EDEFAULT);
 				return;
+			case ModelPackage.SEARCH_FIELD__LINK:
+				setLink(LINK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,6 +345,8 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				return state != STATE_EDEFAULT;
 			case ModelPackage.SEARCH_FIELD__BORDER_COLOR:
 				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
+			case ModelPackage.SEARCH_FIELD__LINK:
+				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,6 +373,12 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 		if (baseClass == ColorBorderSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.SEARCH_FIELD__BORDER_COLOR: return ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR;
+				default: return -1;
+			}
+		}
+		if (baseClass == LinkSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SEARCH_FIELD__LINK: return ModelPackage.LINK_SUPPORT__LINK;
 				default: return -1;
 			}
 		}
@@ -350,6 +410,12 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				default: return -1;
 			}
 		}
+		if (baseClass == LinkSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINK_SUPPORT__LINK: return ModelPackage.SEARCH_FIELD__LINK;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -367,6 +433,8 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 		result.append(state);
 		result.append(", borderColor: ");
 		result.append(borderColor);
+		result.append(", link: ");
+		result.append(link);
 		result.append(')');
 		return result.toString();
 	}

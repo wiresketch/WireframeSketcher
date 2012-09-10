@@ -3171,6 +3171,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		searchFieldEClass.getESuperTypes().add(this.getFontSupport());
 		searchFieldEClass.getESuperTypes().add(this.getStateSupport());
 		searchFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
+		searchFieldEClass.getESuperTypes().add(this.getLinkSupport());
 		tooltipEClass.getESuperTypes().add(this.getWidget());
 		tooltipEClass.getESuperTypes().add(this.getFontSupport());
 		tooltipEClass.getESuperTypes().add(this.getTextAlignmentSupport());

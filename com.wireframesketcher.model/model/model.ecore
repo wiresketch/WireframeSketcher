@@ -334,7 +334,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Note" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProgressBar" eSuperTypes="#//Widget #//ValueSupport #//ColorBackgroundSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Callout" eSuperTypes="#//Widget #//FontSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchField" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//ColorBorderSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchField" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//ColorBorderSupport #//LinkSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tooltip" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
         eType="#//Position" defaultValueLiteral="bottomLeft">
