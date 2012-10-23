@@ -3025,6 +3025,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		comboEClass.getESuperTypes().add(this.getStateSupport());
 		comboEClass.getESuperTypes().add(this.getFontSupport());
 		comboEClass.getESuperTypes().add(this.getColorBorderSupport());
+		comboEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		comboEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		labelEClass.getESuperTypes().add(this.getWidget());
 		labelEClass.getESuperTypes().add(this.getFontSupport());
 		labelEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3056,6 +3058,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		spinnerEClass.getESuperTypes().add(this.getStateSupport());
 		spinnerEClass.getESuperTypes().add(this.getFontSupport());
 		spinnerEClass.getESuperTypes().add(this.getColorBorderSupport());
+		spinnerEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		spinnerEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		windowEClass.getESuperTypes().add(this.getWidget());
 		windowEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		browserEClass.getESuperTypes().add(this.getWidget());
@@ -3113,6 +3117,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		treeEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		treeEClass.getESuperTypes().add(this.getSelectionSupport());
 		treeEClass.getESuperTypes().add(this.getItemSupport());
+		treeEClass.getESuperTypes().add(this.getFontSupport());
 		iconEClass.getESuperTypes().add(this.getWidget());
 		iconEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		iconEClass.getESuperTypes().add(this.getIconSupport());
@@ -3194,6 +3199,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		dateFieldEClass.getESuperTypes().add(this.getWidget());
 		dateFieldEClass.getESuperTypes().add(this.getStateSupport());
 		dateFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
+		dateFieldEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		dateFieldEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		videoPlayerEClass.getESuperTypes().add(this.getWidget());
 		mapEClass.getESuperTypes().add(this.getWidget());
 		coverFlowEClass.getESuperTypes().add(this.getWidget());

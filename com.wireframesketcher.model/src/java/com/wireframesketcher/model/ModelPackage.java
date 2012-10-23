@@ -925,13 +925,31 @@ public interface ModelPackage extends EPackage {
 	int COMBO__BORDER_COLOR = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__BACKGROUND = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__ALPHA = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Combo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LabelImpl <em>Label</em>}' class.
@@ -2159,13 +2177,31 @@ public interface ModelPackage extends EPackage {
 	int SPINNER__BORDER_COLOR = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__BACKGROUND = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__ALPHA = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Spinner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4292,13 +4328,22 @@ public interface ModelPackage extends EPackage {
 	int TREE__ITEMS = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__FONT = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Tree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+	int TREE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8582,13 +8627,31 @@ public interface ModelPackage extends EPackage {
 	int DATE_FIELD__BORDER_COLOR = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__BACKGROUND = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__ALPHA = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Date Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.

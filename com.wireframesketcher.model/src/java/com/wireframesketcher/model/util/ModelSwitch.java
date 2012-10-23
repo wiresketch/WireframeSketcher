@@ -143,6 +143,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseStateSupport(combo);
 				if (result == null) result = caseFontSupport(combo);
 				if (result == null) result = caseColorBorderSupport(combo);
+				if (result == null) result = caseColorBackgroundSupport(combo);
+				if (result == null) result = caseColorAlphaSupport(combo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -210,6 +212,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseStateSupport(spinner);
 				if (result == null) result = caseFontSupport(spinner);
 				if (result == null) result = caseColorBorderSupport(spinner);
+				if (result == null) result = caseColorBackgroundSupport(spinner);
+				if (result == null) result = caseColorAlphaSupport(spinner);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -339,6 +343,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorAlphaSupport(tree);
 				if (result == null) result = caseSelectionSupport(tree);
 				if (result == null) result = caseItemSupport(tree);
+				if (result == null) result = caseFontSupport(tree);
 				if (result == null) result = caseValueSupport(tree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -645,6 +650,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(dateField);
 				if (result == null) result = caseStateSupport(dateField);
 				if (result == null) result = caseColorBorderSupport(dateField);
+				if (result == null) result = caseColorBackgroundSupport(dateField);
+				if (result == null) result = caseColorAlphaSupport(dateField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

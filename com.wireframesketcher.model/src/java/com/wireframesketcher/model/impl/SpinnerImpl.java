@@ -6,6 +6,8 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.ColorAlphaSupport;
+import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
@@ -34,6 +36,8 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.SpinnerImpl#getState <em>State</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SpinnerImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SpinnerImpl#getBorderColor <em>Border Color</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SpinnerImpl#getBackground <em>Background</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SpinnerImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +89,42 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 	 * @ordered
 	 */
 	protected ColorDesc borderColor = BORDER_COLOR_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ColorDesc BACKGROUND_EDEFAULT = (ColorDesc)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getColorDataType(), "white");
+	/**
+	 * The cached value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColorDesc background = BACKGROUND_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALPHA_EDEFAULT = 255;
+	/**
+	 * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected int alpha = ALPHA_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Spinner", ResizeMode.HORIZONTAL_LITERAL);
 
 	/**
@@ -195,9 +235,51 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColorDesc getBackground() {
+		return background;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackground(ColorDesc newBackground) {
+		ColorDesc oldBackground = background;
+		background = newBackground;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SPINNER__BACKGROUND, oldBackground, background));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getAlpha() {
+		return alpha;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlpha(int newAlpha) {
+		int oldAlpha = alpha;
+		alpha = newAlpha;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SPINNER__ALPHA, oldAlpha, alpha));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
-		return state == State.NORMAL || state == State.DISABLED; 
+		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
 	}
 
 	/**
@@ -228,6 +310,10 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 				return getFont();
 			case ModelPackage.SPINNER__BORDER_COLOR:
 				return getBorderColor();
+			case ModelPackage.SPINNER__BACKGROUND:
+				return getBackground();
+			case ModelPackage.SPINNER__ALPHA:
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,6 +334,12 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 				return;
 			case ModelPackage.SPINNER__BORDER_COLOR:
 				setBorderColor((ColorDesc)newValue);
+				return;
+			case ModelPackage.SPINNER__BACKGROUND:
+				setBackground((ColorDesc)newValue);
+				return;
+			case ModelPackage.SPINNER__ALPHA:
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -270,6 +362,12 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 			case ModelPackage.SPINNER__BORDER_COLOR:
 				setBorderColor(BORDER_COLOR_EDEFAULT);
 				return;
+			case ModelPackage.SPINNER__BACKGROUND:
+				setBackground(BACKGROUND_EDEFAULT);
+				return;
+			case ModelPackage.SPINNER__ALPHA:
+				setAlpha(ALPHA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -288,6 +386,10 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 				return font != null;
 			case ModelPackage.SPINNER__BORDER_COLOR:
 				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
+			case ModelPackage.SPINNER__BACKGROUND:
+				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
+			case ModelPackage.SPINNER__ALPHA:
+				return alpha != ALPHA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -314,6 +416,18 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 		if (baseClass == ColorBorderSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.SPINNER__BORDER_COLOR: return ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SPINNER__BACKGROUND: return ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SPINNER__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
 				default: return -1;
 			}
 		}
@@ -345,6 +459,18 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND: return ModelPackage.SPINNER__BACKGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA: return ModelPackage.SPINNER__ALPHA;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -362,6 +488,10 @@ public class SpinnerImpl extends WidgetImpl implements Spinner {
 		result.append(state);
 		result.append(", borderColor: ");
 		result.append(borderColor);
+		result.append(", background: ");
+		result.append(background);
+		result.append(", alpha: ");
+		result.append(alpha);
 		result.append(')');
 		return result.toString();
 	}

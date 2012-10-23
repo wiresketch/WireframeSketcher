@@ -26,6 +26,8 @@ public class ModelXMLResourceFactoryImpl extends XMLResourceFactoryImpl {
 		DEFAULT_SAVE_OPTIONS.put(XMLResource.OPTION_XML_VERSION, "1.0");
 		DEFAULT_SAVE_OPTIONS.put(XMLResource.OPTION_CONFIGURATION_CACHE,
 				Boolean.TRUE);
+		DEFAULT_SAVE_OPTIONS.put(XMLResource.OPTION_SKIP_ESCAPE_URI,
+				Boolean.FALSE);
 
 		// Load options
 		DEFAULT_LOAD_OPTIONS.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE,

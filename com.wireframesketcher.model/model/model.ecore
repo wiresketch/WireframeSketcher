@@ -93,13 +93,13 @@
         defaultValueLiteral="square"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Checkbox" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Combo" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Combo" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//StateSupport #//IconSupport #//IconPositionSupport #//LinkSupport #//RotationSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//LinkSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Placeholder" eSuperTypes="#//Widget #//LinkSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextField" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorBorderSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Spinner" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Spinner" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//Widget #//VerticalScrollbarSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="closeButton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true">
@@ -148,7 +148,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//Widget #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//SelectionSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//Widget #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//SelectionSupport #//ItemSupport #//FontSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Widget #//ColorForegroundSupport #//IconSupport #//LinkSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextArea" eSuperTypes="#//Widget #//StateSupport #//VerticalScrollbarSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorBorderSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HScrollbar" eSuperTypes="#//Widget #//ValueSupport"/>
@@ -376,7 +376,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DateField" eSuperTypes="#//Widget #//StateSupport #//ColorBorderSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DateField" eSuperTypes="#//Widget #//StateSupport #//ColorBorderSupport #//ColorBackgroundSupport #//ColorAlphaSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="VideoPlayer" eSuperTypes="#//Widget"/>
   <eClassifiers xsi:type="ecore:EClass" name="Map" eSuperTypes="#//Widget"/>
   <eClassifiers xsi:type="ecore:EClass" name="CoverFlow" eSuperTypes="#//Widget"/>

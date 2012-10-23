@@ -6,6 +6,8 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.ColorAlphaSupport;
+import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
@@ -29,6 +31,8 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.DateFieldImpl#getState <em>State</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.DateFieldImpl#getBorderColor <em>Border Color</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.DateFieldImpl#getBackground <em>Background</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.DateFieldImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +78,46 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 	 * @ordered
 	 */
 	protected ColorDesc borderColor = BORDER_COLOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ColorDesc BACKGROUND_EDEFAULT = (ColorDesc)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getColorDataType(), "white");
+
+	/**
+	 * The cached value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColorDesc background = BACKGROUND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALPHA_EDEFAULT = 255;
+
+	/**
+	 * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected int alpha = ALPHA_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Date Field", ResizeMode.HORIZONTAL_LITERAL);
 	
@@ -141,6 +185,48 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColorDesc getBackground() {
+		return background;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackground(ColorDesc newBackground) {
+		ColorDesc oldBackground = background;
+		background = newBackground;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DATE_FIELD__BACKGROUND, oldBackground, background));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getAlpha() {
+		return alpha;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlpha(int newAlpha) {
+		int oldAlpha = alpha;
+		alpha = newAlpha;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DATE_FIELD__ALPHA, oldAlpha, alpha));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
@@ -158,6 +244,10 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 				return getState();
 			case ModelPackage.DATE_FIELD__BORDER_COLOR:
 				return getBorderColor();
+			case ModelPackage.DATE_FIELD__BACKGROUND:
+				return getBackground();
+			case ModelPackage.DATE_FIELD__ALPHA:
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,6 +265,12 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 				return;
 			case ModelPackage.DATE_FIELD__BORDER_COLOR:
 				setBorderColor((ColorDesc)newValue);
+				return;
+			case ModelPackage.DATE_FIELD__BACKGROUND:
+				setBackground((ColorDesc)newValue);
+				return;
+			case ModelPackage.DATE_FIELD__ALPHA:
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,6 +290,12 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 			case ModelPackage.DATE_FIELD__BORDER_COLOR:
 				setBorderColor(BORDER_COLOR_EDEFAULT);
 				return;
+			case ModelPackage.DATE_FIELD__BACKGROUND:
+				setBackground(BACKGROUND_EDEFAULT);
+				return;
+			case ModelPackage.DATE_FIELD__ALPHA:
+				setAlpha(ALPHA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -210,6 +312,10 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 				return state != STATE_EDEFAULT;
 			case ModelPackage.DATE_FIELD__BORDER_COLOR:
 				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
+			case ModelPackage.DATE_FIELD__BACKGROUND:
+				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
+			case ModelPackage.DATE_FIELD__ALPHA:
+				return alpha != ALPHA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -230,6 +336,18 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 		if (baseClass == ColorBorderSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.DATE_FIELD__BORDER_COLOR: return ModelPackage.COLOR_BORDER_SUPPORT__BORDER_COLOR;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.DATE_FIELD__BACKGROUND: return ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.DATE_FIELD__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
 				default: return -1;
 			}
 		}
@@ -255,6 +373,18 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND: return ModelPackage.DATE_FIELD__BACKGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA: return ModelPackage.DATE_FIELD__ALPHA;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -272,6 +402,10 @@ public class DateFieldImpl extends WidgetImpl implements DateField {
 		result.append(state);
 		result.append(", borderColor: ");
 		result.append(borderColor);
+		result.append(", background: ");
+		result.append(background);
+		result.append(", alpha: ");
+		result.append(alpha);
 		result.append(')');
 		return result.toString();
 	}

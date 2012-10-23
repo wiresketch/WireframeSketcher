@@ -44,4 +44,25 @@ public class ModelXMLResourceImplTest extends TestCase {
 		assertEquals("Copy & Paste", ((WidgetGroup) ((Master) c.getWidgets()
 				.get(0)).getScreen()).getName());
 	}
+	
+	public void testHrefEscaping() throws Exception {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+
+		persister.getResourceSet().createResource(URI.createURI("Ampersand&Bug.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+		persister.save(b, bytes); // save XML
+		Screen c = (Screen) persister.load(new ByteArrayInputStream(bytes
+				.toByteArray())); // parse
+	}
 }

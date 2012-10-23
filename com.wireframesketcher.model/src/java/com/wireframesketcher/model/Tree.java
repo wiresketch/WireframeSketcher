@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Tree extends Widget, BorderSupport, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, SelectionSupport, ItemSupport {
+public interface Tree extends Widget, BorderSupport, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, SelectionSupport, ItemSupport, FontSupport {
 } // Tree

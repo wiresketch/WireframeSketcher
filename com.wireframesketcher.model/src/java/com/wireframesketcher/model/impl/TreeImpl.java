@@ -10,6 +10,8 @@ import com.wireframesketcher.model.BorderSupport;
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
+import com.wireframesketcher.model.Font;
+import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.ModelFactory;
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wireframesketcher.model.impl.TreeImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TreeImpl#getSelection <em>Selection</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TreeImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TreeImpl#getFont <em>Font</em>}</li>
  * </ul>
  * </p>
  *
@@ -168,6 +171,16 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 * @ordered
 	 */
 	protected EList<Item> items;
+	/**
+	 * The cached value of the '{@link #getFont() <em>Font</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFont()
+	 * @generated
+	 * @ordered
+	 */
+	protected Font font;
+	
 	private static final WidgetDescriptor DESCRIPTOR = describe("Tree", ResizeMode.BOTH_LITERAL, true, true);
 	
 	/**
@@ -176,6 +189,7 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 */
 	protected TreeImpl() {
 		super();
+		setFont(ModelFactory.eINSTANCE.createFont());
 		descriptor = DESCRIPTOR;
 	}
 
@@ -332,11 +346,56 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Font getFont() {
+		return font;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFont(Font newFont, NotificationChain msgs) {
+		Font oldFont = font;
+		font = newFont;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.TREE__FONT, oldFont, newFont);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFont(Font newFont) {
+		if (newFont != font) {
+			NotificationChain msgs = null;
+			if (font != null)
+				msgs = ((InternalEObject)font).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.TREE__FONT, null, msgs);
+			if (newFont != null)
+				msgs = ((InternalEObject)newFont).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.TREE__FONT, null, msgs);
+			msgs = basicSetFont(newFont, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TREE__FONT, newFont, newFont));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModelPackage.TREE__ITEMS:
 				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
+			case ModelPackage.TREE__FONT:
+				return basicSetFont(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -363,6 +422,8 @@ public class TreeImpl extends WidgetImpl implements Tree {
 				return getSelection();
 			case ModelPackage.TREE__ITEMS:
 				return getItems();
+			case ModelPackage.TREE__FONT:
+				return getFont();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,6 +459,9 @@ public class TreeImpl extends WidgetImpl implements Tree {
 				getItems().clear();
 				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
+			case ModelPackage.TREE__FONT:
+				setFont((Font)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,6 +495,9 @@ public class TreeImpl extends WidgetImpl implements Tree {
 			case ModelPackage.TREE__ITEMS:
 				getItems().clear();
 				return;
+			case ModelPackage.TREE__FONT:
+				setFont((Font)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -457,6 +524,8 @@ public class TreeImpl extends WidgetImpl implements Tree {
 				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
 			case ModelPackage.TREE__ITEMS:
 				return items != null && !items.isEmpty();
+			case ModelPackage.TREE__FONT:
+				return font != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -510,6 +579,12 @@ public class TreeImpl extends WidgetImpl implements Tree {
 				default: return -1;
 			}
 		}
+		if (baseClass == FontSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TREE__FONT: return ModelPackage.FONT_SUPPORT__FONT;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -559,6 +634,12 @@ public class TreeImpl extends WidgetImpl implements Tree {
 		if (baseClass == ItemSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.TREE__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FontSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.FONT_SUPPORT__FONT: return ModelPackage.TREE__FONT;
 				default: return -1;
 			}
 		}
