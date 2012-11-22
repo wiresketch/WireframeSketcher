@@ -6,14 +6,18 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.SecureRandom;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLResource.URIHandler;
 
@@ -111,7 +115,12 @@ public class Persister {
 			loadURI = generateUniqueURI();
 
 		Resource resource = resourceSet.createResource(loadURI);
-		resource.load(is, getLoadOptions());
+		try {
+			resource.load(is, getLoadOptions());
+		} catch (IOException e) {
+			// ignore first load problem
+		}
+		checkErrors(resource);
 		return resource.getContents().get(0);
 	}
 
@@ -144,7 +153,60 @@ public class Persister {
 
 	public EObject load(File file) throws IOException {
 		URI uri = createLocalFileURI(file);
-		return (EObject) resourceSet.getResource(uri, true).getContents()
-				.get(0);
+		Resource resource = null;
+		try {
+			resource = resourceSet.getResource(uri, true);
+		} catch (WrappedException e) {
+			// Ignore first on load exception
+		}
+		if (resource == null)
+			resource = resourceSet.getResource(uri, true);
+		checkErrors(resource);
+		return (EObject) resource.getContents().get(0);
+	}
+
+	protected void checkErrors(Resource resource) throws IOException {
+		if (!resource.getErrors().isEmpty()) {
+			Diagnostic diagnostic = EcoreUtil
+					.computeDiagnostic(resource, false);
+			Throwable exception = getDiagnosticException(diagnostic);
+			if (exception instanceof IOException)
+				throw (IOException) exception;
+			if (exception != null)
+				throw new IOWrappedException(exception);
+			else
+				throw new IOException(getDiagnosticMessage(diagnostic));
+		}
+	}
+
+	private String getDiagnosticMessage(Diagnostic diagnostic) {
+		String message = diagnostic.getMessage();
+		if (message == null && !diagnostic.getChildren().isEmpty()) {
+			List<Diagnostic> children = diagnostic.getChildren();
+			for (int i = 0; i < children.size() && message == null; i++) {
+				message = getDiagnosticMessage(children.get(i));
+			}
+		}
+		return message;
+	}
+
+	private Throwable getDiagnosticException(Diagnostic diagnostic) {
+		Throwable exception = diagnostic.getException();
+		if (exception == null && !diagnostic.getChildren().isEmpty()) {
+			List<Diagnostic> children = diagnostic.getChildren();
+			for (int i = 0; i < children.size() && exception == null; i++) {
+				exception = getDiagnosticException(children.get(i));
+			}
+		}
+		return exception;
+	}
+
+	private static class IOWrappedException extends IOException {
+		private static final long serialVersionUID = 1L;
+
+		public IOWrappedException(Throwable cause) {
+			super(cause.getLocalizedMessage());
+			initCause(cause);
+		}
 	}
 }

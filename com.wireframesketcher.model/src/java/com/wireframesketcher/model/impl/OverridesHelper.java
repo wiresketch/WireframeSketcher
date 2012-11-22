@@ -94,7 +94,7 @@ class OverridesHelper {
 						computeOverrides();
 				}
 			}
-		};
+		}
 	};
 
 	private final Comparator<EObject> comparator = new Comparator<EObject>() {
