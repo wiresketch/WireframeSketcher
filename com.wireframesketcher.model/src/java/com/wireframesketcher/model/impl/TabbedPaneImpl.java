@@ -194,7 +194,7 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	 */
 	protected Position position = POSITION_EDEFAULT;
 
-	private static final WidgetDescriptor DESCRIPTOR = describe("Tabbed Pane", ResizeMode.BOTH_LITERAL, true, false);
+	private static final WidgetDescriptor DESCRIPTOR = describe("Tabbed Pane", ResizeMode.BOTH_LITERAL, true, true);
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,13 +388,25 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setPosition(Position newPosition) {
+		newPosition = toValidPosition(newPosition);
+
 		Position oldPosition = position;
 		position = newPosition == null ? POSITION_EDEFAULT : newPosition;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TABBED_PANE__POSITION, oldPosition, position));
+	}
+
+	private static Position toValidPosition(Position position) {
+		if (position != null
+				&& !(position == Position.TOP || position == Position.BOTTOM
+						|| position == Position.LEFT || position == Position.RIGHT)) {
+			position = POSITION_EDEFAULT;
+		}
+
+		return position;
 	}
 
 	/**

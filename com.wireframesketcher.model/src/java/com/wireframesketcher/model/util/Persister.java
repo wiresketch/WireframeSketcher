@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
@@ -167,15 +168,17 @@ public class Persister {
 
 	protected void checkErrors(Resource resource) throws IOException {
 		if (!resource.getErrors().isEmpty()) {
-			Diagnostic diagnostic = EcoreUtil
-					.computeDiagnostic(resource, false);
-			Throwable exception = getDiagnosticException(diagnostic);
+			Throwable exception = getDiagnosticException(resource.getErrors());
 			if (exception instanceof IOException)
 				throw (IOException) exception;
+
 			if (exception != null)
 				throw new IOWrappedException(exception);
-			else
-				throw new IOException(getDiagnosticMessage(diagnostic));
+
+			Diagnostic diagnostic = EcoreUtil
+					.computeDiagnostic(resource, false);
+
+			throw new IOException(getDiagnosticMessage(diagnostic));
 		}
 	}
 
@@ -190,15 +193,15 @@ public class Persister {
 		return message;
 	}
 
-	private Throwable getDiagnosticException(Diagnostic diagnostic) {
-		Throwable exception = diagnostic.getException();
-		if (exception == null && !diagnostic.getChildren().isEmpty()) {
-			List<Diagnostic> children = diagnostic.getChildren();
-			for (int i = 0; i < children.size() && exception == null; i++) {
-				exception = getDiagnosticException(children.get(i));
+	private Throwable getDiagnosticException(EList<Resource.Diagnostic> errors) {
+		for (Resource.Diagnostic error : errors) {
+			if (error instanceof Throwable) {
+				if (error instanceof WrappedException)
+					return ((WrappedException) error).getCause();
 			}
 		}
-		return exception;
+
+		return null;
 	}
 
 	private static class IOWrappedException extends IOException {
