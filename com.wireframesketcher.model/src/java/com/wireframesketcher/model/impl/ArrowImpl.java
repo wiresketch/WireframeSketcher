@@ -140,7 +140,7 @@ public class ArrowImpl extends WidgetImpl implements Arrow {
 	 */
 	protected Position direction = DIRECTION_EDEFAULT;
 
-	private static final WidgetDescriptor DESCRIPTOR = describe("Arrow", ResizeMode.BOTH_LITERAL, false, false);
+	private static final WidgetDescriptor DESCRIPTOR = describe("Arrow").resizeBoth().singleLine().centered().get();
 	
 	/**
 	 * <!-- begin-user-doc -->
