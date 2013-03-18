@@ -12,6 +12,7 @@ import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.wireframesketcher.model.Combo;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
@@ -38,6 +40,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getBorderColor <em>Border Color</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getLink <em>Link</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,6 +129,24 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	 * @ordered
 	 */
 	protected int alpha = ALPHA_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getLink() <em>Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI LINK_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getLink() <em>Link</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI link = LINK_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Combo", ResizeMode.HORIZONTAL_LITERAL, true, true);
 	
 	/**
@@ -278,6 +299,27 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI getLink() {
+		return link;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLink(URI newLink) {
+		URI oldLink = link;
+		link = newLink;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMBO__LINK, oldLink, link));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
@@ -315,6 +357,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return getBackground();
 			case ModelPackage.COMBO__ALPHA:
 				return getAlpha();
+			case ModelPackage.COMBO__LINK:
+				return getLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -341,6 +385,9 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return;
 			case ModelPackage.COMBO__ALPHA:
 				setAlpha((Integer)newValue);
+				return;
+			case ModelPackage.COMBO__LINK:
+				setLink((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -369,6 +416,9 @@ public class ComboImpl extends WidgetImpl implements Combo {
 			case ModelPackage.COMBO__ALPHA:
 				setAlpha(ALPHA_EDEFAULT);
 				return;
+			case ModelPackage.COMBO__LINK:
+				setLink(LINK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -391,6 +441,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
 			case ModelPackage.COMBO__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
+			case ModelPackage.COMBO__LINK:
+				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -429,6 +481,12 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		if (baseClass == ColorAlphaSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.COMBO__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
+				default: return -1;
+			}
+		}
+		if (baseClass == LinkSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.COMBO__LINK: return ModelPackage.LINK_SUPPORT__LINK;
 				default: return -1;
 			}
 		}
@@ -472,6 +530,12 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				default: return -1;
 			}
 		}
+		if (baseClass == LinkSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINK_SUPPORT__LINK: return ModelPackage.COMBO__LINK;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -493,6 +557,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		result.append(background);
 		result.append(", alpha: ");
 		result.append(alpha);
+		result.append(", link: ");
+		result.append(link);
 		result.append(')');
 		return result.toString();
 	}

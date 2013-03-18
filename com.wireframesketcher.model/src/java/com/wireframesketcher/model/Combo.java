@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Combo extends Widget, StateSupport, FontSupport, ColorBorderSupport, ColorBackgroundSupport, ColorAlphaSupport {
+public interface Combo extends Widget, StateSupport, FontSupport, ColorBorderSupport, ColorBackgroundSupport, ColorAlphaSupport, LinkSupport {
 } // Combo

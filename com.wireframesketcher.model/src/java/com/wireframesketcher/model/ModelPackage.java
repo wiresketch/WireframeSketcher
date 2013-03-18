@@ -943,13 +943,22 @@ public interface ModelPackage extends EPackage {
 	int COMBO__ALPHA = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__LINK = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Combo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LabelImpl <em>Label</em>}' class.

@@ -112,9 +112,30 @@ public class MasterImpl extends WidgetImpl implements Master {
 	protected WidgetContainer instance;
 
 	/**
-	 * A helper for managing overrides
+	 * Abstracts the strategy behind instance attribute computation
 	 */
-	private final OverridesHelper overridesHelper = new OverridesHelper(this);
+	interface IInstanceStrategy {
+		void computeInstance();
+	}
+	
+	/**
+	 * Instance computation strategy
+	 */
+	private IInstanceStrategy instanceStrategy;
+	
+	IInstanceStrategy getInstanceStrategy() {
+		if(instanceStrategy == null)
+			instanceStrategy = new OverridesHelper(this);
+		return instanceStrategy;
+	}
+	
+	void setInstanceStrategy(IInstanceStrategy instanceStrategy) {
+		if(this.instanceStrategy != null)
+			throw new IllegalStateException();
+		if(instanceStrategy == null)
+			throw new NullPointerException();
+		this.instanceStrategy = instanceStrategy;
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,7 +285,7 @@ public class MasterImpl extends WidgetImpl implements Master {
 	 * @generated NOT
 	 */
 	public WidgetContainer getInstance() {
-		overridesHelper.computeInstance();
+		getInstanceStrategy().computeInstance();
 		return instance;
 	}
 

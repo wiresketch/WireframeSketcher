@@ -3027,6 +3027,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		comboEClass.getESuperTypes().add(this.getColorBorderSupport());
 		comboEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		comboEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		comboEClass.getESuperTypes().add(this.getLinkSupport());
 		labelEClass.getESuperTypes().add(this.getWidget());
 		labelEClass.getESuperTypes().add(this.getFontSupport());
 		labelEClass.getESuperTypes().add(this.getTextAlignmentSupport());

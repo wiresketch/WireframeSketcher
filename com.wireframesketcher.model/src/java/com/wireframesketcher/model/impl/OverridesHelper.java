@@ -1,13 +1,14 @@
 package com.wireframesketcher.model.impl;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EAttribute;
@@ -24,10 +25,12 @@ import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.ItemSupport;
+import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.impl.Diff.Edit;
+import com.wireframesketcher.model.impl.MasterImpl.IInstanceStrategy;
 import com.wireframesketcher.model.overrides.Delete;
 import com.wireframesketcher.model.overrides.FontOverrides;
 import com.wireframesketcher.model.overrides.Insert;
@@ -44,38 +47,108 @@ import com.wireframesketcher.model.overrides.WidgetOverrides;
 /**
  * A helper class for managing component overrides
  */
-class OverridesHelper {
+class OverridesHelper implements IInstanceStrategy {
 	private final MasterImpl master;
 
 	private boolean computingOverrides;
 
 	private Map<EObject, EObject> copies, reverseCopies;
 
-	private boolean staleInstance;
+	private boolean staleInstance = true, computingInstance;
 
-	private final Adapter masterAdapter = new AdapterImpl() {
+	private final Adapter masterChangeTracker = new EContentAdapter() {
+		@Override
+		protected void setTarget(EObject target) {
+			super.setTarget(target);
+			if (target == master) {
+				WidgetContainer ref = ((Master) target).getScreen();
+				if (ref != null)
+					addAdapter(ref);
+			}
+		}
+
+		@Override
+		protected void unsetTarget(EObject target) {
+			super.unsetTarget(target);
+			if (target == master) {
+				WidgetContainer ref = ((Master) target).getScreen();
+				if (ref != null)
+					removeAdapter(ref);
+			}
+		}
+
 		@Override
 		public void notifyChanged(Notification msg) {
+			super.notifyChanged(msg);
+
 			if (msg.getFeature() == ModelPackage.Literals.MASTER__SCREEN) {
-				staleInstance = true;
+				if (msg.getNotifier() == master)
+					handleContainment(msg);
+			} else if (msg.isTouch()) {
+				// Ignore touch events for anything but screens
+				// Touch events for screen seem to be needed only
+				// to make pass unit tests that force instance recalculation
+				// by calling Master#setScreen with the same screen instance
+				return;
+			}
 
-				// lazy computation
-				if (master.eIsSet(ModelPackage.Literals.MASTER__INSTANCE))
-					computeInstance();
+			if (msg.getFeature() == ModelPackage.Literals.MASTER__SCREEN) {
+				if (msg.getNotifier() == master) {
+					staleInstance = true;
+
+					// lazy computation
+					if (master.eIsSet(ModelPackage.Literals.MASTER__INSTANCE))
+						computeInstance();
+				}
 			} else if (msg.getFeature() == ModelPackage.Literals.MASTER__OVERRIDES) {
-				if (computingOverrides)
-					return;
+				if (msg.getNotifier() == master) {
+					if (computingOverrides)
+						return;
 
-				staleInstance = true;
+					staleInstance = true;
 
-				// lazy computation
-				if (master.eIsSet(ModelPackage.Literals.MASTER__INSTANCE))
-					computeInstance();
+					// lazy computation
+					if (master.eIsSet(ModelPackage.Literals.MASTER__INSTANCE))
+						computeInstance();
+				}
+			} else if (msg.getFeature() == ModelPackage.Literals.MASTER__INSTANCE) {
+				// Instance notifications can be also caused by calls to
+				// getInstance
+				// during a parent instance computation. Ignore them by checking
+				// computingInstance flag
+				if (msg.getNotifier() != master && !computingInstance) {
+					staleInstance = true;
+
+					// lazy computation
+					if (master.eIsSet(ModelPackage.Literals.MASTER__INSTANCE))
+						computeInstance();
+				}
 			}
 		}
 	};
 
 	private final Adapter instanceChangeTracker = new EContentAdapter() {
+		@Override
+		protected void setTarget(EObject target) {
+			super.setTarget(target);
+			if (target instanceof Master) {
+				WidgetContainer instance = ((Master) target).getInstance();
+				if (instance != null)
+					addAdapter(instance);
+			}
+		}
+
+		@Override
+		protected void unsetTarget(EObject target) {
+			super.unsetTarget(target);
+			if (target instanceof Master) {
+				WidgetContainer instance = ((Master) target).getInstance();
+				if (instance != null)
+					removeAdapter(instance);
+			}
+		}
+
+		@Override
 		public void notifyChanged(Notification notification) {
 			super.notifyChanged(notification);
 
@@ -84,7 +157,11 @@ class OverridesHelper {
 						.getFeature();
 
 				if (feature != null && !ignoreFeature(feature)) {
-					// We are interested only in widgets list changes on top
+					// Ignore screen reference changes
+					if (feature == ModelPackage.Literals.MASTER__SCREEN)
+						return;
+
+					// Ignore all changes except widgets list changes for top
 					// object
 					if (notification.getNotifier() == master.instance
 							&& feature != ModelPackage.Literals.WIDGET_CONTAINER__WIDGETS)
@@ -103,15 +180,22 @@ class OverridesHelper {
 		}
 	};
 
+	private static final IInstanceStrategy INSTANCE_COPY = new IInstanceStrategy() {
+		public void computeInstance() {
+		}
+	};
+
 	public OverridesHelper(final MasterImpl master) {
 		this.master = master;
 
-		master.eAdapters().add(masterAdapter);
+		master.eAdapters().add(masterChangeTracker);
 	}
 
 	public void computeInstance() {
 		if (!staleInstance)
 			return;
+
+		this.computingInstance = true;
 
 		cleanupOldInstance();
 
@@ -119,7 +203,21 @@ class OverridesHelper {
 		WidgetContainer instance = null;
 
 		if (screen != null && !screen.eIsProxy()) {
-			Copier copier = new Copier();
+			Copier copier = new Copier() {
+				@Override
+				protected EObject createCopy(EObject eObject) {
+					EObject copy = super.createCopy(eObject);
+
+					if (eObject instanceof Master) {
+						MasterImpl master = (MasterImpl) eObject;
+						MasterImpl masterCopy = (MasterImpl) copy;
+						masterCopy.setInstanceStrategy(INSTANCE_COPY);
+						masterCopy.setInstance((WidgetContainer) copy(master
+								.getInstance()));
+					}
+					return copy;
+				}
+			};
 			EObject result = copier.copy(screen);
 			copier.copyReferences();
 
@@ -133,6 +231,7 @@ class OverridesHelper {
 
 		staleInstance = false;
 		master.setInstance(instance);
+		this.computingInstance = false;
 	}
 
 	private void applyOverrides(WidgetContainer instance) {
@@ -166,8 +265,8 @@ class OverridesHelper {
 
 	private static Map<EObject, EObject> computeReverseMap(
 			Map<EObject, EObject> map) {
-		Map<EObject, EObject> reverseMap = new HashMap<EObject, EObject>(map
-				.size());
+		Map<EObject, EObject> reverseMap = new HashMap<EObject, EObject>(
+				map.size());
 
 		for (Entry<EObject, EObject> entry : map.entrySet())
 			reverseMap.put(entry.getValue(), entry.getKey());
@@ -220,14 +319,14 @@ class OverridesHelper {
 			this.rightRoot = rightRoot;
 		}
 
-		protected String getURIFragment(EObject object) {
-			return ((InternalEObject) object.eContainer()).eURIFragmentSegment(
-					object.eContainingFeature(), object);
+		protected String getItemURIFragment(Item item) {
+			return ((InternalEObject) item.eContainer()).eURIFragmentSegment(
+					item.eContainingFeature(), item);
 		}
 
-		protected String getRelativeURI(EObject object) {
-			String uri = getURI(object);
-			String containerUri = getURI(object.eContainer());
+		protected String getRelativeWidgetURI(Widget widget) {
+			String uri = getURI(widget);
+			String containerUri = getURI(widget.eContainer());
 			if (uri.startsWith("/") && uri.startsWith(containerUri)) {
 				uri = uri.substring(containerUri.length());
 				if (uri.length() == 0)
@@ -236,32 +335,43 @@ class OverridesHelper {
 			return uri;
 		}
 
-		protected String getURI(EObject object) {
+		private String getURI(EObject object) {
 			return ((ModelXMLResourceImpl) leftRoot.eResource())
 					.getDefaultURIFragment(object);
 		}
 
-		protected String getLeftURI() {
+		private String getLeftURI() {
 			if (leftUri == null)
 				leftUri = getURI(leftRoot);
 			return leftUri;
 		}
 
-		protected EObject getObjectForURIFragment(EObject container,
+		protected Item getItemForURIFragment(EObject container,
 				String uriFragment) {
 			if (uriFragment == null)
 				return null;
 
-			return ((InternalEObject) container)
+			EObject object = ((InternalEObject) container)
 					.eObjectForURIFragmentSegment(uriFragment);
+			if (!(object instanceof Item))
+				return null;
+
+			return (Item) object;
 		}
 
-		protected EObject getObjectForURI(String uri) {
+		protected Widget getWidgetForURI(String uri) {
 			if (uri == null)
 				return null;
 
 			try {
-				return leftRoot.eResource().getEObject(uri);
+				if (isNestedWidgetURI(uri))
+					return getNestedWidgetForURI(uri);
+
+				EObject object = leftRoot.eResource().getEObject(uri);
+				if (!(object instanceof Widget))
+					return null;
+
+				return (Widget) object;
 			} catch (Exception e) {
 				EcorePlugin.INSTANCE.log(e);
 				return null;
@@ -281,8 +391,26 @@ class OverridesHelper {
 			return uri;
 		}
 
+		private boolean isDirectContent(EObject object) {
+			EObject parent = object.eContainer();
+			while (parent != null && parent != leftRoot) {
+				if (parent instanceof Master)
+					return false;
+				parent = parent.eContainer();
+			}
+
+			return parent == leftRoot;
+		}
+
 		protected String getWidgetURI(Widget widget) {
-			String uri = getURI(widget);
+			String uri = null;
+			if (!isDirectContent(widget))
+				uri = getNestedWidgetURI(widget);
+
+			if (uri != null)
+				return uri;
+
+			uri = getURI(widget);
 			String leftUri = getLeftURI();
 			if (uri.startsWith("/") && uri.startsWith(leftUri)) {
 				uri = uri.substring(leftUri.length());
@@ -290,6 +418,123 @@ class OverridesHelper {
 					uri = null;
 			}
 			return uri;
+		}
+
+		/**
+		 * Maps the given widget to its source widget. The algorithm goes
+		 * upwards to find the overrides root and then maps the widget to its
+		 * source. Then it does this recursively on source widget until the
+		 * initial source is found.
+		 */
+		private Long getSourceWidgetId(Widget widget) {
+			if (widget.getId() != null)
+				return widget.getId();
+
+			EObject parent = widget.eContainer();
+			while (parent != null) {
+				if (parent instanceof MasterImpl
+						&& ((MasterImpl) parent).getInstanceStrategy() != INSTANCE_COPY)
+					break;
+				parent = parent.eContainer();
+			}
+
+			if (parent == null)
+				return null;
+
+			MasterImpl master = (MasterImpl) parent;
+			Widget sourceWidget = (Widget) ((OverridesHelper) master
+					.getInstanceStrategy()).getReverseCopies().get(widget);
+			if (sourceWidget == null)
+				return null;
+			return getSourceWidgetId(sourceWidget);
+		}
+
+		/**
+		 * Maps source widget identified by id path to a copy widget. The
+		 * algorithm descends recursively into the left (source) branch and maps
+		 * to the right (copy) branch on return.
+		 */
+		private Widget getCopyWidgetForId(WidgetContainer container,
+				List<Long> idPath, int index) {
+			if (container == null)
+				return null;
+
+			String idFragment = idPath.get(index).toString();
+			Widget widget = (Widget) container.eResource().getEObject(
+					idFragment);
+			if (widget == null)
+				return null;
+
+			if (index == idPath.size() - 1)
+				return widget;
+
+			MasterImpl master = (MasterImpl) widget;
+			Widget sourceWidget = getCopyWidgetForId(master.getScreen(),
+					idPath, index + 1);
+			return (Widget) ((OverridesHelper) master.getInstanceStrategy()).copies
+					.get(sourceWidget);
+		}
+
+		private String getNestedWidgetURI(Widget widget) {
+			List<Long> uriPath = new ArrayList<Long>();
+			Long id = getSourceWidgetId(widget);
+			if (id == null)
+				return null;
+			uriPath.add(id);
+			EObject parent = widget.eContainer();
+			while (parent != null && parent != leftRoot) {
+				if (parent instanceof Master) {
+					Master master = (Master) parent;
+					id = getSourceWidgetId(master);
+					if (id == null)
+						return null;
+					uriPath.add(id);
+				}
+				parent = parent.eContainer();
+			}
+
+			StringBuilder buf = new StringBuilder();
+
+			for (int i = uriPath.size() - 1; i > 0; i--) {
+				buf.append(uriPath.get(i));
+				buf.append('/');
+			}
+
+			buf.append(uriPath.get(0));
+
+			return buf.toString();
+		}
+
+		private boolean isNestedWidgetURI(String uri) {
+			int length = uri.length();
+			if (length > 1) {
+				return Character.isDigit(uri.charAt(0))
+						&& uri.indexOf('/') != -1;
+			}
+			return false;
+		}
+
+		private Widget getNestedWidgetForURI(String uri) {
+			int start = 0;
+			int length = uri.length();
+			int index = 1;
+			List<Long> idPath = new ArrayList<Long>();
+
+			WidgetContainer container = leftRoot;
+
+			for (; index < length; index++) {
+				if (uri.charAt(index) == '/') {
+					Long id = Long.parseLong(uri.substring(start, index));
+					idPath.add(id);
+					start = index + 1;
+					index++;
+				}
+			}
+
+			Long id = Long.parseLong(uri.substring(start, length));
+			idPath.add(id);
+
+			return getCopyWidgetForId(container, idPath, 0);
 		}
 
 		protected boolean eq(Object a, Object b) {
@@ -341,7 +586,7 @@ class OverridesHelper {
 			if (itemOverrides == null || this.item != item) {
 				ItemOverrides itemOverrides = OverridesFactory.eINSTANCE
 						.createItemOverrides();
-				itemOverrides.setRef(getURIFragment(item));
+				itemOverrides.setRef(getItemURIFragment(item));
 				getWidgetOverrides((Widget) item.eContainer()).getItems().add(
 						itemOverrides);
 
@@ -362,7 +607,12 @@ class OverridesHelper {
 		private EList<Operation> getWidgetChanges(WidgetContainer container) {
 			if (container == leftRoot)
 				return getOverrides().getWidgetChanges();
-			return getWidgetOverrides((Widget) container).getWidgetChanges();
+			else if (container.eContainer() instanceof Master)
+				return getWidgetOverrides((Widget) container.eContainer())
+						.getWidgetChanges();
+			else
+				return getWidgetOverrides((Widget) container)
+						.getWidgetChanges();
 		}
 
 		public Overrides calculateOverrides() {
@@ -393,14 +643,13 @@ class OverridesHelper {
 						if (edit.type == Diff.EditType.DELETE) {
 							Delete delete = OverridesFactory.eINSTANCE
 									.createDelete();
-							delete.setRef(getRelativeURI(leftAry[edit.index0]));
+							delete.setRef(getRelativeWidgetURI(leftAry[edit.index0]));
 							operations.add(delete);
 						} else if (edit.type == Diff.EditType.MOVE) {
 							Move move = OverridesFactory.eINSTANCE.createMove();
-							move.setRef(getRelativeURI(leftAry[edit.index0]));
-							move
-									.setNewIndex(edit.index1 > edit.index0 ? edit.index1 - 1
-											: edit.index1);
+							move.setRef(getRelativeWidgetURI(leftAry[edit.index0]));
+							move.setNewIndex(edit.index1 > edit.index0 ? edit.index1 - 1
+									: edit.index1);
 							operations.add(move);
 						} else if (edit.type == Diff.EditType.INSERT) {
 							Insert insert = OverridesFactory.eINSTANCE
@@ -432,14 +681,21 @@ class OverridesHelper {
 		}
 
 		private void checkWidgetUpdates(Widget leftWidget, Widget rightWidget) {
-			if (!(leftWidget instanceof WidgetContainer))
-				return;
+			if (leftWidget instanceof WidgetContainer) {
+				WidgetContainer leftContainer = (WidgetContainer) leftWidget;
+				WidgetContainer rightContainer = (WidgetContainer) rightWidget;
 
-			WidgetContainer leftContainer = (WidgetContainer) leftWidget;
-			WidgetContainer rightContainer = (WidgetContainer) rightWidget;
+				calculateWidgetUpdates(leftContainer, rightContainer);
+				calculateWidgetChanges(leftContainer, rightContainer);
+			} else if (leftWidget instanceof Master) {
+				WidgetContainer leftContainer = ((Master) leftWidget)
+						.getInstance();
+				WidgetContainer rightContainer = ((Master) rightWidget)
+						.getInstance();
 
-			calculateWidgetUpdates(leftContainer, rightContainer);
-			calculateWidgetChanges(leftContainer, rightContainer);
+				calculateWidgetUpdates(leftContainer, rightContainer);
+				calculateWidgetChanges(leftContainer, rightContainer);
+			}
 		}
 
 		private void checkItems(Widget leftWidget, Widget rightWidget) {
@@ -481,14 +737,13 @@ class OverridesHelper {
 						if (edit.type == Diff.EditType.DELETE) {
 							Delete delete = OverridesFactory.eINSTANCE
 									.createDelete();
-							delete.setRef(getURIFragment(leftAry[edit.index0]));
+							delete.setRef(getItemURIFragment(leftAry[edit.index0]));
 							operations.add(delete);
 						} else if (edit.type == Diff.EditType.MOVE) {
 							Move move = OverridesFactory.eINSTANCE.createMove();
-							move.setRef(getURIFragment(leftAry[edit.index0]));
-							move
-									.setNewIndex(edit.index1 > edit.index0 ? edit.index1 - 1
-											: edit.index1);
+							move.setRef(getItemURIFragment(leftAry[edit.index0]));
+							move.setNewIndex(edit.index1 > edit.index0 ? edit.index1 - 1
+									: edit.index1);
 							operations.add(move);
 						} else if (edit.type == Diff.EditType.INSERT) {
 							Insert insert = OverridesFactory.eINSTANCE
@@ -589,8 +844,9 @@ class OverridesHelper {
 					} else {
 						o.getAttributes().put(
 								eAttribute.getName(),
-								EcoreUtil.convertToString(eAttribute
-										.getEAttributeType(), rightValue));
+								EcoreUtil.convertToString(
+										eAttribute.getEAttributeType(),
+										rightValue));
 					}
 				}
 			}
@@ -687,8 +943,9 @@ class OverridesHelper {
 					} else {
 						widgetOverrides.getAttributes().put(
 								eAttribute.getName(),
-								EcoreUtil.convertToString(eAttribute
-										.getEAttributeType(), rightValue));
+								EcoreUtil.convertToString(
+										eAttribute.getEAttributeType(),
+										rightValue));
 					}
 				} else {
 					if (f != null) {
@@ -724,7 +981,7 @@ class OverridesHelper {
 				if (isEmpty(fontOverrides))
 					widgetOverrides.setFont(null);
 			} else if (left instanceof Item) {
-				String itemURI = getURIFragment(left);
+				String itemURI = getItemURIFragment((Item) left);
 				ItemOverrides itemOverrides = null;
 				for (ItemOverrides io : widgetOverrides.getItems()) {
 					if (eq(itemURI, io.getRef())) {
@@ -836,13 +1093,11 @@ class OverridesHelper {
 			for (WidgetOverrides widgetOverrides : overrides.getWidgets()) {
 				String uri = getAbsoluteURI(leftRoot, widgetOverrides);
 
-				EObject eObject = getObjectForURI(uri);
-				if (!(eObject instanceof Widget))
+				Widget left = getWidgetForURI(uri);
+				if (left == null)
 					continue;
 
-				Widget left = (Widget) eObject;
 				Widget right = (Widget) copies.get(left);
-
 				if (right == null)
 					continue;
 
@@ -855,11 +1110,14 @@ class OverridesHelper {
 
 		private void applyWidgetChanges(WidgetOverrides widgetOverrides,
 				Widget left, Widget right) {
-			if (!(left instanceof WidgetContainer))
-				return;
-
-			applyWidgetChanges(widgetOverrides, (WidgetContainer) left,
-					(WidgetContainer) right);
+			if (left instanceof WidgetContainer) {
+				applyWidgetChanges(widgetOverrides, (WidgetContainer) left,
+						(WidgetContainer) right);
+			} else if (left instanceof Master) {
+				applyWidgetChanges(widgetOverrides,
+						((Master) left).getInstance(),
+						((Master) right).getInstance());
+			}
 		}
 
 		private void applyWidgetChanges(WidgetContainerOverrides overrides,
@@ -873,22 +1131,23 @@ class OverridesHelper {
 			for (Operation operation : overrides.getWidgetChanges()) {
 				if (operation instanceof Delete) {
 					Delete delete = (Delete) operation;
-					EObject eObject = getObjectForURI(getAbsoluteURI(left,
+					Widget leftChild = getWidgetForURI(getAbsoluteURI(left,
 							delete));
-					if (!(eObject instanceof Widget))
+					if (leftChild == null)
 						continue;
 
-					Widget rightChild = (Widget) copies.get(eObject);
+					Widget rightChild = (Widget) copies.get(leftChild);
 					if (rightChild != null)
 						widgets.remove(rightChild);
 				} else if (operation instanceof Move) {
 					Move move = (Move) operation;
 
-					EObject eObject = getObjectForURI(getAbsoluteURI(left, move));
-					if (!(eObject instanceof Widget))
+					Widget leftChild = getWidgetForURI(getAbsoluteURI(left,
+							move));
+					if (leftChild == null)
 						continue;
 
-					Widget rightChild = (Widget) copies.get(eObject);
+					Widget rightChild = (Widget) copies.get(leftChild);
 					if (rightChild != null) {
 						int newIndex = move.getNewIndex();
 						if (newIndex >= widgets.size())
@@ -915,15 +1174,15 @@ class OverridesHelper {
 			if (widgetOverrides
 					.eIsSet(OverridesPackage.Literals.WIDGET_OVERRIDES__ITEMS)) {
 				for (ItemOverrides itemOverrides : widgetOverrides.getItems()) {
-					EObject eObject = getObjectForURIFragment(left,
+					Item leftItem = getItemForURIFragment(left,
 							itemOverrides.getRef());
-					if (!(eObject instanceof Item))
+					if (leftItem == null)
 						continue;
-					Item item = (Item) copies.get(eObject);
-					if (item == null)
+					Item rightItem = (Item) copies.get(leftItem);
+					if (rightItem == null)
 						continue;
 
-					applyObjectAttributes(itemOverrides, item);
+					applyObjectAttributes(itemOverrides, rightItem);
 				}
 			}
 
@@ -942,23 +1201,21 @@ class OverridesHelper {
 			for (Operation operation : widgetOverrides.getItemChanges()) {
 				if (operation instanceof Delete) {
 					Delete delete = (Delete) operation;
-					EObject eObject = getObjectForURIFragment(left, delete
-							.getRef());
-					if (!(eObject instanceof Item))
+					Item leftItem = getItemForURIFragment(left, delete.getRef());
+					if (leftItem == null)
 						continue;
 
-					Item rightItem = (Item) copies.get(eObject);
+					Item rightItem = (Item) copies.get(leftItem);
 					if (rightItem != null)
 						items.remove(rightItem);
 				} else if (operation instanceof Move) {
 					Move move = (Move) operation;
 
-					EObject eObject = getObjectForURIFragment(left, move
-							.getRef());
-					if (!(eObject instanceof Item))
+					Item leftItem = getItemForURIFragment(left, move.getRef());
+					if (leftItem == null)
 						continue;
 
-					Item rightItem = (Item) copies.get(eObject);
+					Item rightItem = (Item) copies.get(leftItem);
 					if (rightItem != null) {
 						int newIndex = move.getNewIndex();
 						if (newIndex >= items.size())
@@ -1042,8 +1299,8 @@ class OverridesHelper {
 						continue;
 
 					widget.eSet(feature, EcoreUtil.createFromString(
-							((EAttribute) feature).getEAttributeType(), entry
-									.getValue()));
+							((EAttribute) feature).getEAttributeType(),
+							entry.getValue()));
 				}
 			}
 		}
