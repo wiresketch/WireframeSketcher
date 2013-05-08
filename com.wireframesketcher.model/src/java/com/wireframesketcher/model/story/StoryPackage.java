@@ -107,13 +107,22 @@ public interface StoryPackage extends EPackage {
 	int PANEL__SCREEN = 0;
 
 	/**
+	 * The feature id for the '<em><b>Story</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PANEL__STORY = 1;
+
+	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL__X = 1;
+	int PANEL__X = 2;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -122,7 +131,7 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL__Y = 2;
+	int PANEL__Y = 3;
 
 	/**
 	 * The number of structural features of the '<em>Panel</em>' class.
@@ -131,7 +140,7 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL_FEATURE_COUNT = 3;
+	int PANEL_FEATURE_COUNT = 4;
 
 
 	/**
@@ -175,6 +184,17 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPanel_Screen();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.wireframesketcher.model.story.Panel#getStory <em>Story</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Story</em>'.
+	 * @see com.wireframesketcher.model.story.Panel#getStory()
+	 * @see #getPanel()
+	 * @generated
+	 */
+	EReference getPanel_Story();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.story.Panel#getX <em>X</em>}'.
@@ -255,6 +275,14 @@ public interface StoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PANEL__SCREEN = eINSTANCE.getPanel_Screen();
+
+		/**
+		 * The meta object literal for the '<em><b>Story</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PANEL__STORY = eINSTANCE.getPanel_Story();
 
 		/**
 		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.

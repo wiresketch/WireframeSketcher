@@ -424,6 +424,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createRotationSupportAdapter();
 			}
 			@Override
+			public Adapter caseFlipSupport(FlipSupport object) {
+				return createFlipSupportAdapter();
+			}
+			@Override
 			public Adapter caseSVGImage(SVGImage object) {
 				return createSVGImageAdapter();
 			}
@@ -1536,6 +1540,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRotationSupportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.FlipSupport <em>Flip Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.FlipSupport
+	 * @generated
+	 */
+	public Adapter createFlipSupportAdapter() {
 		return null;
 	}
 

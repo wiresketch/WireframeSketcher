@@ -477,6 +477,8 @@ public class ModelSwitch<T> {
 				T result = caseImage(image);
 				if (result == null) result = caseWidget(image);
 				if (result == null) result = caseLinkSupport(image);
+				if (result == null) result = caseRotationSupport(image);
+				if (result == null) result = caseFlipSupport(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -873,6 +875,12 @@ public class ModelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.FLIP_SUPPORT: {
+				FlipSupport flipSupport = (FlipSupport)theEObject;
+				T result = caseFlipSupport(flipSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.SVG_IMAGE: {
 				SVGImage svgImage = (SVGImage)theEObject;
 				T result = caseSVGImage(svgImage);
@@ -882,6 +890,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorForegroundSupport(svgImage);
 				if (result == null) result = caseColorAlphaSupport(svgImage);
 				if (result == null) result = caseRotationSupport(svgImage);
+				if (result == null) result = caseFlipSupport(svgImage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2056,6 +2065,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseRotationSupport(RotationSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flip Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flip Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlipSupport(FlipSupport object) {
 		return null;
 	}
 

@@ -44,6 +44,7 @@ import com.wireframesketcher.model.CoverFlow;
 import com.wireframesketcher.model.CrossOut;
 import com.wireframesketcher.model.CurlyBrace;
 import com.wireframesketcher.model.DateField;
+import com.wireframesketcher.model.FlipSupport;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSize;
 import com.wireframesketcher.model.FontSupport;
@@ -664,6 +665,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass rotationSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flipSupportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2402,6 +2410,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFlipSupport() {
+		return flipSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlipSupport_HFlip() {
+		return (EAttribute)flipSupportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlipSupport_VFlip() {
+		return (EAttribute)flipSupportEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSVGImage() {
 		return svgImageEClass;
 	}
@@ -2413,24 +2448,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EAttribute getSVGImage_Src() {
 		return (EAttribute)svgImageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSVGImage_HFlip() {
-		return (EAttribute)svgImageEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSVGImage_VFlip() {
-		return (EAttribute)svgImageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2947,10 +2964,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		rotationSupportEClass = createEClass(ROTATION_SUPPORT);
 		createEAttribute(rotationSupportEClass, ROTATION_SUPPORT__ROTATION);
 
+		flipSupportEClass = createEClass(FLIP_SUPPORT);
+		createEAttribute(flipSupportEClass, FLIP_SUPPORT__HFLIP);
+		createEAttribute(flipSupportEClass, FLIP_SUPPORT__VFLIP);
+
 		svgImageEClass = createEClass(SVG_IMAGE);
 		createEAttribute(svgImageEClass, SVG_IMAGE__SRC);
-		createEAttribute(svgImageEClass, SVG_IMAGE__HFLIP);
-		createEAttribute(svgImageEClass, SVG_IMAGE__VFLIP);
 
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
@@ -3159,6 +3178,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		masterEClass.getESuperTypes().add(this.getLinkSupport());
 		imageEClass.getESuperTypes().add(this.getWidget());
 		imageEClass.getESuperTypes().add(this.getLinkSupport());
+		imageEClass.getESuperTypes().add(this.getRotationSupport());
+		imageEClass.getESuperTypes().add(this.getFlipSupport());
 		noteEClass.getESuperTypes().add(this.getWidget());
 		noteEClass.getESuperTypes().add(this.getFontSupport());
 		noteEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3262,6 +3283,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		svgImageEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		svgImageEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		svgImageEClass.getESuperTypes().add(this.getRotationSupport());
+		svgImageEClass.getESuperTypes().add(this.getFlipSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3528,10 +3550,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(rotationSupportEClass, RotationSupport.class, "RotationSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRotationSupport_Rotation(), this.getRotation90(), "rotation", null, 0, 1, RotationSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(flipSupportEClass, FlipSupport.class, "FlipSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFlipSupport_HFlip(), ecorePackage.getEBoolean(), "hFlip", null, 0, 1, FlipSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlipSupport_VFlip(), ecorePackage.getEBoolean(), "vFlip", null, 0, 1, FlipSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(svgImageEClass, SVGImage.class, "SVGImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSVGImage_Src(), this.getURIDataType(), "src", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSVGImage_HFlip(), ecorePackage.getEBoolean(), "hFlip", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSVGImage_VFlip(), ecorePackage.getEBoolean(), "vFlip", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");

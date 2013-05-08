@@ -10,6 +10,7 @@ import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
+import com.wireframesketcher.model.FlipSupport;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -36,9 +37,9 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getRotation <em>Rotation</em>}</li>
- *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getSrc <em>Src</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#isHFlip <em>HFlip</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#isVFlip <em>VFlip</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SVGImageImpl#getSrc <em>Src</em>}</li>
  * </ul>
  * </p>
  *
@@ -146,26 +147,6 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	protected Rotation90 rotation = ROTATION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSrc() <em>Src</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSrc()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final URI SRC_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSrc() <em>Src</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSrc()
-	 * @generated
-	 * @ordered
-	 */
-	protected URI src = SRC_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isHFlip() <em>HFlip</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +185,26 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	 * @ordered
 	 */
 	protected boolean vFlip = VFLIP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSrc() <em>Src</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSrc()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SRC_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSrc() <em>Src</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSrc()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI src = SRC_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("SVG Image", ResizeMode.BOTH_LITERAL, false, false);
 	
@@ -413,12 +414,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return getAlpha();
 			case ModelPackage.SVG_IMAGE__ROTATION:
 				return getRotation();
-			case ModelPackage.SVG_IMAGE__SRC:
-				return getSrc();
 			case ModelPackage.SVG_IMAGE__HFLIP:
 				return isHFlip();
 			case ModelPackage.SVG_IMAGE__VFLIP:
 				return isVFlip();
+			case ModelPackage.SVG_IMAGE__SRC:
+				return getSrc();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -446,14 +447,14 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 			case ModelPackage.SVG_IMAGE__ROTATION:
 				setRotation((Rotation90)newValue);
 				return;
-			case ModelPackage.SVG_IMAGE__SRC:
-				setSrc((URI)newValue);
-				return;
 			case ModelPackage.SVG_IMAGE__HFLIP:
 				setHFlip((Boolean)newValue);
 				return;
 			case ModelPackage.SVG_IMAGE__VFLIP:
 				setVFlip((Boolean)newValue);
+				return;
+			case ModelPackage.SVG_IMAGE__SRC:
+				setSrc((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -482,14 +483,14 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 			case ModelPackage.SVG_IMAGE__ROTATION:
 				setRotation(ROTATION_EDEFAULT);
 				return;
-			case ModelPackage.SVG_IMAGE__SRC:
-				setSrc(SRC_EDEFAULT);
-				return;
 			case ModelPackage.SVG_IMAGE__HFLIP:
 				setHFlip(HFLIP_EDEFAULT);
 				return;
 			case ModelPackage.SVG_IMAGE__VFLIP:
 				setVFlip(VFLIP_EDEFAULT);
+				return;
+			case ModelPackage.SVG_IMAGE__SRC:
+				setSrc(SRC_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -513,12 +514,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				return alpha != ALPHA_EDEFAULT;
 			case ModelPackage.SVG_IMAGE__ROTATION:
 				return rotation != ROTATION_EDEFAULT;
-			case ModelPackage.SVG_IMAGE__SRC:
-				return SRC_EDEFAULT == null ? src != null : !SRC_EDEFAULT.equals(src);
 			case ModelPackage.SVG_IMAGE__HFLIP:
 				return hFlip != HFLIP_EDEFAULT;
 			case ModelPackage.SVG_IMAGE__VFLIP:
 				return vFlip != VFLIP_EDEFAULT;
+			case ModelPackage.SVG_IMAGE__SRC:
+				return SRC_EDEFAULT == null ? src != null : !SRC_EDEFAULT.equals(src);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -557,6 +558,13 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 		if (baseClass == RotationSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.SVG_IMAGE__ROTATION: return ModelPackage.ROTATION_SUPPORT__ROTATION;
+				default: return -1;
+			}
+		}
+		if (baseClass == FlipSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SVG_IMAGE__HFLIP: return ModelPackage.FLIP_SUPPORT__HFLIP;
+				case ModelPackage.SVG_IMAGE__VFLIP: return ModelPackage.FLIP_SUPPORT__VFLIP;
 				default: return -1;
 			}
 		}
@@ -600,6 +608,13 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 				default: return -1;
 			}
 		}
+		if (baseClass == FlipSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.FLIP_SUPPORT__HFLIP: return ModelPackage.SVG_IMAGE__HFLIP;
+				case ModelPackage.FLIP_SUPPORT__VFLIP: return ModelPackage.SVG_IMAGE__VFLIP;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -623,12 +638,12 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 		result.append(alpha);
 		result.append(", rotation: ");
 		result.append(rotation);
-		result.append(", src: ");
-		result.append(src);
 		result.append(", hFlip: ");
 		result.append(hFlip);
 		result.append(", vFlip: ");
 		result.append(vFlip);
+		result.append(", src: ");
+		result.append(src);
 		result.append(')');
 		return result.toString();
 	}

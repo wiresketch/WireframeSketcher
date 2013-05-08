@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.URI;
  * @model
  * @generated
  */
-public interface Image extends Widget, LinkSupport {
+public interface Image extends Widget, LinkSupport, RotationSupport, FlipSupport {
 	/**
 	 * Returns the value of the '<em><b>Src</b></em>' attribute.
 	 * <!-- begin-user-doc -->

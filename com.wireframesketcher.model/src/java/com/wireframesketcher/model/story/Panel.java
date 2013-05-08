@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.wireframesketcher.model.story.Panel#getScreen <em>Screen</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.story.Panel#getStory <em>Story</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.Panel#getX <em>X</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.Panel#getY <em>Y</em>}</li>
  * </ul>
@@ -54,6 +55,32 @@ public interface Panel extends EObject {
 	 * @generated
 	 */
 	void setScreen(Screen value);
+
+	/**
+	 * Returns the value of the '<em><b>Story</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Story</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Story</em>' reference.
+	 * @see #setStory(Storyboard)
+	 * @see com.wireframesketcher.model.story.StoryPackage#getPanel_Story()
+	 * @model
+	 * @generated
+	 */
+	Storyboard getStory();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.story.Panel#getStory <em>Story</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Story</em>' reference.
+	 * @see #getStory()
+	 * @generated
+	 */
+	void setStory(Storyboard value);
 
 	/**
 	 * Returns the value of the '<em><b>X</b></em>' attribute.

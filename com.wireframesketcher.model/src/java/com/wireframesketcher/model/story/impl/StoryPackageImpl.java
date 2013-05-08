@@ -155,8 +155,17 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPanel_Story() {
+		return (EReference)panelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getPanel_X() {
-		return (EAttribute)panelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)panelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -165,7 +174,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	 * @generated
 	 */
 	public EAttribute getPanel_Y() {
-		return (EAttribute)panelEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)panelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -201,6 +210,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 
 		panelEClass = createEClass(PANEL);
 		createEReference(panelEClass, PANEL__SCREEN);
+		createEReference(panelEClass, PANEL__STORY);
 		createEAttribute(panelEClass, PANEL__X);
 		createEAttribute(panelEClass, PANEL__Y);
 	}
@@ -243,6 +253,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 
 		initEClass(panelEClass, Panel.class, "Panel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPanel_Screen(), theModelPackage.getScreen(), null, "screen", null, 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPanel_Story(), this.getStoryboard(), null, "story", null, 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPanel_X(), ecorePackage.getEInt(), "x", "-2147483648", 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPanel_Y(), ecorePackage.getEInt(), "y", "-2147483648", 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}

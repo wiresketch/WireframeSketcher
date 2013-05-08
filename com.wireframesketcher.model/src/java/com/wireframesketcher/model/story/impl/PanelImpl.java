@@ -11,6 +11,7 @@ import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.story.Panel;
 import com.wireframesketcher.model.story.StoryPackage;
 
+import com.wireframesketcher.model.story.Storyboard;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getScreen <em>Screen</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getStory <em>Story</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getX <em>X</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getY <em>Y</em>}</li>
  * </ul>
@@ -44,6 +46,16 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	 * @ordered
 	 */
 	protected Screen screen;
+
+	/**
+	 * The cached value of the '{@link #getStory() <em>Story</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStory()
+	 * @generated
+	 * @ordered
+	 */
+	protected Storyboard story;
 
 	/**
 	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
@@ -144,6 +156,44 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Storyboard getStory() {
+		if (story != null && story.eIsProxy()) {
+			InternalEObject oldStory = (InternalEObject)story;
+			story = (Storyboard)eResolveProxy(oldStory);
+			if (story != oldStory) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StoryPackage.PANEL__STORY, oldStory, story));
+			}
+		}
+		return story;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Storyboard basicGetStory() {
+		return story;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStory(Storyboard newStory) {
+		Storyboard oldStory = story;
+		story = newStory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StoryPackage.PANEL__STORY, oldStory, story));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getX() {
 		return x;
 	}
@@ -192,6 +242,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 			case StoryPackage.PANEL__SCREEN:
 				if (resolve) return getScreen();
 				return basicGetScreen();
+			case StoryPackage.PANEL__STORY:
+				if (resolve) return getStory();
+				return basicGetStory();
 			case StoryPackage.PANEL__X:
 				return getX();
 			case StoryPackage.PANEL__Y:
@@ -210,6 +263,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 		switch (featureID) {
 			case StoryPackage.PANEL__SCREEN:
 				setScreen((Screen)newValue);
+				return;
+			case StoryPackage.PANEL__STORY:
+				setStory((Storyboard)newValue);
 				return;
 			case StoryPackage.PANEL__X:
 				setX((Integer)newValue);
@@ -232,6 +288,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 			case StoryPackage.PANEL__SCREEN:
 				setScreen((Screen)null);
 				return;
+			case StoryPackage.PANEL__STORY:
+				setStory((Storyboard)null);
+				return;
 			case StoryPackage.PANEL__X:
 				setX(X_EDEFAULT);
 				return;
@@ -252,6 +311,8 @@ public class PanelImpl extends EObjectImpl implements Panel {
 		switch (featureID) {
 			case StoryPackage.PANEL__SCREEN:
 				return screen != null;
+			case StoryPackage.PANEL__STORY:
+				return story != null;
 			case StoryPackage.PANEL__X:
 				return x != X_EDEFAULT;
 			case StoryPackage.PANEL__Y:

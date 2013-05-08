@@ -17,8 +17,6 @@ import org.eclipse.emf.common.util.URI;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.wireframesketcher.model.SVGImage#getSrc <em>Src</em>}</li>
- *   <li>{@link com.wireframesketcher.model.SVGImage#isHFlip <em>HFlip</em>}</li>
- *   <li>{@link com.wireframesketcher.model.SVGImage#isVFlip <em>VFlip</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +24,7 @@ import org.eclipse.emf.common.util.URI;
  * @model
  * @generated
  */
-public interface SVGImage extends Widget, LinkSupport, ColorBackgroundSupport, ColorForegroundSupport, ColorAlphaSupport, RotationSupport {
+public interface SVGImage extends Widget, LinkSupport, ColorBackgroundSupport, ColorForegroundSupport, ColorAlphaSupport, RotationSupport, FlipSupport {
 	/**
 	 * Returns the value of the '<em><b>Src</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,55 +49,5 @@ public interface SVGImage extends Widget, LinkSupport, ColorBackgroundSupport, C
 	 * @generated
 	 */
 	void setSrc(URI value);
-
-	/**
-	 * Returns the value of the '<em><b>HFlip</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Toggles horizontal flip
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>HFlip</em>' attribute.
-	 * @see #setHFlip(boolean)
-	 * @see com.wireframesketcher.model.ModelPackage#getSVGImage_HFlip()
-	 * @model
-	 * @generated
-	 */
-	boolean isHFlip();
-
-	/**
-	 * Sets the value of the '{@link com.wireframesketcher.model.SVGImage#isHFlip <em>HFlip</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>HFlip</em>' attribute.
-	 * @see #isHFlip()
-	 * @generated
-	 */
-	void setHFlip(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>VFlip</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Toggles vertical flip
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>VFlip</em>' attribute.
-	 * @see #setVFlip(boolean)
-	 * @see com.wireframesketcher.model.ModelPackage#getSVGImage_VFlip()
-	 * @model
-	 * @generated
-	 */
-	boolean isVFlip();
-
-	/**
-	 * Sets the value of the '{@link com.wireframesketcher.model.SVGImage#isVFlip <em>VFlip</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>VFlip</em>' attribute.
-	 * @see #isVFlip()
-	 * @generated
-	 */
-	void setVFlip(boolean value);
 
 } // SVGImage
