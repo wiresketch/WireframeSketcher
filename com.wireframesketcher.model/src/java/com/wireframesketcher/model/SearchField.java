@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface SearchField extends Widget, FontSupport, StateSupport, ColorBorderSupport, LinkSupport {
+public interface SearchField extends Widget, FontSupport, StateSupport, ColorBorderSupport, LinkSupport, SkinSupport {
 } // SearchField

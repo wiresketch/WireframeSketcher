@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Panel extends Widget, ColorBackgroundSupport, ColorAlphaSupport, VerticalScrollbarSupport, ColorForegroundSupport, BorderStyleSupport, LinkSupport {
+public interface Panel extends Widget, ColorBackgroundSupport, ColorAlphaSupport, VerticalScrollbarSupport, ColorForegroundSupport, BorderStyleSupport, LinkSupport, SkinSupport {
 } // Panel

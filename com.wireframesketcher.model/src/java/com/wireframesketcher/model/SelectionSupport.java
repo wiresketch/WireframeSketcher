@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface SelectionSupport extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Selection</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Selection</em>' attribute isn't clear,
@@ -37,12 +38,12 @@ public interface SelectionSupport extends EObject {
 	 * Selection index. Zero-based. Default: -1
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Selection</em>' attribute.
-	 * @see #setSelection(String)
+	 * @see #setSelection(int)
 	 * @see com.wireframesketcher.model.ModelPackage#getSelectionSupport_Selection()
-	 * @model
+	 * @model default="-1" dataType="com.wireframesketcher.model.SelectionDataType"
 	 * @generated
 	 */
-	String getSelection();
+	int getSelection();
 
 	/**
 	 * Sets the value of the '{@link com.wireframesketcher.model.SelectionSupport#getSelection <em>Selection</em>}' attribute.
@@ -52,6 +53,6 @@ public interface SelectionSupport extends EObject {
 	 * @see #getSelection()
 	 * @generated
 	 */
-	void setSelection(String value);
+	void setSelection(int value);
 
 } // SelectionSupport

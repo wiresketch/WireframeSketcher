@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface VideoPlayer extends Widget {
+public interface VideoPlayer extends Widget, SkinSupport {
 } // VideoPlayer

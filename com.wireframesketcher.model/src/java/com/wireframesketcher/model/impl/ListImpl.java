@@ -55,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wireframesketcher.model.impl.ListImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ListImpl#getItems <em>Items</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ListImpl#getAlternative <em>Alternative</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ListImpl#isHeader <em>Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,7 +70,7 @@ public class ListImpl extends WidgetImpl implements List {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTION_EDEFAULT = null;
+	protected static final int SELECTION_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
@@ -79,7 +80,7 @@ public class ListImpl extends WidgetImpl implements List {
 	 * @generated
 	 * @ordered
 	 */
-	protected String selection = SELECTION_EDEFAULT;
+	protected int selection = SELECTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isBorder() <em>Border</em>}' attribute.
@@ -261,6 +262,26 @@ public class ListImpl extends WidgetImpl implements List {
 	 */
 	protected ColorDesc alternative = ALTERNATIVE_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #isHeader() <em>Header</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HEADER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHeader() <em>Header</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean header = HEADER_EDEFAULT;
+
 	private static final WidgetDescriptor DESCRIPTOR = describe("List", ResizeMode.BOTH_LITERAL, true, true);
 	
 	/**
@@ -288,7 +309,7 @@ public class ListImpl extends WidgetImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelection() {
+	public int getSelection() {
 		return selection;
 	}
 
@@ -297,8 +318,8 @@ public class ListImpl extends WidgetImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(String newSelection) {
-		String oldSelection = selection;
+	public void setSelection(int newSelection) {
+		int oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.LIST__SELECTION, oldSelection, selection));
@@ -532,6 +553,27 @@ public class ListImpl extends WidgetImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isHeader() {
+		return header;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHeader(boolean newHeader) {
+		boolean oldHeader = header;
+		header = newHeader;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.LIST__HEADER, oldHeader, header));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -573,6 +615,8 @@ public class ListImpl extends WidgetImpl implements List {
 				return getItems();
 			case ModelPackage.LIST__ALTERNATIVE:
 				return getAlternative();
+			case ModelPackage.LIST__HEADER:
+				return isHeader();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -587,7 +631,7 @@ public class ListImpl extends WidgetImpl implements List {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.LIST__SELECTION:
-				setSelection((String)newValue);
+				setSelection((Integer)newValue);
 				return;
 			case ModelPackage.LIST__BORDER:
 				setBorder((Boolean)newValue);
@@ -619,6 +663,9 @@ public class ListImpl extends WidgetImpl implements List {
 				return;
 			case ModelPackage.LIST__ALTERNATIVE:
 				setAlternative((ColorDesc)newValue);
+				return;
+			case ModelPackage.LIST__HEADER:
+				setHeader((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -665,6 +712,9 @@ public class ListImpl extends WidgetImpl implements List {
 			case ModelPackage.LIST__ALTERNATIVE:
 				setAlternative(ALTERNATIVE_EDEFAULT);
 				return;
+			case ModelPackage.LIST__HEADER:
+				setHeader(HEADER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -678,7 +728,7 @@ public class ListImpl extends WidgetImpl implements List {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.LIST__SELECTION:
-				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+				return selection != SELECTION_EDEFAULT;
 			case ModelPackage.LIST__BORDER:
 				return border != BORDER_EDEFAULT;
 			case ModelPackage.LIST__VALUE:
@@ -699,6 +749,8 @@ public class ListImpl extends WidgetImpl implements List {
 				return items != null && !items.isEmpty();
 			case ModelPackage.LIST__ALTERNATIVE:
 				return ALTERNATIVE_EDEFAULT == null ? alternative != null : !ALTERNATIVE_EDEFAULT.equals(alternative);
+			case ModelPackage.LIST__HEADER:
+				return header != HEADER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -873,6 +925,8 @@ public class ListImpl extends WidgetImpl implements List {
 		result.append(horizontalLines);
 		result.append(", alternative: ");
 		result.append(alternative);
+		result.append(", header: ");
+		result.append(header);
 		result.append(')');
 		return result.toString();
 	}

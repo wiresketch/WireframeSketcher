@@ -152,7 +152,7 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTION_EDEFAULT = null;
+	protected static final int SELECTION_EDEFAULT = -1;
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -161,7 +161,7 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 * @generated
 	 * @ordered
 	 */
-	protected String selection = SELECTION_EDEFAULT;
+	protected int selection = SELECTION_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -313,7 +313,7 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelection() {
+	public int getSelection() {
 		return selection;
 	}
 
@@ -322,8 +322,8 @@ public class TreeImpl extends WidgetImpl implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(String newSelection) {
-		String oldSelection = selection;
+	public void setSelection(int newSelection) {
+		int oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TREE__SELECTION, oldSelection, selection));
@@ -453,7 +453,7 @@ public class TreeImpl extends WidgetImpl implements Tree {
 				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.TREE__SELECTION:
-				setSelection((String)newValue);
+				setSelection((Integer)newValue);
 				return;
 			case ModelPackage.TREE__ITEMS:
 				getItems().clear();
@@ -521,7 +521,7 @@ public class TreeImpl extends WidgetImpl implements Tree {
 			case ModelPackage.TREE__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
 			case ModelPackage.TREE__SELECTION:
-				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+				return selection != SELECTION_EDEFAULT;
 			case ModelPackage.TREE__ITEMS:
 				return items != null && !items.isEmpty();
 			case ModelPackage.TREE__FONT:

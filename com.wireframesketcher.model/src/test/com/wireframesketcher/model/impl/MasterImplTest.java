@@ -16,6 +16,7 @@ import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Panel;
 import com.wireframesketcher.model.Screen;
+import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetGroup;
@@ -81,14 +82,14 @@ public class MasterImplTest extends TestCase {
 		buttonBarInstance.setX(10);
 		assertNull(master.getOverrides());
 
-		buttonBarInstance.setSelection("2");
+		buttonBarInstance.setSelection(2);
 		overrides = master.getOverrides();
 		assertNotNull(overrides);
 		assertEquals(1, overrides.getWidgets().size());
 		wo = (WidgetOverrides) overrides.getWidgets().get(0);
 		assertEquals("1", wo.getRef());
 		assertEquals("2", wo.getAttributes().get("selection"));
-		buttonBarInstance.setSelection(null);
+		buttonBarInstance.setSelection(-1);
 		overrides = master.getOverrides();
 		assertNull(overrides);
 
@@ -98,6 +99,7 @@ public class MasterImplTest extends TestCase {
 		assertEquals(1, overrides.getWidgets().size());
 		wo = (WidgetOverrides) overrides.getWidgets().get(0);
 		assertEquals("1", wo.getRef());
+		assertNull(wo.getAttributes().get("selection"));
 		assertNotNull(wo.getFont());
 		assertEquals(Boolean.TRUE, wo.getFont().getBold());
 
@@ -538,7 +540,7 @@ public class MasterImplTest extends TestCase {
 		cAlt.getWidgets().add(cMaster);
 		persister.getResourceSet().createResource(URI.createURI("c.screen"))
 				.getContents().add(cAlt);
-		
+
 		dMaster.setScreen(cAlt);
 
 		Screen aAlt = ModelFactory.eINSTANCE.createScreen();
@@ -732,4 +734,70 @@ public class MasterImplTest extends TestCase {
 		assertEquals("Label 2", insertedLabel2.getText());
 	}
 
+	public void testMissingNestedMasterNPE() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setX(10);
+		button.setY(0);
+		button.setText("Button");
+		button.setId(Long.valueOf(1));
+		a.getWidgets().add(button);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setId(Long.valueOf(1));
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+		Master bMasterMissing = ModelFactory.eINSTANCE.createMaster();
+		bMasterMissing.setX(20);
+		bMasterMissing.setY(20);
+		bMasterMissing.setId(Long.valueOf(2));
+		b.getWidgets().add(bMasterMissing);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setId(Long.valueOf(1));
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen"))
+				.getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets()
+				.get(0);
+		Button buttonInstance = (Button) bMasterInstance.getInstance()
+				.getWidgets().get(0);
+		buttonInstance.setState(State.DISABLED);
+		Label label = ModelFactory.eINSTANCE.createLabel();
+		label.setText("Label");
+		bMasterInstance.getInstance().getWidgets().add(label);
+
+		assertNotNull(cMaster.getOverrides());
+
+		EList<WidgetOverrides> widgetsOverrides = cMaster.getOverrides()
+				.getWidgets();
+		assertEquals(2, widgetsOverrides.size());
+		WidgetOverrides widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("1/1", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+
+		widgetOverrides = widgetsOverrides.get(1);
+		assertEquals("1", widgetOverrides.getRef());
+		assertEquals(1, widgetOverrides.getWidgetChanges().size());
+		Operation op = widgetOverrides.getWidgetChanges().get(0);
+		assertTrue(op instanceof Insert);
+	}
 }

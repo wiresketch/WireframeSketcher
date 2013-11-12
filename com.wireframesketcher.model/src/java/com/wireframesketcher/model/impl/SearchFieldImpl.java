@@ -22,6 +22,7 @@ import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.SearchField;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.StateSupport;
 import com.wireframesketcher.model.WidgetDescriptor;
@@ -37,6 +38,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getState <em>State</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getBorderColor <em>Border Color</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.SearchFieldImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +114,26 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 	 * @ordered
 	 */
 	protected URI link = LINK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Search Field", ResizeMode.HORIZONTAL_LITERAL);
 	
@@ -244,6 +266,27 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SEARCH_FIELD__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
@@ -279,6 +322,8 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				return getBorderColor();
 			case ModelPackage.SEARCH_FIELD__LINK:
 				return getLink();
+			case ModelPackage.SEARCH_FIELD__SKIN:
+				return getSkin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -302,6 +347,9 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				return;
 			case ModelPackage.SEARCH_FIELD__LINK:
 				setLink((URI)newValue);
+				return;
+			case ModelPackage.SEARCH_FIELD__SKIN:
+				setSkin((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -327,6 +375,9 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 			case ModelPackage.SEARCH_FIELD__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
+			case ModelPackage.SEARCH_FIELD__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,6 +398,8 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
 			case ModelPackage.SEARCH_FIELD__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
+			case ModelPackage.SEARCH_FIELD__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -379,6 +432,12 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 		if (baseClass == LinkSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.SEARCH_FIELD__LINK: return ModelPackage.LINK_SUPPORT__LINK;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SEARCH_FIELD__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
 				default: return -1;
 			}
 		}
@@ -416,6 +475,12 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.SEARCH_FIELD__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -435,6 +500,8 @@ public class SearchFieldImpl extends WidgetImpl implements SearchField {
 		result.append(borderColor);
 		result.append(", link: ");
 		result.append(link);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(')');
 		return result.toString();
 	}

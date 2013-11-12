@@ -17,6 +17,7 @@ import com.wireframesketcher.model.ModelFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -27,6 +28,7 @@ import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.SelectionSupport;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.TabbedPane;
 import com.wireframesketcher.model.ValueSupport;
 import com.wireframesketcher.model.VerticalScrollbarSupport;
@@ -47,6 +49,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.TabbedPaneImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TabbedPaneImpl#getItems <em>Items</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TabbedPaneImpl#getFont <em>Font</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TabbedPaneImpl#getSkin <em>Skin</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TabbedPaneImpl#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
@@ -62,7 +65,7 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTION_EDEFAULT = null;
+	protected static final int SELECTION_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
@@ -72,7 +75,7 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	 * @generated
 	 * @ordered
 	 */
-	protected String selection = SELECTION_EDEFAULT;
+	protected int selection = SELECTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -175,6 +178,26 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	protected Font font;
 
 	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,7 +244,7 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelection() {
+	public int getSelection() {
 		return selection;
 	}
 
@@ -230,8 +253,8 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(String newSelection) {
-		String oldSelection = selection;
+	public void setSelection(int newSelection) {
+		int oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TABBED_PANE__SELECTION, oldSelection, selection));
@@ -381,6 +404,27 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TABBED_PANE__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Position getPosition() {
 		return position;
 	}
@@ -447,6 +491,8 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 				return getItems();
 			case ModelPackage.TABBED_PANE__FONT:
 				return getFont();
+			case ModelPackage.TABBED_PANE__SKIN:
+				return getSkin();
 			case ModelPackage.TABBED_PANE__POSITION:
 				return getPosition();
 		}
@@ -463,7 +509,7 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.TABBED_PANE__SELECTION:
-				setSelection((String)newValue);
+				setSelection((Integer)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__VALUE:
 				setValue((Integer)newValue);
@@ -483,6 +529,9 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 				return;
 			case ModelPackage.TABBED_PANE__FONT:
 				setFont((Font)newValue);
+				return;
+			case ModelPackage.TABBED_PANE__SKIN:
+				setSkin((URI)newValue);
 				return;
 			case ModelPackage.TABBED_PANE__POSITION:
 				setPosition((Position)newValue);
@@ -520,6 +569,9 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 			case ModelPackage.TABBED_PANE__FONT:
 				setFont((Font)null);
 				return;
+			case ModelPackage.TABBED_PANE__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 			case ModelPackage.TABBED_PANE__POSITION:
 				setPosition(POSITION_EDEFAULT);
 				return;
@@ -536,7 +588,7 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.TABBED_PANE__SELECTION:
-				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+				return selection != SELECTION_EDEFAULT;
 			case ModelPackage.TABBED_PANE__VALUE:
 				return value != VALUE_EDEFAULT;
 			case ModelPackage.TABBED_PANE__VERTICAL_SCROLLBAR:
@@ -549,6 +601,8 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 				return items != null && !items.isEmpty();
 			case ModelPackage.TABBED_PANE__FONT:
 				return font != null;
+			case ModelPackage.TABBED_PANE__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 			case ModelPackage.TABBED_PANE__POSITION:
 				return position != POSITION_EDEFAULT;
 		}
@@ -604,6 +658,12 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TABBED_PANE__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -656,6 +716,12 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.TABBED_PANE__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -679,6 +745,8 @@ public class TabbedPaneImpl extends WidgetImpl implements TabbedPane {
 		result.append(background);
 		result.append(", alpha: ");
 		result.append(alpha);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(", position: ");
 		result.append(position);
 		result.append(')');

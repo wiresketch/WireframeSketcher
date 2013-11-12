@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface ButtonBar extends Widget, SelectionSupport, FontSupport, ColorBackgroundSupport, ItemSupport {
+public interface ButtonBar extends Widget, SelectionSupport, FontSupport, ColorBackgroundSupport, ItemSupport, SkinSupport {
 } // ButtonBar

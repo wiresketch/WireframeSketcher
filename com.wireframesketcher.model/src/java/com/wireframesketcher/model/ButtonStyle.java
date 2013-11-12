@@ -43,6 +43,14 @@ public enum ButtonStyle implements Enumerator {
 	SQUARE(1, "Square", "square"),
 
 	/**
+	 * The '<em><b>Round</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ROUND_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ROUND(3, "Round", "round"), /**
 	 * The '<em><b>Point Right</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +91,21 @@ public enum ButtonStyle implements Enumerator {
 	public static final int SQUARE_VALUE = 1;
 
 	/**
+	 * The '<em><b>Round</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Round</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ROUND
+	 * @model name="Round" literal="round"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ROUND_VALUE = 3;
+
+	/**
 	 * The '<em><b>Point Right</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -107,6 +130,7 @@ public enum ButtonStyle implements Enumerator {
 		new ButtonStyle[] {
 			POINT_LEFT,
 			SQUARE,
+			ROUND,
 			POINT_RIGHT,
 		};
 
@@ -160,6 +184,7 @@ public enum ButtonStyle implements Enumerator {
 		switch (value) {
 			case POINT_LEFT_VALUE: return POINT_LEFT;
 			case SQUARE_VALUE: return SQUARE;
+			case ROUND_VALUE: return ROUND;
 			case POINT_RIGHT_VALUE: return POINT_RIGHT;
 		}
 		return null;

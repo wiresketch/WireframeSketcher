@@ -13,7 +13,9 @@ import com.wireframesketcher.model.LineStyle;
 import com.wireframesketcher.model.LineStyleSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.SkinSupport;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.HLineImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.HLineImpl#getLineStyle <em>Line Style</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.HLineImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +74,24 @@ public class HLineImpl extends WidgetImpl implements HLine {
 	 * @ordered
 	 */
 	protected LineStyle lineStyle = LINE_STYLE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Horizontal Line", ResizeMode.HORIZONTAL_LITERAL, false, false);
 	
 	/**
@@ -139,6 +160,27 @@ public class HLineImpl extends WidgetImpl implements HLine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HLINE__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -146,6 +188,8 @@ public class HLineImpl extends WidgetImpl implements HLine {
 				return getForeground();
 			case ModelPackage.HLINE__LINE_STYLE:
 				return getLineStyle();
+			case ModelPackage.HLINE__SKIN:
+				return getSkin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +207,9 @@ public class HLineImpl extends WidgetImpl implements HLine {
 				return;
 			case ModelPackage.HLINE__LINE_STYLE:
 				setLineStyle((LineStyle)newValue);
+				return;
+			case ModelPackage.HLINE__SKIN:
+				setSkin((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,6 +229,9 @@ public class HLineImpl extends WidgetImpl implements HLine {
 			case ModelPackage.HLINE__LINE_STYLE:
 				setLineStyle(LINE_STYLE_EDEFAULT);
 				return;
+			case ModelPackage.HLINE__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,6 +248,8 @@ public class HLineImpl extends WidgetImpl implements HLine {
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
 			case ModelPackage.HLINE__LINE_STYLE:
 				return lineStyle != LINE_STYLE_EDEFAULT;
+			case ModelPackage.HLINE__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,6 +270,12 @@ public class HLineImpl extends WidgetImpl implements HLine {
 		if (baseClass == LineStyleSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.HLINE__LINE_STYLE: return ModelPackage.LINE_STYLE_SUPPORT__LINE_STYLE;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.HLINE__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
 				default: return -1;
 			}
 		}
@@ -243,6 +301,12 @@ public class HLineImpl extends WidgetImpl implements HLine {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.HLINE__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -260,6 +324,8 @@ public class HLineImpl extends WidgetImpl implements HLine {
 		result.append(foreground);
 		result.append(", lineStyle: ");
 		result.append(lineStyle);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(')');
 		return result.toString();
 	}

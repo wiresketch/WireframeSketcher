@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Callout extends Widget, FontSupport, ColorBackgroundSupport, ColorAlphaSupport, LinkSupport {
+public interface Callout extends Widget, FontSupport, ColorBackgroundSupport, ColorAlphaSupport, LinkSupport, SkinSupport {
 } // Callout

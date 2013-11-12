@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface ProgressBar extends Widget, ValueSupport, ColorBackgroundSupport {
+public interface ProgressBar extends Widget, ValueSupport, ColorBackgroundSupport, SkinSupport {
 } // ProgressBar

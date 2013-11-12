@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface TextField extends Widget, StateSupport, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, ColorAlphaSupport, ColorBorderSupport {
+public interface TextField extends Widget, StateSupport, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, ColorAlphaSupport, ColorBorderSupport, SkinSupport {
 } // TextField

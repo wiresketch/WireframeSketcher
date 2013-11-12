@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Placeholder extends Widget, LinkSupport {
+public interface Placeholder extends Widget, LinkSupport, SkinSupport {
 } // Placeholder

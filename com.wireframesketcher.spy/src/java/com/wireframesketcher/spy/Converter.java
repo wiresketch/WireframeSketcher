@@ -373,7 +373,7 @@ public class Converter {
 				content.append('\n');
 			}
 			list.setText(content.toString());
-			list.setSelection(Integer.toString(control.getSelectionIndex()));
+			list.setSelection(control.getSelectionIndex());
 			add(list, control, 0, 22);
 			// force auto-size
 			list.setWidth(-1);
@@ -507,8 +507,7 @@ public class Converter {
 		table.setText(content.toString());
 
 		if (control.getSelectionIndex() != -1)
-			table.setSelection(Integer
-					.toString(control.getSelectionIndex() + 1)); // +1 for
+			table.setSelection(control.getSelectionIndex() + 1); // +1 for header
 
 		table.setHeader(control.getHeaderVisible());
 
@@ -552,8 +551,8 @@ public class Converter {
 				content.append(',');
 		}
 		tabs.setText(content.toString());
-		((SelectionSupport) tabs).setSelection(Integer.toString(control
-				.getSelectionIndex()));
+		((SelectionSupport) tabs).setSelection(control
+				.getSelectionIndex());
 		if (tabs instanceof VerticalScrollbarSupport)
 			applyScrollbar((VerticalScrollbarSupport) tabs, control);
 		add(tabs, control);
@@ -585,8 +584,8 @@ public class Converter {
 				content.append(',');
 		}
 		tabs.setText(content.toString());
-		((SelectionSupport) tabs).setSelection(Integer.toString(control
-				.getSelectionIndex()));
+		((SelectionSupport) tabs).setSelection(control
+				.getSelectionIndex());
 		if (tabs instanceof VerticalScrollbarSupport)
 			applyScrollbar((VerticalScrollbarSupport) tabs, control);
 		add(tabs, control);
@@ -688,7 +687,7 @@ public class Converter {
 		list.setText(content.toString());
 
 		if (control.getSelectionIndex() != -1)
-			list.setSelection(Integer.toString(control.getSelectionIndex()));
+			list.setSelection(control.getSelectionIndex());
 
 		applyScrollbar(list, control);
 

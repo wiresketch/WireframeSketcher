@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Browser extends Widget, VerticalScrollbarSupport, ColorBackgroundSupport {
+public interface Browser extends Widget, VerticalScrollbarSupport, ColorBackgroundSupport, SkinSupport {
 } // Browser

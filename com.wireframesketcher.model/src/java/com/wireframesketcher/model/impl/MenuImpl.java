@@ -15,10 +15,12 @@ import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Rotation90;
 import com.wireframesketcher.model.SelectionSupport;
+import com.wireframesketcher.model.SkinSupport;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 
@@ -39,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.MenuImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,7 +56,7 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTION_EDEFAULT = null;
+	protected static final int SELECTION_EDEFAULT = -1;
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +65,7 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * @generated
 	 * @ordered
 	 */
-	protected String selection = SELECTION_EDEFAULT;
+	protected int selection = SELECTION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,6 +111,24 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * @ordered
 	 */
 	protected EList<Item> items;
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Menu", ResizeMode.HORIZONTAL_LITERAL);
 	
 	/**
@@ -134,7 +155,7 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelection() {
+	public int getSelection() {
 		return selection;
 	}
 
@@ -143,8 +164,8 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(String newSelection) {
-		String oldSelection = selection;
+	public void setSelection(int newSelection) {
+		int oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MENU__SELECTION, oldSelection, selection));
@@ -209,6 +230,27 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MENU__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -234,6 +276,8 @@ public class MenuImpl extends WidgetImpl implements Menu {
 				return getIconRotation();
 			case ModelPackage.MENU__ITEMS:
 				return getItems();
+			case ModelPackage.MENU__SKIN:
+				return getSkin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,7 +292,7 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.MENU__SELECTION:
-				setSelection((String)newValue);
+				setSelection((Integer)newValue);
 				return;
 			case ModelPackage.MENU__ICON:
 				setIcon((IconDesc)newValue);
@@ -259,6 +303,9 @@ public class MenuImpl extends WidgetImpl implements Menu {
 			case ModelPackage.MENU__ITEMS:
 				getItems().clear();
 				getItems().addAll((Collection<? extends Item>)newValue);
+				return;
+			case ModelPackage.MENU__SKIN:
+				setSkin((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,6 +331,9 @@ public class MenuImpl extends WidgetImpl implements Menu {
 			case ModelPackage.MENU__ITEMS:
 				getItems().clear();
 				return;
+			case ModelPackage.MENU__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -297,13 +347,15 @@ public class MenuImpl extends WidgetImpl implements Menu {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.MENU__SELECTION:
-				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+				return selection != SELECTION_EDEFAULT;
 			case ModelPackage.MENU__ICON:
 				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
 			case ModelPackage.MENU__ICON_ROTATION:
 				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.MENU__ITEMS:
 				return items != null && !items.isEmpty();
+			case ModelPackage.MENU__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,6 +383,12 @@ public class MenuImpl extends WidgetImpl implements Menu {
 		if (baseClass == ItemSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.MENU__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.MENU__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
 				default: return -1;
 			}
 		}
@@ -363,6 +421,12 @@ public class MenuImpl extends WidgetImpl implements Menu {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.MENU__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -382,6 +446,8 @@ public class MenuImpl extends WidgetImpl implements Menu {
 		result.append(icon);
 		result.append(", iconRotation: ");
 		result.append(iconRotation);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(')');
 		return result.toString();
 	}

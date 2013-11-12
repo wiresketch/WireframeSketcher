@@ -19,6 +19,7 @@ import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.SkinSupport;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
@@ -36,6 +37,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.CalloutImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CalloutImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CalloutImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.CalloutImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,6 +108,24 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 	 */
 	protected URI link = LINK_EDEFAULT;
 	
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Callout").resizeBoth().singleLine().centered().get();
 	
 	/**
@@ -242,6 +262,27 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CALLOUT__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -267,6 +308,8 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 				return getAlpha();
 			case ModelPackage.CALLOUT__LINK:
 				return getLink();
+			case ModelPackage.CALLOUT__SKIN:
+				return getSkin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,6 +333,9 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 				return;
 			case ModelPackage.CALLOUT__LINK:
 				setLink((URI)newValue);
+				return;
+			case ModelPackage.CALLOUT__SKIN:
+				setSkin((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -315,6 +361,9 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 			case ModelPackage.CALLOUT__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
+			case ModelPackage.CALLOUT__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -335,6 +384,8 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 				return alpha != ALPHA_EDEFAULT;
 			case ModelPackage.CALLOUT__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
+			case ModelPackage.CALLOUT__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -367,6 +418,12 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 		if (baseClass == LinkSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.CALLOUT__LINK: return ModelPackage.LINK_SUPPORT__LINK;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.CALLOUT__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
 				default: return -1;
 			}
 		}
@@ -404,6 +461,12 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.CALLOUT__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -423,6 +486,8 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 		result.append(alpha);
 		result.append(", link: ");
 		result.append(link);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(')');
 		return result.toString();
 	}

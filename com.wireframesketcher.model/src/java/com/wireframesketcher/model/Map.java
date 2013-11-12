@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Map extends Widget {
+public interface Map extends Widget, SkinSupport {
 } // Map

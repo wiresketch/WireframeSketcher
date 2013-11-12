@@ -23,6 +23,7 @@ import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Rotation90;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.StateSupport;
 import com.wireframesketcher.model.TextAlignment;
@@ -48,6 +49,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getTextAlignment <em>Text Alignment</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getSkin <em>Skin</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ButtonImpl#getStyle <em>Style</em>}</li>
  * </ul>
  * </p>
@@ -183,6 +185,26 @@ public class ButtonImpl extends WidgetImpl implements Button {
 	 * @ordered
 	 */
 	protected TextAlignment textAlignment = TEXT_ALIGNMENT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
@@ -399,6 +421,27 @@ public class ButtonImpl extends WidgetImpl implements Button {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BUTTON__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ButtonStyle getStyle() {
 		return style;
 	}
@@ -459,6 +502,8 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				return getLink();
 			case ModelPackage.BUTTON__TEXT_ALIGNMENT:
 				return getTextAlignment();
+			case ModelPackage.BUTTON__SKIN:
+				return getSkin();
 			case ModelPackage.BUTTON__STYLE:
 				return getStyle();
 		}
@@ -493,6 +538,9 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				return;
 			case ModelPackage.BUTTON__TEXT_ALIGNMENT:
 				setTextAlignment((TextAlignment)newValue);
+				return;
+			case ModelPackage.BUTTON__SKIN:
+				setSkin((URI)newValue);
 				return;
 			case ModelPackage.BUTTON__STYLE:
 				setStyle((ButtonStyle)newValue);
@@ -530,6 +578,9 @@ public class ButtonImpl extends WidgetImpl implements Button {
 			case ModelPackage.BUTTON__TEXT_ALIGNMENT:
 				setTextAlignment(TEXT_ALIGNMENT_EDEFAULT);
 				return;
+			case ModelPackage.BUTTON__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 			case ModelPackage.BUTTON__STYLE:
 				setStyle(STYLE_EDEFAULT);
 				return;
@@ -559,6 +610,8 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case ModelPackage.BUTTON__TEXT_ALIGNMENT:
 				return textAlignment != TEXT_ALIGNMENT_EDEFAULT;
+			case ModelPackage.BUTTON__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 			case ModelPackage.BUTTON__STYLE:
 				return style != STYLE_EDEFAULT;
 		}
@@ -609,6 +662,12 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.BUTTON__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -656,6 +715,12 @@ public class ButtonImpl extends WidgetImpl implements Button {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.BUTTON__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -681,6 +746,8 @@ public class ButtonImpl extends WidgetImpl implements Button {
 		result.append(link);
 		result.append(", textAlignment: ");
 		result.append(textAlignment);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(", style: ");
 		result.append(style);
 		result.append(')');

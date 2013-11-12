@@ -432,6 +432,22 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createSVGImageAdapter();
 			}
 			@Override
+			public Adapter caseSkinSupport(SkinSupport object) {
+				return createSkinSupportAdapter();
+			}
+			@Override
+			public Adapter caseShape(Shape object) {
+				return createShapeAdapter();
+			}
+			@Override
+			public Adapter caseAlert(Alert object) {
+				return createAlertAdapter();
+			}
+			@Override
+			public Adapter caseSwitch(Switch object) {
+				return createSwitchAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1568,6 +1584,62 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSVGImageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.SkinSupport <em>Skin Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.SkinSupport
+	 * @generated
+	 */
+	public Adapter createSkinSupportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.Shape <em>Shape</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.Shape
+	 * @generated
+	 */
+	public Adapter createShapeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.Alert <em>Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.Alert
+	 * @generated
+	 */
+	public Adapter createAlertAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.Switch <em>Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.Switch
+	 * @generated
+	 */
+	public Adapter createSwitchAdapter() {
 		return null;
 	}
 

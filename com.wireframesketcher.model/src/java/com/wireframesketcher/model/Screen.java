@@ -20,6 +20,7 @@ package com.wireframesketcher.model;
  *   <li>{@link com.wireframesketcher.model.Screen#getName <em>Name</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Screen#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Screen#getTheme <em>Theme</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.Screen#getMinVersion <em>Min Version</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,5 +161,30 @@ public interface Screen extends WidgetContainer {
 	 * @generated
 	 */
 	void setTheme(Theme value);
+
+	/**
+	 * Returns the value of the '<em><b>Min Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Minimium  version of the model API  required to open this file
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Min Version</em>' attribute.
+	 * @see #setMinVersion(VersionDesc)
+	 * @see com.wireframesketcher.model.ModelPackage#getScreen_MinVersion()
+	 * @model dataType="com.wireframesketcher.model.VersionDataType"
+	 * @generated
+	 */
+	VersionDesc getMinVersion();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.Screen#getMinVersion <em>Min Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Min Version</em>' attribute.
+	 * @see #getMinVersion()
+	 * @generated
+	 */
+	void setMinVersion(VersionDesc value);
 
 } // Screen

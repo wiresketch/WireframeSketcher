@@ -8,6 +8,7 @@ package com.wireframesketcher.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,6 +21,7 @@ import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 
@@ -32,6 +34,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.CurlyBraceImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CurlyBraceImpl#getForeground <em>Foreground</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.CurlyBraceImpl#getSkin <em>Skin</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.CurlyBraceImpl#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
@@ -68,6 +71,26 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 	 * @ordered
 	 */
 	protected ColorDesc foreground = FOREGROUND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
@@ -180,6 +203,27 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.CURLY_BRACE__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Position getPosition() {
 		return position;
 	}
@@ -222,6 +266,8 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 				return getFont();
 			case ModelPackage.CURLY_BRACE__FOREGROUND:
 				return getForeground();
+			case ModelPackage.CURLY_BRACE__SKIN:
+				return getSkin();
 			case ModelPackage.CURLY_BRACE__POSITION:
 				return getPosition();
 		}
@@ -241,6 +287,9 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 				return;
 			case ModelPackage.CURLY_BRACE__FOREGROUND:
 				setForeground((ColorDesc)newValue);
+				return;
+			case ModelPackage.CURLY_BRACE__SKIN:
+				setSkin((URI)newValue);
 				return;
 			case ModelPackage.CURLY_BRACE__POSITION:
 				setPosition((Position)newValue);
@@ -263,6 +312,9 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 			case ModelPackage.CURLY_BRACE__FOREGROUND:
 				setForeground(FOREGROUND_EDEFAULT);
 				return;
+			case ModelPackage.CURLY_BRACE__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 			case ModelPackage.CURLY_BRACE__POSITION:
 				setPosition(POSITION_EDEFAULT);
 				return;
@@ -282,6 +334,8 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 				return font != null;
 			case ModelPackage.CURLY_BRACE__FOREGROUND:
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
+			case ModelPackage.CURLY_BRACE__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 			case ModelPackage.CURLY_BRACE__POSITION:
 				return position != POSITION_EDEFAULT;
 		}
@@ -307,6 +361,12 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.CURLY_BRACE__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -329,6 +389,12 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.CURLY_BRACE__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -344,6 +410,8 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (foreground: ");
 		result.append(foreground);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(", position: ");
 		result.append(position);
 		result.append(')');

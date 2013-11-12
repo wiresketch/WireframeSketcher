@@ -17,6 +17,6 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Checkbox extends Widget, BooleanSelectionSupport, StateSupport, LinkSupport, FontSupport {
+public interface Checkbox extends Widget, BooleanSelectionSupport, StateSupport, LinkSupport, FontSupport, SkinSupport {
 
 } // Checkbox

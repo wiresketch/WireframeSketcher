@@ -10,12 +10,14 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.ValueSupport;
 import com.wireframesketcher.model.VerticalScrollbarSupport;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 import com.wireframesketcher.model.Window;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +28,7 @@ import org.eclipse.emf.common.notify.Notification;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#getValue <em>Value</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isVerticalScrollbar <em>Vertical Scrollbar</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#getSkin <em>Skin</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isCloseButton <em>Close Button</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isMinimizeButton <em>Minimize Button</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isMaximizeButton <em>Maximize Button</em>}</li>
@@ -72,6 +75,24 @@ public class WindowImpl extends WidgetImpl implements Window {
 	 */
 	protected boolean verticalScrollbar = VERTICAL_SCROLLBAR_EDEFAULT;
 	
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isCloseButton() <em>Close Button</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -194,6 +215,27 @@ public class WindowImpl extends WidgetImpl implements Window {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WINDOW__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isCloseButton() {
 		return closeButton;
 	}
@@ -264,6 +306,8 @@ public class WindowImpl extends WidgetImpl implements Window {
 				return getValue();
 			case ModelPackage.WINDOW__VERTICAL_SCROLLBAR:
 				return isVerticalScrollbar();
+			case ModelPackage.WINDOW__SKIN:
+				return getSkin();
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				return isCloseButton();
 			case ModelPackage.WINDOW__MINIMIZE_BUTTON:
@@ -287,6 +331,9 @@ public class WindowImpl extends WidgetImpl implements Window {
 				return;
 			case ModelPackage.WINDOW__VERTICAL_SCROLLBAR:
 				setVerticalScrollbar((Boolean)newValue);
+				return;
+			case ModelPackage.WINDOW__SKIN:
+				setSkin((URI)newValue);
 				return;
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				setCloseButton((Boolean)newValue);
@@ -315,6 +362,9 @@ public class WindowImpl extends WidgetImpl implements Window {
 			case ModelPackage.WINDOW__VERTICAL_SCROLLBAR:
 				setVerticalScrollbar(VERTICAL_SCROLLBAR_EDEFAULT);
 				return;
+			case ModelPackage.WINDOW__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				setCloseButton(CLOSE_BUTTON_EDEFAULT);
 				return;
@@ -340,6 +390,8 @@ public class WindowImpl extends WidgetImpl implements Window {
 				return value != VALUE_EDEFAULT;
 			case ModelPackage.WINDOW__VERTICAL_SCROLLBAR:
 				return verticalScrollbar != VERTICAL_SCROLLBAR_EDEFAULT;
+			case ModelPackage.WINDOW__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				return closeButton != CLOSE_BUTTON_EDEFAULT;
 			case ModelPackage.WINDOW__MINIMIZE_BUTTON:
@@ -369,6 +421,12 @@ public class WindowImpl extends WidgetImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.WINDOW__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -391,6 +449,12 @@ public class WindowImpl extends WidgetImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.WINDOW__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -408,6 +472,8 @@ public class WindowImpl extends WidgetImpl implements Window {
 		result.append(value);
 		result.append(", verticalScrollbar: ");
 		result.append(verticalScrollbar);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(", closeButton: ");
 		result.append(closeButton);
 		result.append(", minimizeButton: ");

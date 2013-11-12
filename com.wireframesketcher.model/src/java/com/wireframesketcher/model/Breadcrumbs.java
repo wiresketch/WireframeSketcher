@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Breadcrumbs extends Widget, FontSupport, ItemSupport {
+public interface Breadcrumbs extends Widget, FontSupport, ItemSupport, SkinSupport {
 } // Breadcrumbs

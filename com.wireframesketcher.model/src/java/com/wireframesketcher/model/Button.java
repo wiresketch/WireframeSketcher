@@ -23,7 +23,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Button extends Widget, StateSupport, ColorBackgroundSupport, FontSupport, IconSupport, LinkSupport, TextAlignmentSupport {
+public interface Button extends Widget, StateSupport, ColorBackgroundSupport, FontSupport, IconSupport, LinkSupport, TextAlignmentSupport, SkinSupport {
 
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.

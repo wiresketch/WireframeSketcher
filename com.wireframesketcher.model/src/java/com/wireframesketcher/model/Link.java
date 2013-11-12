@@ -17,6 +17,6 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Link extends Widget, FontSupport, StateSupport, LinkSupport {
+public interface Link extends Widget, FontSupport, StateSupport, LinkSupport, SkinSupport {
 
 } // Link

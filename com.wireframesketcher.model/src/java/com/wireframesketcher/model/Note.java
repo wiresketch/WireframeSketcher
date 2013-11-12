@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Note extends Widget, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, ColorAlphaSupport, LinkSupport {
+public interface Note extends Widget, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, ColorAlphaSupport, LinkSupport, SkinSupport {
 } // Note

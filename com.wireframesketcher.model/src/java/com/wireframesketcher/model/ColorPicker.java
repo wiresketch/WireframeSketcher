@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface ColorPicker extends Widget, ColorBackgroundSupport {
+public interface ColorPicker extends Widget, ColorBackgroundSupport, SkinSupport {
 } // ColorPicker

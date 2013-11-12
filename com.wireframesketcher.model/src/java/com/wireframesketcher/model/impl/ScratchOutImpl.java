@@ -7,6 +7,7 @@
 package com.wireframesketcher.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -17,6 +18,7 @@ import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.ScratchOut;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.WidgetDescriptor;
 
 /**
@@ -28,6 +30,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.ScratchOutImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ScratchOutImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ScratchOutImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +76,26 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 	 * @ordered
 	 */
 	protected int alpha = ALPHA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Scratch Out", ResizeMode.BOTH_LITERAL, false, false);
 	
@@ -143,6 +166,27 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCRATCH_OUT__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -150,6 +194,8 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 				return getForeground();
 			case ModelPackage.SCRATCH_OUT__ALPHA:
 				return getAlpha();
+			case ModelPackage.SCRATCH_OUT__SKIN:
+				return getSkin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,6 +213,9 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 				return;
 			case ModelPackage.SCRATCH_OUT__ALPHA:
 				setAlpha((Integer)newValue);
+				return;
+			case ModelPackage.SCRATCH_OUT__SKIN:
+				setSkin((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,6 +235,9 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 			case ModelPackage.SCRATCH_OUT__ALPHA:
 				setAlpha(ALPHA_EDEFAULT);
 				return;
+			case ModelPackage.SCRATCH_OUT__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +254,8 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
 			case ModelPackage.SCRATCH_OUT__ALPHA:
 				return alpha != ALPHA_EDEFAULT;
+			case ModelPackage.SCRATCH_OUT__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,6 +276,12 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 		if (baseClass == ColorAlphaSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.SCRATCH_OUT__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.SCRATCH_OUT__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
 				default: return -1;
 			}
 		}
@@ -247,6 +307,12 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.SCRATCH_OUT__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -264,6 +330,8 @@ public class ScratchOutImpl extends WidgetImpl implements ScratchOut {
 		result.append(foreground);
 		result.append(", alpha: ");
 		result.append(alpha);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(')');
 		return result.toString();
 	}

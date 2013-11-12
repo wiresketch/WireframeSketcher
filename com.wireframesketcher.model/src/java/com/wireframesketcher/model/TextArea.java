@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface TextArea extends Widget, StateSupport, VerticalScrollbarSupport, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, ColorAlphaSupport, ColorBorderSupport {
+public interface TextArea extends Widget, StateSupport, VerticalScrollbarSupport, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, ColorAlphaSupport, ColorBorderSupport, SkinSupport {
 } // TextArea

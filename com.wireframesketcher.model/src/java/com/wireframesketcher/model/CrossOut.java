@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface CrossOut extends Widget, ColorForegroundSupport, ColorAlphaSupport {
+public interface CrossOut extends Widget, ColorForegroundSupport, ColorAlphaSupport, SkinSupport {
 } // CrossOut

@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface CoverFlow extends Widget {
+public interface CoverFlow extends Widget, SkinSupport {
 } // CoverFlow

@@ -23,7 +23,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface CurlyBrace extends Widget, FontSupport, ColorForegroundSupport {
+public interface CurlyBrace extends Widget, FontSupport, ColorForegroundSupport, SkinSupport {
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' attribute.
 	 * The default value is <code>"left"</code>.

@@ -284,6 +284,23 @@ public enum IconSize implements Enumerator
 		return literal;
 	}
 	
+	/**
+	 * Returns this size expressed in pixels
+	 * 
+	 * @see #getSizePixels(IconSize)
+	 */
+	public int getSizePixels() {
+		return getSizePixels(this);
+	}
+	
+	/**
+	 * Converts the given size to pixels. For custom sizes <code>-1</code> is
+	 * returned.
+	 * 
+	 * @param size
+	 *            the size
+	 * @return size in pixels or <code>-1</code>
+	 */
 	public static int getSizePixels(IconSize size) {
 		switch (size.getValue()) {
 		case SMALL:

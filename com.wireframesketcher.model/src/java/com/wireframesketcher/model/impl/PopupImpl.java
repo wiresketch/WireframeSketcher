@@ -47,7 +47,7 @@ public class PopupImpl extends WidgetImpl implements Popup {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTION_EDEFAULT = null;
+	protected static final int SELECTION_EDEFAULT = -1;
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,7 +56,7 @@ public class PopupImpl extends WidgetImpl implements Popup {
 	 * @generated
 	 * @ordered
 	 */
-	protected String selection = SELECTION_EDEFAULT;
+	protected int selection = SELECTION_EDEFAULT;
 	
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
@@ -93,7 +93,7 @@ public class PopupImpl extends WidgetImpl implements Popup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelection() {
+	public int getSelection() {
 		return selection;
 	}
 
@@ -102,8 +102,8 @@ public class PopupImpl extends WidgetImpl implements Popup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(String newSelection) {
-		String oldSelection = selection;
+	public void setSelection(int newSelection) {
+		int oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.POPUP__SELECTION, oldSelection, selection));
@@ -161,7 +161,7 @@ public class PopupImpl extends WidgetImpl implements Popup {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.POPUP__SELECTION:
-				setSelection((String)newValue);
+				setSelection((Integer)newValue);
 				return;
 			case ModelPackage.POPUP__ITEMS:
 				getItems().clear();
@@ -198,7 +198,7 @@ public class PopupImpl extends WidgetImpl implements Popup {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.POPUP__SELECTION:
-				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+				return selection != SELECTION_EDEFAULT;
 			case ModelPackage.POPUP__ITEMS:
 				return items != null && !items.isEmpty();
 		}

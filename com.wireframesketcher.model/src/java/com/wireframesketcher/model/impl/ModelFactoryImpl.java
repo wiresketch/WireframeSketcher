@@ -127,6 +127,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.ITEM: return createItem();
 			case ModelPackage.HOTSPOT: return createHotspot();
 			case ModelPackage.SVG_IMAGE: return createSVGImage();
+			case ModelPackage.SHAPE: return createShape();
+			case ModelPackage.ALERT: return createAlert();
+			case ModelPackage.SWITCH: return createSwitch();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -162,6 +165,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createLineStyleFromString(eDataType, initialValue);
 			case ModelPackage.ROTATION90:
 				return createRotation90FromString(eDataType, initialValue);
+			case ModelPackage.SHAPE_TYPE:
+				return createShapeTypeFromString(eDataType, initialValue);
 			case ModelPackage.ICON_DATA_TYPE:
 				return createIconDataTypeFromString(eDataType, initialValue);
 			case ModelPackage.FONT_SIZE_DATA_TYPE:
@@ -170,6 +175,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createColorDataTypeFromString(eDataType, initialValue);
 			case ModelPackage.URI_DATA_TYPE:
 				return createURIDataTypeFromString(eDataType, initialValue);
+			case ModelPackage.SELECTION_DATA_TYPE:
+				return createSelectionDataTypeFromString(eDataType, initialValue);
+			case ModelPackage.VERSION_DATA_TYPE:
+				return createVersionDataTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -205,6 +214,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertLineStyleToString(eDataType, instanceValue);
 			case ModelPackage.ROTATION90:
 				return convertRotation90ToString(eDataType, instanceValue);
+			case ModelPackage.SHAPE_TYPE:
+				return convertShapeTypeToString(eDataType, instanceValue);
 			case ModelPackage.ICON_DATA_TYPE:
 				return convertIconDataTypeToString(eDataType, instanceValue);
 			case ModelPackage.FONT_SIZE_DATA_TYPE:
@@ -213,6 +224,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertColorDataTypeToString(eDataType, instanceValue);
 			case ModelPackage.URI_DATA_TYPE:
 				return convertURIDataTypeToString(eDataType, instanceValue);
+			case ModelPackage.SELECTION_DATA_TYPE:
+				return convertSelectionDataTypeToString(eDataType, instanceValue);
+			case ModelPackage.VERSION_DATA_TYPE:
+				return convertVersionDataTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -784,6 +799,36 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Shape createShape() {
+		ShapeImpl shape = new ShapeImpl();
+		return shape;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Alert createAlert() {
+		AlertImpl alert = new AlertImpl();
+		return alert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Switch createSwitch() {
+		SwitchImpl switch_ = new SwitchImpl();
+		return switch_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Spinner createSpinner() {
 		SpinnerImpl spinner = new SpinnerImpl();
 		return spinner;
@@ -1106,6 +1151,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ShapeType createShapeTypeFromString(EDataType eDataType, String initialValue) {
+		ShapeType result = ShapeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertShapeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public IconDesc createIconDataTypeFromString(EDataType eDataType, String initialValue) {
 		return IconDesc.createFromString(initialValue);
@@ -1186,6 +1251,61 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return null;
 		
 		return uri.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Integer createSelectionDataTypeFromString(EDataType eDataType,
+			String initialValue) {
+		if (initialValue == null || initialValue.length() == 0)
+			return Integer.valueOf(-1);
+
+		int selection = -1;
+
+		try {
+			selection = Integer.parseInt(initialValue);
+		} catch (NumberFormatException e) {
+			// Ignore parsing errors
+		}
+		if (selection < -1)
+			selection = -1;
+
+		return Integer.valueOf(selection);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String convertSelectionDataTypeToString(EDataType eDataType, Object instanceValue) {
+		if(instanceValue == null)
+			return null;
+
+		return instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public VersionDesc createVersionDataTypeFromString(EDataType eDataType, String initialValue) {
+		if (initialValue == null || initialValue.length() == 0)
+			return null;
+		
+		return VersionDesc.parseVersion(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String convertVersionDataTypeToString(EDataType eDataType, Object instanceValue) {
+		if(instanceValue == null)
+			return null;
+
+		return instanceValue.toString();
 	}
 
 	/**

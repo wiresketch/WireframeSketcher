@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface HSplitter extends Widget {
+public interface HSplitter extends Widget, SkinSupport {
 } // HSplitter

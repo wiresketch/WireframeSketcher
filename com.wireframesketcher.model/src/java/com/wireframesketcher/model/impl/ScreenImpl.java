@@ -23,6 +23,7 @@ import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.ScreenFont;
 import com.wireframesketcher.model.ScreenRuler;
 import com.wireframesketcher.model.Theme;
+import com.wireframesketcher.model.VersionDesc;
 import com.wireframesketcher.model.Widget;
 
 /**
@@ -38,6 +39,7 @@ import com.wireframesketcher.model.Widget;
  *   <li>{@link com.wireframesketcher.model.impl.ScreenImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ScreenImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ScreenImpl#getTheme <em>Theme</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ScreenImpl#getMinVersion <em>Min Version</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,6 +125,26 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 	 * @ordered
 	 */
 	protected Theme theme = THEME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinVersion() <em>Min Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final VersionDesc MIN_VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMinVersion() <em>Min Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected VersionDesc minVersion = MIN_VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,6 +341,27 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VersionDesc getMinVersion() {
+		return minVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinVersion(VersionDesc newMinVersion) {
+		VersionDesc oldMinVersion = minVersion;
+		minVersion = newMinVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCREEN__MIN_VERSION, oldMinVersion, minVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -381,6 +424,8 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 				return getFont();
 			case ModelPackage.SCREEN__THEME:
 				return getTheme();
+			case ModelPackage.SCREEN__MIN_VERSION:
+				return getMinVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -413,6 +458,9 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 			case ModelPackage.SCREEN__THEME:
 				setTheme((Theme)newValue);
 				return;
+			case ModelPackage.SCREEN__MIN_VERSION:
+				setMinVersion((VersionDesc)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -443,6 +491,9 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 			case ModelPackage.SCREEN__THEME:
 				setTheme(THEME_EDEFAULT);
 				return;
+			case ModelPackage.SCREEN__MIN_VERSION:
+				setMinVersion(MIN_VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -467,6 +518,8 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 				return font != null;
 			case ModelPackage.SCREEN__THEME:
 				return theme != THEME_EDEFAULT;
+			case ModelPackage.SCREEN__MIN_VERSION:
+				return MIN_VERSION_EDEFAULT == null ? minVersion != null : !MIN_VERSION_EDEFAULT.equals(minVersion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -485,6 +538,8 @@ public class ScreenImpl extends EObjectImpl implements Screen {
 		result.append(name);
 		result.append(", theme: ");
 		result.append(theme);
+		result.append(", minVersion: ");
+		result.append(minVersion);
 		result.append(')');
 		return result.toString();
 	}

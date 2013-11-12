@@ -154,13 +154,22 @@ public interface ModelPackage extends EPackage {
 	int SCREEN__THEME = WIDGET_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Min Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREEN__MIN_VERSION = WIDGET_CONTAINER_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Screen</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN_FEATURE_COUNT = WIDGET_CONTAINER_FEATURE_COUNT + 5;
+	int SCREEN_FEATURE_COUNT = WIDGET_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ScreenRulerImpl <em>Screen Ruler</em>}' class.
@@ -563,13 +572,22 @@ public interface ModelPackage extends EPackage {
 	int BUTTON__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__SKIN = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The feature id for the '<em><b>Style</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON__STYLE = WIDGET_FEATURE_COUNT + 7;
+	int BUTTON__STYLE = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Button</em>' class.
@@ -578,7 +596,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
+	int BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.CheckboxImpl <em>Checkbox</em>}' class.
@@ -753,13 +771,22 @@ public interface ModelPackage extends EPackage {
 	int CHECKBOX__FONT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKBOX__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Checkbox</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHECKBOX_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int CHECKBOX_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ComboImpl <em>Combo</em>}' class.
@@ -952,13 +979,22 @@ public interface ModelPackage extends EPackage {
 	int COMBO__LINK = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__SKIN = WIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Combo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LabelImpl <em>Label</em>}' class.
@@ -1350,13 +1386,22 @@ public interface ModelPackage extends EPackage {
 	int LINK__LINK = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__SKIN = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int LINK_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.PlaceholderImpl <em>Placeholder</em>}' class.
@@ -1504,13 +1549,22 @@ public interface ModelPackage extends EPackage {
 	int PLACEHOLDER__LINK = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEHOLDER__SKIN = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Placeholder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEHOLDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int PLACEHOLDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.RadioButtonImpl <em>Radio Button</em>}' class.
@@ -1685,13 +1739,22 @@ public interface ModelPackage extends EPackage {
 	int RADIO_BUTTON__FONT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_BUTTON__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Radio Button</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RADIO_BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int RADIO_BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.TextFieldImpl <em>Text Field</em>}' class.
@@ -1884,13 +1947,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT_FIELD__BORDER_COLOR = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FIELD__SKIN = WIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Text Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int TEXT_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.WindowImpl <em>Window</em>}' class.
@@ -2204,13 +2276,22 @@ public interface ModelPackage extends EPackage {
 	int SPINNER__ALPHA = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__SKIN = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Spinner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2357,13 +2438,22 @@ public interface ModelPackage extends EPackage {
 	int WINDOW__VERTICAL_SCROLLBAR = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Close Button</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__CLOSE_BUTTON = WIDGET_FEATURE_COUNT + 2;
+	int WINDOW__CLOSE_BUTTON = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Minimize Button</b></em>' attribute.
@@ -2372,7 +2462,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__MINIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 3;
+	int WINDOW__MINIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Maximize Button</b></em>' attribute.
@@ -2381,7 +2471,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__MAXIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 4;
+	int WINDOW__MAXIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Window</em>' class.
@@ -2390,7 +2480,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int WINDOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2546,13 +2636,22 @@ public interface ModelPackage extends EPackage {
 	int BROWSER__BACKGROUND = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER__SKIN = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Browser</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3149,13 +3248,22 @@ public interface ModelPackage extends EPackage {
 	int PANEL__LINK = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PANEL__SKIN = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Panel</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+	int PANEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3329,13 +3437,22 @@ public interface ModelPackage extends EPackage {
 	int GROUP__FONT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__SKIN = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int GROUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3563,13 +3680,22 @@ public interface ModelPackage extends EPackage {
 	int LIST__ALTERNATIVE = WIDGET_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__HEADER = WIDGET_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 11;
+	int LIST_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3887,13 +4013,22 @@ public interface ModelPackage extends EPackage {
 	int MENU__ITEMS = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Menu</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MENU_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int MENU_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4724,13 +4859,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA__BORDER_COLOR = WIDGET_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__SKIN = WIDGET_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Text Area</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
+	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4868,13 +5012,22 @@ public interface ModelPackage extends EPackage {
 	int HSCROLLBAR__VALUE = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSCROLLBAR__SKIN = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>HScrollbar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int HSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5012,13 +5165,22 @@ public interface ModelPackage extends EPackage {
 	int VSCROLLBAR__VALUE = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSCROLLBAR__SKIN = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>VScrollbar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int VSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5165,13 +5327,22 @@ public interface ModelPackage extends EPackage {
 	int HLINE__LINE_STYLE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HLINE__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>HLine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int HLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5318,13 +5489,22 @@ public interface ModelPackage extends EPackage {
 	int VLINE__LINE_STYLE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VLINE__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>VLine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int VLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5471,13 +5651,22 @@ public interface ModelPackage extends EPackage {
 	int HSLIDER__STATE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSLIDER__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>HSlider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int HSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5624,13 +5813,22 @@ public interface ModelPackage extends EPackage {
 	int VSLIDER__STATE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSLIDER__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>VSlider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int VSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5786,13 +5984,22 @@ public interface ModelPackage extends EPackage {
 	int TABS__FONT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABS__SKIN = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Tabs</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABS_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int TABS_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Type Name</b></em>' attribute.
@@ -6924,13 +7131,22 @@ public interface ModelPackage extends EPackage {
 	int NOTE__LINK = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__SKIN = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Note</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int NOTE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ProgressBarImpl <em>Progress Bar</em>}' class.
@@ -7087,13 +7303,22 @@ public interface ModelPackage extends EPackage {
 	int PROGRESS_BAR__BACKGROUND = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRESS_BAR__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Progress Bar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRESS_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int PROGRESS_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.CalloutImpl <em>Callout</em>}' class.
@@ -7268,13 +7493,22 @@ public interface ModelPackage extends EPackage {
 	int CALLOUT__LINK = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Callout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALLOUT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int CALLOUT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.SearchFieldImpl <em>Search Field</em>}' class.
@@ -7449,13 +7683,22 @@ public interface ModelPackage extends EPackage {
 	int SEARCH_FIELD__LINK = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Search Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int SEARCH_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.TooltipImpl <em>Tooltip</em>}' class.
@@ -7621,13 +7864,22 @@ public interface ModelPackage extends EPackage {
 	int TOOLTIP__BACKGROUND = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP__SKIN = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLTIP__POSITION = WIDGET_FEATURE_COUNT + 3;
+	int TOOLTIP__POSITION = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -7636,7 +7888,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLTIP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int TOOLTIP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ScratchOutImpl <em>Scratch Out</em>}' class.
@@ -7793,13 +8045,22 @@ public interface ModelPackage extends EPackage {
 	int SCRATCH_OUT__ALPHA = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRATCH_OUT__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Scratch Out</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCRATCH_OUT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int SCRATCH_OUT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderSupport <em>Border Support</em>}' class.
@@ -8012,13 +8273,22 @@ public interface ModelPackage extends EPackage {
 	int BREADCRUMBS__ITEMS = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Breadcrumbs</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BREADCRUMBS_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int BREADCRUMBS_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LinkBarImpl <em>Link Bar</em>}' class.
@@ -8184,13 +8454,22 @@ public interface ModelPackage extends EPackage {
 	int LINK_BAR__ITEMS = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_BAR__SKIN = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Link Bar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int LINK_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.AccordionImpl <em>Accordion</em>}' class.
@@ -8681,13 +8960,22 @@ public interface ModelPackage extends EPackage {
 	int DATE_FIELD__ALPHA = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Date Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8816,13 +9104,22 @@ public interface ModelPackage extends EPackage {
 	int VIDEO_PLAYER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_PLAYER__SKIN = WIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Video Player</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_PLAYER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+	int VIDEO_PLAYER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8951,13 +9248,22 @@ public interface ModelPackage extends EPackage {
 	int MAP__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAP__SKIN = WIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+	int MAP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9086,13 +9392,22 @@ public interface ModelPackage extends EPackage {
 	int COVER_FLOW__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVER_FLOW__SKIN = WIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Cover Flow</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COVER_FLOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+	int COVER_FLOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9284,13 +9599,22 @@ public interface ModelPackage extends EPackage {
 	int TABBED_PANE__FONT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABBED_PANE__SKIN = WIDGET_FEATURE_COUNT + 7;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABBED_PANE__POSITION = WIDGET_FEATURE_COUNT + 7;
+	int TABBED_PANE__POSITION = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Tabbed Pane</em>' class.
@@ -9299,7 +9623,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABBED_PANE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
+	int TABBED_PANE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -9455,13 +9779,22 @@ public interface ModelPackage extends EPackage {
 	int HSPLITTER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSPLITTER__SKIN = WIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>HSplitter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HSPLITTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+	int HSPLITTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9590,13 +9923,22 @@ public interface ModelPackage extends EPackage {
 	int VSPLITTER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSPLITTER__SKIN = WIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>VSplitter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VSPLITTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 0;
+	int VSPLITTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ColorPickerImpl <em>Color Picker</em>}' class.
@@ -9744,13 +10086,22 @@ public interface ModelPackage extends EPackage {
 	int COLOR_PICKER__BACKGROUND = WIDGET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_PICKER__SKIN = WIDGET_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Color Picker</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLOR_PICKER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int COLOR_PICKER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ArrowImpl <em>Arrow</em>}' class.
@@ -10097,13 +10448,22 @@ public interface ModelPackage extends EPackage {
 	int CURLY_BRACE__FOREGROUND = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CURLY_BRACE__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CURLY_BRACE__POSITION = WIDGET_FEATURE_COUNT + 2;
+	int CURLY_BRACE__POSITION = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Curly Brace</em>' class.
@@ -10112,7 +10472,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CURLY_BRACE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int CURLY_BRACE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ButtonBarImpl <em>Button Bar</em>}' class.
@@ -10287,13 +10647,22 @@ public interface ModelPackage extends EPackage {
 	int BUTTON_BAR__ITEMS = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_BAR__SKIN = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Button Bar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUTTON_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int BUTTON_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyleSupport <em>Border Style Support</em>}' class.
@@ -11022,13 +11391,22 @@ public interface ModelPackage extends EPackage {
 	int CHART__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART__SKIN = WIDGET_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Chart Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHART__CHART_TYPE = WIDGET_FEATURE_COUNT + 0;
+	int CHART__CHART_TYPE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Chart</em>' class.
@@ -11037,7 +11415,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHART_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+	int CHART_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.CrossOutImpl <em>Cross Out</em>}' class.
@@ -11194,13 +11572,22 @@ public interface ModelPackage extends EPackage {
 	int CROSS_OUT__ALPHA = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSS_OUT__SKIN = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Cross Out</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_OUT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+	int CROSS_OUT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LinkSupport <em>Link Support</em>}' class.
@@ -11852,6 +12239,685 @@ public interface ModelPackage extends EPackage {
 	int SVG_IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.SkinSupport <em>Skin Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.SkinSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSkinSupport()
+	 * @generated
+	 */
+	int SKIN_SUPPORT = 90;
+
+	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKIN_SUPPORT__SKIN = 0;
+
+	/**
+	 * The number of structural features of the '<em>Skin Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKIN_SUPPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ShapeImpl <em>Shape</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.impl.ShapeImpl
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShape()
+	 * @generated
+	 */
+	int SHAPE = 91;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ID = WIDGET__ID;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__CONTAINER = WIDGET__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__X = WIDGET__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__Y = WIDGET__Y;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__WIDTH = WIDGET__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__HEIGHT = WIDGET__HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__TEXT = WIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__DESCRIPTOR = WIDGET__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__LOCKED = WIDGET__LOCKED;
+
+	/**
+	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__MEASURED_WIDTH = WIDGET__MEASURED_WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__MEASURED_HEIGHT = WIDGET__MEASURED_HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__CUSTOM_ID = WIDGET__CUSTOM_ID;
+
+	/**
+	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__CUSTOM_DATA = WIDGET__CUSTOM_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__BACKGROUND = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ALPHA = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__FOREGROUND = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Border</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__BORDER = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ICON = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ICON_ROTATION = WIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Icon Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ICON_POSITION = WIDGET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__FONT = WIDGET_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__LINK = WIDGET_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__LINE_STYLE = WIDGET_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__SKIN = WIDGET_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ROTATION = WIDGET_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Shape Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__SHAPE_TYPE = WIDGET_FEATURE_COUNT + 13;
+
+	/**
+	 * The number of structural features of the '<em>Shape</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 14;
+
+	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.impl.AlertImpl <em>Alert</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.impl.AlertImpl
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getAlert()
+	 * @generated
+	 */
+	int ALERT = 92;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__ID = WIDGET__ID;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__CONTAINER = WIDGET__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__X = WIDGET__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__Y = WIDGET__Y;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__WIDTH = WIDGET__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__HEIGHT = WIDGET__HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__TEXT = WIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__DESCRIPTOR = WIDGET__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__LOCKED = WIDGET__LOCKED;
+
+	/**
+	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__MEASURED_WIDTH = WIDGET__MEASURED_WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__MEASURED_HEIGHT = WIDGET__MEASURED_HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__CUSTOM_ID = WIDGET__CUSTOM_ID;
+
+	/**
+	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__CUSTOM_DATA = WIDGET__CUSTOM_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__ICON = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Icon Rotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__ICON_ROTATION = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__ITEMS = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__SKIN = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.impl.SwitchImpl <em>Switch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.impl.SwitchImpl
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSwitch()
+	 * @generated
+	 */
+	int SWITCH = 93;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__ID = WIDGET__ID;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__CONTAINER = WIDGET__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__X = WIDGET__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__Y = WIDGET__Y;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__WIDTH = WIDGET__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__HEIGHT = WIDGET__HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__TEXT = WIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__DESCRIPTOR = WIDGET__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__LOCKED = WIDGET__LOCKED;
+
+	/**
+	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__MEASURED_WIDTH = WIDGET__MEASURED_WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__MEASURED_HEIGHT = WIDGET__MEASURED_HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__CUSTOM_ID = WIDGET__CUSTOM_ID;
+
+	/**
+	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__CUSTOM_DATA = WIDGET__CUSTOM_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__SELECTED = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__BACKGROUND = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__FONT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__LINK = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__STATE = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__SKIN = WIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Switch</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11859,7 +12925,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 90;
+	int RESIZE_MODE = 94;
 
 
 	/**
@@ -11870,7 +12936,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 91;
+	int TEXT_ALIGNMENT = 95;
 
 
 	/**
@@ -11881,7 +12947,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 92;
+	int ICON_SIZE = 96;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -11891,7 +12957,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 93;
+	int STATE = 97;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -11901,7 +12967,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 94;
+	int POSITION = 98;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -11911,7 +12977,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 95;
+	int BORDER_STYLE = 99;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -11921,7 +12987,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 96;
+	int BUTTON_STYLE = 100;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -11931,7 +12997,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 97;
+	int CHART_TYPE = 101;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -11941,7 +13007,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 98;
+	int THEME = 102;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -11951,7 +13017,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 99;
+	int LINE_STYLE = 103;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -11961,7 +13027,17 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 100;
+	int ROTATION90 = 104;
+
+	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.ShapeType
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
+	 * @generated
+	 */
+	int SHAPE_TYPE = 105;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -11971,7 +13047,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 101;
+	int ICON_DATA_TYPE = 106;
 
 
 	/**
@@ -11982,7 +13058,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 102;
+	int FONT_SIZE_DATA_TYPE = 107;
 
 
 	/**
@@ -11993,7 +13069,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 103;
+	int COLOR_DATA_TYPE = 108;
 
 
 	/**
@@ -12004,7 +13080,28 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 104;
+	int URI_DATA_TYPE = 109;
+
+
+	/**
+	 * The meta object id for the '<em>Selection Data Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
+	 * @generated
+	 */
+	int SELECTION_DATA_TYPE = 110;
+
+
+	/**
+	 * The meta object id for the '<em>Version Data Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.VersionDesc
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
+	 * @generated
+	 */
+	int VERSION_DATA_TYPE = 111;
 
 
 	/**
@@ -12071,6 +13168,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getScreen_Theme();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.Screen#getMinVersion <em>Min Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Version</em>'.
+	 * @see com.wireframesketcher.model.Screen#getMinVersion()
+	 * @see #getScreen()
+	 * @generated
+	 */
+	EAttribute getScreen_MinVersion();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.ScreenRuler <em>Screen Ruler</em>}'.
@@ -12528,6 +13636,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getList();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.List#isHeader <em>Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Header</em>'.
+	 * @see com.wireframesketcher.model.List#isHeader()
+	 * @see #getList()
+	 * @generated
+	 */
+	EAttribute getList_Header();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.Popup <em>Popup</em>}'.
@@ -13756,6 +14875,68 @@ public interface ModelPackage extends EPackage {
 	EAttribute getSVGImage_Src();
 
 	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.SkinSupport <em>Skin Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Skin Support</em>'.
+	 * @see com.wireframesketcher.model.SkinSupport
+	 * @generated
+	 */
+	EClass getSkinSupport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.SkinSupport#getSkin <em>Skin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Skin</em>'.
+	 * @see com.wireframesketcher.model.SkinSupport#getSkin()
+	 * @see #getSkinSupport()
+	 * @generated
+	 */
+	EAttribute getSkinSupport_Skin();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.Shape <em>Shape</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Shape</em>'.
+	 * @see com.wireframesketcher.model.Shape
+	 * @generated
+	 */
+	EClass getShape();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.Shape#getShapeType <em>Shape Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Shape Type</em>'.
+	 * @see com.wireframesketcher.model.Shape#getShapeType()
+	 * @see #getShape()
+	 * @generated
+	 */
+	EAttribute getShape_ShapeType();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.Alert <em>Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alert</em>'.
+	 * @see com.wireframesketcher.model.Alert
+	 * @generated
+	 */
+	EClass getAlert();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.Switch <em>Switch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Switch</em>'.
+	 * @see com.wireframesketcher.model.Switch
+	 * @generated
+	 */
+	EClass getSwitch();
+
+	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13986,6 +15167,16 @@ public interface ModelPackage extends EPackage {
 	EEnum getRotation90();
 
 	/**
+	 * Returns the meta object for enum '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Shape Type</em>'.
+	 * @see com.wireframesketcher.model.ShapeType
+	 * @generated
+	 */
+	EEnum getShapeType();
+
+	/**
 	 * Returns the meta object for data type '{@link com.wireframesketcher.model.IconDesc <em>Icon Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14028,6 +15219,27 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getURIDataType();
+
+	/**
+	 * Returns the meta object for data type '<em>Selection Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Selection Data Type</em>'.
+	 * @model instanceClass="int"
+	 * @generated
+	 */
+	EDataType getSelectionDataType();
+
+	/**
+	 * Returns the meta object for data type '{@link com.wireframesketcher.model.VersionDesc <em>Version Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Version Data Type</em>'.
+	 * @see com.wireframesketcher.model.VersionDesc
+	 * @model instanceClass="com.wireframesketcher.model.VersionDesc"
+	 * @generated
+	 */
+	EDataType getVersionDataType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -14100,6 +15312,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCREEN__THEME = eINSTANCE.getScreen_Theme();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCREEN__MIN_VERSION = eINSTANCE.getScreen_MinVersion();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.ScreenRulerImpl <em>Screen Ruler</em>}' class.
@@ -14476,6 +15696,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LIST = eINSTANCE.getList();
+
+		/**
+		 * The meta object literal for the '<em><b>Header</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST__HEADER = eINSTANCE.getList_Header();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.PopupImpl <em>Popup</em>}' class.
@@ -15556,6 +16784,62 @@ public interface ModelPackage extends EPackage {
 		EAttribute SVG_IMAGE__SRC = eINSTANCE.getSVGImage_Src();
 
 		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.SkinSupport <em>Skin Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.SkinSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSkinSupport()
+		 * @generated
+		 */
+		EClass SKIN_SUPPORT = eINSTANCE.getSkinSupport();
+
+		/**
+		 * The meta object literal for the '<em><b>Skin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SKIN_SUPPORT__SKIN = eINSTANCE.getSkinSupport_Skin();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.ShapeImpl <em>Shape</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.impl.ShapeImpl
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShape()
+		 * @generated
+		 */
+		EClass SHAPE = eINSTANCE.getShape();
+
+		/**
+		 * The meta object literal for the '<em><b>Shape Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHAPE__SHAPE_TYPE = eINSTANCE.getShape_ShapeType();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.AlertImpl <em>Alert</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.impl.AlertImpl
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getAlert()
+		 * @generated
+		 */
+		EClass ALERT = eINSTANCE.getAlert();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SwitchImpl <em>Switch</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.impl.SwitchImpl
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSwitch()
+		 * @generated
+		 */
+		EClass SWITCH = eINSTANCE.getSwitch();
+
+		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15766,6 +17050,16 @@ public interface ModelPackage extends EPackage {
 		EEnum ROTATION90 = eINSTANCE.getRotation90();
 
 		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.ShapeType
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
+		 * @generated
+		 */
+		EEnum SHAPE_TYPE = eINSTANCE.getShapeType();
+
+		/**
 		 * The meta object literal for the '<em>Icon Data Type</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15804,6 +17098,25 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType URI_DATA_TYPE = eINSTANCE.getURIDataType();
+
+		/**
+		 * The meta object literal for the '<em>Selection Data Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
+		 * @generated
+		 */
+		EDataType SELECTION_DATA_TYPE = eINSTANCE.getSelectionDataType();
+
+		/**
+		 * The meta object literal for the '<em>Version Data Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.VersionDesc
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
+		 * @generated
+		 */
+		EDataType VERSION_DATA_TYPE = eINSTANCE.getVersionDataType();
 
 	}
 

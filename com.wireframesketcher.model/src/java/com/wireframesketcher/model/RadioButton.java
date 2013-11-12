@@ -17,6 +17,6 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface RadioButton extends Widget, BooleanSelectionSupport, StateSupport, LinkSupport, FontSupport {
+public interface RadioButton extends Widget, BooleanSelectionSupport, StateSupport, LinkSupport, FontSupport, SkinSupport {
 
 } // RadioButton

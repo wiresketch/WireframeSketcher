@@ -23,7 +23,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Chart extends Widget {
+public interface Chart extends Widget, SkinSupport {
 	/**
 	 * Returns the value of the '<em><b>Chart Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.wireframesketcher.model.ChartType}.

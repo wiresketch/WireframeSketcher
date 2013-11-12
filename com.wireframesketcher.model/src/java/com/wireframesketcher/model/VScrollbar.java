@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface VScrollbar extends Widget, ValueSupport {
+public interface VScrollbar extends Widget, ValueSupport, SkinSupport {
 } // VScrollbar

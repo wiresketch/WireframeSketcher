@@ -202,7 +202,7 @@ class OverridesHelper implements IInstanceStrategy {
 		WidgetContainer screen = master.getScreen();
 		WidgetContainer instance = null;
 
-		if (screen != null && !screen.eIsProxy()) {
+		if (exists(screen)) {
 			Copier copier = new Copier() {
 				@Override
 				protected EObject createCopy(EObject eObject) {
@@ -307,6 +307,10 @@ class OverridesHelper implements IInstanceStrategy {
 	private static boolean ignoreFeature(EStructuralFeature feature) {
 		return !feature.isChangeable() || feature.isDerived()
 				|| feature.isTransient();
+	}
+
+	private static boolean exists(WidgetContainer ref) {
+		return ref != null && !ref.eIsProxy();
 	}
 
 	static class Helper {
@@ -688,13 +692,17 @@ class OverridesHelper implements IInstanceStrategy {
 				calculateWidgetUpdates(leftContainer, rightContainer);
 				calculateWidgetChanges(leftContainer, rightContainer);
 			} else if (leftWidget instanceof Master) {
-				WidgetContainer leftContainer = ((Master) leftWidget)
-						.getInstance();
-				WidgetContainer rightContainer = ((Master) rightWidget)
-						.getInstance();
+				Master leftMaster = (Master) leftWidget;
+				Master rightMaster = (Master) rightWidget;
 
-				calculateWidgetUpdates(leftContainer, rightContainer);
-				calculateWidgetChanges(leftContainer, rightContainer);
+				if (exists(leftMaster.getScreen())
+						&& exists(rightMaster.getScreen())) {
+					WidgetContainer leftContainer = leftMaster.getInstance();
+					WidgetContainer rightContainer = rightMaster.getInstance();
+
+					calculateWidgetUpdates(leftContainer, rightContainer);
+					calculateWidgetChanges(leftContainer, rightContainer);
+				}
 			}
 		}
 

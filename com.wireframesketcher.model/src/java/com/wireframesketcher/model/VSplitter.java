@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface VSplitter extends Widget {
+public interface VSplitter extends Widget, SkinSupport {
 } // VSplitter

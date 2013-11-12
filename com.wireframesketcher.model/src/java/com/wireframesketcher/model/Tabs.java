@@ -17,6 +17,6 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Tabs extends Widget, SelectionSupport, ItemSupport, FontSupport {
+public interface Tabs extends Widget, SelectionSupport, ItemSupport, FontSupport, SkinSupport {
 
 } // Tabs

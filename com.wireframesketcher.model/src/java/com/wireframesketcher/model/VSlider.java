@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface VSlider extends Widget, ValueSupport, StateSupport {
+public interface VSlider extends Widget, ValueSupport, StateSupport, SkinSupport {
 } // VSlider

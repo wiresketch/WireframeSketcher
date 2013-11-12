@@ -96,6 +96,16 @@ public final class IconDesc {
 		return size;
 	}
 
+	/**
+	 * Returns the size of this icon expressed in pixels.
+	 * 
+	 * @return the size in pixels
+	 * @see IconSize#getSizePixels(IconSize) for possible return values
+	 */
+	public int getSizePixels() {
+		return getSize().getSizePixels();
+	}
+	
 	public static IconDesc createAssetIcon(String name, IconSize size) {
 		return new IconDesc(ASSETS_PREFIX + name, size);
 	}

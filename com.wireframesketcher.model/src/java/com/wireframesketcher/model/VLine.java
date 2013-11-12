@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface VLine extends Widget, ColorForegroundSupport, LineStyleSupport {
+public interface VLine extends Widget, ColorForegroundSupport, LineStyleSupport, SkinSupport {
 } // VLine

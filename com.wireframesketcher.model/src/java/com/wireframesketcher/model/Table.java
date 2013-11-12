@@ -62,7 +62,7 @@ public interface Table extends Widget, SelectionSupport, BorderSupport, Vertical
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Toggles vertical lines.
+	 * Toggles header row
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Header</em>' attribute.
 	 * @see #setHeader(boolean)

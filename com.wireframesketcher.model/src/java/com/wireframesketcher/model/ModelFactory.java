@@ -521,6 +521,33 @@ public interface ModelFactory extends EFactory {
 	SVGImage createSVGImage();
 
 	/**
+	 * Returns a new object of class '<em>Shape</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Shape</em>'.
+	 * @generated
+	 */
+	Shape createShape();
+
+	/**
+	 * Returns a new object of class '<em>Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alert</em>'.
+	 * @generated
+	 */
+	Alert createAlert();
+
+	/**
+	 * Returns a new object of class '<em>Switch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch</em>'.
+	 * @generated
+	 */
+	Switch createSwitch();
+
+	/**
 	 * Returns a new object of class '<em>Spinner</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

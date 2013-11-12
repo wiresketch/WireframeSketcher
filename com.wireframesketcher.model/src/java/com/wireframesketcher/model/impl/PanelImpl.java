@@ -16,6 +16,7 @@ import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Panel;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.ValueSupport;
 import com.wireframesketcher.model.VerticalScrollbarSupport;
 import org.eclipse.emf.common.notify.Notification;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.wireframesketcher.model.impl.PanelImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.PanelImpl#getBorder <em>Border</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.PanelImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.PanelImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
  *
@@ -172,6 +174,24 @@ public class PanelImpl extends WidgetImpl implements Panel {
 	 * @ordered
 	 */
 	protected URI link = LINK_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI SKIN_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSkin() <em>Skin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSkin()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI skin = SKIN_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Panel", ResizeMode.BOTH_LITERAL, false, false);
 	
 	/**
@@ -345,6 +365,27 @@ public class PanelImpl extends WidgetImpl implements Panel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getSkin() {
+		return skin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkin(URI newSkin) {
+		URI oldSkin = skin;
+		skin = newSkin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PANEL__SKIN, oldSkin, skin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -362,6 +403,8 @@ public class PanelImpl extends WidgetImpl implements Panel {
 				return getBorder();
 			case ModelPackage.PANEL__LINK:
 				return getLink();
+			case ModelPackage.PANEL__SKIN:
+				return getSkin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,6 +437,9 @@ public class PanelImpl extends WidgetImpl implements Panel {
 				return;
 			case ModelPackage.PANEL__LINK:
 				setLink((URI)newValue);
+				return;
+			case ModelPackage.PANEL__SKIN:
+				setSkin((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -428,6 +474,9 @@ public class PanelImpl extends WidgetImpl implements Panel {
 			case ModelPackage.PANEL__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
+			case ModelPackage.PANEL__SKIN:
+				setSkin(SKIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -454,6 +503,8 @@ public class PanelImpl extends WidgetImpl implements Panel {
 				return border != BORDER_EDEFAULT;
 			case ModelPackage.PANEL__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
+			case ModelPackage.PANEL__SKIN:
+				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -504,6 +555,12 @@ public class PanelImpl extends WidgetImpl implements Panel {
 		if (baseClass == LinkSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.PANEL__LINK: return ModelPackage.LINK_SUPPORT__LINK;
+				default: return -1;
+			}
+		}
+		if (baseClass == SkinSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.PANEL__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
 				default: return -1;
 			}
 		}
@@ -559,6 +616,12 @@ public class PanelImpl extends WidgetImpl implements Panel {
 				default: return -1;
 			}
 		}
+		if (baseClass == SkinSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.PANEL__SKIN;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -586,6 +649,8 @@ public class PanelImpl extends WidgetImpl implements Panel {
 		result.append(border);
 		result.append(", link: ");
 		result.append(link);
+		result.append(", skin: ");
+		result.append(skin);
 		result.append(')');
 		return result.toString();
 	}

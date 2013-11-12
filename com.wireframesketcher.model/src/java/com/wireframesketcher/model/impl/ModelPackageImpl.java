@@ -7,6 +7,7 @@
 package com.wireframesketcher.model.impl;
 
 import com.wireframesketcher.model.Accordion;
+import com.wireframesketcher.model.Alert;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -95,9 +96,13 @@ import com.wireframesketcher.model.ScreenFont;
 import com.wireframesketcher.model.ScreenRuler;
 import com.wireframesketcher.model.SearchField;
 import com.wireframesketcher.model.SelectionSupport;
+import com.wireframesketcher.model.Shape;
+import com.wireframesketcher.model.ShapeType;
+import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.Spinner;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.StateSupport;
+import com.wireframesketcher.model.Switch;
 import com.wireframesketcher.model.TabbedPane;
 import com.wireframesketcher.model.Table;
 import com.wireframesketcher.model.Tabs;
@@ -114,6 +119,7 @@ import com.wireframesketcher.model.VScrollbar;
 import com.wireframesketcher.model.VSlider;
 import com.wireframesketcher.model.VSplitter;
 import com.wireframesketcher.model.ValueSupport;
+import com.wireframesketcher.model.VersionDesc;
 import com.wireframesketcher.model.VerticalScrollbarSupport;
 import com.wireframesketcher.model.VideoPlayer;
 import com.wireframesketcher.model.Widget;
@@ -685,6 +691,34 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass skinSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass shapeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass alertEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass hSplitterEClass = null;
 
 	/**
@@ -846,6 +880,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum shapeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType iconDataTypeEDataType = null;
 
 	/**
@@ -868,6 +909,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EDataType uriDataTypeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType selectionDataTypeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType versionDataTypeEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -990,6 +1045,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EAttribute getScreen_Theme() {
 		return (EAttribute)screenEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getScreen_MinVersion() {
+		return (EAttribute)screenEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1377,6 +1441,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EClass getList() {
 		return listEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getList_Header() {
+		return (EAttribute)listEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2455,6 +2528,60 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSkinSupport() {
+		return skinSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSkinSupport_Skin() {
+		return (EAttribute)skinSupportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getShape() {
+		return shapeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getShape_ShapeType() {
+		return (EAttribute)shapeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAlert() {
+		return alertEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitch() {
+		return switchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -2644,6 +2771,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getShapeType() {
+		return shapeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getIconDataType() {
 		return iconDataTypeEDataType;
 	}
@@ -2680,6 +2816,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getSelectionDataType() {
+		return selectionDataTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getVersionDataType() {
+		return versionDataTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -2709,6 +2863,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(screenEClass, SCREEN__NAME);
 		createEReference(screenEClass, SCREEN__FONT);
 		createEAttribute(screenEClass, SCREEN__THEME);
+		createEAttribute(screenEClass, SCREEN__MIN_VERSION);
 
 		screenRulerEClass = createEClass(SCREEN_RULER);
 		createEReference(screenRulerEClass, SCREEN_RULER__GUIDES);
@@ -2768,6 +2923,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		groupEClass = createEClass(GROUP);
 
 		listEClass = createEClass(LIST);
+		createEAttribute(listEClass, LIST__HEADER);
 
 		popupEClass = createEClass(POPUP);
 
@@ -2971,6 +3127,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		svgImageEClass = createEClass(SVG_IMAGE);
 		createEAttribute(svgImageEClass, SVG_IMAGE__SRC);
 
+		skinSupportEClass = createEClass(SKIN_SUPPORT);
+		createEAttribute(skinSupportEClass, SKIN_SUPPORT__SKIN);
+
+		shapeEClass = createEClass(SHAPE);
+		createEAttribute(shapeEClass, SHAPE__SHAPE_TYPE);
+
+		alertEClass = createEClass(ALERT);
+
+		switchEClass = createEClass(SWITCH);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -2983,12 +3149,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		themeEEnum = createEEnum(THEME);
 		lineStyleEEnum = createEEnum(LINE_STYLE);
 		rotation90EEnum = createEEnum(ROTATION90);
+		shapeTypeEEnum = createEEnum(SHAPE_TYPE);
 
 		// Create data types
 		iconDataTypeEDataType = createEDataType(ICON_DATA_TYPE);
 		fontSizeDataTypeEDataType = createEDataType(FONT_SIZE_DATA_TYPE);
 		colorDataTypeEDataType = createEDataType(COLOR_DATA_TYPE);
 		uriDataTypeEDataType = createEDataType(URI_DATA_TYPE);
+		selectionDataTypeEDataType = createEDataType(SELECTION_DATA_TYPE);
+		versionDataTypeEDataType = createEDataType(VERSION_DATA_TYPE);
 	}
 
 	/**
@@ -3035,11 +3204,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		buttonEClass.getESuperTypes().add(this.getIconSupport());
 		buttonEClass.getESuperTypes().add(this.getLinkSupport());
 		buttonEClass.getESuperTypes().add(this.getTextAlignmentSupport());
+		buttonEClass.getESuperTypes().add(this.getSkinSupport());
 		checkboxEClass.getESuperTypes().add(this.getWidget());
 		checkboxEClass.getESuperTypes().add(this.getBooleanSelectionSupport());
 		checkboxEClass.getESuperTypes().add(this.getStateSupport());
 		checkboxEClass.getESuperTypes().add(this.getLinkSupport());
 		checkboxEClass.getESuperTypes().add(this.getFontSupport());
+		checkboxEClass.getESuperTypes().add(this.getSkinSupport());
 		comboEClass.getESuperTypes().add(this.getWidget());
 		comboEClass.getESuperTypes().add(this.getStateSupport());
 		comboEClass.getESuperTypes().add(this.getFontSupport());
@@ -3047,6 +3218,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		comboEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		comboEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		comboEClass.getESuperTypes().add(this.getLinkSupport());
+		comboEClass.getESuperTypes().add(this.getSkinSupport());
 		labelEClass.getESuperTypes().add(this.getWidget());
 		labelEClass.getESuperTypes().add(this.getFontSupport());
 		labelEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3060,13 +3232,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		linkEClass.getESuperTypes().add(this.getFontSupport());
 		linkEClass.getESuperTypes().add(this.getStateSupport());
 		linkEClass.getESuperTypes().add(this.getLinkSupport());
+		linkEClass.getESuperTypes().add(this.getSkinSupport());
 		placeholderEClass.getESuperTypes().add(this.getWidget());
 		placeholderEClass.getESuperTypes().add(this.getLinkSupport());
+		placeholderEClass.getESuperTypes().add(this.getSkinSupport());
 		radioButtonEClass.getESuperTypes().add(this.getWidget());
 		radioButtonEClass.getESuperTypes().add(this.getBooleanSelectionSupport());
 		radioButtonEClass.getESuperTypes().add(this.getStateSupport());
 		radioButtonEClass.getESuperTypes().add(this.getLinkSupport());
 		radioButtonEClass.getESuperTypes().add(this.getFontSupport());
+		radioButtonEClass.getESuperTypes().add(this.getSkinSupport());
 		textFieldEClass.getESuperTypes().add(this.getWidget());
 		textFieldEClass.getESuperTypes().add(this.getStateSupport());
 		textFieldEClass.getESuperTypes().add(this.getFontSupport());
@@ -3074,17 +3249,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textFieldEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		textFieldEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		textFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
+		textFieldEClass.getESuperTypes().add(this.getSkinSupport());
 		spinnerEClass.getESuperTypes().add(this.getWidget());
 		spinnerEClass.getESuperTypes().add(this.getStateSupport());
 		spinnerEClass.getESuperTypes().add(this.getFontSupport());
 		spinnerEClass.getESuperTypes().add(this.getColorBorderSupport());
 		spinnerEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		spinnerEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		spinnerEClass.getESuperTypes().add(this.getSkinSupport());
 		windowEClass.getESuperTypes().add(this.getWidget());
 		windowEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
+		windowEClass.getESuperTypes().add(this.getSkinSupport());
 		browserEClass.getESuperTypes().add(this.getWidget());
 		browserEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		browserEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		browserEClass.getESuperTypes().add(this.getSkinSupport());
 		textEClass.getESuperTypes().add(this.getWidget());
 		textEClass.getESuperTypes().add(this.getFontSupport());
 		textEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3098,11 +3277,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		panelEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		panelEClass.getESuperTypes().add(this.getBorderStyleSupport());
 		panelEClass.getESuperTypes().add(this.getLinkSupport());
+		panelEClass.getESuperTypes().add(this.getSkinSupport());
 		groupEClass.getESuperTypes().add(this.getWidget());
 		groupEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		groupEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		groupEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		groupEClass.getESuperTypes().add(this.getFontSupport());
+		groupEClass.getESuperTypes().add(this.getSkinSupport());
 		listEClass.getESuperTypes().add(this.getWidget());
 		listEClass.getESuperTypes().add(this.getSelectionSupport());
 		listEClass.getESuperTypes().add(this.getBorderSupport());
@@ -3120,6 +3301,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		menuEClass.getESuperTypes().add(this.getSelectionSupport());
 		menuEClass.getESuperTypes().add(this.getIconSupport());
 		menuEClass.getESuperTypes().add(this.getItemSupport());
+		menuEClass.getESuperTypes().add(this.getSkinSupport());
 		tableEClass.getESuperTypes().add(this.getWidget());
 		tableEClass.getESuperTypes().add(this.getSelectionSupport());
 		tableEClass.getESuperTypes().add(this.getBorderSupport());
@@ -3150,26 +3332,34 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textAreaEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		textAreaEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		textAreaEClass.getESuperTypes().add(this.getColorBorderSupport());
+		textAreaEClass.getESuperTypes().add(this.getSkinSupport());
 		hScrollbarEClass.getESuperTypes().add(this.getWidget());
 		hScrollbarEClass.getESuperTypes().add(this.getValueSupport());
+		hScrollbarEClass.getESuperTypes().add(this.getSkinSupport());
 		vScrollbarEClass.getESuperTypes().add(this.getWidget());
 		vScrollbarEClass.getESuperTypes().add(this.getValueSupport());
+		vScrollbarEClass.getESuperTypes().add(this.getSkinSupport());
 		hLineEClass.getESuperTypes().add(this.getWidget());
 		hLineEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		hLineEClass.getESuperTypes().add(this.getLineStyleSupport());
+		hLineEClass.getESuperTypes().add(this.getSkinSupport());
 		vLineEClass.getESuperTypes().add(this.getWidget());
 		vLineEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		vLineEClass.getESuperTypes().add(this.getLineStyleSupport());
+		vLineEClass.getESuperTypes().add(this.getSkinSupport());
 		hSliderEClass.getESuperTypes().add(this.getWidget());
 		hSliderEClass.getESuperTypes().add(this.getValueSupport());
 		hSliderEClass.getESuperTypes().add(this.getStateSupport());
+		hSliderEClass.getESuperTypes().add(this.getSkinSupport());
 		vSliderEClass.getESuperTypes().add(this.getWidget());
 		vSliderEClass.getESuperTypes().add(this.getValueSupport());
 		vSliderEClass.getESuperTypes().add(this.getStateSupport());
+		vSliderEClass.getESuperTypes().add(this.getSkinSupport());
 		tabsEClass.getESuperTypes().add(this.getWidget());
 		tabsEClass.getESuperTypes().add(this.getSelectionSupport());
 		tabsEClass.getESuperTypes().add(this.getItemSupport());
 		tabsEClass.getESuperTypes().add(this.getFontSupport());
+		tabsEClass.getESuperTypes().add(this.getSkinSupport());
 		widgetGroupEClass.getESuperTypes().add(this.getWidget());
 		widgetGroupEClass.getESuperTypes().add(this.getWidgetContainer());
 		widgetGroupEClass.getESuperTypes().add(this.getLinkSupport());
@@ -3186,33 +3376,41 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		noteEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		noteEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		noteEClass.getESuperTypes().add(this.getLinkSupport());
+		noteEClass.getESuperTypes().add(this.getSkinSupport());
 		progressBarEClass.getESuperTypes().add(this.getWidget());
 		progressBarEClass.getESuperTypes().add(this.getValueSupport());
 		progressBarEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		progressBarEClass.getESuperTypes().add(this.getSkinSupport());
 		calloutEClass.getESuperTypes().add(this.getWidget());
 		calloutEClass.getESuperTypes().add(this.getFontSupport());
 		calloutEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		calloutEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		calloutEClass.getESuperTypes().add(this.getLinkSupport());
+		calloutEClass.getESuperTypes().add(this.getSkinSupport());
 		searchFieldEClass.getESuperTypes().add(this.getWidget());
 		searchFieldEClass.getESuperTypes().add(this.getFontSupport());
 		searchFieldEClass.getESuperTypes().add(this.getStateSupport());
 		searchFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
 		searchFieldEClass.getESuperTypes().add(this.getLinkSupport());
+		searchFieldEClass.getESuperTypes().add(this.getSkinSupport());
 		tooltipEClass.getESuperTypes().add(this.getWidget());
 		tooltipEClass.getESuperTypes().add(this.getFontSupport());
 		tooltipEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		tooltipEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		tooltipEClass.getESuperTypes().add(this.getSkinSupport());
 		scratchOutEClass.getESuperTypes().add(this.getWidget());
 		scratchOutEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		scratchOutEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		scratchOutEClass.getESuperTypes().add(this.getSkinSupport());
 		breadcrumbsEClass.getESuperTypes().add(this.getWidget());
 		breadcrumbsEClass.getESuperTypes().add(this.getFontSupport());
 		breadcrumbsEClass.getESuperTypes().add(this.getItemSupport());
+		breadcrumbsEClass.getESuperTypes().add(this.getSkinSupport());
 		linkBarEClass.getESuperTypes().add(this.getWidget());
 		linkBarEClass.getESuperTypes().add(this.getFontSupport());
 		linkBarEClass.getESuperTypes().add(this.getSelectionSupport());
 		linkBarEClass.getESuperTypes().add(this.getItemSupport());
+		linkBarEClass.getESuperTypes().add(this.getSkinSupport());
 		accordionEClass.getESuperTypes().add(this.getWidget());
 		accordionEClass.getESuperTypes().add(this.getSelectionSupport());
 		accordionEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
@@ -3223,9 +3421,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		dateFieldEClass.getESuperTypes().add(this.getColorBorderSupport());
 		dateFieldEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		dateFieldEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		dateFieldEClass.getESuperTypes().add(this.getSkinSupport());
 		videoPlayerEClass.getESuperTypes().add(this.getWidget());
+		videoPlayerEClass.getESuperTypes().add(this.getSkinSupport());
 		mapEClass.getESuperTypes().add(this.getWidget());
+		mapEClass.getESuperTypes().add(this.getSkinSupport());
 		coverFlowEClass.getESuperTypes().add(this.getWidget());
+		coverFlowEClass.getESuperTypes().add(this.getSkinSupport());
 		tabbedPaneEClass.getESuperTypes().add(this.getWidget());
 		tabbedPaneEClass.getESuperTypes().add(this.getSelectionSupport());
 		tabbedPaneEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
@@ -3233,21 +3435,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		tabbedPaneEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		tabbedPaneEClass.getESuperTypes().add(this.getItemSupport());
 		tabbedPaneEClass.getESuperTypes().add(this.getFontSupport());
+		tabbedPaneEClass.getESuperTypes().add(this.getSkinSupport());
 		hSplitterEClass.getESuperTypes().add(this.getWidget());
+		hSplitterEClass.getESuperTypes().add(this.getSkinSupport());
 		vSplitterEClass.getESuperTypes().add(this.getWidget());
+		vSplitterEClass.getESuperTypes().add(this.getSkinSupport());
 		colorPickerEClass.getESuperTypes().add(this.getWidget());
 		colorPickerEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		colorPickerEClass.getESuperTypes().add(this.getSkinSupport());
 		arrowEClass.getESuperTypes().add(this.getWidget());
 		arrowEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		arrowEClass.getESuperTypes().add(this.getLineStyleSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getWidget());
 		curlyBraceEClass.getESuperTypes().add(this.getFontSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getColorForegroundSupport());
+		curlyBraceEClass.getESuperTypes().add(this.getSkinSupport());
 		buttonBarEClass.getESuperTypes().add(this.getWidget());
 		buttonBarEClass.getESuperTypes().add(this.getSelectionSupport());
 		buttonBarEClass.getESuperTypes().add(this.getFontSupport());
 		buttonBarEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		buttonBarEClass.getESuperTypes().add(this.getItemSupport());
+		buttonBarEClass.getESuperTypes().add(this.getSkinSupport());
 		circleEClass.getESuperTypes().add(this.getWidget());
 		circleEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		circleEClass.getESuperTypes().add(this.getColorAlphaSupport());
@@ -3271,9 +3479,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		rectangleEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		iconPositionSupportEClass.getESuperTypes().add(this.getIconSupport());
 		chartEClass.getESuperTypes().add(this.getWidget());
+		chartEClass.getESuperTypes().add(this.getSkinSupport());
 		crossOutEClass.getESuperTypes().add(this.getWidget());
 		crossOutEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		crossOutEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		crossOutEClass.getESuperTypes().add(this.getSkinSupport());
 		itemEClass.getESuperTypes().add(this.getLinkSupport());
 		hotspotEClass.getESuperTypes().add(this.getWidget());
 		hotspotEClass.getESuperTypes().add(this.getLinkSupport());
@@ -3284,6 +3494,30 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		svgImageEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		svgImageEClass.getESuperTypes().add(this.getRotationSupport());
 		svgImageEClass.getESuperTypes().add(this.getFlipSupport());
+		shapeEClass.getESuperTypes().add(this.getWidget());
+		shapeEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		shapeEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		shapeEClass.getESuperTypes().add(this.getColorForegroundSupport());
+		shapeEClass.getESuperTypes().add(this.getBorderSupport());
+		shapeEClass.getESuperTypes().add(this.getIconSupport());
+		shapeEClass.getESuperTypes().add(this.getIconPositionSupport());
+		shapeEClass.getESuperTypes().add(this.getFontSupport());
+		shapeEClass.getESuperTypes().add(this.getLinkSupport());
+		shapeEClass.getESuperTypes().add(this.getTextAlignmentSupport());
+		shapeEClass.getESuperTypes().add(this.getLineStyleSupport());
+		shapeEClass.getESuperTypes().add(this.getSkinSupport());
+		shapeEClass.getESuperTypes().add(this.getRotationSupport());
+		alertEClass.getESuperTypes().add(this.getWidget());
+		alertEClass.getESuperTypes().add(this.getIconSupport());
+		alertEClass.getESuperTypes().add(this.getItemSupport());
+		alertEClass.getESuperTypes().add(this.getSkinSupport());
+		switchEClass.getESuperTypes().add(this.getWidget());
+		switchEClass.getESuperTypes().add(this.getBooleanSelectionSupport());
+		switchEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		switchEClass.getESuperTypes().add(this.getFontSupport());
+		switchEClass.getESuperTypes().add(this.getLinkSupport());
+		switchEClass.getESuperTypes().add(this.getStateSupport());
+		switchEClass.getESuperTypes().add(this.getSkinSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3292,6 +3526,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getScreen_Name(), ecorePackage.getEString(), "name", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScreen_Font(), this.getScreenFont(), null, "font", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreen_Theme(), this.getTheme(), "theme", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScreen_MinVersion(), this.getVersionDataType(), "minVersion", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(screenRulerEClass, ScreenRuler.class, "ScreenRuler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getScreenRuler_Guides(), this.getRulerGuide(), null, "guides", null, 0, -1, ScreenRuler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -3351,6 +3586,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getList_Header(), ecorePackage.getEBoolean(), "header", "false", 0, 1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(popupEClass, Popup.class, "Popup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3431,7 +3667,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getColorAlphaSupport_Alpha(), ecorePackage.getEInt(), "alpha", "255", 0, 1, ColorAlphaSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(selectionSupportEClass, SelectionSupport.class, "SelectionSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSelectionSupport_Selection(), ecorePackage.getEString(), "selection", null, 0, 1, SelectionSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSelectionSupport_Selection(), this.getSelectionDataType(), "selection", "-1", 0, 1, SelectionSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textAlignmentSupportEClass, TextAlignmentSupport.class, "TextAlignmentSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextAlignmentSupport_TextAlignment(), this.getTextAlignment(), "textAlignment", null, 0, 1, TextAlignmentSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3557,6 +3793,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(svgImageEClass, SVGImage.class, "SVGImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSVGImage_Src(), this.getURIDataType(), "src", null, 0, 1, SVGImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(skinSupportEClass, SkinSupport.class, "SkinSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSkinSupport_Skin(), this.getURIDataType(), "skin", null, 0, 1, SkinSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(shapeEClass, Shape.class, "Shape", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getShape_ShapeType(), this.getShapeType(), "shapeType", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(shapeEClass, ecorePackage.getEBoolean(), "isRotatable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(switchEClass, Switch.class, "Switch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");
 		addEEnumLiteral(resizeModeEEnum, ResizeMode.BOTH_LITERAL);
@@ -3601,6 +3849,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEEnum(buttonStyleEEnum, ButtonStyle.class, "ButtonStyle");
 		addEEnumLiteral(buttonStyleEEnum, ButtonStyle.POINT_LEFT);
 		addEEnumLiteral(buttonStyleEEnum, ButtonStyle.SQUARE);
+		addEEnumLiteral(buttonStyleEEnum, ButtonStyle.ROUND);
 		addEEnumLiteral(buttonStyleEEnum, ButtonStyle.POINT_RIGHT);
 
 		initEEnum(chartTypeEEnum, ChartType.class, "ChartType");
@@ -3625,11 +3874,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(rotation90EEnum, Rotation90._180);
 		addEEnumLiteral(rotation90EEnum, Rotation90._270);
 
+		initEEnum(shapeTypeEEnum, ShapeType.class, "ShapeType");
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.ELLIPSE);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.RECTANGLE);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.ROUNDED_RECTANGLE);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.ROUND_RECTANGLE);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.DIAMOND);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.STAR);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.PARALLELOGRAM);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.TRIANGLE);
+		addEEnumLiteral(shapeTypeEEnum, ShapeType.RIGHT_TRIANGLE);
+
 		// Initialize data types
 		initEDataType(iconDataTypeEDataType, IconDesc.class, "IconDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(fontSizeDataTypeEDataType, FontSize.class, "FontSizeDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(colorDataTypeEDataType, ColorDesc.class, "ColorDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(uriDataTypeEDataType, URI.class, "URIDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(selectionDataTypeEDataType, int.class, "SelectionDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(versionDataTypeEDataType, VersionDesc.class, "VersionDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -23,7 +23,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface TabbedPane extends Widget, SelectionSupport, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, ItemSupport, FontSupport {
+public interface TabbedPane extends Widget, SelectionSupport, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, ItemSupport, FontSupport, SkinSupport {
 
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' attribute.

@@ -65,7 +65,7 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SELECTION_EDEFAULT = null;
+	protected static final int SELECTION_EDEFAULT = -1;
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * @generated
 	 * @ordered
 	 */
-	protected String selection = SELECTION_EDEFAULT;
+	protected int selection = SELECTION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isBorder() <em>Border</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSelection() {
+	public int getSelection() {
 		return selection;
 	}
 
@@ -318,8 +318,8 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(String newSelection) {
-		String oldSelection = selection;
+	public void setSelection(int newSelection) {
+		int oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TABLE__SELECTION, oldSelection, selection));
@@ -660,7 +660,7 @@ public class TableImpl extends WidgetImpl implements Table {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.TABLE__SELECTION:
-				setSelection((String)newValue);
+				setSelection((Integer)newValue);
 				return;
 			case ModelPackage.TABLE__BORDER:
 				setBorder((Boolean)newValue);
@@ -762,7 +762,7 @@ public class TableImpl extends WidgetImpl implements Table {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.TABLE__SELECTION:
-				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+				return selection != SELECTION_EDEFAULT;
 			case ModelPackage.TABLE__BORDER:
 				return border != BORDER_EDEFAULT;
 			case ModelPackage.TABLE__VALUE:

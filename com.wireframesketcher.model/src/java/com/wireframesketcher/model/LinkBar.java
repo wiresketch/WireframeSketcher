@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface LinkBar extends Widget, FontSupport, SelectionSupport, ItemSupport {
+public interface LinkBar extends Widget, FontSupport, SelectionSupport, ItemSupport, SkinSupport {
 } // LinkBar

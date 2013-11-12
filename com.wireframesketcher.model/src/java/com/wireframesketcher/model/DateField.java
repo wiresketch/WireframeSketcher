@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface DateField extends Widget, StateSupport, ColorBorderSupport, ColorBackgroundSupport, ColorAlphaSupport {
+public interface DateField extends Widget, StateSupport, ColorBorderSupport, ColorBackgroundSupport, ColorAlphaSupport, SkinSupport {
 } // DateField
