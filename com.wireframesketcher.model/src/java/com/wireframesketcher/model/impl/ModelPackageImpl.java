@@ -64,6 +64,9 @@ import com.wireframesketcher.model.Image;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.Label;
+import com.wireframesketcher.model.LayoutParams;
+import com.wireframesketcher.model.LineHeight;
+import com.wireframesketcher.model.LineHeightSupport;
 import com.wireframesketcher.model.LineStyle;
 import com.wireframesketcher.model.LineStyleSupport;
 import com.wireframesketcher.model.Link;
@@ -719,6 +722,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass lineHeightSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass hSplitterEClass = null;
 
 	/**
@@ -923,6 +933,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EDataType versionDataTypeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType lineHeightDataTypeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType layoutParamsDataTypeEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1225,6 +1249,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EAttribute getWidget_Annotation() {
 		return (EAttribute)widgetEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_LayoutParams() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -2582,6 +2615,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLineHeightSupport() {
+		return lineHeightSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLineHeightSupport_LineHeight() {
+		return (EAttribute)lineHeightSupportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -2834,6 +2885,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getLineHeightDataType() {
+		return lineHeightDataTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getLayoutParamsDataType() {
+		return layoutParamsDataTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -2886,6 +2955,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(widgetEClass, WIDGET__CUSTOM_ID);
 		createEAttribute(widgetEClass, WIDGET__CUSTOM_DATA);
 		createEAttribute(widgetEClass, WIDGET__ANNOTATION);
+		createEAttribute(widgetEClass, WIDGET__LAYOUT_PARAMS);
 
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__STYLE);
@@ -3137,6 +3207,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		switchEClass = createEClass(SWITCH);
 
+		lineHeightSupportEClass = createEClass(LINE_HEIGHT_SUPPORT);
+		createEAttribute(lineHeightSupportEClass, LINE_HEIGHT_SUPPORT__LINE_HEIGHT);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -3158,6 +3231,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		uriDataTypeEDataType = createEDataType(URI_DATA_TYPE);
 		selectionDataTypeEDataType = createEDataType(SELECTION_DATA_TYPE);
 		versionDataTypeEDataType = createEDataType(VERSION_DATA_TYPE);
+		lineHeightDataTypeEDataType = createEDataType(LINE_HEIGHT_DATA_TYPE);
+		layoutParamsDataTypeEDataType = createEDataType(LAYOUT_PARAMS_DATA_TYPE);
 	}
 
 	/**
@@ -3269,6 +3344,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		textEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		textEClass.getESuperTypes().add(this.getLinkSupport());
+		textEClass.getESuperTypes().add(this.getLineHeightSupport());
 		areaEClass.getESuperTypes().add(this.getWidget());
 		panelEClass.getESuperTypes().add(this.getWidget());
 		panelEClass.getESuperTypes().add(this.getColorBackgroundSupport());
@@ -3333,6 +3409,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textAreaEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		textAreaEClass.getESuperTypes().add(this.getColorBorderSupport());
 		textAreaEClass.getESuperTypes().add(this.getSkinSupport());
+		textAreaEClass.getESuperTypes().add(this.getLineHeightSupport());
 		hScrollbarEClass.getESuperTypes().add(this.getWidget());
 		hScrollbarEClass.getESuperTypes().add(this.getValueSupport());
 		hScrollbarEClass.getESuperTypes().add(this.getSkinSupport());
@@ -3549,6 +3626,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getWidget_CustomId(), ecorePackage.getEString(), "customId", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_CustomData(), ecorePackage.getEString(), "customData", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidget_Annotation(), ecorePackage.getEBoolean(), "annotation", null, 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidget_LayoutParams(), this.getLayoutParamsDataType(), "layoutParams", "none", 0, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_Style(), this.getButtonStyle(), "style", "square", 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3805,6 +3883,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(switchEClass, Switch.class, "Switch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(lineHeightSupportEClass, LineHeightSupport.class, "LineHeightSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLineHeightSupport_LineHeight(), this.getLineHeightDataType(), "lineHeight", "normal", 0, 1, LineHeightSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");
 		addEEnumLiteral(resizeModeEEnum, ResizeMode.BOTH_LITERAL);
@@ -3892,6 +3973,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEDataType(uriDataTypeEDataType, URI.class, "URIDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(selectionDataTypeEDataType, int.class, "SelectionDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(versionDataTypeEDataType, VersionDesc.class, "VersionDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(lineHeightDataTypeEDataType, LineHeight.class, "LineHeightDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(layoutParamsDataTypeEDataType, LayoutParams.class, "LayoutParamsDataType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

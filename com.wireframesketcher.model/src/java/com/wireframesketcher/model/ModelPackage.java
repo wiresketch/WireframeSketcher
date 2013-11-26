@@ -364,13 +364,22 @@ public interface ModelPackage extends EPackage {
 	int WIDGET__ANNOTATION = 13;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__LAYOUT_PARAMS = 14;
+
+	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_FEATURE_COUNT = 14;
+	int WIDGET_FEATURE_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ButtonImpl <em>Button</em>}' class.
@@ -507,6 +516,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUTTON__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -735,6 +753,15 @@ public interface ModelPackage extends EPackage {
 	int CHECKBOX__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKBOX__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Selected</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -923,6 +950,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMBO__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -1131,6 +1167,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int LABEL__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -1359,6 +1404,15 @@ public interface ModelPackage extends EPackage {
 	int LINK__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1540,6 +1594,15 @@ public interface ModelPackage extends EPackage {
 	int PLACEHOLDER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEHOLDER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1701,6 +1764,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RADIO_BUTTON__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_BUTTON__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selected</b></em>' attribute.
@@ -1891,6 +1963,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FIELD__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FIELD__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -2231,6 +2312,15 @@ public interface ModelPackage extends EPackage {
 	int SPINNER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2418,6 +2508,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int WINDOW__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2609,6 +2708,15 @@ public interface ModelPackage extends EPackage {
 	int BROWSER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2780,6 +2888,15 @@ public interface ModelPackage extends EPackage {
 	int TEXT__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2816,13 +2933,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT__LINK = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Line Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__LINE_HEIGHT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Dummy Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__DUMMY_TEXT = WIDGET_FEATURE_COUNT + 4;
+	int TEXT__DUMMY_TEXT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -2831,7 +2957,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2958,6 +3084,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int AREA__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The number of structural features of the '<em>Area</em>' class.
@@ -3185,6 +3320,15 @@ public interface ModelPackage extends EPackage {
 	int PANEL__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PANEL__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Background</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3392,6 +3536,15 @@ public interface ModelPackage extends EPackage {
 	int GROUP__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3579,6 +3732,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -3824,6 +3986,15 @@ public interface ModelPackage extends EPackage {
 	int POPUP__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3975,6 +4146,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -4155,6 +4335,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -4409,6 +4598,15 @@ public interface ModelPackage extends EPackage {
 	int TREE__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Border</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4616,6 +4814,15 @@ public interface ModelPackage extends EPackage {
 	int ICON__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICON__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4787,6 +4994,15 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4868,13 +5084,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA__SKIN = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Line Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__LINE_HEIGHT = WIDGET_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Text Area</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
+	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5001,6 +5226,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HSCROLLBAR__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSCROLLBAR__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -5156,6 +5390,15 @@ public interface ModelPackage extends EPackage {
 	int VSCROLLBAR__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSCROLLBAR__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5307,6 +5550,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HLINE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HLINE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
@@ -5471,6 +5723,15 @@ public interface ModelPackage extends EPackage {
 	int VLINE__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VLINE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5631,6 +5892,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HSLIDER__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSLIDER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -5795,6 +6065,15 @@ public interface ModelPackage extends EPackage {
 	int VSLIDER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSLIDER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5955,6 +6234,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABS__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABS__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -6246,6 +6534,15 @@ public interface ModelPackage extends EPackage {
 	int WIDGET_GROUP__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_GROUP__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6416,6 +6713,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MASTER__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -6606,6 +6912,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -7086,6 +7401,15 @@ public interface ModelPackage extends EPackage {
 	int NOTE__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7285,6 +7609,15 @@ public interface ModelPackage extends EPackage {
 	int PROGRESS_BAR__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRESS_BAR__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7455,6 +7788,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int CALLOUT__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -7647,6 +7989,15 @@ public interface ModelPackage extends EPackage {
 	int SEARCH_FIELD__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7837,6 +8188,15 @@ public interface ModelPackage extends EPackage {
 	int TOOLTIP__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8025,6 +8385,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRATCH_OUT__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRATCH_OUT__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
@@ -8255,6 +8624,15 @@ public interface ModelPackage extends EPackage {
 	int BREADCRUMBS__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8425,6 +8803,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int LINK_BAR__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_BAR__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -8606,6 +8993,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACCORDION__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCORDION__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -8924,6 +9320,15 @@ public interface ModelPackage extends EPackage {
 	int DATE_FIELD__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9104,6 +9509,15 @@ public interface ModelPackage extends EPackage {
 	int VIDEO_PLAYER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_PLAYER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9246,6 +9660,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAP__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAP__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
@@ -9392,6 +9815,15 @@ public interface ModelPackage extends EPackage {
 	int COVER_FLOW__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVER_FLOW__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9534,6 +9966,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABBED_PANE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABBED_PANE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -9779,6 +10220,15 @@ public interface ModelPackage extends EPackage {
 	int HSPLITTER__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSPLITTER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9921,6 +10371,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VSPLITTER__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSPLITTER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
@@ -10075,6 +10534,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLOR_PICKER__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_PICKER__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Background</b></em>' attribute.
@@ -10238,6 +10706,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ARROW__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
@@ -10430,6 +10907,15 @@ public interface ModelPackage extends EPackage {
 	int CURLY_BRACE__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CURLY_BRACE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10609,6 +11095,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUTTON_BAR__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_BAR__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Selection</b></em>' attribute.
@@ -10827,6 +11322,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int CIRCLE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCLE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Background</b></em>' attribute.
@@ -11071,6 +11575,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECTANGLE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Background</b></em>' attribute.
@@ -11391,6 +11904,15 @@ public interface ModelPackage extends EPackage {
 	int CHART__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11552,6 +12074,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int CROSS_OUT__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSS_OUT__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
@@ -11853,6 +12384,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HOTSPOT__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTSPOT__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
@@ -12158,6 +12698,15 @@ public interface ModelPackage extends EPackage {
 	int SVG_IMAGE__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12401,6 +12950,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SHAPE__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
 
 	/**
 	 * The feature id for the '<em><b>Background</b></em>' attribute.
@@ -12674,6 +13232,15 @@ public interface ModelPackage extends EPackage {
 	int ALERT__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12855,6 +13422,15 @@ public interface ModelPackage extends EPackage {
 	int SWITCH__ANNOTATION = WIDGET__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
 	 * The feature id for the '<em><b>Selected</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12918,6 +13494,34 @@ public interface ModelPackage extends EPackage {
 	int SWITCH_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.LineHeightSupport <em>Line Height Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.LineHeightSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightSupport()
+	 * @generated
+	 */
+	int LINE_HEIGHT_SUPPORT = 94;
+
+	/**
+	 * The feature id for the '<em><b>Line Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_HEIGHT_SUPPORT__LINE_HEIGHT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Line Height Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_HEIGHT_SUPPORT_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12925,7 +13529,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 94;
+	int RESIZE_MODE = 95;
 
 
 	/**
@@ -12936,7 +13540,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 95;
+	int TEXT_ALIGNMENT = 96;
 
 
 	/**
@@ -12947,7 +13551,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 96;
+	int ICON_SIZE = 97;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -12957,7 +13561,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 97;
+	int STATE = 98;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -12967,7 +13571,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 98;
+	int POSITION = 99;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -12977,7 +13581,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 99;
+	int BORDER_STYLE = 100;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -12987,7 +13591,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 100;
+	int BUTTON_STYLE = 101;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -12997,7 +13601,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 101;
+	int CHART_TYPE = 102;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -13007,7 +13611,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 102;
+	int THEME = 103;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -13017,7 +13621,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 103;
+	int LINE_STYLE = 104;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -13027,7 +13631,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 104;
+	int ROTATION90 = 105;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
@@ -13037,7 +13641,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
 	 * @generated
 	 */
-	int SHAPE_TYPE = 105;
+	int SHAPE_TYPE = 106;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -13047,7 +13651,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 106;
+	int ICON_DATA_TYPE = 107;
 
 
 	/**
@@ -13058,7 +13662,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 107;
+	int FONT_SIZE_DATA_TYPE = 108;
 
 
 	/**
@@ -13069,7 +13673,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 108;
+	int COLOR_DATA_TYPE = 109;
 
 
 	/**
@@ -13080,7 +13684,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 109;
+	int URI_DATA_TYPE = 110;
 
 
 	/**
@@ -13090,7 +13694,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
 	 * @generated
 	 */
-	int SELECTION_DATA_TYPE = 110;
+	int SELECTION_DATA_TYPE = 111;
 
 
 	/**
@@ -13101,7 +13705,29 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
 	 * @generated
 	 */
-	int VERSION_DATA_TYPE = 111;
+	int VERSION_DATA_TYPE = 112;
+
+
+	/**
+	 * The meta object id for the '<em>Line Height Data Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.LineHeight
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightDataType()
+	 * @generated
+	 */
+	int LINE_HEIGHT_DATA_TYPE = 113;
+
+
+	/**
+	 * The meta object id for the '<em>Layout Params Data Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.LayoutParams
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLayoutParamsDataType()
+	 * @generated
+	 */
+	int LAYOUT_PARAMS_DATA_TYPE = 114;
 
 
 	/**
@@ -13385,6 +14011,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWidget_Annotation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.Widget#getLayoutParams <em>Layout Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Layout Params</em>'.
+	 * @see com.wireframesketcher.model.Widget#getLayoutParams()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_LayoutParams();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.Button <em>Button</em>}'.
@@ -14937,6 +15574,27 @@ public interface ModelPackage extends EPackage {
 	EClass getSwitch();
 
 	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.LineHeightSupport <em>Line Height Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Height Support</em>'.
+	 * @see com.wireframesketcher.model.LineHeightSupport
+	 * @generated
+	 */
+	EClass getLineHeightSupport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.LineHeightSupport#getLineHeight <em>Line Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Height</em>'.
+	 * @see com.wireframesketcher.model.LineHeightSupport#getLineHeight()
+	 * @see #getLineHeightSupport()
+	 * @generated
+	 */
+	EAttribute getLineHeightSupport_LineHeight();
+
+	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15242,6 +15900,28 @@ public interface ModelPackage extends EPackage {
 	EDataType getVersionDataType();
 
 	/**
+	 * Returns the meta object for data type '{@link com.wireframesketcher.model.LineHeight <em>Line Height Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Line Height Data Type</em>'.
+	 * @see com.wireframesketcher.model.LineHeight
+	 * @model instanceClass="com.wireframesketcher.model.LineHeight"
+	 * @generated
+	 */
+	EDataType getLineHeightDataType();
+
+	/**
+	 * Returns the meta object for data type '{@link com.wireframesketcher.model.LayoutParams <em>Layout Params Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Layout Params Data Type</em>'.
+	 * @see com.wireframesketcher.model.LayoutParams
+	 * @model instanceClass="com.wireframesketcher.model.LayoutParams"
+	 * @generated
+	 */
+	EDataType getLayoutParamsDataType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15478,6 +16158,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WIDGET__ANNOTATION = eINSTANCE.getWidget_Annotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Layout Params</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__LAYOUT_PARAMS = eINSTANCE.getWidget_LayoutParams();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.ButtonImpl <em>Button</em>}' class.
@@ -16840,6 +17528,24 @@ public interface ModelPackage extends EPackage {
 		EClass SWITCH = eINSTANCE.getSwitch();
 
 		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.LineHeightSupport <em>Line Height Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.LineHeightSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightSupport()
+		 * @generated
+		 */
+		EClass LINE_HEIGHT_SUPPORT = eINSTANCE.getLineHeightSupport();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE_HEIGHT_SUPPORT__LINE_HEIGHT = eINSTANCE.getLineHeightSupport_LineHeight();
+
+		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -17117,6 +17823,26 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType VERSION_DATA_TYPE = eINSTANCE.getVersionDataType();
+
+		/**
+		 * The meta object literal for the '<em>Line Height Data Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.LineHeight
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightDataType()
+		 * @generated
+		 */
+		EDataType LINE_HEIGHT_DATA_TYPE = eINSTANCE.getLineHeightDataType();
+
+		/**
+		 * The meta object literal for the '<em>Layout Params Data Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.LayoutParams
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLayoutParamsDataType()
+		 * @generated
+		 */
+		EDataType LAYOUT_PARAMS_DATA_TYPE = eINSTANCE.getLayoutParamsDataType();
 
 	}
 

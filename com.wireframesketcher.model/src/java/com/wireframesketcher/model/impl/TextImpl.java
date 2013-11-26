@@ -10,6 +10,8 @@ import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.LineHeight;
+import com.wireframesketcher.model.LineHeightSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
@@ -40,6 +42,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getLineHeight <em>Line Height</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#isDummyText <em>Dummy Text</em>}</li>
  * </ul>
  * </p>
@@ -116,6 +119,26 @@ public class TextImpl extends WidgetImpl implements Text {
 	 * @ordered
 	 */
 	protected URI link = LINK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLineHeight() <em>Line Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LineHeight LINE_HEIGHT_EDEFAULT = (LineHeight)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getLineHeightDataType(), "normal");
+
+	/**
+	 * The cached value of the '{@link #getLineHeight() <em>Line Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected LineHeight lineHeight = LINE_HEIGHT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isDummyText() <em>Dummy Text</em>}' attribute.
@@ -249,6 +272,27 @@ public class TextImpl extends WidgetImpl implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LineHeight getLineHeight() {
+		return lineHeight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLineHeight(LineHeight newLineHeight) {
+		LineHeight oldLineHeight = lineHeight;
+		lineHeight = newLineHeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TEXT__LINE_HEIGHT, oldLineHeight, lineHeight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isDummyText() {
 		return dummyText;
 	}
@@ -316,6 +360,8 @@ public class TextImpl extends WidgetImpl implements Text {
 				return getForeground();
 			case ModelPackage.TEXT__LINK:
 				return getLink();
+			case ModelPackage.TEXT__LINE_HEIGHT:
+				return getLineHeight();
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				return isDummyText();
 		}
@@ -341,6 +387,9 @@ public class TextImpl extends WidgetImpl implements Text {
 				return;
 			case ModelPackage.TEXT__LINK:
 				setLink((URI)newValue);
+				return;
+			case ModelPackage.TEXT__LINE_HEIGHT:
+				setLineHeight((LineHeight)newValue);
 				return;
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				setDummyText((Boolean)newValue);
@@ -369,6 +418,9 @@ public class TextImpl extends WidgetImpl implements Text {
 			case ModelPackage.TEXT__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
+			case ModelPackage.TEXT__LINE_HEIGHT:
+				setLineHeight(LINE_HEIGHT_EDEFAULT);
+				return;
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				setDummyText(DUMMY_TEXT_EDEFAULT);
 				return;
@@ -392,6 +444,8 @@ public class TextImpl extends WidgetImpl implements Text {
 				return FOREGROUND_EDEFAULT == null ? foreground != null : !FOREGROUND_EDEFAULT.equals(foreground);
 			case ModelPackage.TEXT__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
+			case ModelPackage.TEXT__LINE_HEIGHT:
+				return LINE_HEIGHT_EDEFAULT == null ? lineHeight != null : !LINE_HEIGHT_EDEFAULT.equals(lineHeight);
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				return dummyText != DUMMY_TEXT_EDEFAULT;
 		}
@@ -429,6 +483,12 @@ public class TextImpl extends WidgetImpl implements Text {
 				default: return -1;
 			}
 		}
+		if (baseClass == LineHeightSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TEXT__LINE_HEIGHT: return ModelPackage.LINE_HEIGHT_SUPPORT__LINE_HEIGHT;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -463,6 +523,12 @@ public class TextImpl extends WidgetImpl implements Text {
 				default: return -1;
 			}
 		}
+		if (baseClass == LineHeightSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINE_HEIGHT_SUPPORT__LINE_HEIGHT: return ModelPackage.TEXT__LINE_HEIGHT;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -482,6 +548,8 @@ public class TextImpl extends WidgetImpl implements Text {
 		result.append(foreground);
 		result.append(", link: ");
 		result.append(link);
+		result.append(", lineHeight: ");
+		result.append(lineHeight);
 		result.append(", dummyText: ");
 		result.append(dummyText);
 		result.append(')');

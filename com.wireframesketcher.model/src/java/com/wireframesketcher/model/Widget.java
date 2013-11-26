@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wireframesketcher.model.Widget#getCustomId <em>Custom Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Widget#getCustomData <em>Custom Data</em>}</li>
  *   <li>{@link com.wireframesketcher.model.Widget#isAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.Widget#getLayoutParams <em>Layout Params</em>}</li>
  * </ul>
  * </p>
  *
@@ -398,6 +399,32 @@ public interface Widget extends EObject {
 	 * @generated
 	 */
 	void setAnnotation(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Layout Params</b></em>' attribute.
+	 * The default value is <code>"none"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Layout parameters that control how the widget behaves when its container is resized. It's a combination of anchor-left, anchor-center, anchor-right flags for horizontal direction and anchor-top, anchor-middle, anchor-bottom for vertical direction. For example "anchor-left,anchor-right|anchor-top" value will anchor the widget to left and right horizontally and to top vertically..
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Layout Params</em>' attribute.
+	 * @see #setLayoutParams(LayoutParams)
+	 * @see com.wireframesketcher.model.ModelPackage#getWidget_LayoutParams()
+	 * @model default="none" dataType="com.wireframesketcher.model.LayoutParamsDataType"
+	 * @generated
+	 */
+	LayoutParams getLayoutParams();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.Widget#getLayoutParams <em>Layout Params</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Layout Params</em>' attribute.
+	 * @see #getLayoutParams()
+	 * @generated
+	 */
+	void setLayoutParams(LayoutParams value);
 
 	String getType();
 } // Widget

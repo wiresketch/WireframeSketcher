@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.LineHeight;
+import com.wireframesketcher.model.LineHeightSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.SkinSupport;
@@ -48,6 +50,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getBorderColor <em>Border Color</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getSkin <em>Skin</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TextAreaImpl#getLineHeight <em>Line Height</em>}</li>
  * </ul>
  * </p>
  *
@@ -208,6 +211,24 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 	 * @ordered
 	 */
 	protected URI skin = SKIN_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getLineHeight() <em>Line Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LineHeight LINE_HEIGHT_EDEFAULT = (LineHeight)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getLineHeightDataType(), "normal");
+	/**
+	 * The cached value of the '{@link #getLineHeight() <em>Line Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected LineHeight lineHeight = LINE_HEIGHT_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Text Area", ResizeMode.BOTH_LITERAL, true, true, true);
 	
 	/**
@@ -444,6 +465,27 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LineHeight getLineHeight() {
+		return lineHeight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLineHeight(LineHeight newLineHeight) {
+		LineHeight oldLineHeight = lineHeight;
+		lineHeight = newLineHeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TEXT_AREA__LINE_HEIGHT, oldLineHeight, lineHeight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED || state == State.FOCUSED; 
@@ -489,6 +531,8 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				return getBorderColor();
 			case ModelPackage.TEXT_AREA__SKIN:
 				return getSkin();
+			case ModelPackage.TEXT_AREA__LINE_HEIGHT:
+				return getLineHeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -527,6 +571,9 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				return;
 			case ModelPackage.TEXT_AREA__SKIN:
 				setSkin((URI)newValue);
+				return;
+			case ModelPackage.TEXT_AREA__LINE_HEIGHT:
+				setLineHeight((LineHeight)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -567,6 +614,9 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 			case ModelPackage.TEXT_AREA__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
+			case ModelPackage.TEXT_AREA__LINE_HEIGHT:
+				setLineHeight(LINE_HEIGHT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -597,6 +647,8 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				return BORDER_COLOR_EDEFAULT == null ? borderColor != null : !BORDER_COLOR_EDEFAULT.equals(borderColor);
 			case ModelPackage.TEXT_AREA__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
+			case ModelPackage.TEXT_AREA__LINE_HEIGHT:
+				return LINE_HEIGHT_EDEFAULT == null ? lineHeight != null : !LINE_HEIGHT_EDEFAULT.equals(lineHeight);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -659,6 +711,12 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 		if (baseClass == SkinSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.TEXT_AREA__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == LineHeightSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TEXT_AREA__LINE_HEIGHT: return ModelPackage.LINE_HEIGHT_SUPPORT__LINE_HEIGHT;
 				default: return -1;
 			}
 		}
@@ -726,6 +784,12 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 				default: return -1;
 			}
 		}
+		if (baseClass == LineHeightSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.LINE_HEIGHT_SUPPORT__LINE_HEIGHT: return ModelPackage.TEXT_AREA__LINE_HEIGHT;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -755,6 +819,8 @@ public class TextAreaImpl extends WidgetImpl implements TextArea {
 		result.append(borderColor);
 		result.append(", skin: ");
 		result.append(skin);
+		result.append(", lineHeight: ");
+		result.append(lineHeight);
 		result.append(')');
 		return result.toString();
 	}

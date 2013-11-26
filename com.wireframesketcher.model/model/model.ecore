@@ -92,6 +92,12 @@
         <details key="documentation" value="Tells whether the widget should be treated as annotation"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layoutParams" eType="#//LayoutParamsDataType"
+        defaultValueLiteral="none">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Layout parameters that control how the widget behaves when its container is resized. It's a combination of anchor-left, anchor-center, anchor-right flags for horizontal direction and anchor-top, anchor-middle, anchor-bottom for vertical direction. For example &quot;anchor-left,anchor-right|anchor-top&quot; value will anchor the widget to left and right horizontally and to top vertically.."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Widget #//StateSupport #//ColorBackgroundSupport #//FontSupport #//IconSupport #//LinkSupport #//TextAlignmentSupport #//SkinSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//ButtonStyle"
@@ -126,7 +132,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Browser" eSuperTypes="#//Widget #//VerticalScrollbarSupport #//ColorBackgroundSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//LinkSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//LinkSupport #//LineHeightSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dummyText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="If true then Lorem Ipsum default text is used."/>
@@ -162,7 +168,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//Widget #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//SelectionSupport #//ItemSupport #//FontSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Widget #//ColorForegroundSupport #//IconSupport #//LinkSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TextArea" eSuperTypes="#//Widget #//StateSupport #//VerticalScrollbarSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorBorderSupport #//SkinSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextArea" eSuperTypes="#//Widget #//StateSupport #//VerticalScrollbarSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorBorderSupport #//SkinSupport #//LineHeightSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HScrollbar" eSuperTypes="#//Widget #//ValueSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="VScrollbar" eSuperTypes="#//Widget #//ValueSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HLine" eSuperTypes="#//Widget #//ColorForegroundSupport #//LineStyleSupport #//SkinSupport"/>
@@ -639,6 +645,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Widget #//IconSupport #//ItemSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//Widget #//BooleanSelectionSupport #//ColorBackgroundSupport #//FontSupport #//LinkSupport #//StateSupport #//SkinSupport"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="LineHeightDataType" instanceClassName="com.wireframesketcher.model.LineHeight"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LineHeightSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineHeight" eType="#//LineHeightDataType"
+        defaultValueLiteral="normal">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Line height specified either in em, percents or pixels."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="LayoutParamsDataType" instanceClassName="com.wireframesketcher.model.LayoutParams"/>
   <eSubpackages name="story" nsURI="http://wireframesketcher.com/1.0/model/story"
       nsPrefix="story">
     <eClassifiers xsi:type="ecore:EClass" name="Storyboard">

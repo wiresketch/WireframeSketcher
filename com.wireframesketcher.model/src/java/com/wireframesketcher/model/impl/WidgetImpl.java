@@ -6,6 +6,8 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.LayoutParams;
+import com.wireframesketcher.model.ModelFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -40,6 +42,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getCustomId <em>Custom Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getCustomData <em>Custom Data</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#isAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getLayoutParams <em>Layout Params</em>}</li>
  * </ul>
  * </p>
  *
@@ -289,6 +292,26 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	 * @ordered
 	 */
 	protected boolean annotation = ANNOTATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLayoutParams() <em>Layout Params</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayoutParams()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LayoutParams LAYOUT_PARAMS_EDEFAULT = (LayoutParams)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getLayoutParamsDataType(), "none");
+
+	/**
+	 * The cached value of the '{@link #getLayoutParams() <em>Layout Params</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLayoutParams()
+	 * @generated
+	 * @ordered
+	 */
+	protected LayoutParams layoutParams = LAYOUT_PARAMS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -610,6 +633,27 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LayoutParams getLayoutParams() {
+		return layoutParams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLayoutParams(LayoutParams newLayoutParams) {
+		LayoutParams oldLayoutParams = layoutParams;
+		layoutParams = newLayoutParams;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WIDGET__LAYOUT_PARAMS, oldLayoutParams, layoutParams));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -684,6 +728,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 				return getCustomData();
 			case ModelPackage.WIDGET__ANNOTATION:
 				return isAnnotation();
+			case ModelPackage.WIDGET__LAYOUT_PARAMS:
+				return getLayoutParams();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -733,6 +779,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 				return;
 			case ModelPackage.WIDGET__ANNOTATION:
 				setAnnotation((Boolean)newValue);
+				return;
+			case ModelPackage.WIDGET__LAYOUT_PARAMS:
+				setLayoutParams((LayoutParams)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -784,6 +833,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 			case ModelPackage.WIDGET__ANNOTATION:
 				setAnnotation(ANNOTATION_EDEFAULT);
 				return;
+			case ModelPackage.WIDGET__LAYOUT_PARAMS:
+				setLayoutParams(LAYOUT_PARAMS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -823,6 +875,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 				return CUSTOM_DATA_EDEFAULT == null ? customData != null : !CUSTOM_DATA_EDEFAULT.equals(customData);
 			case ModelPackage.WIDGET__ANNOTATION:
 				return annotation != ANNOTATION_EDEFAULT;
+			case ModelPackage.WIDGET__LAYOUT_PARAMS:
+				return LAYOUT_PARAMS_EDEFAULT == null ? layoutParams != null : !LAYOUT_PARAMS_EDEFAULT.equals(layoutParams);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -860,6 +914,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 		result.append(customData);
 		result.append(", annotation: ");
 		result.append(annotation);
+		result.append(", layoutParams: ");
+		result.append(layoutParams);
 		result.append(')');
 		return result.toString();
 	}

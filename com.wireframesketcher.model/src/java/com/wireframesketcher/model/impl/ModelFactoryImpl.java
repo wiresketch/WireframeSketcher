@@ -179,6 +179,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createSelectionDataTypeFromString(eDataType, initialValue);
 			case ModelPackage.VERSION_DATA_TYPE:
 				return createVersionDataTypeFromString(eDataType, initialValue);
+			case ModelPackage.LINE_HEIGHT_DATA_TYPE:
+				return createLineHeightDataTypeFromString(eDataType, initialValue);
+			case ModelPackage.LAYOUT_PARAMS_DATA_TYPE:
+				return createLayoutParamsDataTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -228,6 +232,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertSelectionDataTypeToString(eDataType, instanceValue);
 			case ModelPackage.VERSION_DATA_TYPE:
 				return convertVersionDataTypeToString(eDataType, instanceValue);
+			case ModelPackage.LINE_HEIGHT_DATA_TYPE:
+				return convertLineHeightDataTypeToString(eDataType, instanceValue);
+			case ModelPackage.LAYOUT_PARAMS_DATA_TYPE:
+				return convertLayoutParamsDataTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1306,6 +1314,44 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			return null;
 
 		return instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public LineHeight createLineHeightDataTypeFromString(EDataType eDataType, String initialValue) {
+		return LineHeight.createFromString(initialValue, LineHeight.Unit.EM);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String convertLineHeightDataTypeToString(EDataType eDataType, Object instanceValue) {
+		if(instanceValue == null)
+			return null;
+		
+		return ((LineHeight) instanceValue).toString(LineHeight.Unit.EM);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public LayoutParams createLayoutParamsDataTypeFromString(EDataType eDataType, String initialValue) {
+		return LayoutParams.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String convertLayoutParamsDataTypeToString(EDataType eDataType, Object instanceValue) {
+		if(instanceValue == null)
+			return null;
+		
+		return ((LayoutParams) instanceValue).toString();
 	}
 
 	/**

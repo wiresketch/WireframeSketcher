@@ -255,6 +255,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseTextAlignmentSupport(text);
 				if (result == null) result = caseColorForegroundSupport(text);
 				if (result == null) result = caseLinkSupport(text);
+				if (result == null) result = caseLineHeightSupport(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -384,6 +385,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorAlphaSupport(textArea);
 				if (result == null) result = caseColorBorderSupport(textArea);
 				if (result == null) result = caseSkinSupport(textArea);
+				if (result == null) result = caseLineHeightSupport(textArea);
 				if (result == null) result = caseValueSupport(textArea);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -980,6 +982,12 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseLinkSupport(switch_);
 				if (result == null) result = caseStateSupport(switch_);
 				if (result == null) result = caseSkinSupport(switch_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.LINE_HEIGHT_SUPPORT: {
+				LineHeightSupport lineHeightSupport = (LineHeightSupport)theEObject;
+				T result = caseLineHeightSupport(lineHeightSupport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2244,6 +2252,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseSwitch(Switch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line Height Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line Height Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLineHeightSupport(LineHeightSupport object) {
 		return null;
 	}
 
