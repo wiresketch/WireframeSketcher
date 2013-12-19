@@ -3427,10 +3427,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		hSliderEClass.getESuperTypes().add(this.getWidget());
 		hSliderEClass.getESuperTypes().add(this.getValueSupport());
 		hSliderEClass.getESuperTypes().add(this.getStateSupport());
+		hSliderEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		hSliderEClass.getESuperTypes().add(this.getSkinSupport());
 		vSliderEClass.getESuperTypes().add(this.getWidget());
 		vSliderEClass.getESuperTypes().add(this.getValueSupport());
 		vSliderEClass.getESuperTypes().add(this.getStateSupport());
+		vSliderEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		vSliderEClass.getESuperTypes().add(this.getSkinSupport());
 		tabsEClass.getESuperTypes().add(this.getWidget());
 		tabsEClass.getESuperTypes().add(this.getSelectionSupport());
@@ -3492,6 +3494,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		accordionEClass.getESuperTypes().add(this.getSelectionSupport());
 		accordionEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		accordionEClass.getESuperTypes().add(this.getItemSupport());
+		accordionEClass.getESuperTypes().add(this.getFontSupport());
 		verticalScrollbarSupportEClass.getESuperTypes().add(this.getValueSupport());
 		dateFieldEClass.getESuperTypes().add(this.getWidget());
 		dateFieldEClass.getESuperTypes().add(this.getStateSupport());
@@ -3587,6 +3590,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		alertEClass.getESuperTypes().add(this.getWidget());
 		alertEClass.getESuperTypes().add(this.getIconSupport());
 		alertEClass.getESuperTypes().add(this.getItemSupport());
+		alertEClass.getESuperTypes().add(this.getFontSupport());
 		alertEClass.getESuperTypes().add(this.getSkinSupport());
 		switchEClass.getESuperTypes().add(this.getWidget());
 		switchEClass.getESuperTypes().add(this.getBooleanSelectionSupport());

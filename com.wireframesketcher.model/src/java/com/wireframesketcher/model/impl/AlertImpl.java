@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.wireframesketcher.model.Alert;
+import com.wireframesketcher.model.Font;
+import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.IconDesc;
 import com.wireframesketcher.model.IconSupport;
 import com.wireframesketcher.model.Item;
@@ -40,6 +42,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.AlertImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.AlertImpl#getIconRotation <em>Icon Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.AlertImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.AlertImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.AlertImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
@@ -98,6 +101,16 @@ public class AlertImpl extends WidgetImpl implements Alert {
 	protected EList<Item> items;
 
 	/**
+	 * The cached value of the '{@link #getFont() <em>Font</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFont()
+	 * @generated
+	 * @ordered
+	 */
+	protected Font font;
+
+	/**
 	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,6 +138,7 @@ public class AlertImpl extends WidgetImpl implements Alert {
 	 */
 	protected AlertImpl() {
 		super();
+		setFont(ModelFactory.eINSTANCE.createFont());
 		descriptor = DESCRIPTOR;
 	}
 
@@ -197,6 +211,49 @@ public class AlertImpl extends WidgetImpl implements Alert {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Font getFont() {
+		return font;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFont(Font newFont, NotificationChain msgs) {
+		Font oldFont = font;
+		font = newFont;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ALERT__FONT, oldFont, newFont);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFont(Font newFont) {
+		if (newFont != font) {
+			NotificationChain msgs = null;
+			if (font != null)
+				msgs = ((InternalEObject)font).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ALERT__FONT, null, msgs);
+			if (newFont != null)
+				msgs = ((InternalEObject)newFont).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ALERT__FONT, null, msgs);
+			msgs = basicSetFont(newFont, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ALERT__FONT, newFont, newFont));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getSkin() {
 		return skin;
 	}
@@ -223,6 +280,8 @@ public class AlertImpl extends WidgetImpl implements Alert {
 		switch (featureID) {
 			case ModelPackage.ALERT__ITEMS:
 				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ALERT__FONT:
+				return basicSetFont(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,6 +300,8 @@ public class AlertImpl extends WidgetImpl implements Alert {
 				return getIconRotation();
 			case ModelPackage.ALERT__ITEMS:
 				return getItems();
+			case ModelPackage.ALERT__FONT:
+				return getFont();
 			case ModelPackage.ALERT__SKIN:
 				return getSkin();
 		}
@@ -266,6 +327,9 @@ public class AlertImpl extends WidgetImpl implements Alert {
 				getItems().clear();
 				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
+			case ModelPackage.ALERT__FONT:
+				setFont((Font)newValue);
+				return;
 			case ModelPackage.ALERT__SKIN:
 				setSkin((URI)newValue);
 				return;
@@ -290,6 +354,9 @@ public class AlertImpl extends WidgetImpl implements Alert {
 			case ModelPackage.ALERT__ITEMS:
 				getItems().clear();
 				return;
+			case ModelPackage.ALERT__FONT:
+				setFont((Font)null);
+				return;
 			case ModelPackage.ALERT__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
@@ -311,6 +378,8 @@ public class AlertImpl extends WidgetImpl implements Alert {
 				return iconRotation != ICON_ROTATION_EDEFAULT;
 			case ModelPackage.ALERT__ITEMS:
 				return items != null && !items.isEmpty();
+			case ModelPackage.ALERT__FONT:
+				return font != null;
 			case ModelPackage.ALERT__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
@@ -334,6 +403,12 @@ public class AlertImpl extends WidgetImpl implements Alert {
 		if (baseClass == ItemSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.ALERT__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FontSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.ALERT__FONT: return ModelPackage.FONT_SUPPORT__FONT;
 				default: return -1;
 			}
 		}
@@ -363,6 +438,12 @@ public class AlertImpl extends WidgetImpl implements Alert {
 		if (baseClass == ItemSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.ALERT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FontSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.FONT_SUPPORT__FONT: return ModelPackage.ALERT__FONT;
 				default: return -1;
 			}
 		}

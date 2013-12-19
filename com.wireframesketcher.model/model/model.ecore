@@ -173,8 +173,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="VScrollbar" eSuperTypes="#//Widget #//ValueSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HLine" eSuperTypes="#//Widget #//ColorForegroundSupport #//LineStyleSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="VLine" eSuperTypes="#//Widget #//ColorForegroundSupport #//LineStyleSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HSlider" eSuperTypes="#//Widget #//ValueSupport #//StateSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VSlider" eSuperTypes="#//Widget #//ValueSupport #//StateSupport #//SkinSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HSlider" eSuperTypes="#//Widget #//ValueSupport #//StateSupport #//ColorBackgroundSupport #//SkinSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VSlider" eSuperTypes="#//Widget #//ValueSupport #//StateSupport #//ColorBackgroundSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Tabs" eSuperTypes="#//Widget #//SelectionSupport #//ItemSupport #//FontSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EEnum" name="ResizeMode">
     <eLiterals name="Both" value="3"/>
@@ -385,7 +385,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Breadcrumbs" eSuperTypes="#//Widget #//FontSupport #//ItemSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="LinkBar" eSuperTypes="#//Widget #//FontSupport #//SelectionSupport #//ItemSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Accordion" eSuperTypes="#//Widget #//SelectionSupport #//VerticalScrollbarSupport #//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Accordion" eSuperTypes="#//Widget #//SelectionSupport #//VerticalScrollbarSupport #//ItemSupport #//FontSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="VerticalScrollbarSupport" abstract="true"
       interface="true" eSuperTypes="#//ValueSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalScrollbar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -643,7 +643,7 @@
     <eLiterals name="Triangle" value="7" literal="triangle"/>
     <eLiterals name="RightTriangle" value="8" literal="triangle-right"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Widget #//IconSupport #//ItemSupport #//SkinSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Alert" eSuperTypes="#//Widget #//IconSupport #//ItemSupport #//FontSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//Widget #//BooleanSelectionSupport #//ColorBackgroundSupport #//FontSupport #//LinkSupport #//StateSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EDataType" name="LineHeightDataType" instanceClassName="com.wireframesketcher.model.LineHeight"/>
   <eClassifiers xsi:type="ecore:EClass" name="LineHeightSupport" abstract="true" interface="true">

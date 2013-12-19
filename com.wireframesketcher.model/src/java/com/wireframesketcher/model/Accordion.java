@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Accordion extends Widget, SelectionSupport, VerticalScrollbarSupport, ItemSupport {
+public interface Accordion extends Widget, SelectionSupport, VerticalScrollbarSupport, ItemSupport, FontSupport {
 } // Accordion

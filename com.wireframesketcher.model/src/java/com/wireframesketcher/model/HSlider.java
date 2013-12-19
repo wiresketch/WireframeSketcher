@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface HSlider extends Widget, ValueSupport, StateSupport, SkinSupport {
+public interface HSlider extends Widget, ValueSupport, StateSupport, ColorBackgroundSupport, SkinSupport {
 } // HSlider

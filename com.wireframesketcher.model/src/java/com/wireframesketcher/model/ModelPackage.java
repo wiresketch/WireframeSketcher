@@ -5921,13 +5921,22 @@ public interface ModelPackage extends EPackage {
 	int HSLIDER__STATE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSLIDER__BACKGROUND = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HSLIDER__SKIN = WIDGET_FEATURE_COUNT + 2;
+	int HSLIDER__SKIN = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>HSlider</em>' class.
@@ -5936,7 +5945,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int HSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6092,13 +6101,22 @@ public interface ModelPackage extends EPackage {
 	int VSLIDER__STATE = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSLIDER__BACKGROUND = WIDGET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VSLIDER__SKIN = WIDGET_FEATURE_COUNT + 2;
+	int VSLIDER__SKIN = WIDGET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>VSlider</em>' class.
@@ -6107,7 +6125,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+	int VSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9040,13 +9058,22 @@ public interface ModelPackage extends EPackage {
 	int ACCORDION__ITEMS = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCORDION__FONT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Accordion</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCORDION_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int ACCORDION_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.VerticalScrollbarSupport <em>Vertical Scrollbar Support</em>}' class.
@@ -13268,13 +13295,22 @@ public interface ModelPackage extends EPackage {
 	int ALERT__ITEMS = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__FONT = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT__SKIN = WIDGET_FEATURE_COUNT + 3;
+	int ALERT__SKIN = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Alert</em>' class.
@@ -13283,7 +13319,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int ALERT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.SwitchImpl <em>Switch</em>}' class.

@@ -434,6 +434,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(hSlider);
 				if (result == null) result = caseValueSupport(hSlider);
 				if (result == null) result = caseStateSupport(hSlider);
+				if (result == null) result = caseColorBackgroundSupport(hSlider);
 				if (result == null) result = caseSkinSupport(hSlider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -444,6 +445,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(vSlider);
 				if (result == null) result = caseValueSupport(vSlider);
 				if (result == null) result = caseStateSupport(vSlider);
+				if (result == null) result = caseColorBackgroundSupport(vSlider);
 				if (result == null) result = caseSkinSupport(vSlider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -667,6 +669,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseSelectionSupport(accordion);
 				if (result == null) result = caseVerticalScrollbarSupport(accordion);
 				if (result == null) result = caseItemSupport(accordion);
+				if (result == null) result = caseFontSupport(accordion);
 				if (result == null) result = caseValueSupport(accordion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -968,6 +971,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(alert);
 				if (result == null) result = caseIconSupport(alert);
 				if (result == null) result = caseItemSupport(alert);
+				if (result == null) result = caseFontSupport(alert);
 				if (result == null) result = caseSkinSupport(alert);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

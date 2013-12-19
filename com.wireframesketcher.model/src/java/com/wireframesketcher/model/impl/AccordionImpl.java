@@ -16,8 +16,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import com.wireframesketcher.model.Accordion;
+import com.wireframesketcher.model.Font;
+import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.ItemSupport;
+import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.SelectionSupport;
@@ -37,6 +40,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.AccordionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.AccordionImpl#isVerticalScrollbar <em>Vertical Scrollbar</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.AccordionImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.AccordionImpl#getFont <em>Font</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +117,16 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 	 */
 	protected EList<Item> items;
 
+	/**
+	 * The cached value of the '{@link #getFont() <em>Font</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFont()
+	 * @generated
+	 * @ordered
+	 */
+	protected Font font;
+
 	private static final WidgetDescriptor DESCRIPTOR = describe("Accordion", ResizeMode.BOTH_LITERAL, true, true);
 	
 	/**
@@ -121,6 +135,7 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 	 */
 	protected AccordionImpl() {
 		super();
+		setFont(ModelFactory.eINSTANCE.createFont());
 		descriptor = DESCRIPTOR;
 	}
 
@@ -214,11 +229,56 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Font getFont() {
+		return font;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFont(Font newFont, NotificationChain msgs) {
+		Font oldFont = font;
+		font = newFont;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ACCORDION__FONT, oldFont, newFont);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFont(Font newFont) {
+		if (newFont != font) {
+			NotificationChain msgs = null;
+			if (font != null)
+				msgs = ((InternalEObject)font).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ACCORDION__FONT, null, msgs);
+			if (newFont != null)
+				msgs = ((InternalEObject)newFont).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ACCORDION__FONT, null, msgs);
+			msgs = basicSetFont(newFont, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ACCORDION__FONT, newFont, newFont));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModelPackage.ACCORDION__ITEMS:
 				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ACCORDION__FONT:
+				return basicSetFont(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -239,6 +299,8 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 				return isVerticalScrollbar();
 			case ModelPackage.ACCORDION__ITEMS:
 				return getItems();
+			case ModelPackage.ACCORDION__FONT:
+				return getFont();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,6 +327,9 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 				getItems().clear();
 				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
+			case ModelPackage.ACCORDION__FONT:
+				setFont((Font)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -289,6 +354,9 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 			case ModelPackage.ACCORDION__ITEMS:
 				getItems().clear();
 				return;
+			case ModelPackage.ACCORDION__FONT:
+				setFont((Font)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -309,6 +377,8 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 				return verticalScrollbar != VERTICAL_SCROLLBAR_EDEFAULT;
 			case ModelPackage.ACCORDION__ITEMS:
 				return items != null && !items.isEmpty();
+			case ModelPackage.ACCORDION__FONT:
+				return font != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -344,6 +414,12 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 				default: return -1;
 			}
 		}
+		if (baseClass == FontSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.ACCORDION__FONT: return ModelPackage.FONT_SUPPORT__FONT;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -375,6 +451,12 @@ public class AccordionImpl extends WidgetImpl implements Accordion {
 		if (baseClass == ItemSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.ACCORDION__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FontSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.FONT_SUPPORT__FONT: return ModelPackage.ACCORDION__FONT;
 				default: return -1;
 			}
 		}

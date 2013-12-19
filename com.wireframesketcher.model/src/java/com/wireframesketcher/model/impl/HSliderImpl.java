@@ -6,7 +6,10 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.ColorBackgroundSupport;
+import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.HSlider;
+import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.State;
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.wireframesketcher.model.impl.HSliderImpl#getValue <em>Value</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.HSliderImpl#getState <em>State</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.HSliderImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.HSliderImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
@@ -72,6 +76,23 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 	 * @ordered
 	 */
 	protected State state = STATE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @ordered
+	 */
+	protected static final ColorDesc BACKGROUND_EDEFAULT = (ColorDesc)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getColorDataType(), "black");
+	/**
+	 * The cached value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColorDesc background = BACKGROUND_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -158,6 +179,27 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ColorDesc getBackground() {
+		return background;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackground(ColorDesc newBackground) {
+		ColorDesc oldBackground = background;
+		background = newBackground;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HSLIDER__BACKGROUND, oldBackground, background));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getSkin() {
 		return skin;
 	}
@@ -194,6 +236,8 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 				return getValue();
 			case ModelPackage.HSLIDER__STATE:
 				return getState();
+			case ModelPackage.HSLIDER__BACKGROUND:
+				return getBackground();
 			case ModelPackage.HSLIDER__SKIN:
 				return getSkin();
 		}
@@ -213,6 +257,9 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 				return;
 			case ModelPackage.HSLIDER__STATE:
 				setState((State)newValue);
+				return;
+			case ModelPackage.HSLIDER__BACKGROUND:
+				setBackground((ColorDesc)newValue);
 				return;
 			case ModelPackage.HSLIDER__SKIN:
 				setSkin((URI)newValue);
@@ -235,6 +282,9 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 			case ModelPackage.HSLIDER__STATE:
 				setState(STATE_EDEFAULT);
 				return;
+			case ModelPackage.HSLIDER__BACKGROUND:
+				setBackground(BACKGROUND_EDEFAULT);
+				return;
 			case ModelPackage.HSLIDER__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
@@ -254,6 +304,8 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 				return value != VALUE_EDEFAULT;
 			case ModelPackage.HSLIDER__STATE:
 				return state != STATE_EDEFAULT;
+			case ModelPackage.HSLIDER__BACKGROUND:
+				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
 			case ModelPackage.HSLIDER__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
@@ -276,6 +328,12 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 		if (baseClass == StateSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.HSLIDER__STATE: return ModelPackage.STATE_SUPPORT__STATE;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.HSLIDER__BACKGROUND: return ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND;
 				default: return -1;
 			}
 		}
@@ -307,6 +365,12 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND: return ModelPackage.HSLIDER__BACKGROUND;
+				default: return -1;
+			}
+		}
 		if (baseClass == SkinSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.HSLIDER__SKIN;
@@ -330,6 +394,8 @@ public class HSliderImpl extends WidgetImpl implements HSlider {
 		result.append(value);
 		result.append(", state: ");
 		result.append(state);
+		result.append(", background: ");
+		result.append(background);
 		result.append(", skin: ");
 		result.append(skin);
 		result.append(')');
