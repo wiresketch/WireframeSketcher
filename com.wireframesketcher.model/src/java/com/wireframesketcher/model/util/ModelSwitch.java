@@ -995,6 +995,19 @@ public class ModelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.VBUTTON_BAR: {
+				VButtonBar vButtonBar = (VButtonBar)theEObject;
+				T result = caseVButtonBar(vButtonBar);
+				if (result == null) result = caseWidget(vButtonBar);
+				if (result == null) result = caseSelectionSupport(vButtonBar);
+				if (result == null) result = caseFontSupport(vButtonBar);
+				if (result == null) result = caseTextAlignmentSupport(vButtonBar);
+				if (result == null) result = caseColorBackgroundSupport(vButtonBar);
+				if (result == null) result = caseItemSupport(vButtonBar);
+				if (result == null) result = caseSkinSupport(vButtonBar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -2271,6 +2284,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseLineHeightSupport(LineHeightSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>VButton Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>VButton Bar</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVButtonBar(VButtonBar object) {
 		return null;
 	}
 

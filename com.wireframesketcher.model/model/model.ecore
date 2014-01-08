@@ -655,6 +655,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="LayoutParamsDataType" instanceClassName="com.wireframesketcher.model.LayoutParams"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VButtonBar" eSuperTypes="#//Widget #//SelectionSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ItemSupport #//SkinSupport"/>
   <eSubpackages name="story" nsURI="http://wireframesketcher.com/1.0/model/story"
       nsPrefix="story">
     <eClassifiers xsi:type="ecore:EClass" name="Storyboard">

@@ -548,6 +548,15 @@ public interface ModelFactory extends EFactory {
 	Switch createSwitch();
 
 	/**
+	 * Returns a new object of class '<em>VButton Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>VButton Bar</em>'.
+	 * @generated
+	 */
+	VButtonBar createVButtonBar();
+
+	/**
 	 * Returns a new object of class '<em>Spinner</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -130,6 +130,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.SHAPE: return createShape();
 			case ModelPackage.ALERT: return createAlert();
 			case ModelPackage.SWITCH: return createSwitch();
+			case ModelPackage.VBUTTON_BAR: return createVButtonBar();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -830,6 +831,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Switch createSwitch() {
 		SwitchImpl switch_ = new SwitchImpl();
 		return switch_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VButtonBar createVButtonBar() {
+		VButtonBarImpl vButtonBar = new VButtonBarImpl();
+		return vButtonBar;
 	}
 
 	/**

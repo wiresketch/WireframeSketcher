@@ -13558,6 +13558,214 @@ public interface ModelPackage extends EPackage {
 	int LINE_HEIGHT_SUPPORT_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.impl.VButtonBarImpl <em>VButton Bar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.impl.VButtonBarImpl
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVButtonBar()
+	 * @generated
+	 */
+	int VBUTTON_BAR = 95;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__ID = WIDGET__ID;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__CONTAINER = WIDGET__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__X = WIDGET__X;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__Y = WIDGET__Y;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__WIDTH = WIDGET__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__HEIGHT = WIDGET__HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__TEXT = WIDGET__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__DESCRIPTOR = WIDGET__DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__LOCKED = WIDGET__LOCKED;
+
+	/**
+	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__MEASURED_WIDTH = WIDGET__MEASURED_WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__MEASURED_HEIGHT = WIDGET__MEASURED_HEIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__CUSTOM_ID = WIDGET__CUSTOM_ID;
+
+	/**
+	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__CUSTOM_DATA = WIDGET__CUSTOM_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__ANNOTATION = WIDGET__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__LAYOUT_PARAMS = WIDGET__LAYOUT_PARAMS;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__SELECTION = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Font</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__FONT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__TEXT_ALIGNMENT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__BACKGROUND = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__ITEMS = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Skin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__SKIN = WIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>VButton Bar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13565,7 +13773,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 95;
+	int RESIZE_MODE = 96;
 
 
 	/**
@@ -13576,7 +13784,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 96;
+	int TEXT_ALIGNMENT = 97;
 
 
 	/**
@@ -13587,7 +13795,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 97;
+	int ICON_SIZE = 98;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -13597,7 +13805,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 98;
+	int STATE = 99;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -13607,7 +13815,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 99;
+	int POSITION = 100;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -13617,7 +13825,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 100;
+	int BORDER_STYLE = 101;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -13627,7 +13835,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 101;
+	int BUTTON_STYLE = 102;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -13637,7 +13845,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 102;
+	int CHART_TYPE = 103;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -13647,7 +13855,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 103;
+	int THEME = 104;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -13657,7 +13865,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 104;
+	int LINE_STYLE = 105;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -13667,7 +13875,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 105;
+	int ROTATION90 = 106;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
@@ -13677,7 +13885,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
 	 * @generated
 	 */
-	int SHAPE_TYPE = 106;
+	int SHAPE_TYPE = 107;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -13687,7 +13895,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 107;
+	int ICON_DATA_TYPE = 108;
 
 
 	/**
@@ -13698,7 +13906,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 108;
+	int FONT_SIZE_DATA_TYPE = 109;
 
 
 	/**
@@ -13709,7 +13917,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 109;
+	int COLOR_DATA_TYPE = 110;
 
 
 	/**
@@ -13720,7 +13928,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 110;
+	int URI_DATA_TYPE = 111;
 
 
 	/**
@@ -13730,7 +13938,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
 	 * @generated
 	 */
-	int SELECTION_DATA_TYPE = 111;
+	int SELECTION_DATA_TYPE = 112;
 
 
 	/**
@@ -13741,7 +13949,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
 	 * @generated
 	 */
-	int VERSION_DATA_TYPE = 112;
+	int VERSION_DATA_TYPE = 113;
 
 
 	/**
@@ -13752,7 +13960,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightDataType()
 	 * @generated
 	 */
-	int LINE_HEIGHT_DATA_TYPE = 113;
+	int LINE_HEIGHT_DATA_TYPE = 114;
 
 
 	/**
@@ -13763,7 +13971,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLayoutParamsDataType()
 	 * @generated
 	 */
-	int LAYOUT_PARAMS_DATA_TYPE = 114;
+	int LAYOUT_PARAMS_DATA_TYPE = 115;
 
 
 	/**
@@ -15629,6 +15837,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLineHeightSupport_LineHeight();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.VButtonBar <em>VButton Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>VButton Bar</em>'.
+	 * @see com.wireframesketcher.model.VButtonBar
+	 * @generated
+	 */
+	EClass getVButtonBar();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
@@ -17580,6 +17798,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LINE_HEIGHT_SUPPORT__LINE_HEIGHT = eINSTANCE.getLineHeightSupport_LineHeight();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.VButtonBarImpl <em>VButton Bar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.impl.VButtonBarImpl
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVButtonBar()
+		 * @generated
+		 */
+		EClass VBUTTON_BAR = eINSTANCE.getVButtonBar();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.

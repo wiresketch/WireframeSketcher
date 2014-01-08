@@ -92,6 +92,8 @@
     <genDataTypes ecoreDataType="model.ecore#//URIDataType"/>
     <genDataTypes ecoreDataType="model.ecore#//SelectionDataType"/>
     <genDataTypes ecoreDataType="model.ecore#//VersionDataType"/>
+    <genDataTypes ecoreDataType="model.ecore#//LineHeightDataType"/>
+    <genDataTypes ecoreDataType="model.ecore#//LayoutParamsDataType"/>
     <genClasses image="false" ecoreClass="model.ecore#//Screen">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Screen/hRuler"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference model.ecore#//Screen/vRuler"/>
@@ -135,6 +137,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/customId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/customData"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/annotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Widget/layoutParams"/>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//Button" labelFeature="#//model/Widget/text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Button/style"/>
@@ -344,6 +347,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//Alert" labelFeature="#//model/Widget/text"/>
     <genClasses image="false" ecoreClass="model.ecore#//Switch" labelFeature="#//model/Widget/text"/>
+    <genClasses image="false" ecoreClass="model.ecore#//LineHeightSupport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//LineHeightSupport/lineHeight"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//VButtonBar" labelFeature="#//model/Widget/text"/>
     <nestedGenPackages prefix="Story" disposableProviderFactory="true" ecorePackage="model.ecore#//story">
       <genClasses image="false" ecoreClass="model.ecore#//story/Storyboard">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//story/Storyboard/panels"/>

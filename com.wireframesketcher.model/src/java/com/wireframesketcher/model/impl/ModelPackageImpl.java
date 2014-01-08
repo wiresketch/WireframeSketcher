@@ -117,6 +117,7 @@ import com.wireframesketcher.model.TextField;
 import com.wireframesketcher.model.Theme;
 import com.wireframesketcher.model.Tooltip;
 import com.wireframesketcher.model.Tree;
+import com.wireframesketcher.model.VButtonBar;
 import com.wireframesketcher.model.VLine;
 import com.wireframesketcher.model.VScrollbar;
 import com.wireframesketcher.model.VSlider;
@@ -723,6 +724,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass lineHeightSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass vButtonBarEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2633,6 +2641,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVButtonBar() {
+		return vButtonBarEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -3210,6 +3227,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		lineHeightSupportEClass = createEClass(LINE_HEIGHT_SUPPORT);
 		createEAttribute(lineHeightSupportEClass, LINE_HEIGHT_SUPPORT__LINE_HEIGHT);
 
+		vButtonBarEClass = createEClass(VBUTTON_BAR);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -3599,6 +3618,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		switchEClass.getESuperTypes().add(this.getLinkSupport());
 		switchEClass.getESuperTypes().add(this.getStateSupport());
 		switchEClass.getESuperTypes().add(this.getSkinSupport());
+		vButtonBarEClass.getESuperTypes().add(this.getWidget());
+		vButtonBarEClass.getESuperTypes().add(this.getSelectionSupport());
+		vButtonBarEClass.getESuperTypes().add(this.getFontSupport());
+		vButtonBarEClass.getESuperTypes().add(this.getTextAlignmentSupport());
+		vButtonBarEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		vButtonBarEClass.getESuperTypes().add(this.getItemSupport());
+		vButtonBarEClass.getESuperTypes().add(this.getSkinSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3889,6 +3915,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(lineHeightSupportEClass, LineHeightSupport.class, "LineHeightSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLineHeightSupport_LineHeight(), this.getLineHeightDataType(), "lineHeight", "normal", 0, 1, LineHeightSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vButtonBarEClass, VButtonBar.class, "VButtonBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");
