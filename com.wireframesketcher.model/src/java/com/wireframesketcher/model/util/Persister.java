@@ -154,17 +154,22 @@ public class Persister {
 
 	public EObject load(File file) throws IOException {
 		URI uri = createLocalFileURI(file);
+		return load(uri);
+	}
+
+	public EObject load(URI uri) throws IOException {
 		Resource resource = null;
 		try {
-			resource = resourceSet.getResource(uri, true);
+			resource = getResourceSet().getResource(uri, true);
 		} catch (WrappedException e) {
-			// Ignore first on load exception
+			// ingore first on load problem
 		}
 		if (resource == null)
-			resource = resourceSet.getResource(uri, true);
+			resource = getResourceSet().getResource(uri, true);
 		checkErrors(resource);
 		return (EObject) resource.getContents().get(0);
 	}
+
 
 	protected void checkErrors(Resource resource) throws IOException {
 		if (!resource.getErrors().isEmpty()) {

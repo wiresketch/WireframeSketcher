@@ -425,6 +425,4 @@ public interface Widget extends EObject {
 	 * @generated
 	 */
 	void setLayoutParams(LayoutParams value);
-
-	String getType();
 } // Widget

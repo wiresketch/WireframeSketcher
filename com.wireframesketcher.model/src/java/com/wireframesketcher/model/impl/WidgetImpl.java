@@ -920,11 +920,6 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 		return result.toString();
 	}
 
-	public String getType() {
-		String className = eClass().getName();
-		return className.substring(className.lastIndexOf('.') + 1);
-	}
-	
 	protected static WidgetDescriptor describe(String typeName, ResizeMode resizeMode) {
 		return describe(typeName, resizeMode, true, false);
 	}

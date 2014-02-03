@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -14,16 +13,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 public class PlatformPersister extends Persister {
 	public EObject load(IFile file) throws IOException {
 		URI uri = createFileURI(file);
-		Resource resource = null;
-		try {
-			resource = getResourceSet().getResource(uri, true);
-		} catch (WrappedException e) {
-			// ingore first on load problem
-		}
-		if (resource == null)
-			resource = getResourceSet().getResource(uri, true);
-		checkErrors(resource);
-		return (EObject) resource.getContents().get(0);
+		return load(uri);
 	}
 
 	public void saveAs(EObject o, IFile file) throws IOException {
