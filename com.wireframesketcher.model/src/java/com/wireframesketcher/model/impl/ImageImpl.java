@@ -119,7 +119,7 @@ public class ImageImpl extends WidgetImpl implements Image {
 	 */
 	protected boolean vFlip = VFLIP_EDEFAULT;
 
-	private static final WidgetDescriptor DESCRIPTOR = describe("Image", ResizeMode.BOTH_LITERAL, false, false);
+	private static final WidgetDescriptor DESCRIPTOR = describe("Image").resizeBoth().singleLine().centered().get();
 	
 	/**
 	 * The default value of the '{@link #getSrc() <em>Src</em>}' attribute.

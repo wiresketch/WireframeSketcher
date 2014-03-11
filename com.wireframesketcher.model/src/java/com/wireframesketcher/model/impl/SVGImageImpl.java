@@ -206,7 +206,7 @@ public class SVGImageImpl extends WidgetImpl implements SVGImage {
 	 */
 	protected URI src = SRC_EDEFAULT;
 
-	private static final WidgetDescriptor DESCRIPTOR = describe("SVG Image", ResizeMode.BOTH_LITERAL, false, false);
+	private static final WidgetDescriptor DESCRIPTOR = describe("SVG Image").resizeBoth().singleLine().centered().get();
 	
 	/**
 	 * <!-- begin-user-doc -->
