@@ -297,7 +297,7 @@ class OverridesHelper implements IInstanceStrategy {
 		boolean updated = updater.updateOverrides(overrides, notification);
 
 		if (updated) {
-			if (updater.getUpdatedOverrides() != overrides)
+//			if (updater.getUpdatedOverrides() != overrides)
 				setOverrides(updater.getUpdatedOverrides());
 		}
 
