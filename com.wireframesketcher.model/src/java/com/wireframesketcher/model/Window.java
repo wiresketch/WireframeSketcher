@@ -25,7 +25,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Window extends Widget, VerticalScrollbarSupport, SkinSupport {
+public interface Window extends Widget, VerticalScrollbarSupport, SkinSupport, ColorBackgroundSupport, ColorAlphaSupport {
 
 	/**
 	 * Returns the value of the '<em><b>Close Button</b></em>' attribute.

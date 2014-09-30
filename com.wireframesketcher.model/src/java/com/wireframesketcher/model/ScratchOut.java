@@ -17,5 +17,5 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface ScratchOut extends Widget, ColorForegroundSupport, ColorAlphaSupport, SkinSupport {
+public interface ScratchOut extends Widget, ColorForegroundSupport, ColorAlphaSupport, SkinSupport, AnnotationSupport {
 } // ScratchOut

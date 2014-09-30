@@ -2546,13 +2546,31 @@ public interface ModelPackage extends EPackage {
 	int WINDOW__SKIN = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__BACKGROUND = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__ALPHA = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Close Button</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__CLOSE_BUTTON = WIDGET_FEATURE_COUNT + 3;
+	int WINDOW__CLOSE_BUTTON = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Minimize Button</b></em>' attribute.
@@ -2561,7 +2579,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__MINIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 4;
+	int WINDOW__MINIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Maximize Button</b></em>' attribute.
@@ -2570,7 +2588,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__MAXIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 5;
+	int WINDOW__MAXIMIZE_BUTTON = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Window</em>' class.
@@ -2579,7 +2597,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int WINDOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2753,13 +2771,22 @@ public interface ModelPackage extends EPackage {
 	int BROWSER__SKIN = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER__ALPHA = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Browser</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -13766,6 +13793,25 @@ public interface ModelPackage extends EPackage {
 	int VBUTTON_BAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.AnnotationSupport <em>Annotation Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.AnnotationSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getAnnotationSupport()
+	 * @generated
+	 */
+	int ANNOTATION_SUPPORT = 96;
+
+	/**
+	 * The number of structural features of the '<em>Annotation Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_SUPPORT_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13773,7 +13819,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 96;
+	int RESIZE_MODE = 97;
 
 
 	/**
@@ -13784,7 +13830,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 97;
+	int TEXT_ALIGNMENT = 98;
 
 
 	/**
@@ -13795,7 +13841,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 98;
+	int ICON_SIZE = 99;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -13805,7 +13851,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 99;
+	int STATE = 100;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -13815,7 +13861,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 100;
+	int POSITION = 101;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -13825,7 +13871,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 101;
+	int BORDER_STYLE = 102;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -13835,7 +13881,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 102;
+	int BUTTON_STYLE = 103;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -13845,7 +13891,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 103;
+	int CHART_TYPE = 104;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -13855,7 +13901,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 104;
+	int THEME = 105;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -13865,7 +13911,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 105;
+	int LINE_STYLE = 106;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -13875,7 +13921,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 106;
+	int ROTATION90 = 107;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
@@ -13885,7 +13931,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
 	 * @generated
 	 */
-	int SHAPE_TYPE = 107;
+	int SHAPE_TYPE = 108;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -13895,7 +13941,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 108;
+	int ICON_DATA_TYPE = 109;
 
 
 	/**
@@ -13906,7 +13952,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 109;
+	int FONT_SIZE_DATA_TYPE = 110;
 
 
 	/**
@@ -13917,7 +13963,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 110;
+	int COLOR_DATA_TYPE = 111;
 
 
 	/**
@@ -13928,7 +13974,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 111;
+	int URI_DATA_TYPE = 112;
 
 
 	/**
@@ -13938,7 +13984,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
 	 * @generated
 	 */
-	int SELECTION_DATA_TYPE = 112;
+	int SELECTION_DATA_TYPE = 113;
 
 
 	/**
@@ -13949,7 +13995,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
 	 * @generated
 	 */
-	int VERSION_DATA_TYPE = 113;
+	int VERSION_DATA_TYPE = 114;
 
 
 	/**
@@ -13960,7 +14006,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightDataType()
 	 * @generated
 	 */
-	int LINE_HEIGHT_DATA_TYPE = 114;
+	int LINE_HEIGHT_DATA_TYPE = 115;
 
 
 	/**
@@ -13971,7 +14017,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLayoutParamsDataType()
 	 * @generated
 	 */
-	int LAYOUT_PARAMS_DATA_TYPE = 115;
+	int LAYOUT_PARAMS_DATA_TYPE = 116;
 
 
 	/**
@@ -15847,6 +15893,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVButtonBar();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.AnnotationSupport <em>Annotation Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation Support</em>'.
+	 * @see com.wireframesketcher.model.AnnotationSupport
+	 * @generated
+	 */
+	EClass getAnnotationSupport();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
@@ -17808,6 +17864,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VBUTTON_BAR = eINSTANCE.getVButtonBar();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.AnnotationSupport <em>Annotation Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.AnnotationSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getAnnotationSupport()
+		 * @generated
+		 */
+		EClass ANNOTATION_SUPPORT = eINSTANCE.getAnnotationSupport();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.

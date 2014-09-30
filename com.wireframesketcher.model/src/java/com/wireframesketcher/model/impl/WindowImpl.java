@@ -6,6 +6,10 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.ColorAlphaSupport;
+import com.wireframesketcher.model.ColorBackgroundSupport;
+import com.wireframesketcher.model.ColorDesc;
+import com.wireframesketcher.model.ModelFactory;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -29,6 +33,8 @@ import org.eclipse.emf.common.util.URI;
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#getValue <em>Value</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isVerticalScrollbar <em>Vertical Scrollbar</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#getSkin <em>Skin</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#getBackground <em>Background</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isCloseButton <em>Close Button</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isMinimizeButton <em>Minimize Button</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WindowImpl#isMaximizeButton <em>Maximize Button</em>}</li>
@@ -93,6 +99,42 @@ public class WindowImpl extends WidgetImpl implements Window {
 	 * @ordered
 	 */
 	protected URI skin = SKIN_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ColorDesc BACKGROUND_EDEFAULT = (ColorDesc)ModelFactory.eINSTANCE.createFromString(ModelPackage.eINSTANCE.getColorDataType(), "white");
+	/**
+	 * The cached value of the '{@link #getBackground() <em>Background</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackground()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColorDesc background = BACKGROUND_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALPHA_EDEFAULT = 255;
+	/**
+	 * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected int alpha = ALPHA_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isCloseButton() <em>Close Button</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -236,6 +278,48 @@ public class WindowImpl extends WidgetImpl implements Window {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ColorDesc getBackground() {
+		return background;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackground(ColorDesc newBackground) {
+		ColorDesc oldBackground = background;
+		background = newBackground;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WINDOW__BACKGROUND, oldBackground, background));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getAlpha() {
+		return alpha;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlpha(int newAlpha) {
+		int oldAlpha = alpha;
+		alpha = newAlpha;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WINDOW__ALPHA, oldAlpha, alpha));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isCloseButton() {
 		return closeButton;
 	}
@@ -308,6 +392,10 @@ public class WindowImpl extends WidgetImpl implements Window {
 				return isVerticalScrollbar();
 			case ModelPackage.WINDOW__SKIN:
 				return getSkin();
+			case ModelPackage.WINDOW__BACKGROUND:
+				return getBackground();
+			case ModelPackage.WINDOW__ALPHA:
+				return getAlpha();
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				return isCloseButton();
 			case ModelPackage.WINDOW__MINIMIZE_BUTTON:
@@ -334,6 +422,12 @@ public class WindowImpl extends WidgetImpl implements Window {
 				return;
 			case ModelPackage.WINDOW__SKIN:
 				setSkin((URI)newValue);
+				return;
+			case ModelPackage.WINDOW__BACKGROUND:
+				setBackground((ColorDesc)newValue);
+				return;
+			case ModelPackage.WINDOW__ALPHA:
+				setAlpha((Integer)newValue);
 				return;
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				setCloseButton((Boolean)newValue);
@@ -365,6 +459,12 @@ public class WindowImpl extends WidgetImpl implements Window {
 			case ModelPackage.WINDOW__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
+			case ModelPackage.WINDOW__BACKGROUND:
+				setBackground(BACKGROUND_EDEFAULT);
+				return;
+			case ModelPackage.WINDOW__ALPHA:
+				setAlpha(ALPHA_EDEFAULT);
+				return;
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				setCloseButton(CLOSE_BUTTON_EDEFAULT);
 				return;
@@ -392,6 +492,10 @@ public class WindowImpl extends WidgetImpl implements Window {
 				return verticalScrollbar != VERTICAL_SCROLLBAR_EDEFAULT;
 			case ModelPackage.WINDOW__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
+			case ModelPackage.WINDOW__BACKGROUND:
+				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
+			case ModelPackage.WINDOW__ALPHA:
+				return alpha != ALPHA_EDEFAULT;
 			case ModelPackage.WINDOW__CLOSE_BUTTON:
 				return closeButton != CLOSE_BUTTON_EDEFAULT;
 			case ModelPackage.WINDOW__MINIMIZE_BUTTON:
@@ -427,6 +531,18 @@ public class WindowImpl extends WidgetImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.WINDOW__BACKGROUND: return ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.WINDOW__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -455,6 +571,18 @@ public class WindowImpl extends WidgetImpl implements Window {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorBackgroundSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_BACKGROUND_SUPPORT__BACKGROUND: return ModelPackage.WINDOW__BACKGROUND;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA: return ModelPackage.WINDOW__ALPHA;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -474,6 +602,10 @@ public class WindowImpl extends WidgetImpl implements Window {
 		result.append(verticalScrollbar);
 		result.append(", skin: ");
 		result.append(skin);
+		result.append(", background: ");
+		result.append(background);
+		result.append(", alpha: ");
+		result.append(alpha);
 		result.append(", closeButton: ");
 		result.append(closeButton);
 		result.append(", minimizeButton: ");

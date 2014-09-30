@@ -8,6 +8,7 @@ package com.wireframesketcher.model.impl;
 
 import com.wireframesketcher.model.Accordion;
 import com.wireframesketcher.model.Alert;
+import com.wireframesketcher.model.AnnotationSupport;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -731,6 +732,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass vButtonBarEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationSupportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2650,6 +2658,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnnotationSupport() {
+		return annotationSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -3229,6 +3246,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		vButtonBarEClass = createEClass(VBUTTON_BAR);
 
+		annotationSupportEClass = createEClass(ANNOTATION_SUPPORT);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -3354,10 +3373,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		windowEClass.getESuperTypes().add(this.getWidget());
 		windowEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		windowEClass.getESuperTypes().add(this.getSkinSupport());
+		windowEClass.getESuperTypes().add(this.getColorBackgroundSupport());
+		windowEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		browserEClass.getESuperTypes().add(this.getWidget());
 		browserEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
 		browserEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		browserEClass.getESuperTypes().add(this.getSkinSupport());
+		browserEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		textEClass.getESuperTypes().add(this.getWidget());
 		textEClass.getESuperTypes().add(this.getFontSupport());
 		textEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3475,6 +3497,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		noteEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		noteEClass.getESuperTypes().add(this.getLinkSupport());
 		noteEClass.getESuperTypes().add(this.getSkinSupport());
+		noteEClass.getESuperTypes().add(this.getAnnotationSupport());
 		progressBarEClass.getESuperTypes().add(this.getWidget());
 		progressBarEClass.getESuperTypes().add(this.getValueSupport());
 		progressBarEClass.getESuperTypes().add(this.getColorBackgroundSupport());
@@ -3485,6 +3508,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		calloutEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		calloutEClass.getESuperTypes().add(this.getLinkSupport());
 		calloutEClass.getESuperTypes().add(this.getSkinSupport());
+		calloutEClass.getESuperTypes().add(this.getAnnotationSupport());
 		searchFieldEClass.getESuperTypes().add(this.getWidget());
 		searchFieldEClass.getESuperTypes().add(this.getFontSupport());
 		searchFieldEClass.getESuperTypes().add(this.getStateSupport());
@@ -3500,6 +3524,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		scratchOutEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		scratchOutEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		scratchOutEClass.getESuperTypes().add(this.getSkinSupport());
+		scratchOutEClass.getESuperTypes().add(this.getAnnotationSupport());
 		breadcrumbsEClass.getESuperTypes().add(this.getWidget());
 		breadcrumbsEClass.getESuperTypes().add(this.getFontSupport());
 		breadcrumbsEClass.getESuperTypes().add(this.getItemSupport());
@@ -3545,10 +3570,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		arrowEClass.getESuperTypes().add(this.getWidget());
 		arrowEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		arrowEClass.getESuperTypes().add(this.getLineStyleSupport());
+		arrowEClass.getESuperTypes().add(this.getAnnotationSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getWidget());
 		curlyBraceEClass.getESuperTypes().add(this.getFontSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getSkinSupport());
+		curlyBraceEClass.getESuperTypes().add(this.getAnnotationSupport());
 		buttonBarEClass.getESuperTypes().add(this.getWidget());
 		buttonBarEClass.getESuperTypes().add(this.getSelectionSupport());
 		buttonBarEClass.getESuperTypes().add(this.getFontSupport());
@@ -3583,6 +3610,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		crossOutEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		crossOutEClass.getESuperTypes().add(this.getColorAlphaSupport());
 		crossOutEClass.getESuperTypes().add(this.getSkinSupport());
+		crossOutEClass.getESuperTypes().add(this.getAnnotationSupport());
 		itemEClass.getESuperTypes().add(this.getLinkSupport());
 		hotspotEClass.getESuperTypes().add(this.getWidget());
 		hotspotEClass.getESuperTypes().add(this.getLinkSupport());
@@ -3917,6 +3945,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getLineHeightSupport_LineHeight(), this.getLineHeightDataType(), "lineHeight", "normal", 0, 1, LineHeightSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vButtonBarEClass, VButtonBar.class, "VButtonBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotationSupportEClass, AnnotationSupport.class, "AnnotationSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");

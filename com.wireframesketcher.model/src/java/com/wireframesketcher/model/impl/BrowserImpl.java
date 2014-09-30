@@ -7,6 +7,7 @@
 package com.wireframesketcher.model.impl;
 
 import com.wireframesketcher.model.Browser;
+import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ModelFactory;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.wireframesketcher.model.impl.BrowserImpl#isVerticalScrollbar <em>Vertical Scrollbar</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.BrowserImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.BrowserImpl#getSkin <em>Skin</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.BrowserImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +114,24 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 	 * @ordered
 	 */
 	protected URI skin = SKIN_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALPHA_EDEFAULT = 255;
+	/**
+	 * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected int alpha = ALPHA_EDEFAULT;
 	private static final WidgetDescriptor DESCRIPTOR = describe("Browser").resizeBoth().multiLine(2).get();
 	
 	/**
@@ -222,6 +242,27 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getAlpha() {
+		return alpha;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlpha(int newAlpha) {
+		int oldAlpha = alpha;
+		alpha = newAlpha;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BROWSER__ALPHA, oldAlpha, alpha));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,6 +274,8 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 				return getBackground();
 			case ModelPackage.BROWSER__SKIN:
 				return getSkin();
+			case ModelPackage.BROWSER__ALPHA:
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -256,6 +299,9 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 				return;
 			case ModelPackage.BROWSER__SKIN:
 				setSkin((URI)newValue);
+				return;
+			case ModelPackage.BROWSER__ALPHA:
+				setAlpha((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,6 +327,9 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 			case ModelPackage.BROWSER__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
+			case ModelPackage.BROWSER__ALPHA:
+				setAlpha(ALPHA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -301,6 +350,8 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
 			case ModelPackage.BROWSER__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
+			case ModelPackage.BROWSER__ALPHA:
+				return alpha != ALPHA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -333,6 +384,12 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 		if (baseClass == SkinSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.BROWSER__SKIN: return ModelPackage.SKIN_SUPPORT__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.BROWSER__ALPHA: return ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA;
 				default: return -1;
 			}
 		}
@@ -370,6 +427,12 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 				default: return -1;
 			}
 		}
+		if (baseClass == ColorAlphaSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.COLOR_ALPHA_SUPPORT__ALPHA: return ModelPackage.BROWSER__ALPHA;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -391,6 +454,8 @@ public class BrowserImpl extends WidgetImpl implements Browser {
 		result.append(background);
 		result.append(", skin: ");
 		result.append(skin);
+		result.append(", alpha: ");
+		result.append(alpha);
 		result.append(')');
 		return result.toString();
 	}

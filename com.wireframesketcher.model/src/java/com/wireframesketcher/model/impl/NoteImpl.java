@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.AnnotationSupport;
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
@@ -164,7 +165,6 @@ public class NoteImpl extends WidgetImpl implements Note {
 	protected NoteImpl() {
 		super();
 		setFont(ModelFactory.eINSTANCE.createFont());
-		setAnnotation(true);
 		descriptor = DESCRIPTOR;
 	}
 
@@ -491,6 +491,11 @@ public class NoteImpl extends WidgetImpl implements Note {
 				default: return -1;
 			}
 		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -534,6 +539,11 @@ public class NoteImpl extends WidgetImpl implements Note {
 		if (baseClass == SkinSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.NOTE__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

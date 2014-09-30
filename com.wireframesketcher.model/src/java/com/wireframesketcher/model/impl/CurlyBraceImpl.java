@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.AnnotationSupport;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.URI;
@@ -120,7 +121,6 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 	protected CurlyBraceImpl() {
 		super();
 		setFont(ModelFactory.eINSTANCE.createFont());
-		setAnnotation(true);
 		descriptor = DESCRIPTOR;
 	}
 
@@ -367,6 +367,11 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 				default: return -1;
 			}
 		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -392,6 +397,11 @@ public class CurlyBraceImpl extends WidgetImpl implements CurlyBrace {
 		if (baseClass == SkinSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.CURLY_BRACE__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

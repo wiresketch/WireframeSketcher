@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.AnnotationSupport;
 import com.wireframesketcher.model.ColorAlphaSupport;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
@@ -99,7 +100,6 @@ public class CrossOutImpl extends WidgetImpl implements CrossOut {
 	 */
 	protected CrossOutImpl() {
 		super();
-		setAnnotation(true);
 		descriptor = DESCRIPTOR;
 	}
 
@@ -279,6 +279,11 @@ public class CrossOutImpl extends WidgetImpl implements CrossOut {
 				default: return -1;
 			}
 		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -304,6 +309,11 @@ public class CrossOutImpl extends WidgetImpl implements CrossOut {
 		if (baseClass == SkinSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.CROSS_OUT__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

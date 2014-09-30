@@ -22,6 +22,8 @@ import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetDescriptor;
 
+import com.wireframesketcher.model.AnnotationSupport;
+
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Widget</b></em>'.
  * <!-- end-user-doc -->
@@ -315,12 +317,19 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected WidgetImpl() {
 		super();
+		this.annotation = getAnnotationDefault();
 	}
 
+	private boolean getAnnotationDefault() {
+		if(this instanceof AnnotationSupport)
+			return true;
+		else
+			return ANNOTATION_EDEFAULT;
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -789,7 +798,6 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
@@ -831,7 +839,7 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 				setCustomData(CUSTOM_DATA_EDEFAULT);
 				return;
 			case ModelPackage.WIDGET__ANNOTATION:
-				setAnnotation(ANNOTATION_EDEFAULT);
+				setAnnotation(getAnnotationDefault());
 				return;
 			case ModelPackage.WIDGET__LAYOUT_PARAMS:
 				setLayoutParams(LAYOUT_PARAMS_EDEFAULT);
@@ -842,7 +850,6 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
@@ -874,7 +881,7 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 			case ModelPackage.WIDGET__CUSTOM_DATA:
 				return CUSTOM_DATA_EDEFAULT == null ? customData != null : !CUSTOM_DATA_EDEFAULT.equals(customData);
 			case ModelPackage.WIDGET__ANNOTATION:
-				return annotation != ANNOTATION_EDEFAULT;
+				return annotation != getAnnotationDefault();
 			case ModelPackage.WIDGET__LAYOUT_PARAMS:
 				return LAYOUT_PARAMS_EDEFAULT == null ? layoutParams != null : !LAYOUT_PARAMS_EDEFAULT.equals(layoutParams);
 		}

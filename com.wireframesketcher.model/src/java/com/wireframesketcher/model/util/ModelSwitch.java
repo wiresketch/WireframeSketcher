@@ -232,6 +232,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(window);
 				if (result == null) result = caseVerticalScrollbarSupport(window);
 				if (result == null) result = caseSkinSupport(window);
+				if (result == null) result = caseColorBackgroundSupport(window);
+				if (result == null) result = caseColorAlphaSupport(window);
 				if (result == null) result = caseValueSupport(window);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -243,6 +245,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseVerticalScrollbarSupport(browser);
 				if (result == null) result = caseColorBackgroundSupport(browser);
 				if (result == null) result = caseSkinSupport(browser);
+				if (result == null) result = caseColorAlphaSupport(browser);
 				if (result == null) result = caseValueSupport(browser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -571,6 +574,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorAlphaSupport(note);
 				if (result == null) result = caseLinkSupport(note);
 				if (result == null) result = caseSkinSupport(note);
+				if (result == null) result = caseAnnotationSupport(note);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -593,6 +597,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorAlphaSupport(callout);
 				if (result == null) result = caseLinkSupport(callout);
 				if (result == null) result = caseSkinSupport(callout);
+				if (result == null) result = caseAnnotationSupport(callout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -626,6 +631,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorForegroundSupport(scratchOut);
 				if (result == null) result = caseColorAlphaSupport(scratchOut);
 				if (result == null) result = caseSkinSupport(scratchOut);
+				if (result == null) result = caseAnnotationSupport(scratchOut);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -775,6 +781,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseWidget(arrow);
 				if (result == null) result = caseColorForegroundSupport(arrow);
 				if (result == null) result = caseLineStyleSupport(arrow);
+				if (result == null) result = caseAnnotationSupport(arrow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -785,6 +792,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseFontSupport(curlyBrace);
 				if (result == null) result = caseColorForegroundSupport(curlyBrace);
 				if (result == null) result = caseSkinSupport(curlyBrace);
+				if (result == null) result = caseAnnotationSupport(curlyBrace);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -867,6 +875,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorForegroundSupport(crossOut);
 				if (result == null) result = caseColorAlphaSupport(crossOut);
 				if (result == null) result = caseSkinSupport(crossOut);
+				if (result == null) result = caseAnnotationSupport(crossOut);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1005,6 +1014,12 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorBackgroundSupport(vButtonBar);
 				if (result == null) result = caseItemSupport(vButtonBar);
 				if (result == null) result = caseSkinSupport(vButtonBar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.ANNOTATION_SUPPORT: {
+				AnnotationSupport annotationSupport = (AnnotationSupport)theEObject;
+				T result = caseAnnotationSupport(annotationSupport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2299,6 +2314,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseVButtonBar(VButtonBar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotationSupport(AnnotationSupport object) {
 		return null;
 	}
 

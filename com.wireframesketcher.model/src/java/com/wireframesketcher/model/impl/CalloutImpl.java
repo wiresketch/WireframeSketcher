@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.AnnotationSupport;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -137,7 +138,6 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 		Font f = ModelFactory.eINSTANCE.createFont();
 		f.setBold(Boolean.TRUE);
 		setFont(f);
-		setAnnotation(true);
 		descriptor = DESCRIPTOR;
 	}
 
@@ -427,6 +427,11 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 				default: return -1;
 			}
 		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -464,6 +469,11 @@ public class CalloutImpl extends WidgetImpl implements Callout {
 		if (baseClass == SkinSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.CALLOUT__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == AnnotationSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
