@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#getText <em>Text</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#isNoText <em>No Text</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#isNoLink <em>No Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.impl.WidgetOverridesImpl#getSrc <em>Src</em>}</li>
@@ -166,6 +167,24 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isNoText() <em>No Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNoText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NO_TEXT_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isNoText() <em>No Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNoText()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean noText = NO_TEXT_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getLink() <em>Link</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -409,6 +428,27 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNoText() {
+		return noText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNoText(boolean newNoText) {
+		boolean oldNoText = noText;
+		noText = newNoText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OverridesPackage.WIDGET_OVERRIDES__NO_TEXT, oldNoText, noText));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getLink() {
 		return link;
 	}
@@ -586,6 +626,8 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 				return getHeight();
 			case OverridesPackage.WIDGET_OVERRIDES__TEXT:
 				return getText();
+			case OverridesPackage.WIDGET_OVERRIDES__NO_TEXT:
+				return isNoText();
 			case OverridesPackage.WIDGET_OVERRIDES__LINK:
 				return getLink();
 			case OverridesPackage.WIDGET_OVERRIDES__NO_LINK:
@@ -631,6 +673,9 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 				return;
 			case OverridesPackage.WIDGET_OVERRIDES__TEXT:
 				setText((String)newValue);
+				return;
+			case OverridesPackage.WIDGET_OVERRIDES__NO_TEXT:
+				setNoText((Boolean)newValue);
 				return;
 			case OverridesPackage.WIDGET_OVERRIDES__LINK:
 				setLink((URI)newValue);
@@ -685,6 +730,9 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 			case OverridesPackage.WIDGET_OVERRIDES__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case OverridesPackage.WIDGET_OVERRIDES__NO_TEXT:
+				setNoText(NO_TEXT_EDEFAULT);
+				return;
 			case OverridesPackage.WIDGET_OVERRIDES__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
@@ -730,6 +778,8 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 				return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals(height);
 			case OverridesPackage.WIDGET_OVERRIDES__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case OverridesPackage.WIDGET_OVERRIDES__NO_TEXT:
+				return noText != NO_TEXT_EDEFAULT;
 			case OverridesPackage.WIDGET_OVERRIDES__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case OverridesPackage.WIDGET_OVERRIDES__NO_LINK:
@@ -802,6 +852,8 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 		result.append(height);
 		result.append(", text: ");
 		result.append(text);
+		result.append(", noText: ");
+		result.append(noText);
 		result.append(", link: ");
 		result.append(link);
 		result.append(", noLink: ");

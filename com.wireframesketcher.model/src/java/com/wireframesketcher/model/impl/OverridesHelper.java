@@ -847,6 +847,8 @@ class OverridesHelper implements IInstanceStrategy {
 
 						if (feature == OverridesPackage.Literals.WIDGET_OVERRIDES__LINK)
 							o.setNoLink(rightValue == null);
+						else if(feature == OverridesPackage.Literals.WIDGET_OVERRIDES__TEXT)
+							o.setNoText(rightValue == null || "".equals(rightValue));
 
 						o.eSet(feature, rightValue);
 					} else {
@@ -947,6 +949,8 @@ class OverridesHelper implements IInstanceStrategy {
 					if (f != null) {
 						if (f == OverridesPackage.Literals.WIDGET_OVERRIDES__LINK)
 							widgetOverrides.setNoLink(rightValue == null);
+						else if (f == OverridesPackage.Literals.WIDGET_OVERRIDES__TEXT)
+							widgetOverrides.setNoText(rightValue == null || "".equals(rightValue));
 						widgetOverrides.eSet(f, rightValue);
 					} else {
 						widgetOverrides.getAttributes().put(
@@ -959,6 +963,8 @@ class OverridesHelper implements IInstanceStrategy {
 					if (f != null) {
 						if (f == OverridesPackage.Literals.WIDGET_OVERRIDES__LINK)
 							widgetOverrides.setNoLink(false);
+						else if (f == OverridesPackage.Literals.WIDGET_OVERRIDES__TEXT)
+							widgetOverrides.setNoText(false);
 						widgetOverrides.eUnset(f);
 					} else {
 						widgetOverrides.getAttributes().remove(
@@ -1256,6 +1262,14 @@ class OverridesHelper implements IInstanceStrategy {
 				if (eAttribute == OverridesPackage.Literals.WIDGET_OVERRIDES__NO_LINK) {
 					EStructuralFeature feature = eClass
 							.getEStructuralFeature(OverridesPackage.Literals.WIDGET_OVERRIDES__LINK
+									.getName());
+					if (!(feature instanceof EAttribute))
+						continue;
+
+					object.eUnset(feature);
+				} else if (eAttribute == OverridesPackage.Literals.WIDGET_OVERRIDES__NO_TEXT) {
+					EStructuralFeature feature = eClass
+							.getEStructuralFeature(OverridesPackage.Literals.WIDGET_OVERRIDES__TEXT
 									.getName());
 					if (!(feature instanceof EAttribute))
 						continue;

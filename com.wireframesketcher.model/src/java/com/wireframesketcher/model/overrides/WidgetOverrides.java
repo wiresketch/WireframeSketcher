@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getWidth <em>Width</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getHeight <em>Height</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getText <em>Text</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#isNoText <em>No Text</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#isNoLink <em>No Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.overrides.WidgetOverrides#getSrc <em>Src</em>}</li>
@@ -184,6 +185,31 @@ public interface WidgetOverrides extends WidgetContainerOverrides, Reference {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>No Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that the text is deleted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>No Text</em>' attribute.
+	 * @see #setNoText(boolean)
+	 * @see com.wireframesketcher.model.overrides.OverridesPackage#getWidgetOverrides_NoText()
+	 * @model
+	 * @generated
+	 */
+	boolean isNoText();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.overrides.WidgetOverrides#isNoText <em>No Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>No Text</em>' attribute.
+	 * @see #isNoText()
+	 * @generated
+	 */
+	void setNoText(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Link</b></em>' attribute.

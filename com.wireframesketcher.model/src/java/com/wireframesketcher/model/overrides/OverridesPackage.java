@@ -208,13 +208,22 @@ public interface OverridesPackage extends EPackage {
 	int WIDGET_OVERRIDES__TEXT = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>No Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_OVERRIDES__NO_TEXT = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__LINK = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 6;
+	int WIDGET_OVERRIDES__LINK = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>No Link</b></em>' attribute.
@@ -223,7 +232,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__NO_LINK = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 7;
+	int WIDGET_OVERRIDES__NO_LINK = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Src</b></em>' attribute.
@@ -232,7 +241,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__SRC = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 8;
+	int WIDGET_OVERRIDES__SRC = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
@@ -241,7 +250,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__ATTRIBUTES = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 9;
+	int WIDGET_OVERRIDES__ATTRIBUTES = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -250,7 +259,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__FONT = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 10;
+	int WIDGET_OVERRIDES__FONT = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -259,7 +268,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__ITEMS = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 11;
+	int WIDGET_OVERRIDES__ITEMS = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Item Changes</b></em>' containment reference list.
@@ -268,7 +277,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES__ITEM_CHANGES = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 12;
+	int WIDGET_OVERRIDES__ITEM_CHANGES = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Widget Overrides</em>' class.
@@ -277,7 +286,7 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_OVERRIDES_FEATURE_COUNT = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 13;
+	int WIDGET_OVERRIDES_FEATURE_COUNT = WIDGET_CONTAINER_OVERRIDES_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.overrides.impl.FontOverridesImpl <em>Font Overrides</em>}' class.
@@ -651,6 +660,17 @@ public interface OverridesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWidgetOverrides_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.overrides.WidgetOverrides#isNoText <em>No Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>No Text</em>'.
+	 * @see com.wireframesketcher.model.overrides.WidgetOverrides#isNoText()
+	 * @see #getWidgetOverrides()
+	 * @generated
+	 */
+	EAttribute getWidgetOverrides_NoText();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.overrides.WidgetOverrides#getLink <em>Link</em>}'.
@@ -1064,6 +1084,14 @@ public interface OverridesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WIDGET_OVERRIDES__TEXT = eINSTANCE.getWidgetOverrides_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>No Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET_OVERRIDES__NO_TEXT = eINSTANCE.getWidgetOverrides_NoText();
 
 		/**
 		 * The meta object literal for the '<em><b>Link</b></em>' attribute feature.

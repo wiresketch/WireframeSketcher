@@ -712,6 +712,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="noText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Indicates that the text is deleted."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URIDataType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Linked screen file path. Can be absolute or relative."/>

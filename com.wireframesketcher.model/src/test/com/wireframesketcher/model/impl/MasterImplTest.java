@@ -17,6 +17,7 @@ import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Panel;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.State;
+import com.wireframesketcher.model.TextField;
 import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetGroup;
@@ -800,4 +801,69 @@ public class MasterImplTest extends TestCase {
 		Operation op = widgetOverrides.getWidgetChanges().get(0);
 		assertTrue(op instanceof Insert);
 	}
+	
+	public void testDeleteText() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		TextField textField = ModelFactory.eINSTANCE.createTextField();
+		textField.setId(new Long(1));
+		textField.setX(10);
+		textField.setY(0);
+		textField.setText("Text");
+		a.getWidgets().add(textField);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		TextField textFieldInstance = (TextField) master.getInstance()
+				.getWidgets().get(0);
+
+		// Remove the text
+		textFieldInstance.setText("");
+
+		Overrides overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals("", wo.getText());
+		assertTrue(wo.isNoText());
+
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		textFieldInstance = (TextField) master.getInstance().getWidgets()
+				.get(0);
+
+		// Test that the text delete is properly applied
+		assertEquals("", textFieldInstance.getText());
+
+		textFieldInstance.setText("Override");
+
+		overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals("Override", wo.getText());
+		assertFalse(wo.isNoText());
+
+		textFieldInstance.setText("Text");
+		
+		overrides = master.getOverrides();
+
+		assertNull(overrides);
+	}	
 }

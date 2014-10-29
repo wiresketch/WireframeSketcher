@@ -266,7 +266,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidgetOverrides_Link() {
+	public EAttribute getWidgetOverrides_NoText() {
 		return (EAttribute)widgetOverridesEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -275,7 +275,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidgetOverrides_NoLink() {
+	public EAttribute getWidgetOverrides_Link() {
 		return (EAttribute)widgetOverridesEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -284,7 +284,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWidgetOverrides_Src() {
+	public EAttribute getWidgetOverrides_NoLink() {
 		return (EAttribute)widgetOverridesEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -293,8 +293,8 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_Attributes() {
-		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(8);
+	public EAttribute getWidgetOverrides_Src() {
+		return (EAttribute)widgetOverridesEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -302,7 +302,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_Font() {
+	public EReference getWidgetOverrides_Attributes() {
 		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -311,7 +311,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_Items() {
+	public EReference getWidgetOverrides_Font() {
 		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -320,8 +320,17 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWidgetOverrides_ItemChanges() {
+	public EReference getWidgetOverrides_Items() {
 		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWidgetOverrides_ItemChanges() {
+		return (EReference)widgetOverridesEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -568,6 +577,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__WIDTH);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__HEIGHT);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__TEXT);
+		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__NO_TEXT);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__LINK);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__NO_LINK);
 		createEAttribute(widgetOverridesEClass, WIDGET_OVERRIDES__SRC);
@@ -660,6 +670,7 @@ public class OverridesPackageImpl extends EPackageImpl implements OverridesPacka
 		initEAttribute(getWidgetOverrides_Width(), ecorePackage.getEIntegerObject(), "width", "-1", 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Height(), ecorePackage.getEIntegerObject(), "height", "-1", 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Text(), ecorePackage.getEString(), "text", "", 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWidgetOverrides_NoText(), ecorePackage.getEBoolean(), "noText", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Link(), theModelPackage.getURIDataType(), "link", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_NoLink(), ecorePackage.getEBoolean(), "noLink", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWidgetOverrides_Src(), theModelPackage.getURIDataType(), "src", null, 0, 1, WidgetOverrides.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
