@@ -664,6 +664,8 @@
           eType="#//story/Panel" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Panel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          derived="true" iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="screen" eType="#//Screen"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="story" eType="#//story/Storyboard"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

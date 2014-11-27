@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.wireframesketcher.model.story.Panel#getId <em>Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.Panel#getScreen <em>Screen</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.Panel#getStory <em>Story</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.Panel#getX <em>X</em>}</li>
@@ -30,6 +31,32 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Panel extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see com.wireframesketcher.model.story.StoryPackage#getPanel_Id()
+	 * @model id="true" derived="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.story.Panel#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Screen</b></em>' reference.
 	 * <!-- begin-user-doc -->

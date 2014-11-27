@@ -146,8 +146,8 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPanel_Screen() {
-		return (EReference)panelEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPanel_Id() {
+		return (EAttribute)panelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -155,7 +155,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPanel_Story() {
+	public EReference getPanel_Screen() {
 		return (EReference)panelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -164,8 +164,17 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPanel_Story() {
+		return (EReference)panelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getPanel_X() {
-		return (EAttribute)panelEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)panelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -174,7 +183,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 	 * @generated
 	 */
 	public EAttribute getPanel_Y() {
-		return (EAttribute)panelEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)panelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -209,6 +218,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 		createEReference(storyboardEClass, STORYBOARD__PANELS);
 
 		panelEClass = createEClass(PANEL);
+		createEAttribute(panelEClass, PANEL__ID);
 		createEReference(panelEClass, PANEL__SCREEN);
 		createEReference(panelEClass, PANEL__STORY);
 		createEAttribute(panelEClass, PANEL__X);
@@ -252,6 +262,7 @@ public class StoryPackageImpl extends EPackageImpl implements StoryPackage {
 		initEReference(getStoryboard_Panels(), this.getPanel(), null, "panels", null, 0, -1, Storyboard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(panelEClass, Panel.class, "Panel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPanel_Id(), ecorePackage.getEString(), "id", null, 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPanel_Screen(), theModelPackage.getScreen(), null, "screen", null, 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPanel_Story(), this.getStoryboard(), null, "story", null, 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPanel_X(), ecorePackage.getEInt(), "x", "-2147483648", 0, 1, Panel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

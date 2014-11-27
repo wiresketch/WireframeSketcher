@@ -3,6 +3,9 @@ package com.wireframesketcher.model.impl;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
@@ -17,10 +21,12 @@ import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.NameSupport;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.Widget;
+import com.wireframesketcher.model.story.Panel;
+import com.wireframesketcher.model.story.impl.PanelImpl;
 import com.wireframesketcher.model.util.WidgetTreeIterator;
 
 public class ModelXMLResourceImpl extends XMLResourceImpl {
-	private long nextId;
+	private long nextWidgetId;
 
 	public ModelXMLResourceImpl() {
 		super();
@@ -90,18 +96,32 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 			Long id = widget.getId();
 
 			if (id == null && !isLoading() && isDirectWidget(widget))
-				assignId(widget);
+				assignWidgetId(widget);
+		} else if (eObject instanceof Panel) {
+			Panel panel = (Panel) eObject;
+			String id = panel.getId();
+
+			if (id == null)
+				assignPanelId(panel);
 		}
 
 		super.attachedHelper(eObject);
 	}
 
-	private void assignId(Widget widget) {
-		widget.setId(generateNextId());
+	private void assignPanelId(Panel panel) {
+		panel.setId(generatePanelId(panel));
 	}
 
-	private Long generateNextId() {
-		return Long.valueOf(++nextId);
+	private String generatePanelId(Panel panel) {
+		return PanelUUID.generateUUID(this, panel);
+	}
+
+	private void assignWidgetId(Widget widget) {
+		widget.setId(generateNextWidgetId());
+	}
+
+	private Long generateNextWidgetId() {
+		return Long.valueOf(++nextWidgetId);
 	}
 
 	@Override
@@ -115,29 +135,29 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 	public void doLoad(InputStream inputStream, Map<?, ?> options)
 			throws IOException {
 		super.doLoad(inputStream, options);
-		computeMaxId();
+		computeMaxWidgetId();
 	}
 
-	private void computeMaxId() {
+	private void computeMaxWidgetId() {
 		for (TreeIterator<Widget> i = getAllDirectWidgets(); i.hasNext();) {
 			Widget widget = i.next();
 			Long id = widget.getId();
 			if (id != null)
-				nextId = Math.max(nextId, id.longValue());
+				nextWidgetId = Math.max(nextWidgetId, id.longValue());
 		}
 	}
 
 	private WidgetTreeIterator getAllDirectWidgets() {
 		EList<EObject> contents = getContents();
-		return new WidgetTreeIterator(contents.isEmpty() ? null : contents
-				.get(0), false);
+		return new WidgetTreeIterator(contents.isEmpty() ? null
+				: contents.get(0), false);
 	}
 
 	private void assignMissingIds() {
 		for (TreeIterator<Widget> i = getAllDirectWidgets(); i.hasNext();) {
 			Widget widget = i.next();
 			if (widget.getId() == null)
-				assignId(widget);
+				assignWidgetId(widget);
 		}
 	}
 
@@ -177,5 +197,129 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 			result.append(character);
 		}
 		return result.toString();
+	}
+
+	/**
+	 * Generate a stable but unique panel id. Stable means that the same id is
+	 * generated repeatedly for the same panel. The id must be unique across all
+	 * panels in the storyboard and account for nested storyboards and the
+	 * possibility that the same screen can be present multiple times.
+	 */
+	private static class PanelUUID {
+		public static String generateUUID(ModelXMLResourceImpl resource,
+				Panel panel) {
+			int counter = 0;
+			String id;
+			try {
+				do {
+					id = generateUUID(panel, counter++);
+					counter++;
+				} while (resource.getIntrinsicIDToEObjectMap().get(id) != null);
+			} catch (NoSuchAlgorithmException e) {
+				throw new RuntimeException(e);
+			} catch (UnsupportedEncodingException e) {
+				throw new RuntimeException(e);
+			}
+
+			return id;
+		}
+
+		private static String generateUUID(Panel panel, int sequence)
+				throws NoSuchAlgorithmException, UnsupportedEncodingException {
+			MessageDigest sig = MessageDigest.getInstance("SHA-1");
+			URI storyURI = getStoryURI(panel);
+			if (storyURI != null)
+				sig.update(storyURI.toString().getBytes("UTF-8"));
+			URI panelURI = getPanelURI(panel);
+			if (panelURI != null)
+				sig.update(panelURI.toString().getBytes("UTF-8"));
+			sig.update((byte) ((sequence >> 24) & 0xFF));
+			sig.update((byte) ((sequence >> 16) & 0xFF));
+			sig.update((byte) ((sequence >> 8) & 0xFF));
+			sig.update((byte) (sequence & 0xFF));
+			byte[] bytes = sig.digest();
+			return Base64.encode(bytes);
+		}
+
+		private static URI getPanelURI(Panel panel) {
+			EObject ref = ((PanelImpl) panel).basicGetScreen();
+			if (ref == null)
+				ref = ((PanelImpl) panel).basicGetStory();
+			return getURI(ref);
+		}
+
+		private static URI getStoryURI(Panel panel) {
+			return getURI(panel);
+		}
+
+		private static URI getURI(EObject obj) {
+			if (obj == null)
+				return null;
+
+			if (obj.eIsProxy())
+				return ((InternalEObject) obj).eProxyURI();
+			else if (obj.eResource() != null)
+				return obj.eResource().getURI();
+
+			return null;
+		}
+	}
+
+	private static class Base64 {
+		private Base64() {
+		}
+
+		private static final char[] BYTE_TO_BASE64 = { 'A', 'B', 'C', 'D', 'E',
+				'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+				'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c',
+				'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+				'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0',
+				'1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_' };
+
+		private static final char PAD_CHAR = '=';
+
+		/**
+		 * Encodes the given byte array using Base64 encoding
+		 * 
+		 * @param bytes
+		 *            the byte array
+		 * @return the Base64 string
+		 */
+		public static String encode(byte[] bytes) {
+			if (bytes == null)
+				return null;
+
+			StringBuilder buffer = new StringBuilder(
+					4 * ((bytes.length + 2) / 3));
+
+			int i = 0;
+
+			while (i + 2 < bytes.length) {
+				int b0 = bytes[i++] & 0xFF;
+				int b1 = bytes[i++] & 0xFF;
+				int b2 = bytes[i++] & 0xFF;
+				buffer.append(BYTE_TO_BASE64[b0 >> 2]);
+				buffer.append(BYTE_TO_BASE64[(b0 << 4) & 0x3F | (b1 >> 4)]);
+				buffer.append(BYTE_TO_BASE64[(b1 << 2) & 0x3F | (b2 >> 6)]);
+				buffer.append(BYTE_TO_BASE64[b2 & 0x3F]);
+			}
+
+			if (i + 1 == bytes.length) {
+				int b0 = bytes[i++] & 0xFF;
+				buffer.append(BYTE_TO_BASE64[b0 >> 2]);
+				buffer.append(BYTE_TO_BASE64[(b0 << 4) & 0x3F]);
+				buffer.append(PAD_CHAR);
+				buffer.append(PAD_CHAR);
+			} else if (i + 2 == bytes.length) {
+				int b0 = bytes[i++] & 0xFF;
+				int b1 = bytes[i++] & 0xFF;
+				buffer.append(BYTE_TO_BASE64[b0 >> 2]);
+				buffer.append(BYTE_TO_BASE64[(b0 << 4) & 0x3F | (b1 >> 4)]);
+				buffer.append(BYTE_TO_BASE64[(b1 << 2) & 0x3F]);
+				buffer.append(PAD_CHAR);
+			}
+
+			return buffer.toString();
+		}
 	}
 }

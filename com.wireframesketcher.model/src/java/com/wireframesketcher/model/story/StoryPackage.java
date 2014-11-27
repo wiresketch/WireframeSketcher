@@ -98,13 +98,22 @@ public interface StoryPackage extends EPackage {
 	int PANEL = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PANEL__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Screen</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL__SCREEN = 0;
+	int PANEL__SCREEN = 1;
 
 	/**
 	 * The feature id for the '<em><b>Story</b></em>' reference.
@@ -113,7 +122,7 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL__STORY = 1;
+	int PANEL__STORY = 2;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -122,7 +131,7 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL__X = 2;
+	int PANEL__X = 3;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -131,7 +140,7 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL__Y = 3;
+	int PANEL__Y = 4;
 
 	/**
 	 * The number of structural features of the '<em>Panel</em>' class.
@@ -140,7 +149,7 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PANEL_FEATURE_COUNT = 4;
+	int PANEL_FEATURE_COUNT = 5;
 
 
 	/**
@@ -173,6 +182,17 @@ public interface StoryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPanel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.story.Panel#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.wireframesketcher.model.story.Panel#getId()
+	 * @see #getPanel()
+	 * @generated
+	 */
+	EAttribute getPanel_Id();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.wireframesketcher.model.story.Panel#getScreen <em>Screen</em>}'.
@@ -267,6 +287,14 @@ public interface StoryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PANEL = eINSTANCE.getPanel();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PANEL__ID = eINSTANCE.getPanel_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Screen</b></em>' reference feature.

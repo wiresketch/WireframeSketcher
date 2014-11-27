@@ -12,6 +12,9 @@ import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.WidgetGroup;
+import com.wireframesketcher.model.story.Panel;
+import com.wireframesketcher.model.story.StoryFactory;
+import com.wireframesketcher.model.story.Storyboard;
 import com.wireframesketcher.model.util.Persister;
 
 public class ModelXMLResourceImplTest extends TestCase {
@@ -64,5 +67,41 @@ public class ModelXMLResourceImplTest extends TestCase {
 		persister.save(b, bytes); // save XML
 		Screen c = (Screen) persister.load(new ByteArrayInputStream(bytes
 				.toByteArray())); // parse
+	}
+	
+	public void testPanelIdGeneration() {
+		Persister persister = new Persister();
+		Storyboard story = StoryFactory.eINSTANCE.createStoryboard();
+		persister.getResourceSet()
+				.createResource(URI.createURI("Storyboard.story"))
+				.getContents().add(story);
+		
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		persister.getResourceSet()
+				.createResource(URI.createURI("ScreenA.screen")).getContents()
+				.add(a);
+		
+		Panel aPanel = StoryFactory.eINSTANCE.createPanel();
+		aPanel.setScreen(a);
+		story.getPanels().add(aPanel);
+		
+		assertNotNull(aPanel.getId());
+
+		Panel bPanel = StoryFactory.eINSTANCE.createPanel();
+		bPanel.setScreen(a);
+		story.getPanels().add(bPanel);
+		
+		assertNotNull(bPanel.getId());
+		assertFalse(aPanel.getId().equals(bPanel.getId()));
+		
+		String id = aPanel.getId();
+		
+		story.getPanels().clear();
+		aPanel = StoryFactory.eINSTANCE.createPanel();
+		aPanel.setScreen(a);
+		story.getPanels().add(aPanel);
+		
+		assertNotNull(aPanel.getId());
+		assertEquals(id, aPanel.getId());
 	}
 }

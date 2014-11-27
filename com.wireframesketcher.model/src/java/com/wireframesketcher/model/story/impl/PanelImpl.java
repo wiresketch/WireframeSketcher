@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getScreen <em>Screen</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getStory <em>Story</em>}</li>
  *   <li>{@link com.wireframesketcher.model.story.impl.PanelImpl#getX <em>X</em>}</li>
@@ -37,6 +38,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class PanelImpl extends EObjectImpl implements Panel {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getScreen() <em>Screen</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -111,6 +132,27 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	@Override
 	protected EClass eStaticClass() {
 		return StoryPackage.Literals.PANEL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StoryPackage.PANEL__ID, oldId, id));
 	}
 
 	/**
@@ -239,6 +281,8 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case StoryPackage.PANEL__ID:
+				return getId();
 			case StoryPackage.PANEL__SCREEN:
 				if (resolve) return getScreen();
 				return basicGetScreen();
@@ -261,6 +305,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case StoryPackage.PANEL__ID:
+				setId((String)newValue);
+				return;
 			case StoryPackage.PANEL__SCREEN:
 				setScreen((Screen)newValue);
 				return;
@@ -285,6 +332,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case StoryPackage.PANEL__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case StoryPackage.PANEL__SCREEN:
 				setScreen((Screen)null);
 				return;
@@ -309,6 +359,8 @@ public class PanelImpl extends EObjectImpl implements Panel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case StoryPackage.PANEL__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case StoryPackage.PANEL__SCREEN:
 				return screen != null;
 			case StoryPackage.PANEL__STORY:
@@ -331,7 +383,9 @@ public class PanelImpl extends EObjectImpl implements Panel {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (x: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", x: ");
 		result.append(x);
 		result.append(", y: ");
 		result.append(y);
