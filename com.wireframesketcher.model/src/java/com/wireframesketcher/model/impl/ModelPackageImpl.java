@@ -3380,6 +3380,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		browserEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		browserEClass.getESuperTypes().add(this.getSkinSupport());
 		browserEClass.getESuperTypes().add(this.getColorAlphaSupport());
+		browserEClass.getESuperTypes().add(this.getFontSupport());
 		textEClass.getESuperTypes().add(this.getWidget());
 		textEClass.getESuperTypes().add(this.getFontSupport());
 		textEClass.getESuperTypes().add(this.getTextAlignmentSupport());

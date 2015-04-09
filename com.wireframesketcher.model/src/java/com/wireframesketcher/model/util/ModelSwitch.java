@@ -246,6 +246,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorBackgroundSupport(browser);
 				if (result == null) result = caseSkinSupport(browser);
 				if (result == null) result = caseColorAlphaSupport(browser);
+				if (result == null) result = caseFontSupport(browser);
 				if (result == null) result = caseValueSupport(browser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
