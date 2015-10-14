@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.plugin.EcorePlugin.Implementation;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.wireframesketcher.model.Button;
@@ -17,6 +18,7 @@ import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Panel;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.State;
+import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextField;
 import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.WidgetContainer;
@@ -31,6 +33,21 @@ import com.wireframesketcher.model.overrides.WidgetOverrides;
 import com.wireframesketcher.model.util.Persister;
 
 public class MasterImplTest extends TestCase {
+	private static class TestEcorePluginImplementation extends Implementation {
+		@Override
+		public void log(Object logEntry) {
+			if (logEntry instanceof RuntimeException)
+				throw (RuntimeException) logEntry;
+
+			super.log(logEntry);
+		}
+	}
+
+	@Override
+	protected void setUp() throws Exception {
+		TestEcorePluginImplementation impl = new TestEcorePluginImplementation();
+	}
+
 	public void testOverrides() {
 		Persister persister = new Persister();
 
@@ -801,7 +818,7 @@ public class MasterImplTest extends TestCase {
 		Operation op = widgetOverrides.getWidgetChanges().get(0);
 		assertTrue(op instanceof Insert);
 	}
-	
+
 	public void testDeleteText() {
 		Persister persister = new Persister();
 
@@ -861,9 +878,390 @@ public class MasterImplTest extends TestCase {
 		assertFalse(wo.isNoText());
 
 		textFieldInstance.setText("Text");
-		
+
 		overrides = master.getOverrides();
 
 		assertNull(overrides);
-	}	
+	}
+
+	public void testNestedMasterClassCast() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setX(10);
+		button.setY(0);
+		button.setText("Button");
+		button.setId(Long.valueOf(1));
+		a.getWidgets().add(button);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setId(Long.valueOf(1));
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setId(Long.valueOf(1));
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen"))
+				.getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets()
+				.get(0);
+		Button buttonInstance = (Button) bMasterInstance.getInstance()
+				.getWidgets().get(0);
+		buttonInstance.setState(State.DISABLED);
+
+		assertNotNull(cMaster.getOverrides());
+
+		EList<WidgetOverrides> widgetsOverrides = cMaster.getOverrides()
+				.getWidgets();
+		assertEquals(1, widgetsOverrides.size());
+		WidgetOverrides widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("1/1", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+
+		b.getWidgets().remove(0);
+		Button replacement = ModelFactory.eINSTANCE.createButton();
+		replacement.setX(20);
+		replacement.setY(20);
+		replacement.setId(Long.valueOf(1));
+		b.getWidgets().add(replacement);
+
+		cMaster.setScreen(b);
+	}
+
+	public void testNestedMasterMissingNPE() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setX(10);
+		button.setY(0);
+		button.setText("Button");
+		button.setId(Long.valueOf(1));
+		a.getWidgets().add(button);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setId(Long.valueOf(1));
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setId(Long.valueOf(1));
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen"))
+				.getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets()
+				.get(0);
+		Button buttonInstance = (Button) bMasterInstance.getInstance()
+				.getWidgets().get(0);
+		buttonInstance.setState(State.DISABLED);
+
+		assertNotNull(cMaster.getOverrides());
+
+		EList<WidgetOverrides> widgetsOverrides = cMaster.getOverrides()
+				.getWidgets();
+		assertEquals(1, widgetsOverrides.size());
+		WidgetOverrides widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("1/1", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+
+		persister.getResourceSet()
+				.getResource(URI.createURI("a.screen"), false).unload();
+
+		cMaster.setScreen(b);
+	}
+
+	public void testMasterInsertURIs() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setX(10);
+		button.setY(0);
+		button.setText("Button");
+		button.setId(Long.valueOf(1));
+		a.getWidgets().add(button);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Button insertButton = ModelFactory.eINSTANCE.createButton();
+		insertButton.setX(20);
+		insertButton.setY(20);
+		insertButton.setText("Inserted Button");
+		bMaster.getInstance().getWidgets().add(insertButton);
+
+		WidgetGroup insertGroup = ModelFactory.eINSTANCE.createWidgetGroup();
+		insertGroup.setX(20);
+		insertGroup.setY(20);
+
+		Button groupedButton = ModelFactory.eINSTANCE.createButton();
+		groupedButton.setX(20);
+		groupedButton.setY(20);
+		groupedButton.setText("Grouped Button");
+		insertGroup.getWidgets().add(groupedButton);
+
+		bMaster.getInstance().getWidgets().add(insertGroup);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen"))
+				.getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets()
+				.get(0);
+		Button buttonInstance = (Button) bMasterInstance.getInstance()
+				.getWidgets().get(1);
+		assertEquals("Inserted Button", buttonInstance.getText());
+		buttonInstance.setState(State.DISABLED);
+
+		WidgetGroup groupInstance = (WidgetGroup) bMasterInstance.getInstance()
+				.getWidgets().get(2);
+		Button groupedButtonInstance = (Button) groupInstance.getWidgets().get(
+				0);
+		assertEquals("Grouped Button", groupedButtonInstance.getText());
+		groupedButtonInstance.setState(State.DISABLED);
+		groupInstance.setLocked(true);
+
+		assertNotNull(cMaster.getOverrides());
+
+		EList<WidgetOverrides> widgetsOverrides = cMaster.getOverrides()
+				.getWidgets();
+		assertEquals(3, widgetsOverrides.size());
+		WidgetOverrides widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("2", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+
+		widgetOverrides = widgetsOverrides.get(1);
+		assertEquals("4", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+
+		widgetOverrides = widgetsOverrides.get(2);
+		assertEquals("3", widgetOverrides.getRef());
+		assertEquals(Boolean.TRUE.toString(), widgetOverrides.getAttributes()
+				.get(ModelPackage.Literals.WIDGET__LOCKED.getName()));
+
+		// Force overrides to be reapplied
+		cMaster.setScreen(b);
+
+		bMasterInstance = (Master) cMaster.getInstance().getWidgets().get(0);
+		buttonInstance = (Button) bMasterInstance.getInstance().getWidgets()
+				.get(1);
+		assertEquals("Inserted Button", buttonInstance.getText());
+		assertEquals(State.DISABLED, buttonInstance.getState());
+
+		groupInstance = (WidgetGroup) bMasterInstance.getInstance()
+				.getWidgets().get(2);
+		groupedButtonInstance = (Button) groupInstance.getWidgets().get(0);
+		assertEquals("Grouped Button", groupedButtonInstance.getText());
+		assertEquals(State.DISABLED, groupedButtonInstance.getState());
+
+		// Test another level of indirection
+		Screen d = ModelFactory.eINSTANCE.createScreen();
+		Master dMaster = ModelFactory.eINSTANCE.createMaster();
+		dMaster.setX(20);
+		dMaster.setY(20);
+		dMaster.setScreen(c);
+		d.getWidgets().add(dMaster);
+		persister.getResourceSet().createResource(URI.createURI("d.screen"))
+				.getContents().add(d);
+
+		Master cMasterInstance = (Master) dMaster.getInstance().getWidgets()
+				.get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets()
+				.get(0);
+		buttonInstance = (Button) bMasterInstance.getInstance().getWidgets()
+				.get(1);
+		assertEquals("Inserted Button", buttonInstance.getText());
+		assertEquals(State.DISABLED, buttonInstance.getState());
+		buttonInstance.setTextAlignment(TextAlignment.RIGHT_LITERAL);
+
+		groupInstance = (WidgetGroup) bMasterInstance.getInstance()
+				.getWidgets().get(2);
+		groupedButtonInstance = (Button) groupInstance.getWidgets().get(0);
+		assertEquals("Grouped Button", groupedButtonInstance.getText());
+		groupedButtonInstance.setTextAlignment(TextAlignment.RIGHT_LITERAL);
+		groupInstance.setX(40);
+		assertNotNull(dMaster.getOverrides());
+
+		widgetsOverrides = dMaster.getOverrides().getWidgets();
+		assertEquals(3, widgetsOverrides.size());
+		widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("1/2", widgetOverrides.getRef());
+		assertEquals(
+				TextAlignment.RIGHT_LITERAL.getLiteral(),
+				widgetOverrides
+						.getAttributes()
+						.get(ModelPackage.Literals.TEXT_ALIGNMENT_SUPPORT__TEXT_ALIGNMENT
+								.getName()));
+		widgetOverrides = widgetsOverrides.get(1);
+		assertEquals("1/4", widgetOverrides.getRef());
+		assertEquals(
+				TextAlignment.RIGHT_LITERAL.getLiteral(),
+				widgetOverrides
+						.getAttributes()
+						.get(ModelPackage.Literals.TEXT_ALIGNMENT_SUPPORT__TEXT_ALIGNMENT
+								.getName()));
+		widgetOverrides = widgetsOverrides.get(2);
+		assertEquals("1/3", widgetOverrides.getRef());
+		assertEquals(Integer.valueOf(40), widgetOverrides.getX());
+
+		// Force overrides to be reapplied
+		dMaster.setScreen(c);
+
+		cMasterInstance = (Master) dMaster.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets()
+				.get(0);
+		buttonInstance = (Button) bMasterInstance.getInstance().getWidgets()
+				.get(1);
+		assertEquals("Inserted Button", buttonInstance.getText());
+		assertEquals(State.DISABLED, buttonInstance.getState());
+		assertEquals(TextAlignment.RIGHT_LITERAL,
+				buttonInstance.getTextAlignment());
+
+		groupInstance = (WidgetGroup) bMasterInstance.getInstance()
+				.getWidgets().get(2);
+		groupedButtonInstance = (Button) groupInstance.getWidgets().get(0);
+		assertEquals("Grouped Button", groupedButtonInstance.getText());
+		assertEquals(State.DISABLED, groupedButtonInstance.getState());
+		assertEquals(TextAlignment.RIGHT_LITERAL,
+				groupedButtonInstance.getTextAlignment());
+		assertEquals(true, groupInstance.isLocked());
+		assertEquals(40, groupInstance.getX());
+	}
+
+	public void testStaleOverrides() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button1 = ModelFactory.eINSTANCE.createButton();
+		button1.setX(10);
+		button1.setY(0);
+		button1.setText("Button 1");
+		a.getWidgets().add(button1);
+
+		Button button2 = ModelFactory.eINSTANCE.createButton();
+		button2.setX(10);
+		button2.setY(20);
+		button2.setText("Button 2");
+		a.getWidgets().add(button2);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Button button1Instance = (Button) bMaster.getInstance().getWidgets()
+				.get(0);
+		Button button2Instance = (Button) bMaster.getInstance().getWidgets()
+				.get(1);
+
+		button1Instance.setState(State.DISABLED);
+		button2Instance.setTextAlignment(TextAlignment.RIGHT_LITERAL);
+
+		assertNotNull(bMaster.getOverrides());
+
+		EList<WidgetOverrides> widgetsOverrides = bMaster.getOverrides()
+				.getWidgets();
+		assertEquals(2, widgetsOverrides.size());
+		WidgetOverrides widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("1", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+		widgetOverrides = widgetsOverrides.get(1);
+		assertEquals("2", widgetOverrides.getRef());
+		assertEquals(
+				TextAlignment.RIGHT_LITERAL.getLiteral(),
+				widgetOverrides
+						.getAttributes()
+						.get(ModelPackage.Literals.TEXT_ALIGNMENT_SUPPORT__TEXT_ALIGNMENT
+								.getName()));
+
+		a.getWidgets().remove(button1);
+		bMaster.setScreen(a);
+
+		button2Instance = (Button) bMaster.getInstance().getWidgets().get(0);
+		widgetsOverrides = bMaster.getOverrides().getWidgets();
+		assertEquals(2, widgetsOverrides.size());
+
+		// Here we expect that overrides are recalculated completely
+		// so that stale overrides are removed
+		button2Instance.setState(State.DISABLED);
+		widgetsOverrides = bMaster.getOverrides().getWidgets();
+		assertEquals(1, widgetsOverrides.size());
+
+		widgetOverrides = widgetsOverrides.get(0);
+		assertEquals("2", widgetOverrides.getRef());
+		assertEquals(
+				State.DISABLED.getLiteral(),
+				widgetOverrides.getAttributes().get(
+						ModelPackage.Literals.STATE_SUPPORT__STATE.getName()));
+		assertEquals(
+				TextAlignment.RIGHT_LITERAL.getLiteral(),
+				widgetOverrides
+						.getAttributes()
+						.get(ModelPackage.Literals.TEXT_ALIGNMENT_SUPPORT__TEXT_ALIGNMENT
+								.getName()));
+	}
 }

@@ -7,8 +7,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -21,12 +25,18 @@ import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.NameSupport;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.Widget;
+import com.wireframesketcher.model.overrides.Insert;
+import com.wireframesketcher.model.overrides.Operation;
+import com.wireframesketcher.model.overrides.Overrides;
+import com.wireframesketcher.model.overrides.OverridesPackage;
+import com.wireframesketcher.model.overrides.WidgetContainerOverrides;
+import com.wireframesketcher.model.overrides.WidgetOverrides;
 import com.wireframesketcher.model.story.Panel;
 import com.wireframesketcher.model.story.impl.PanelImpl;
 import com.wireframesketcher.model.util.WidgetTreeIterator;
 
 public class ModelXMLResourceImpl extends XMLResourceImpl {
-	private long nextWidgetId;
+	private long maxWidgetId;
 
 	public ModelXMLResourceImpl() {
 		super();
@@ -121,7 +131,7 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 	}
 
 	private Long generateNextWidgetId() {
-		return Long.valueOf(++nextWidgetId);
+		return Long.valueOf(++maxWidgetId);
 	}
 
 	@Override
@@ -135,22 +145,80 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 	public void doLoad(InputStream inputStream, Map<?, ?> options)
 			throws IOException {
 		super.doLoad(inputStream, options);
-		computeMaxWidgetId();
+		maxWidgetId = computeMaxWidgetId();
 	}
 
-	private void computeMaxWidgetId() {
+	private long computeMaxWidgetId() {
+		long maxId = 0;
+
 		for (TreeIterator<Widget> i = getAllDirectWidgets(); i.hasNext();) {
 			Widget widget = i.next();
 			Long id = widget.getId();
 			if (id != null)
-				nextWidgetId = Math.max(nextWidgetId, id.longValue());
+				maxId = Math.max(maxId, id.longValue());
 		}
+
+		return maxId;
 	}
 
 	private WidgetTreeIterator getAllDirectWidgets() {
 		EList<EObject> contents = getContents();
-		return new WidgetTreeIterator(contents.isEmpty() ? null
-				: contents.get(0), false);
+		return new DirectWidgetsIterator(contents.isEmpty() ? null
+				: contents.get(0));
+	}
+
+	/**
+	 * This implementation handles components by descending into overrides and
+	 * iterating over inserted widgets which are direct children of this
+	 * resource.
+	 */
+	protected static class DirectWidgetsIterator extends WidgetTreeIterator {
+		public DirectWidgetsIterator(Object object) {
+			super(object, true);
+		}
+
+		@Override
+		protected Iterator<? extends Widget> getComponentChildren(Master master) {
+			Overrides overrides = master.getOverrides();
+			if (overrides != null) {
+				List<Widget> children = new BasicEList<Widget>();
+
+				if (overrides
+						.eIsSet(OverridesPackage.Literals.OVERRIDES__WIDGETS)) {
+					EList<WidgetOverrides> widgets = overrides.getWidgets();
+					for (int j = 0, jSz = widgets.size(); j < jSz; j++) {
+						WidgetContainerOverrides widgetOverrides = widgets
+								.get(j);
+						collectInsertedWidgets(widgetOverrides, children);
+					}
+				}
+				collectInsertedWidgets(overrides, children);
+
+				if (!children.isEmpty())
+					return children.iterator();
+			}
+
+			return ECollections.<Widget> emptyEList().iterator();
+		}
+
+		private void collectInsertedWidgets(
+				WidgetContainerOverrides widgetOverrides, List<Widget> widgets) {
+
+			if (widgetOverrides
+					.eIsSet(OverridesPackage.Literals.WIDGET_CONTAINER_OVERRIDES__WIDGET_CHANGES)) {
+				EList<Operation> changes = widgetOverrides.getWidgetChanges();
+				for (int i = 0, sz = changes.size(); i < sz; i++) {
+					Operation operation = changes.get(i);
+					if (operation instanceof Insert) {
+						Insert insert = (Insert) operation;
+						EObject object = insert.getObject();
+						if (object instanceof Widget) {
+							widgets.add((Widget) object);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	private void assignMissingIds() {
@@ -163,11 +231,14 @@ public class ModelXMLResourceImpl extends XMLResourceImpl {
 
 	private boolean isDirectWidget(Widget widget) {
 		EObject object = widget;
+		boolean insertedObject = false;
 
 		while (object != null && !(object instanceof Screen)) {
 			object = object.eContainer();
-			if (object instanceof Master)
-				return false;
+			if (object instanceof Insert)
+				insertedObject = true;
+			else if (object instanceof Master)
+				return insertedObject;
 		}
 
 		return object instanceof Screen && getContents().contains(object);

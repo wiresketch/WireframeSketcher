@@ -30,12 +30,21 @@ public class WidgetTreeIterator extends AbstractTreeIterator<Widget> {
 			return ((WidgetContainer) object).getWidgets().iterator();
 		else if (object instanceof Master) {
 			if (includeComponents) {
-				WidgetContainer component = ((Master) object).getInstance();
-				if (component != null)
-					return getChildren(component);
+				return getComponentChildren((Master) object);
 			}
 		}
 
+		return ECollections.<Widget> emptyEList().iterator();
+	}
+
+	/**
+	 * Returns an iterator overs widgets owned by the component. Default
+	 * implementation iterates over instantiated component.
+	 */
+	protected Iterator<? extends Widget> getComponentChildren(Master master) {
+		WidgetContainer component = master.getInstance();
+		if (component != null)
+			return getChildren(component);
 		return ECollections.<Widget> emptyEList().iterator();
 	}
 }
