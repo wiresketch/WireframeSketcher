@@ -58,6 +58,14 @@ public enum IconSize implements Enumerator
 	 * @ordered
 	 */
 	XLARGE_LITERAL(3, "XLarge", "xlarge"), /**
+	 * The '<em><b>XXL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #XXL
+	 * @generated
+	 * @ordered
+	 */
+	XXL_LITERAL(4, "XXL", "xxl"), /**
 	 * The '<em><b>Custom</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +73,7 @@ public enum IconSize implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM_LITERAL(4, "Custom", "custom");
+	CUSTOM_LITERAL(5, "Custom", "custom");
 	/**
 	 * The '<em><b>Small</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -127,6 +135,21 @@ public enum IconSize implements Enumerator
 	public static final int XLARGE = 3;
 
 	/**
+	 * The '<em><b>XXL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>XXL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #XXL_LITERAL
+	 * @model literal="xxl"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int XXL = 4;
+
+	/**
 	 * The '<em><b>Custom</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -139,7 +162,7 @@ public enum IconSize implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CUSTOM = 4;
+	public static final int CUSTOM = 5;
 
 	/**
 	 * An array of all the '<em><b>Icon Size</b></em>' enumerators.
@@ -153,6 +176,7 @@ public enum IconSize implements Enumerator
 			MEDIUM_LITERAL,
 			LARGE_LITERAL,
 			XLARGE_LITERAL,
+			XXL_LITERAL,
 			CUSTOM_LITERAL,
 		};
 
@@ -208,6 +232,7 @@ public enum IconSize implements Enumerator
 			case MEDIUM: return MEDIUM_LITERAL;
 			case LARGE: return LARGE_LITERAL;
 			case XLARGE: return XLARGE_LITERAL;
+			case XXL: return XXL_LITERAL;
 			case CUSTOM: return CUSTOM_LITERAL;
 		}
 		return null;
@@ -311,6 +336,8 @@ public enum IconSize implements Enumerator
 			return 32;
 		case XLARGE:
 			return 48;
+		case XXL:
+			return 128;
 		case CUSTOM:
 			return -1;
 		}

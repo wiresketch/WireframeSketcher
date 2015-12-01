@@ -35,7 +35,7 @@ public class ModelXMLResourceImplTest extends TestCase {
 		Label label = ModelFactory.eINSTANCE.createLabel();
 		label.setText("Label");
 		group.getWidgets().add(label);
-		group.setName("Copy & Paste"); // & must be escaped
+		group.setName("Copy & Paste<>%%08etc"); // & must be escaped
 		a.getWidgets().add(group);
 
 		persister.getResourceSet().createResource(URI.createURI("a.screen"))
@@ -53,7 +53,7 @@ public class ModelXMLResourceImplTest extends TestCase {
 		Screen c = (Screen) persister.load(new ByteArrayInputStream(bytes
 				.toByteArray())); // parse
 		// XML
-		assertEquals("Copy & Paste", ((WidgetGroup) ((Master) c.getWidgets()
+		assertEquals("Copy & Paste<>%%08etc", ((WidgetGroup) ((Master) c.getWidgets()
 				.get(0)).getScreen()).getName());
 	}
 

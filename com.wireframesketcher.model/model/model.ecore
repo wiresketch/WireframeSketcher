@@ -202,7 +202,8 @@
     <eLiterals name="Medium" value="1" literal="medium"/>
     <eLiterals name="Large" value="2" literal="large"/>
     <eLiterals name="XLarge" value="3" literal="xlarge"/>
-    <eLiterals name="Custom" value="4" literal="custom"/>
+    <eLiterals name="XXL" value="4" literal="xxl"/>
+    <eLiterals name="Custom" value="5" literal="custom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="FontSizeDataType" instanceClassName="com.wireframesketcher.model.FontSize"/>
   <eClassifiers xsi:type="ecore:EClass" name="Font">

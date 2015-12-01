@@ -1264,4 +1264,49 @@ public class MasterImplTest extends TestCase {
 						.get(ModelPackage.Literals.TEXT_ALIGNMENT_SUPPORT__TEXT_ALIGNMENT
 								.getName()));
 	}
+	
+	public void testNestedInsertMissingScreenNPE() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setX(10);
+		button.setY(0);
+		button.setText("Button");
+		a.getWidgets().add(button);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setId(Long.valueOf(1));
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setId(Long.valueOf(1));
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen"))
+				.getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets()
+				.get(0);
+		
+		Label label = ModelFactory.eINSTANCE.createLabel();
+		label.setText("Label");
+		bMasterInstance.getInstance().getWidgets().add(label);
+
+		assertNotNull(cMaster.getOverrides());
+		
+		bMaster.setScreen(null);
+	}	
 }

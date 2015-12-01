@@ -90,6 +90,8 @@ public final class IconDesc {
 			size = IconSize.LARGE_LITERAL;
 		else if (w == 48 && h == 48)
 			size = IconSize.XLARGE_LITERAL;
+		else if (w == 128 && h == 128)
+			size = IconSize.XXL_LITERAL;
 		else
 			size = IconSize.CUSTOM_LITERAL;
 

@@ -1284,9 +1284,13 @@ class OverridesHelper implements IInstanceStrategy {
 				applyWidgetChanges(widgetOverrides, (WidgetContainer) left,
 						(WidgetContainer) right);
 			} else if (left instanceof Master) {
-				applyWidgetChanges(widgetOverrides,
-						((Master) left).getInstance(),
-						((Master) right).getInstance());
+				Master leftMaster = (Master) left;
+				Master rightMaster = (Master) right;
+				if (exists(leftMaster.getScreen())
+						&& exists(rightMaster.getScreen())) {
+					applyWidgetChanges(widgetOverrides,
+							leftMaster.getInstance(), rightMaster.getInstance());
+				}
 			}
 		}
 
