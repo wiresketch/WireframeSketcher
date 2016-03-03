@@ -12,13 +12,18 @@ import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.Item;
+import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
@@ -26,6 +31,8 @@ import com.wireframesketcher.model.Note;
 import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextAlignmentSupport;
+import com.wireframesketcher.model.TextLinksSupport;
+import java.util.Collection;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
 
@@ -42,6 +49,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.NoteImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.NoteImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.NoteImpl#getSkin <em>Skin</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.NoteImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -155,6 +163,16 @@ public class NoteImpl extends WidgetImpl implements Note {
 	 * @ordered
 	 */
 	protected URI skin = SKIN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Note", ResizeMode.BOTH_LITERAL, true, true, true);
 	
@@ -331,11 +349,25 @@ public class NoteImpl extends WidgetImpl implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.NOTE__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModelPackage.NOTE__FONT:
 				return basicSetFont(null, msgs);
+			case ModelPackage.NOTE__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -360,6 +392,8 @@ public class NoteImpl extends WidgetImpl implements Note {
 				return getLink();
 			case ModelPackage.NOTE__SKIN:
 				return getSkin();
+			case ModelPackage.NOTE__ITEMS:
+				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -369,6 +403,7 @@ public class NoteImpl extends WidgetImpl implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -389,6 +424,10 @@ public class NoteImpl extends WidgetImpl implements Note {
 				return;
 			case ModelPackage.NOTE__SKIN:
 				setSkin((URI)newValue);
+				return;
+			case ModelPackage.NOTE__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -420,6 +459,9 @@ public class NoteImpl extends WidgetImpl implements Note {
 			case ModelPackage.NOTE__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
+			case ModelPackage.NOTE__ITEMS:
+				getItems().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -444,6 +486,8 @@ public class NoteImpl extends WidgetImpl implements Note {
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case ModelPackage.NOTE__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
+			case ModelPackage.NOTE__ITEMS:
+				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -496,6 +540,17 @@ public class NoteImpl extends WidgetImpl implements Note {
 				default: return -1;
 			}
 		}
+		if (baseClass == ItemSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.NOTE__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -543,6 +598,17 @@ public class NoteImpl extends WidgetImpl implements Note {
 			}
 		}
 		if (baseClass == AnnotationSupport.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.NOTE__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}

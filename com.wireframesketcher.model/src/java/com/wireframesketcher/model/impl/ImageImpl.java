@@ -6,6 +6,7 @@
  */
 package com.wireframesketcher.model.impl;
 
+import com.wireframesketcher.model.BorderSupport;
 import com.wireframesketcher.model.FlipSupport;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
@@ -31,6 +32,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.ImageImpl#getRotation <em>Rotation</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ImageImpl#isHFlip <em>HFlip</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ImageImpl#isVFlip <em>VFlip</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ImageImpl#isBorder <em>Border</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ImageImpl#getSrc <em>Src</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ImageImpl#isGrayscale <em>Grayscale</em>}</li>
  * </ul>
@@ -118,6 +120,25 @@ public class ImageImpl extends WidgetImpl implements Image {
 	 * @ordered
 	 */
 	protected boolean vFlip = VFLIP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isBorder() <em>Border</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBorder()
+	 * @ordered
+	 */
+	protected static final boolean BORDER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isBorder() <em>Border</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBorder()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean border = BORDER_EDEFAULT;
 
 	private static final WidgetDescriptor DESCRIPTOR = describe("Image").resizeBoth().singleLine().centered().get();
 	
@@ -269,6 +290,27 @@ public class ImageImpl extends WidgetImpl implements Image {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isBorder() {
+		return border;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBorder(boolean newBorder) {
+		boolean oldBorder = border;
+		border = newBorder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.IMAGE__BORDER, oldBorder, border));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getSrc() {
 		return src;
 	}
@@ -322,6 +364,8 @@ public class ImageImpl extends WidgetImpl implements Image {
 				return isHFlip();
 			case ModelPackage.IMAGE__VFLIP:
 				return isVFlip();
+			case ModelPackage.IMAGE__BORDER:
+				return isBorder();
 			case ModelPackage.IMAGE__SRC:
 				return getSrc();
 			case ModelPackage.IMAGE__GRAYSCALE:
@@ -349,6 +393,9 @@ public class ImageImpl extends WidgetImpl implements Image {
 				return;
 			case ModelPackage.IMAGE__VFLIP:
 				setVFlip((Boolean)newValue);
+				return;
+			case ModelPackage.IMAGE__BORDER:
+				setBorder((Boolean)newValue);
 				return;
 			case ModelPackage.IMAGE__SRC:
 				setSrc((URI)newValue);
@@ -380,6 +427,9 @@ public class ImageImpl extends WidgetImpl implements Image {
 			case ModelPackage.IMAGE__VFLIP:
 				setVFlip(VFLIP_EDEFAULT);
 				return;
+			case ModelPackage.IMAGE__BORDER:
+				setBorder(BORDER_EDEFAULT);
+				return;
 			case ModelPackage.IMAGE__SRC:
 				setSrc(SRC_EDEFAULT);
 				return;
@@ -406,6 +456,8 @@ public class ImageImpl extends WidgetImpl implements Image {
 				return hFlip != HFLIP_EDEFAULT;
 			case ModelPackage.IMAGE__VFLIP:
 				return vFlip != VFLIP_EDEFAULT;
+			case ModelPackage.IMAGE__BORDER:
+				return border != BORDER_EDEFAULT;
 			case ModelPackage.IMAGE__SRC:
 				return SRC_EDEFAULT == null ? src != null : !SRC_EDEFAULT.equals(src);
 			case ModelPackage.IMAGE__GRAYSCALE:
@@ -440,6 +492,12 @@ public class ImageImpl extends WidgetImpl implements Image {
 				default: return -1;
 			}
 		}
+		if (baseClass == BorderSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.IMAGE__BORDER: return ModelPackage.BORDER_SUPPORT__BORDER;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -469,6 +527,12 @@ public class ImageImpl extends WidgetImpl implements Image {
 				default: return -1;
 			}
 		}
+		if (baseClass == BorderSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.BORDER_SUPPORT__BORDER: return ModelPackage.IMAGE__BORDER;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -490,6 +554,8 @@ public class ImageImpl extends WidgetImpl implements Image {
 		result.append(hFlip);
 		result.append(", vFlip: ");
 		result.append(vFlip);
+		result.append(", border: ");
+		result.append(border);
 		result.append(", src: ");
 		result.append(src);
 		result.append(", grayscale: ");

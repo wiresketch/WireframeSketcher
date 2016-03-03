@@ -10,6 +10,8 @@ import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.ColorForegroundSupport;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.Item;
+import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.LineHeight;
 import com.wireframesketcher.model.LineHeightSupport;
 import com.wireframesketcher.model.LinkSupport;
@@ -20,9 +22,12 @@ import com.wireframesketcher.model.Text;
 import com.wireframesketcher.model.TextAlignment;
 
 import com.wireframesketcher.model.TextAlignmentSupport;
+import com.wireframesketcher.model.TextLinksSupport;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import com.wireframesketcher.model.WidgetDescriptor;
 
@@ -30,6 +35,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +50,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getForeground <em>Foreground</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getLineHeight <em>Line Height</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TextImpl#getItems <em>Items</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TextImpl#isDummyText <em>Dummy Text</em>}</li>
  * </ul>
  * </p>
@@ -139,6 +147,16 @@ public class TextImpl extends WidgetImpl implements Text {
 	 * @ordered
 	 */
 	protected LineHeight lineHeight = LINE_HEIGHT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
 	/**
 	 * The default value of the '{@link #isDummyText() <em>Dummy Text</em>}' attribute.
@@ -293,6 +311,18 @@ public class TextImpl extends WidgetImpl implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.TEXT__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isDummyText() {
 		return dummyText;
 	}
@@ -340,6 +370,8 @@ public class TextImpl extends WidgetImpl implements Text {
 		switch (featureID) {
 			case ModelPackage.TEXT__FONT:
 				return basicSetFont(null, msgs);
+			case ModelPackage.TEXT__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -362,6 +394,8 @@ public class TextImpl extends WidgetImpl implements Text {
 				return getLink();
 			case ModelPackage.TEXT__LINE_HEIGHT:
 				return getLineHeight();
+			case ModelPackage.TEXT__ITEMS:
+				return getItems();
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				return isDummyText();
 		}
@@ -373,6 +407,7 @@ public class TextImpl extends WidgetImpl implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -390,6 +425,10 @@ public class TextImpl extends WidgetImpl implements Text {
 				return;
 			case ModelPackage.TEXT__LINE_HEIGHT:
 				setLineHeight((LineHeight)newValue);
+				return;
+			case ModelPackage.TEXT__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				setDummyText((Boolean)newValue);
@@ -421,6 +460,9 @@ public class TextImpl extends WidgetImpl implements Text {
 			case ModelPackage.TEXT__LINE_HEIGHT:
 				setLineHeight(LINE_HEIGHT_EDEFAULT);
 				return;
+			case ModelPackage.TEXT__ITEMS:
+				getItems().clear();
+				return;
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				setDummyText(DUMMY_TEXT_EDEFAULT);
 				return;
@@ -446,6 +488,8 @@ public class TextImpl extends WidgetImpl implements Text {
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case ModelPackage.TEXT__LINE_HEIGHT:
 				return LINE_HEIGHT_EDEFAULT == null ? lineHeight != null : !LINE_HEIGHT_EDEFAULT.equals(lineHeight);
+			case ModelPackage.TEXT__ITEMS:
+				return items != null && !items.isEmpty();
 			case ModelPackage.TEXT__DUMMY_TEXT:
 				return dummyText != DUMMY_TEXT_EDEFAULT;
 		}
@@ -489,6 +533,17 @@ public class TextImpl extends WidgetImpl implements Text {
 				default: return -1;
 			}
 		}
+		if (baseClass == ItemSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TEXT__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -526,6 +581,17 @@ public class TextImpl extends WidgetImpl implements Text {
 		if (baseClass == LineHeightSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.LINE_HEIGHT_SUPPORT__LINE_HEIGHT: return ModelPackage.TEXT__LINE_HEIGHT;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.TEXT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

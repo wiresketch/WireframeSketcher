@@ -878,7 +878,7 @@ class OverridesHelper implements IInstanceStrategy {
 				ItemSupport rightWidget) {
 			EList<Item> leftValue = leftWidget.getItems();
 			EList<Item> rightValue = rightWidget.getItems();
-			if (leftValue.size() != 0 && rightValue.size() != 0) {
+			if (leftValue.size() != 0 || rightValue.size() != 0) {
 				Item[] leftAry = leftValue.toArray(new Item[leftValue.size()]);
 				Item[] rightAry = rightValue
 						.toArray(new Item[rightValue.size()]);

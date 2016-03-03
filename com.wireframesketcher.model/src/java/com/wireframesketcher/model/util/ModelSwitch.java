@@ -163,7 +163,9 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseIconPositionSupport(label);
 				if (result == null) result = caseLinkSupport(label);
 				if (result == null) result = caseRotationSupport(label);
+				if (result == null) result = caseTextLinksSupport(label);
 				if (result == null) result = caseIconSupport(label);
+				if (result == null) result = caseItemSupport(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -260,6 +262,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorForegroundSupport(text);
 				if (result == null) result = caseLinkSupport(text);
 				if (result == null) result = caseLineHeightSupport(text);
+				if (result == null) result = caseTextLinksSupport(text);
+				if (result == null) result = caseItemSupport(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -348,7 +352,9 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseFontSupport(table);
 				if (result == null) result = caseTextAlignmentSupport(table);
 				if (result == null) result = caseColorAlternativeSupport(table);
+				if (result == null) result = caseTextLinksSupport(table);
 				if (result == null) result = caseValueSupport(table);
+				if (result == null) result = caseItemSupport(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -390,7 +396,9 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorBorderSupport(textArea);
 				if (result == null) result = caseSkinSupport(textArea);
 				if (result == null) result = caseLineHeightSupport(textArea);
+				if (result == null) result = caseTextLinksSupport(textArea);
 				if (result == null) result = caseValueSupport(textArea);
+				if (result == null) result = caseItemSupport(textArea);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -508,6 +516,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseLinkSupport(image);
 				if (result == null) result = caseRotationSupport(image);
 				if (result == null) result = caseFlipSupport(image);
+				if (result == null) result = caseBorderSupport(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -576,6 +585,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseLinkSupport(note);
 				if (result == null) result = caseSkinSupport(note);
 				if (result == null) result = caseAnnotationSupport(note);
+				if (result == null) result = caseTextLinksSupport(note);
+				if (result == null) result = caseItemSupport(note);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -622,6 +633,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseTextAlignmentSupport(tooltip);
 				if (result == null) result = caseColorBackgroundSupport(tooltip);
 				if (result == null) result = caseSkinSupport(tooltip);
+				if (result == null) result = caseTextLinksSupport(tooltip);
+				if (result == null) result = caseItemSupport(tooltip);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -794,6 +807,8 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorForegroundSupport(curlyBrace);
 				if (result == null) result = caseSkinSupport(curlyBrace);
 				if (result == null) result = caseAnnotationSupport(curlyBrace);
+				if (result == null) result = caseTextLinksSupport(curlyBrace);
+				if (result == null) result = caseItemSupport(curlyBrace);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1021,6 +1036,13 @@ public class ModelSwitch<T> {
 			case ModelPackage.ANNOTATION_SUPPORT: {
 				AnnotationSupport annotationSupport = (AnnotationSupport)theEObject;
 				T result = caseAnnotationSupport(annotationSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.TEXT_LINKS_SUPPORT: {
+				TextLinksSupport textLinksSupport = (TextLinksSupport)theEObject;
+				T result = caseTextLinksSupport(textLinksSupport);
+				if (result == null) result = caseItemSupport(textLinksSupport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2330,6 +2352,21 @@ public class ModelSwitch<T> {
 	 * @generated
 	 */
 	public T caseAnnotationSupport(AnnotationSupport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Links Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Links Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextLinksSupport(TextLinksSupport object) {
 		return null;
 	}
 

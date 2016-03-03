@@ -1309,4 +1309,59 @@ public class MasterImplTest extends TestCase {
 		
 		bMaster.setScreen(null);
 	}	
+	
+	public void testInsertItemsIntoEmpty() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		ButtonBar buttonBar = ModelFactory.eINSTANCE.createButtonBar();
+		buttonBar.setId(new Long(1));
+		buttonBar.setX(10);
+		buttonBar.setY(0);
+		a.getWidgets().add(buttonBar);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		ButtonBar buttonBarInstance = (ButtonBar) master.getInstance()
+				.getWidgets().get(0);
+
+		// Insert item
+		Item item1 = ModelFactory.eINSTANCE.createItem();
+		item1.setText("Item1");
+		buttonBarInstance.getItems().add(item1);
+		
+		Overrides overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		EList<Operation> ic = wo.getItemChanges();
+		assertEquals(1, ic.size());
+		Operation op = ic.get(0);
+		assertTrue(op instanceof Insert);
+		Insert insert = (Insert) op;
+		assertEquals(0, insert.getNewIndex());
+		assertTrue(insert.getObject() instanceof Item);
+		Item item = (Item) insert.getObject();
+		assertEquals("Item1", item.getText());
+		
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		buttonBarInstance = (ButtonBar) master.getInstance().getWidgets()
+				.get(0);
+		assertEquals(1, buttonBarInstance.getItems().size());
+		assertEquals("Item1", buttonBarInstance.getItems().get(0).getText());
+	}	
 }

@@ -13,12 +13,16 @@ import com.wireframesketcher.model.FontSupport;
 import com.wireframesketcher.model.IconDesc;
 import com.wireframesketcher.model.IconPositionSupport;
 import com.wireframesketcher.model.IconSupport;
+import com.wireframesketcher.model.Item;
+import com.wireframesketcher.model.ItemSupport;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import com.wireframesketcher.model.Label;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
@@ -31,10 +35,13 @@ import com.wireframesketcher.model.StateSupport;
 import com.wireframesketcher.model.TextAlignment;
 
 import com.wireframesketcher.model.TextAlignmentSupport;
+import com.wireframesketcher.model.TextLinksSupport;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetDescriptor;
@@ -55,6 +62,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getIconPosition <em>Icon Position</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getLink <em>Link</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getRotation <em>Rotation</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.LabelImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -230,6 +238,16 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 */
 	protected Rotation90 rotation = ROTATION_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
+
 	private static final WidgetDescriptor DESCRIPTOR = describe("Label", ResizeMode.HORIZONTAL_LITERAL);
 	
 	private static final WidgetDescriptor ROTATED_DESCRIPTOR = describe("Label", ResizeMode.VERTICAL_LITERAL);
@@ -384,6 +402,18 @@ public class LabelImpl extends WidgetImpl implements Label {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.LABEL__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isValidState(State state) {
 		return state == State.NORMAL || state == State.DISABLED; 
@@ -484,6 +514,8 @@ public class LabelImpl extends WidgetImpl implements Label {
 		switch (featureID) {
 			case ModelPackage.LABEL__FONT:
 				return basicSetFont(null, msgs);
+			case ModelPackage.LABEL__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -514,6 +546,8 @@ public class LabelImpl extends WidgetImpl implements Label {
 				return getLink();
 			case ModelPackage.LABEL__ROTATION:
 				return getRotation();
+			case ModelPackage.LABEL__ITEMS:
+				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -523,6 +557,7 @@ public class LabelImpl extends WidgetImpl implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -552,6 +587,10 @@ public class LabelImpl extends WidgetImpl implements Label {
 				return;
 			case ModelPackage.LABEL__ROTATION:
 				setRotation((Rotation90)newValue);
+				return;
+			case ModelPackage.LABEL__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -592,6 +631,9 @@ public class LabelImpl extends WidgetImpl implements Label {
 			case ModelPackage.LABEL__ROTATION:
 				setRotation(ROTATION_EDEFAULT);
 				return;
+			case ModelPackage.LABEL__ITEMS:
+				getItems().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -622,6 +664,8 @@ public class LabelImpl extends WidgetImpl implements Label {
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
 			case ModelPackage.LABEL__ROTATION:
 				return rotation != ROTATION_EDEFAULT;
+			case ModelPackage.LABEL__ITEMS:
+				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -682,6 +726,17 @@ public class LabelImpl extends WidgetImpl implements Label {
 				default: return -1;
 			}
 		}
+		if (baseClass == ItemSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.LABEL__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -738,6 +793,17 @@ public class LabelImpl extends WidgetImpl implements Label {
 		if (baseClass == RotationSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.ROTATION_SUPPORT__ROTATION: return ModelPackage.LABEL__ROTATION;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.LABEL__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

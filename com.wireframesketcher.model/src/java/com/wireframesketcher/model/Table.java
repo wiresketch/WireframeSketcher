@@ -24,7 +24,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Table extends Widget, SelectionSupport, BorderSupport, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, ListSupport, FontSupport, TextAlignmentSupport, ColorAlternativeSupport {
+public interface Table extends Widget, SelectionSupport, BorderSupport, VerticalScrollbarSupport, ColorBackgroundSupport, ColorAlphaSupport, ListSupport, FontSupport, TextAlignmentSupport, ColorAlternativeSupport, TextLinksSupport {
 
 	/**
 	 * Returns the value of the '<em><b>Vertical Lines</b></em>' attribute.

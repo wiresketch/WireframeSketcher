@@ -23,7 +23,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Text extends Widget, FontSupport, TextAlignmentSupport, ColorForegroundSupport, LinkSupport, LineHeightSupport {
+public interface Text extends Widget, FontSupport, TextAlignmentSupport, ColorForegroundSupport, LinkSupport, LineHeightSupport, TextLinksSupport {
 	/**
 	 * Returns the value of the '<em><b>Dummy Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->

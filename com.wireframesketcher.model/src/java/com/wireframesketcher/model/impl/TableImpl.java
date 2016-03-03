@@ -13,6 +13,8 @@ import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.Item;
+import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.ListSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
@@ -21,15 +23,20 @@ import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.Table;
 import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextAlignmentSupport;
+import com.wireframesketcher.model.TextLinksSupport;
 import com.wireframesketcher.model.ValueSupport;
 import com.wireframesketcher.model.VerticalScrollbarSupport;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import com.wireframesketcher.model.WidgetDescriptor;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +56,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.wireframesketcher.model.impl.TableImpl#getFont <em>Font</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TableImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TableImpl#getAlternative <em>Alternative</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TableImpl#getItems <em>Items</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TableImpl#isVerticalLines <em>Vertical Lines</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TableImpl#isHeader <em>Header</em>}</li>
  * </ul>
@@ -246,6 +254,15 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * @ordered
 	 */
 	protected ColorDesc alternative = ALTERNATIVE_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 	/**
 	 * The default value of the '{@link #isVerticalLines() <em>Vertical Lines</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -541,6 +558,18 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.TABLE__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isVerticalLines() {
 		return verticalLines;
 	}
@@ -588,6 +617,8 @@ public class TableImpl extends WidgetImpl implements Table {
 		switch (featureID) {
 			case ModelPackage.TABLE__FONT:
 				return basicSetFont(null, msgs);
+			case ModelPackage.TABLE__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -643,6 +674,8 @@ public class TableImpl extends WidgetImpl implements Table {
 				return getTextAlignment();
 			case ModelPackage.TABLE__ALTERNATIVE:
 				return getAlternative();
+			case ModelPackage.TABLE__ITEMS:
+				return getItems();
 			case ModelPackage.TABLE__VERTICAL_LINES:
 				return isVerticalLines();
 			case ModelPackage.TABLE__HEADER:
@@ -656,6 +689,7 @@ public class TableImpl extends WidgetImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -691,6 +725,10 @@ public class TableImpl extends WidgetImpl implements Table {
 				return;
 			case ModelPackage.TABLE__ALTERNATIVE:
 				setAlternative((ColorDesc)newValue);
+				return;
+			case ModelPackage.TABLE__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 			case ModelPackage.TABLE__VERTICAL_LINES:
 				setVerticalLines((Boolean)newValue);
@@ -743,6 +781,9 @@ public class TableImpl extends WidgetImpl implements Table {
 			case ModelPackage.TABLE__ALTERNATIVE:
 				setAlternative(ALTERNATIVE_EDEFAULT);
 				return;
+			case ModelPackage.TABLE__ITEMS:
+				getItems().clear();
+				return;
 			case ModelPackage.TABLE__VERTICAL_LINES:
 				setVerticalLines(VERTICAL_LINES_EDEFAULT);
 				return;
@@ -783,6 +824,8 @@ public class TableImpl extends WidgetImpl implements Table {
 				return textAlignment != TEXT_ALIGNMENT_EDEFAULT;
 			case ModelPackage.TABLE__ALTERNATIVE:
 				return ALTERNATIVE_EDEFAULT == null ? alternative != null : !ALTERNATIVE_EDEFAULT.equals(alternative);
+			case ModelPackage.TABLE__ITEMS:
+				return items != null && !items.isEmpty();
 			case ModelPackage.TABLE__VERTICAL_LINES:
 				return verticalLines != VERTICAL_LINES_EDEFAULT;
 			case ModelPackage.TABLE__HEADER:
@@ -859,6 +902,17 @@ public class TableImpl extends WidgetImpl implements Table {
 				default: return -1;
 			}
 		}
+		if (baseClass == ItemSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TABLE__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -927,6 +981,17 @@ public class TableImpl extends WidgetImpl implements Table {
 		if (baseClass == ColorAlternativeSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.COLOR_ALTERNATIVE_SUPPORT__ALTERNATIVE: return ModelPackage.TABLE__ALTERNATIVE;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.TABLE__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

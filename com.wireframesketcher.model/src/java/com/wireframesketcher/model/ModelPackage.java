@@ -1259,13 +1259,22 @@ public interface ModelPackage extends EPackage {
 	int LABEL__ROTATION = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ITEMS = WIDGET_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 9;
+	int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LinkImpl <em>Link</em>}' class.
@@ -2978,13 +2987,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT__LINE_HEIGHT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ITEMS = WIDGET_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Dummy Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__DUMMY_TEXT = WIDGET_FEATURE_COUNT + 5;
+	int TEXT__DUMMY_TEXT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -2993,7 +3011,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4481,13 +4499,22 @@ public interface ModelPackage extends EPackage {
 	int TABLE__ALTERNATIVE = WIDGET_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ITEMS = WIDGET_FEATURE_COUNT + 11;
+
+	/**
 	 * The feature id for the '<em><b>Vertical Lines</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__VERTICAL_LINES = WIDGET_FEATURE_COUNT + 11;
+	int TABLE__VERTICAL_LINES = WIDGET_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Header</b></em>' attribute.
@@ -4496,7 +4523,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__HEADER = WIDGET_FEATURE_COUNT + 12;
+	int TABLE__HEADER = WIDGET_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -4505,7 +4532,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 13;
+	int TABLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5129,13 +5156,22 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA__LINE_HEIGHT = WIDGET_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__ITEMS = WIDGET_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Text Area</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
+	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7013,13 +7049,22 @@ public interface ModelPackage extends EPackage {
 	int IMAGE__VFLIP = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Border</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__BORDER = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Src</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__SRC = WIDGET_FEATURE_COUNT + 4;
+	int IMAGE__SRC = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Grayscale</b></em>' attribute.
@@ -7028,7 +7073,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE__GRAYSCALE = WIDGET_FEATURE_COUNT + 5;
+	int IMAGE__GRAYSCALE = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Image</em>' class.
@@ -7037,7 +7082,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int IMAGE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ScreenFontImpl <em>Screen Font</em>}' class.
@@ -7518,13 +7563,22 @@ public interface ModelPackage extends EPackage {
 	int NOTE__SKIN = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__ITEMS = WIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Note</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+	int NOTE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ProgressBarImpl <em>Progress Bar</em>}' class.
@@ -8287,13 +8341,22 @@ public interface ModelPackage extends EPackage {
 	int TOOLTIP__SKIN = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP__ITEMS = WIDGET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLTIP__POSITION = WIDGET_FEATURE_COUNT + 4;
+	int TOOLTIP__POSITION = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Tooltip</em>' class.
@@ -8302,7 +8365,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLTIP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+	int TOOLTIP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ScratchOutImpl <em>Scratch Out</em>}' class.
@@ -11006,13 +11069,22 @@ public interface ModelPackage extends EPackage {
 	int CURLY_BRACE__SKIN = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CURLY_BRACE__ITEMS = WIDGET_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CURLY_BRACE__POSITION = WIDGET_FEATURE_COUNT + 3;
+	int CURLY_BRACE__POSITION = WIDGET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Curly Brace</em>' class.
@@ -11021,7 +11093,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CURLY_BRACE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+	int CURLY_BRACE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ButtonBarImpl <em>Button Bar</em>}' class.
@@ -13821,6 +13893,34 @@ public interface ModelPackage extends EPackage {
 	int ANNOTATION_SUPPORT_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.TextLinksSupport <em>Text Links Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.TextLinksSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextLinksSupport()
+	 * @generated
+	 */
+	int TEXT_LINKS_SUPPORT = 97;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LINKS_SUPPORT__ITEMS = ITEM_SUPPORT__ITEMS;
+
+	/**
+	 * The number of structural features of the '<em>Text Links Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LINKS_SUPPORT_FEATURE_COUNT = ITEM_SUPPORT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ResizeMode <em>Resize Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13828,7 +13928,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 97;
+	int RESIZE_MODE = 98;
 
 
 	/**
@@ -13839,7 +13939,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 98;
+	int TEXT_ALIGNMENT = 99;
 
 
 	/**
@@ -13850,7 +13950,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 99;
+	int ICON_SIZE = 100;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -13860,7 +13960,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 100;
+	int STATE = 101;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -13870,7 +13970,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 101;
+	int POSITION = 102;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -13880,7 +13980,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 102;
+	int BORDER_STYLE = 103;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -13890,7 +13990,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 103;
+	int BUTTON_STYLE = 104;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -13900,7 +14000,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 104;
+	int CHART_TYPE = 105;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -13910,7 +14010,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 105;
+	int THEME = 106;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -13920,7 +14020,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 106;
+	int LINE_STYLE = 107;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -13930,7 +14030,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 107;
+	int ROTATION90 = 108;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
@@ -13940,7 +14040,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
 	 * @generated
 	 */
-	int SHAPE_TYPE = 108;
+	int SHAPE_TYPE = 109;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -13950,7 +14050,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 109;
+	int ICON_DATA_TYPE = 110;
 
 
 	/**
@@ -13961,7 +14061,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 110;
+	int FONT_SIZE_DATA_TYPE = 111;
 
 
 	/**
@@ -13972,7 +14072,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 111;
+	int COLOR_DATA_TYPE = 112;
 
 
 	/**
@@ -13983,7 +14083,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 112;
+	int URI_DATA_TYPE = 113;
 
 
 	/**
@@ -13993,7 +14093,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
 	 * @generated
 	 */
-	int SELECTION_DATA_TYPE = 113;
+	int SELECTION_DATA_TYPE = 114;
 
 
 	/**
@@ -14004,7 +14104,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
 	 * @generated
 	 */
-	int VERSION_DATA_TYPE = 114;
+	int VERSION_DATA_TYPE = 115;
 
 
 	/**
@@ -14015,7 +14115,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightDataType()
 	 * @generated
 	 */
-	int LINE_HEIGHT_DATA_TYPE = 115;
+	int LINE_HEIGHT_DATA_TYPE = 116;
 
 
 	/**
@@ -14026,7 +14126,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLayoutParamsDataType()
 	 * @generated
 	 */
-	int LAYOUT_PARAMS_DATA_TYPE = 116;
+	int LAYOUT_PARAMS_DATA_TYPE = 117;
 
 
 	/**
@@ -15912,6 +16012,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAnnotationSupport();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.TextLinksSupport <em>Text Links Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Links Support</em>'.
+	 * @see com.wireframesketcher.model.TextLinksSupport
+	 * @generated
+	 */
+	EClass getTextLinksSupport();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
@@ -17883,6 +17993,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ANNOTATION_SUPPORT = eINSTANCE.getAnnotationSupport();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.TextLinksSupport <em>Text Links Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.TextLinksSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextLinksSupport()
+		 * @generated
+		 */
+		EClass TEXT_LINKS_SUPPORT = eINSTANCE.getTextLinksSupport();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.

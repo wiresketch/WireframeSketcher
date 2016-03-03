@@ -105,7 +105,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Checkbox" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Combo" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//StateSupport #//IconSupport #//IconPositionSupport #//LinkSupport #//RotationSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//StateSupport #//IconSupport #//IconPositionSupport #//LinkSupport #//RotationSupport #//TextLinksSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//LinkSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Placeholder" eSuperTypes="#//Widget #//LinkSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport #//SkinSupport"/>
@@ -132,7 +132,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Browser" eSuperTypes="#//Widget #//VerticalScrollbarSupport #//ColorBackgroundSupport #//SkinSupport #//ColorAlphaSupport #//FontSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//LinkSupport #//LineHeightSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//LinkSupport #//LineHeightSupport #//TextLinksSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dummyText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="If true then Lorem Ipsum default text is used."/>
@@ -152,7 +152,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Popup" eSuperTypes="#//Widget #//SelectionSupport #//ItemSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//Widget #//SelectionSupport #//IconSupport #//ItemSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Widget #//SelectionSupport #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ListSupport #//FontSupport #//TextAlignmentSupport #//ColorAlternativeSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Widget #//SelectionSupport #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ListSupport #//FontSupport #//TextAlignmentSupport #//ColorAlternativeSupport #//TextLinksSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalLines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -168,7 +168,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//Widget #//BorderSupport #//VerticalScrollbarSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//SelectionSupport #//ItemSupport #//FontSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Widget #//ColorForegroundSupport #//IconSupport #//LinkSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TextArea" eSuperTypes="#//Widget #//StateSupport #//VerticalScrollbarSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorBorderSupport #//SkinSupport #//LineHeightSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextArea" eSuperTypes="#//Widget #//StateSupport #//VerticalScrollbarSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//ColorBorderSupport #//SkinSupport #//LineHeightSupport #//TextLinksSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HScrollbar" eSuperTypes="#//Widget #//ValueSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="VScrollbar" eSuperTypes="#//Widget #//ValueSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HLine" eSuperTypes="#//Widget #//ColorForegroundSupport #//LineStyleSupport #//SkinSupport"/>
@@ -264,7 +264,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Widget #//LinkSupport #//RotationSupport #//FlipSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Widget #//LinkSupport #//RotationSupport #//FlipSupport #//BorderSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="src" eType="#//URIDataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Image source file path. Can be absolute or relative."/>
@@ -351,11 +351,11 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Note" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport #//SkinSupport #//AnnotationSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Note" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport #//SkinSupport #//AnnotationSupport #//TextLinksSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProgressBar" eSuperTypes="#//Widget #//ValueSupport #//ColorBackgroundSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Callout" eSuperTypes="#//Widget #//FontSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport #//SkinSupport #//AnnotationSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="SearchField" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//ColorBorderSupport #//LinkSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Tooltip" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//SkinSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="Tooltip" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//SkinSupport #//TextLinksSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
         eType="#//Position" defaultValueLiteral="bottomLeft">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -457,7 +457,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Position"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CurlyBrace" eSuperTypes="#//Widget #//FontSupport #//ColorForegroundSupport #//SkinSupport #//AnnotationSupport">
+  <eClassifiers xsi:type="ecore:EClass" name="CurlyBrace" eSuperTypes="#//Widget #//FontSupport #//ColorForegroundSupport #//SkinSupport #//AnnotationSupport #//TextLinksSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
         eType="#//Position" defaultValueLiteral="left"/>
   </eClassifiers>
@@ -658,6 +658,8 @@
   <eClassifiers xsi:type="ecore:EDataType" name="LayoutParamsDataType" instanceClassName="com.wireframesketcher.model.LayoutParams"/>
   <eClassifiers xsi:type="ecore:EClass" name="VButtonBar" eSuperTypes="#//Widget #//SelectionSupport #//FontSupport #//TextAlignmentSupport #//ColorBackgroundSupport #//ItemSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationSupport" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextLinksSupport" abstract="true" interface="true"
+      eSuperTypes="#//ItemSupport"/>
   <eSubpackages name="story" nsURI="http://wireframesketcher.com/1.0/model/story"
       nsPrefix="story">
     <eClassifiers xsi:type="ecore:EClass" name="Storyboard">

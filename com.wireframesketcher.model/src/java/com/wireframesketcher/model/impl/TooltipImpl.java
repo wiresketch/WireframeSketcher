@@ -10,13 +10,18 @@ import com.wireframesketcher.model.ColorBackgroundSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.Item;
+import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Position;
@@ -24,7 +29,9 @@ import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextAlignmentSupport;
+import com.wireframesketcher.model.TextLinksSupport;
 import com.wireframesketcher.model.Tooltip;
+import java.util.Collection;
 import com.wireframesketcher.model.WidgetDescriptor;
 
 /**
@@ -38,6 +45,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.TooltipImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TooltipImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TooltipImpl#getSkin <em>Skin</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.TooltipImpl#getItems <em>Items</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.TooltipImpl#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
@@ -114,6 +122,16 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 	 * @ordered
 	 */
 	protected URI skin = SKIN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
 	/**
 	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
@@ -266,6 +284,18 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.TOOLTIP__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Position getPosition() {
 		return position;
 	}
@@ -292,6 +322,8 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 		switch (featureID) {
 			case ModelPackage.TOOLTIP__FONT:
 				return basicSetFont(null, msgs);
+			case ModelPackage.TOOLTIP__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -312,6 +344,8 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 				return getBackground();
 			case ModelPackage.TOOLTIP__SKIN:
 				return getSkin();
+			case ModelPackage.TOOLTIP__ITEMS:
+				return getItems();
 			case ModelPackage.TOOLTIP__POSITION:
 				return getPosition();
 		}
@@ -323,6 +357,7 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -337,6 +372,10 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 				return;
 			case ModelPackage.TOOLTIP__SKIN:
 				setSkin((URI)newValue);
+				return;
+			case ModelPackage.TOOLTIP__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 			case ModelPackage.TOOLTIP__POSITION:
 				setPosition((Position)newValue);
@@ -365,6 +404,9 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 			case ModelPackage.TOOLTIP__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
+			case ModelPackage.TOOLTIP__ITEMS:
+				getItems().clear();
+				return;
 			case ModelPackage.TOOLTIP__POSITION:
 				setPosition(POSITION_EDEFAULT);
 				return;
@@ -388,6 +430,8 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 				return BACKGROUND_EDEFAULT == null ? background != null : !BACKGROUND_EDEFAULT.equals(background);
 			case ModelPackage.TOOLTIP__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
+			case ModelPackage.TOOLTIP__ITEMS:
+				return items != null && !items.isEmpty();
 			case ModelPackage.TOOLTIP__POSITION:
 				return position != POSITION_EDEFAULT;
 		}
@@ -425,6 +469,17 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 				default: return -1;
 			}
 		}
+		if (baseClass == ItemSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.TOOLTIP__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -456,6 +511,17 @@ public class TooltipImpl extends WidgetImpl implements Tooltip {
 		if (baseClass == SkinSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.SKIN_SUPPORT__SKIN: return ModelPackage.TOOLTIP__SKIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.TOOLTIP__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == TextLinksSupport.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

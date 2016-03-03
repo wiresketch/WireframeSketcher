@@ -115,6 +115,7 @@ import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextAlignmentSupport;
 import com.wireframesketcher.model.TextArea;
 import com.wireframesketcher.model.TextField;
+import com.wireframesketcher.model.TextLinksSupport;
 import com.wireframesketcher.model.Theme;
 import com.wireframesketcher.model.Tooltip;
 import com.wireframesketcher.model.Tree;
@@ -739,6 +740,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass annotationSupportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textLinksSupportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2667,6 +2675,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTextLinksSupport() {
+		return textLinksSupportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpinner() {
 		return spinnerEClass;
 	}
@@ -3248,6 +3265,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		annotationSupportEClass = createEClass(ANNOTATION_SUPPORT);
 
+		textLinksSupportEClass = createEClass(TEXT_LINKS_SUPPORT);
+
 		// Create enums
 		resizeModeEEnum = createEEnum(RESIZE_MODE);
 		textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
@@ -3341,6 +3360,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		labelEClass.getESuperTypes().add(this.getIconPositionSupport());
 		labelEClass.getESuperTypes().add(this.getLinkSupport());
 		labelEClass.getESuperTypes().add(this.getRotationSupport());
+		labelEClass.getESuperTypes().add(this.getTextLinksSupport());
 		linkEClass.getESuperTypes().add(this.getWidget());
 		linkEClass.getESuperTypes().add(this.getFontSupport());
 		linkEClass.getESuperTypes().add(this.getStateSupport());
@@ -3387,6 +3407,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		textEClass.getESuperTypes().add(this.getLinkSupport());
 		textEClass.getESuperTypes().add(this.getLineHeightSupport());
+		textEClass.getESuperTypes().add(this.getTextLinksSupport());
 		areaEClass.getESuperTypes().add(this.getWidget());
 		panelEClass.getESuperTypes().add(this.getWidget());
 		panelEClass.getESuperTypes().add(this.getColorBackgroundSupport());
@@ -3430,6 +3451,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		tableEClass.getESuperTypes().add(this.getFontSupport());
 		tableEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		tableEClass.getESuperTypes().add(this.getColorAlternativeSupport());
+		tableEClass.getESuperTypes().add(this.getTextLinksSupport());
 		treeEClass.getESuperTypes().add(this.getWidget());
 		treeEClass.getESuperTypes().add(this.getBorderSupport());
 		treeEClass.getESuperTypes().add(this.getVerticalScrollbarSupport());
@@ -3452,6 +3474,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		textAreaEClass.getESuperTypes().add(this.getColorBorderSupport());
 		textAreaEClass.getESuperTypes().add(this.getSkinSupport());
 		textAreaEClass.getESuperTypes().add(this.getLineHeightSupport());
+		textAreaEClass.getESuperTypes().add(this.getTextLinksSupport());
 		hScrollbarEClass.getESuperTypes().add(this.getWidget());
 		hScrollbarEClass.getESuperTypes().add(this.getValueSupport());
 		hScrollbarEClass.getESuperTypes().add(this.getSkinSupport());
@@ -3491,6 +3514,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		imageEClass.getESuperTypes().add(this.getLinkSupport());
 		imageEClass.getESuperTypes().add(this.getRotationSupport());
 		imageEClass.getESuperTypes().add(this.getFlipSupport());
+		imageEClass.getESuperTypes().add(this.getBorderSupport());
 		noteEClass.getESuperTypes().add(this.getWidget());
 		noteEClass.getESuperTypes().add(this.getFontSupport());
 		noteEClass.getESuperTypes().add(this.getTextAlignmentSupport());
@@ -3499,6 +3523,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		noteEClass.getESuperTypes().add(this.getLinkSupport());
 		noteEClass.getESuperTypes().add(this.getSkinSupport());
 		noteEClass.getESuperTypes().add(this.getAnnotationSupport());
+		noteEClass.getESuperTypes().add(this.getTextLinksSupport());
 		progressBarEClass.getESuperTypes().add(this.getWidget());
 		progressBarEClass.getESuperTypes().add(this.getValueSupport());
 		progressBarEClass.getESuperTypes().add(this.getColorBackgroundSupport());
@@ -3521,6 +3546,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		tooltipEClass.getESuperTypes().add(this.getTextAlignmentSupport());
 		tooltipEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		tooltipEClass.getESuperTypes().add(this.getSkinSupport());
+		tooltipEClass.getESuperTypes().add(this.getTextLinksSupport());
 		scratchOutEClass.getESuperTypes().add(this.getWidget());
 		scratchOutEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		scratchOutEClass.getESuperTypes().add(this.getColorAlphaSupport());
@@ -3577,6 +3603,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		curlyBraceEClass.getESuperTypes().add(this.getColorForegroundSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getSkinSupport());
 		curlyBraceEClass.getESuperTypes().add(this.getAnnotationSupport());
+		curlyBraceEClass.getESuperTypes().add(this.getTextLinksSupport());
 		buttonBarEClass.getESuperTypes().add(this.getWidget());
 		buttonBarEClass.getESuperTypes().add(this.getSelectionSupport());
 		buttonBarEClass.getESuperTypes().add(this.getFontSupport());
@@ -3654,6 +3681,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		vButtonBarEClass.getESuperTypes().add(this.getColorBackgroundSupport());
 		vButtonBarEClass.getESuperTypes().add(this.getItemSupport());
 		vButtonBarEClass.getESuperTypes().add(this.getSkinSupport());
+		textLinksSupportEClass.getESuperTypes().add(this.getItemSupport());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3948,6 +3976,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(vButtonBarEClass, VButtonBar.class, "VButtonBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(annotationSupportEClass, AnnotationSupport.class, "AnnotationSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(textLinksSupportEClass, TextLinksSupport.class, "TextLinksSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(resizeModeEEnum, ResizeMode.class, "ResizeMode");

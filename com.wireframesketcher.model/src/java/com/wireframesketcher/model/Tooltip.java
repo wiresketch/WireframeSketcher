@@ -23,7 +23,7 @@ package com.wireframesketcher.model;
  * @model
  * @generated
  */
-public interface Tooltip extends Widget, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, SkinSupport {
+public interface Tooltip extends Widget, FontSupport, TextAlignmentSupport, ColorBackgroundSupport, SkinSupport, TextLinksSupport {
 
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' attribute.
