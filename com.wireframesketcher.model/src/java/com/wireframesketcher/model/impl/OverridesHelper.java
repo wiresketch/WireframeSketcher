@@ -219,6 +219,12 @@ class OverridesHelper implements IInstanceStrategy {
 					}
 					return copy;
 				}
+				
+				@Override
+				protected void copyAttribute(EAttribute eAttribute, EObject eObject, EObject copyEObject) {
+					if(!disableInheritance(eAttribute))
+						super.copyAttribute(eAttribute, eObject, copyEObject);
+				}
 			};
 			EObject result = copier.copy(screen);
 			copier.copyReferences();
@@ -358,6 +364,10 @@ class OverridesHelper implements IInstanceStrategy {
 				|| feature.isTransient();
 	}
 
+	private static boolean disableInheritance(EAttribute feature) {
+		return feature == ModelPackage.Literals.NOTE_SUPPORT__NOTE;
+	}
+	
 	private static boolean exists(WidgetContainer ref) {
 		return ref != null && !ref.eIsProxy();
 	}
@@ -984,7 +994,8 @@ class OverridesHelper implements IInstanceStrategy {
 				if (ignoreFeature(eAttribute))
 					continue;
 
-				Object leftValue = leftWidget.eGet(eAttribute);
+				Object leftValue = disableInheritance(eAttribute) ? eAttribute.getDefaultValue()
+						: leftWidget.eGet(eAttribute);
 				Object rightValue = rightWidget.eGet(eAttribute);
 
 				if (!eq(leftValue, rightValue)) {
@@ -1088,7 +1099,8 @@ class OverridesHelper implements IInstanceStrategy {
 
 			if (left instanceof Widget) {
 				// update widget overrides
-				Object leftValue = leftWidget.eGet(eAttribute);
+				Object leftValue = disableInheritance(eAttribute) ? eAttribute.getDefaultValue()
+						: leftWidget.eGet(eAttribute);
 				Object rightValue = notification.getNewValue();
 
 				EStructuralFeature f = OverridesPackage.Literals.WIDGET_OVERRIDES

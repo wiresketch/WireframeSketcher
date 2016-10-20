@@ -109,13 +109,22 @@ public interface ModelPackage extends EPackage {
 	int SCREEN__WIDGETS = WIDGET_CONTAINER__WIDGETS;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREEN__NOTE = WIDGET_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>HRuler</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN__HRULER = WIDGET_CONTAINER_FEATURE_COUNT + 0;
+	int SCREEN__HRULER = WIDGET_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>VRuler</b></em>' containment reference.
@@ -124,7 +133,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN__VRULER = WIDGET_CONTAINER_FEATURE_COUNT + 1;
+	int SCREEN__VRULER = WIDGET_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -133,7 +142,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN__NAME = WIDGET_CONTAINER_FEATURE_COUNT + 2;
+	int SCREEN__NAME = WIDGET_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Font</b></em>' containment reference.
@@ -142,7 +151,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN__FONT = WIDGET_CONTAINER_FEATURE_COUNT + 3;
+	int SCREEN__FONT = WIDGET_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Theme</b></em>' attribute.
@@ -151,7 +160,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN__THEME = WIDGET_CONTAINER_FEATURE_COUNT + 4;
+	int SCREEN__THEME = WIDGET_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Min Version</b></em>' attribute.
@@ -160,7 +169,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN__MIN_VERSION = WIDGET_CONTAINER_FEATURE_COUNT + 5;
+	int SCREEN__MIN_VERSION = WIDGET_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Screen</em>' class.
@@ -169,7 +178,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN_FEATURE_COUNT = WIDGET_CONTAINER_FEATURE_COUNT + 6;
+	int SCREEN_FEATURE_COUNT = WIDGET_CONTAINER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ScreenRulerImpl <em>Screen Ruler</em>}' class.
@@ -228,6 +237,34 @@ public interface ModelPackage extends EPackage {
 	int RULER_GUIDE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link com.wireframesketcher.model.NoteSupport <em>Note Support</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.wireframesketcher.model.NoteSupport
+	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getNoteSupport()
+	 * @generated
+	 */
+	int NOTE_SUPPORT = 98;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE_SUPPORT__NOTE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Note Support</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE_SUPPORT_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.WidgetImpl <em>Widget</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -238,13 +275,22 @@ public interface ModelPackage extends EPackage {
 	int WIDGET = 3;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__NOTE = NOTE_SUPPORT__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__ID = 0;
+	int WIDGET__ID = NOTE_SUPPORT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -253,7 +299,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__CONTAINER = 1;
+	int WIDGET__CONTAINER = NOTE_SUPPORT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -262,7 +308,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__X = 2;
+	int WIDGET__X = NOTE_SUPPORT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -271,7 +317,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__Y = 3;
+	int WIDGET__Y = NOTE_SUPPORT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -280,7 +326,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__WIDTH = 4;
+	int WIDGET__WIDTH = NOTE_SUPPORT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -289,7 +335,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__HEIGHT = 5;
+	int WIDGET__HEIGHT = NOTE_SUPPORT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -298,7 +344,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__TEXT = 6;
+	int WIDGET__TEXT = NOTE_SUPPORT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Descriptor</b></em>' reference.
@@ -307,7 +353,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__DESCRIPTOR = 7;
+	int WIDGET__DESCRIPTOR = NOTE_SUPPORT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Locked</b></em>' attribute.
@@ -316,7 +362,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__LOCKED = 8;
+	int WIDGET__LOCKED = NOTE_SUPPORT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Measured Width</b></em>' attribute.
@@ -325,7 +371,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__MEASURED_WIDTH = 9;
+	int WIDGET__MEASURED_WIDTH = NOTE_SUPPORT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Measured Height</b></em>' attribute.
@@ -334,7 +380,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__MEASURED_HEIGHT = 10;
+	int WIDGET__MEASURED_HEIGHT = NOTE_SUPPORT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Custom Id</b></em>' attribute.
@@ -343,7 +389,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__CUSTOM_ID = 11;
+	int WIDGET__CUSTOM_ID = NOTE_SUPPORT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Custom Data</b></em>' attribute.
@@ -352,7 +398,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__CUSTOM_DATA = 12;
+	int WIDGET__CUSTOM_DATA = NOTE_SUPPORT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
@@ -361,7 +407,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__ANNOTATION = 13;
+	int WIDGET__ANNOTATION = NOTE_SUPPORT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Layout Params</b></em>' attribute.
@@ -370,7 +416,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__LAYOUT_PARAMS = 14;
+	int WIDGET__LAYOUT_PARAMS = NOTE_SUPPORT_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
@@ -379,7 +425,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_FEATURE_COUNT = 15;
+	int WIDGET_FEATURE_COUNT = NOTE_SUPPORT_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.ButtonImpl <em>Button</em>}' class.
@@ -390,6 +436,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int BUTTON = 4;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -627,6 +682,15 @@ public interface ModelPackage extends EPackage {
 	int CHECKBOX = 5;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKBOX__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,6 +888,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int COMBO = 6;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1041,6 +1114,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int LABEL = 7;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1287,6 +1369,15 @@ public interface ModelPackage extends EPackage {
 	int LINK = 8;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1477,6 +1568,15 @@ public interface ModelPackage extends EPackage {
 	int PLACEHOLDER = 9;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEHOLDER__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1647,6 +1747,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int RADIO_BUTTON = 10;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIO_BUTTON__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1846,6 +1955,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int TEXT_FIELD = 11;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FIELD__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2195,6 +2313,15 @@ public interface ModelPackage extends EPackage {
 	int SPINNER = 12;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2391,6 +2518,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPINNER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2609,6 +2745,15 @@ public interface ModelPackage extends EPackage {
 	int WINDOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2805,6 +2950,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BROWSER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3012,6 +3166,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AREA__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3248,6 +3411,15 @@ public interface ModelPackage extends EPackage {
 	int PANEL = 17;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PANEL__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3464,6 +3636,15 @@ public interface ModelPackage extends EPackage {
 	int PANEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3660,6 +3841,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3914,6 +4104,15 @@ public interface ModelPackage extends EPackage {
 	int LIST_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POPUP__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4074,6 +4273,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int POPUP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4263,6 +4471,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MENU_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4535,6 +4752,15 @@ public interface ModelPackage extends EPackage {
 	int TABLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4751,6 +4977,15 @@ public interface ModelPackage extends EPackage {
 	int TREE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICON__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4929,6 +5164,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ICON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5174,6 +5418,15 @@ public interface ModelPackage extends EPackage {
 	int TEXT_AREA_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSCROLLBAR__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5336,6 +5589,15 @@ public interface ModelPackage extends EPackage {
 	int HSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSCROLLBAR__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5496,6 +5758,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VSCROLLBAR_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HLINE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5669,6 +5940,15 @@ public interface ModelPackage extends EPackage {
 	int HLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VLINE__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5838,6 +6118,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VLINE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSLIDER__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6020,6 +6309,15 @@ public interface ModelPackage extends EPackage {
 	int HSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSLIDER__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6198,6 +6496,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VSLIDER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABS__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6498,6 +6805,15 @@ public interface ModelPackage extends EPackage {
 	int WIDGET_GROUP = 36;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_GROUP__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6677,6 +6993,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int MASTER = 37;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTER__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6876,6 +7201,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int IMAGE = 38;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7131,13 +7465,22 @@ public interface ModelPackage extends EPackage {
 	int SCREEN_FONT__ITALIC = 3;
 
 	/**
+	 * The feature id for the '<em><b>Available</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREEN_FONT__AVAILABLE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Screen Font</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCREEN_FONT_FEATURE_COUNT = 4;
+	int SCREEN_FONT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.FontSupport <em>Font Support</em>}' class.
@@ -7374,6 +7717,15 @@ public interface ModelPackage extends EPackage {
 	int NOTE = 48;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7591,6 +7943,15 @@ public interface ModelPackage extends EPackage {
 	int PROGRESS_BAR = 49;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRESS_BAR__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7770,6 +8131,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CALLOUT = 50;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7971,6 +8341,15 @@ public interface ModelPackage extends EPackage {
 	int SEARCH_FIELD = 51;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_FIELD__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8168,6 +8547,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int TOOLTIP = 52;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLTIP__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8376,6 +8764,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int SCRATCH_OUT = 53;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRATCH_OUT__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8615,6 +9012,15 @@ public interface ModelPackage extends EPackage {
 	int BREADCRUMBS = 56;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8794,6 +9200,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int LINK_BAR = 57;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_BAR__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8984,6 +9399,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int ACCORDION = 58;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCORDION__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9320,6 +9744,15 @@ public interface ModelPackage extends EPackage {
 	int VERTICAL_SCROLLBAR_SUPPORT_FEATURE_COUNT = VALUE_SUPPORT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_FIELD__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9509,6 +9942,15 @@ public interface ModelPackage extends EPackage {
 	int DATE_FIELD_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_PLAYER__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9660,6 +10102,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIDEO_PLAYER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAP__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9815,6 +10266,15 @@ public interface ModelPackage extends EPackage {
 	int MAP_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVER_FLOW__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9966,6 +10426,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COVER_FLOW_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABBED_PANE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10220,6 +10689,15 @@ public interface ModelPackage extends EPackage {
 	int ICON_SUPPORT_FEATURE_COUNT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HSPLITTER__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10371,6 +10849,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HSPLITTER_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VSPLITTER__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10534,6 +11021,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int COLOR_PICKER = 69;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOR_PICKER__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10706,6 +11202,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int ARROW = 70;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10907,6 +11412,15 @@ public interface ModelPackage extends EPackage {
 	int CURLY_BRACE = 71;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CURLY_BRACE__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11104,6 +11618,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int BUTTON_BAR = 72;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON_BAR__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -11331,6 +11854,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CIRCLE = 74;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCLE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -11584,6 +12116,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int RECTANGLE = 75;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -11913,6 +12454,15 @@ public interface ModelPackage extends EPackage {
 	int CHART = 78;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHART__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12083,6 +12633,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CROSS_OUT = 79;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSS_OUT__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -12393,6 +12952,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int HOTSPOT = 83;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTSPOT__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -12707,6 +13275,15 @@ public interface ModelPackage extends EPackage {
 	int SVG_IMAGE = 89;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVG_IMAGE__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12959,6 +13536,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int SHAPE = 91;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -13241,6 +13827,15 @@ public interface ModelPackage extends EPackage {
 	int ALERT = 92;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALERT__NOTE = WIDGET__NOTE;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13438,6 +14033,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int SWITCH = 93;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -13674,6 +14278,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int VBUTTON_BAR = 95;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VBUTTON_BAR__NOTE = WIDGET__NOTE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -13928,7 +14541,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getResizeMode()
 	 * @generated
 	 */
-	int RESIZE_MODE = 98;
+	int RESIZE_MODE = 99;
 
 
 	/**
@@ -13939,7 +14552,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTextAlignment()
 	 * @generated
 	 */
-	int TEXT_ALIGNMENT = 99;
+	int TEXT_ALIGNMENT = 100;
 
 
 	/**
@@ -13950,7 +14563,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconSize()
 	 * @generated
 	 */
-	int ICON_SIZE = 100;
+	int ICON_SIZE = 101;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.State <em>State</em>}' enum.
@@ -13960,7 +14573,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 101;
+	int STATE = 102;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Position <em>Position</em>}' enum.
@@ -13970,7 +14583,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 102;
+	int POSITION = 103;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.BorderStyle <em>Border Style</em>}' enum.
@@ -13980,7 +14593,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getBorderStyle()
 	 * @generated
 	 */
-	int BORDER_STYLE = 103;
+	int BORDER_STYLE = 104;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ButtonStyle <em>Button Style</em>}' enum.
@@ -13990,7 +14603,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getButtonStyle()
 	 * @generated
 	 */
-	int BUTTON_STYLE = 104;
+	int BUTTON_STYLE = 105;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ChartType <em>Chart Type</em>}' enum.
@@ -14000,7 +14613,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getChartType()
 	 * @generated
 	 */
-	int CHART_TYPE = 105;
+	int CHART_TYPE = 106;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Theme <em>Theme</em>}' enum.
@@ -14010,7 +14623,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getTheme()
 	 * @generated
 	 */
-	int THEME = 106;
+	int THEME = 107;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.LineStyle <em>Line Style</em>}' enum.
@@ -14020,7 +14633,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineStyle()
 	 * @generated
 	 */
-	int LINE_STYLE = 107;
+	int LINE_STYLE = 108;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.Rotation90 <em>Rotation90</em>}' enum.
@@ -14030,7 +14643,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getRotation90()
 	 * @generated
 	 */
-	int ROTATION90 = 108;
+	int ROTATION90 = 109;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.ShapeType <em>Shape Type</em>}' enum.
@@ -14040,7 +14653,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getShapeType()
 	 * @generated
 	 */
-	int SHAPE_TYPE = 109;
+	int SHAPE_TYPE = 110;
 
 	/**
 	 * The meta object id for the '<em>Icon Data Type</em>' data type.
@@ -14050,7 +14663,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getIconDataType()
 	 * @generated
 	 */
-	int ICON_DATA_TYPE = 110;
+	int ICON_DATA_TYPE = 111;
 
 
 	/**
@@ -14061,7 +14674,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getFontSizeDataType()
 	 * @generated
 	 */
-	int FONT_SIZE_DATA_TYPE = 111;
+	int FONT_SIZE_DATA_TYPE = 112;
 
 
 	/**
@@ -14072,7 +14685,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getColorDataType()
 	 * @generated
 	 */
-	int COLOR_DATA_TYPE = 112;
+	int COLOR_DATA_TYPE = 113;
 
 
 	/**
@@ -14083,7 +14696,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getURIDataType()
 	 * @generated
 	 */
-	int URI_DATA_TYPE = 113;
+	int URI_DATA_TYPE = 114;
 
 
 	/**
@@ -14093,7 +14706,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getSelectionDataType()
 	 * @generated
 	 */
-	int SELECTION_DATA_TYPE = 114;
+	int SELECTION_DATA_TYPE = 115;
 
 
 	/**
@@ -14104,7 +14717,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getVersionDataType()
 	 * @generated
 	 */
-	int VERSION_DATA_TYPE = 115;
+	int VERSION_DATA_TYPE = 116;
 
 
 	/**
@@ -14115,7 +14728,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLineHeightDataType()
 	 * @generated
 	 */
-	int LINE_HEIGHT_DATA_TYPE = 116;
+	int LINE_HEIGHT_DATA_TYPE = 117;
 
 
 	/**
@@ -14126,7 +14739,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getLayoutParamsDataType()
 	 * @generated
 	 */
-	int LAYOUT_PARAMS_DATA_TYPE = 117;
+	int LAYOUT_PARAMS_DATA_TYPE = 118;
 
 
 	/**
@@ -15000,6 +15613,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getScreenFont_Italic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.ScreenFont#getAvailable <em>Available</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Available</em>'.
+	 * @see com.wireframesketcher.model.ScreenFont#getAvailable()
+	 * @see #getScreenFont()
+	 * @generated
+	 */
+	EAttribute getScreenFont_Available();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.FontSupport <em>Font Support</em>}'.
@@ -16022,6 +16646,27 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTextLinksSupport();
+
+	/**
+	 * Returns the meta object for class '{@link com.wireframesketcher.model.NoteSupport <em>Note Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Note Support</em>'.
+	 * @see com.wireframesketcher.model.NoteSupport
+	 * @generated
+	 */
+	EClass getNoteSupport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.wireframesketcher.model.NoteSupport#getNote <em>Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Note</em>'.
+	 * @see com.wireframesketcher.model.NoteSupport#getNote()
+	 * @see #getNoteSupport()
+	 * @generated
+	 */
+	EAttribute getNoteSupport_Note();
 
 	/**
 	 * Returns the meta object for class '{@link com.wireframesketcher.model.HSplitter <em>HSplitter</em>}'.
@@ -17089,6 +17734,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute SCREEN_FONT__ITALIC = eINSTANCE.getScreenFont_Italic();
 
 		/**
+		 * The meta object literal for the '<em><b>Available</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCREEN_FONT__AVAILABLE = eINSTANCE.getScreenFont_Available();
+
+		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.FontSupport <em>Font Support</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -18003,6 +18656,24 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEXT_LINKS_SUPPORT = eINSTANCE.getTextLinksSupport();
+
+		/**
+		 * The meta object literal for the '{@link com.wireframesketcher.model.NoteSupport <em>Note Support</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.wireframesketcher.model.NoteSupport
+		 * @see com.wireframesketcher.model.impl.ModelPackageImpl#getNoteSupport()
+		 * @generated
+		 */
+		EClass NOTE_SUPPORT = eINSTANCE.getNoteSupport();
+
+		/**
+		 * The meta object literal for the '<em><b>Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE_SUPPORT__NOTE = eINSTANCE.getNoteSupport_Note();
 
 		/**
 		 * The meta object literal for the '{@link com.wireframesketcher.model.impl.SpinnerImpl <em>Spinner</em>}' class.

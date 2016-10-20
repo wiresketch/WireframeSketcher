@@ -464,6 +464,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createTextLinksSupportAdapter();
 			}
 			@Override
+			public Adapter caseNoteSupport(NoteSupport object) {
+				return createNoteSupportAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1712,6 +1716,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextLinksSupportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.wireframesketcher.model.NoteSupport <em>Note Support</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.wireframesketcher.model.NoteSupport
+	 * @generated
+	 */
+	public Adapter createNoteSupportAdapter() {
 		return null;
 	}
 

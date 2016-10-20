@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
     nsURI="http://wireframesketcher.com/1.0/model.ecore" nsPrefix="model">
-  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//WidgetContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//WidgetContainer #//NoteSupport">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hRuler" lowerBound="1"
         eType="#//ScreenRuler" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vRuler" lowerBound="1"
@@ -25,7 +25,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RulerGuide">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Widget" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Widget" abstract="true" eSuperTypes="#//NoteSupport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"
         derived="true" iD="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -282,6 +282,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="available" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FontSupport" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="font" lowerBound="1" eType="#//Font"
@@ -660,6 +662,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationSupport" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextLinksSupport" abstract="true" interface="true"
       eSuperTypes="#//ItemSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NoteSupport" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eSubpackages name="story" nsURI="http://wireframesketcher.com/1.0/model/story"
       nsPrefix="story">
     <eClassifiers xsi:type="ecore:EClass" name="Storyboard">

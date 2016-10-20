@@ -30,6 +30,7 @@ import com.wireframesketcher.model.AnnotationSupport;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getNote <em>Note</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.WidgetImpl#getX <em>X</em>}</li>
@@ -51,6 +52,26 @@ import com.wireframesketcher.model.AnnotationSupport;
  * @generated
  */
 public abstract class WidgetImpl extends EObjectImpl implements Widget {
+	/**
+	 * The default value of the '{@link #getNote() <em>Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOTE_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected String note = NOTE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -337,6 +358,27 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.WIDGET;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getNote() {
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNote(String newNote) {
+		String oldNote = note;
+		note = newNote;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.WIDGET__NOTE, oldNote, note));
 	}
 
 	/**
@@ -709,6 +751,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__NOTE:
+				return getNote();
 			case ModelPackage.WIDGET__ID:
 				return getId();
 			case ModelPackage.WIDGET__CONTAINER:
@@ -750,6 +794,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__NOTE:
+				setNote((String)newValue);
+				return;
 			case ModelPackage.WIDGET__ID:
 				setId((Long)newValue);
 				return;
@@ -802,6 +849,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__NOTE:
+				setNote(NOTE_EDEFAULT);
+				return;
 			case ModelPackage.WIDGET__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -854,6 +904,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModelPackage.WIDGET__NOTE:
+				return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT.equals(note);
 			case ModelPackage.WIDGET__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ModelPackage.WIDGET__CONTAINER:
@@ -897,7 +949,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (note: ");
+		result.append(note);
+		result.append(", id: ");
 		result.append(id);
 		result.append(", x: ");
 		result.append(x);

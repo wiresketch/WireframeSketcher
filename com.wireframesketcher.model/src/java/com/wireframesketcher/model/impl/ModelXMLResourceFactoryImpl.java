@@ -40,6 +40,8 @@ public class ModelXMLResourceFactoryImpl extends XMLResourceFactoryImpl {
 				Boolean.FALSE);
 		DEFAULT_LOAD_OPTIONS.put(XMLResource.OPTION_USE_PARSER_POOL,
 				new XMLParserPoolImpl(10, false));
+		DEFAULT_LOAD_OPTIONS.put(XMLResource.OPTION_LAX_FEATURE_PROCESSING,
+				Boolean.TRUE);
 	}
 
 	@Override

@@ -224,12 +224,28 @@ public final class ColorDesc {
 		if (name != null)
 			return name;
 
-		String hex = Integer.toHexString((r << 16) | (g << 8) | b)
-				.toLowerCase();
-		if (hex.length() > 6)
-			hex = hex.substring(hex.length() - 6);
-		else if (hex.length() < 6)
-			hex = "000000".substring(0, 6 - hex.length()) + hex;
+		return toHexString();
+	}
+
+	public String toHexString() {
+		String hex;
+		
+		if ((r >> 4) == (r & 0x0F) && (g >> 4) == (g & 0x0F)
+				&& (b >> 4) == (b & 0x0F)) {
+			hex = Integer.toHexString(
+					((r & 0x0F) << 8) | ((g & 0x0F) << 4) | (b & 0x0F))
+					.toLowerCase();
+			if (hex.length() > 3)
+				hex = hex.substring(hex.length() - 3);
+			else if (hex.length() < 3)
+				hex = "000".substring(0, 3 - hex.length()) + hex;
+		} else {
+			hex = Integer.toHexString((r << 16) | (g << 8) | b).toLowerCase();
+			if (hex.length() > 6)
+				hex = hex.substring(hex.length() - 6);
+			else if (hex.length() < 6)
+				hex = "000000".substring(0, 6 - hex.length()) + hex;
+		}
 
 		return "#" + hex;
 	}

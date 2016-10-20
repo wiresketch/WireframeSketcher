@@ -1363,5 +1363,93 @@ public class MasterImplTest extends TestCase {
 				.get(0);
 		assertEquals(1, buttonBarInstance.getItems().size());
 		assertEquals("Item1", buttonBarInstance.getItems().get(0).getText());
-	}	
+	}
+	
+	public void testNoteOverrides() {
+		Persister persister = new Persister();
+		
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		ButtonBar buttonBar = ModelFactory.eINSTANCE.createButtonBar();
+		buttonBar.setId(new Long(1));
+		buttonBar.setX(10);
+		buttonBar.setY(0);
+		buttonBar.setNote("Note");
+		a.getWidgets().add(buttonBar);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+		
+		ButtonBar buttonBarInstance = (ButtonBar) master.getInstance()
+				.getWidgets().get(0);
+		
+		assertEquals("", buttonBarInstance.getNote());
+		
+		buttonBarInstance.setNote("Note 1");
+		
+		Overrides overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals("Note 1", wo.getAttributes().get(ModelPackage.Literals.NOTE_SUPPORT__NOTE.getName()));
+
+		buttonBarInstance.setNote("");
+		
+		overrides = master.getOverrides();
+
+		assertNull(overrides);
+
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		buttonBarInstance = (ButtonBar) master.getInstance().getWidgets()
+				.get(0);
+		overrides = master.getOverrides();
+		assertNull(overrides);
+
+		buttonBarInstance.setNote("Note");
+		
+		overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals("Note", wo.getAttributes().get(ModelPackage.Literals.NOTE_SUPPORT__NOTE.getName()));
+		
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		buttonBarInstance = (ButtonBar) master.getInstance().getWidgets()
+				.get(0);
+		overrides = master.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals("Note", wo.getAttributes().get(ModelPackage.Literals.NOTE_SUPPORT__NOTE.getName()));
+		
+		// Insert a label to force a recalculation
+		Label label = ModelFactory.eINSTANCE.createLabel();
+		label.setText("Label");
+		master.getInstance().getWidgets().add(label);
+		
+		overrides = master.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals("Note", wo.getAttributes().get(ModelPackage.Literals.NOTE_SUPPORT__NOTE.getName()));
+	}
 }

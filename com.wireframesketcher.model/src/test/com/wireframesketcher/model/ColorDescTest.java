@@ -31,8 +31,9 @@ public class ColorDescTest extends TestCase {
 	}
 
 	public void testFormatting() {
-		ColorDesc color = new ColorDesc(0, 0, 0xAB);
-		assertEquals("#0000ab", color.toString());
+		assertEquals("#0000ab", new ColorDesc(0, 0, 0xAB).toString());
+		assertEquals("#00a", new ColorDesc(0, 0, 0xAA).toString());
+		assertEquals("#abc", new ColorDesc(0xAA, 0xBB, 0xCC).toString());
 		assertEquals("red", ColorDesc.red.toString());
 	}
 	

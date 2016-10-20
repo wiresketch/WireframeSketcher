@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wireframesketcher.model.ScreenFont#getSize <em>Size</em>}</li>
  *   <li>{@link com.wireframesketcher.model.ScreenFont#isBold <em>Bold</em>}</li>
  *   <li>{@link com.wireframesketcher.model.ScreenFont#isItalic <em>Italic</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.ScreenFont#getAvailable <em>Available</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,5 +132,31 @@ public interface ScreenFont extends EObject {
 	 * @generated
 	 */
 	void setItalic(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Available</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Available</em>' attribute.
+	 * @see #setAvailable(Boolean)
+	 * @see com.wireframesketcher.model.ModelPackage#getScreenFont_Available()
+	 * @model transient="true" derived="true"
+	 * @generated
+	 */
+	Boolean getAvailable();
+
+	/**
+	 * Sets the value of the '{@link com.wireframesketcher.model.ScreenFont#getAvailable <em>Available</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Available</em>' attribute.
+	 * @see #getAvailable()
+	 * @generated
+	 */
+	void setAvailable(Boolean value);
 
 } // ScreenFont

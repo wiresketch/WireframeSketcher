@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link com.wireframesketcher.model.impl.ScreenFontImpl#getSize <em>Size</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ScreenFontImpl#isBold <em>Bold</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ScreenFontImpl#isItalic <em>Italic</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ScreenFontImpl#getAvailable <em>Available</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +114,26 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 	 * @ordered
 	 */
 	protected boolean italic = ITALIC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAvailable() <em>Available</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean AVAILABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAvailable() <em>Available</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean available = AVAILABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,6 +243,27 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getAvailable() {
+		return available;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAvailable(Boolean newAvailable) {
+		Boolean oldAvailable = available;
+		available = newAvailable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SCREEN_FONT__AVAILABLE, oldAvailable, available));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,6 +275,8 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 				return isBold();
 			case ModelPackage.SCREEN_FONT__ITALIC:
 				return isItalic();
+			case ModelPackage.SCREEN_FONT__AVAILABLE:
+				return getAvailable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -256,6 +300,9 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 				return;
 			case ModelPackage.SCREEN_FONT__ITALIC:
 				setItalic((Boolean)newValue);
+				return;
+			case ModelPackage.SCREEN_FONT__AVAILABLE:
+				setAvailable((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,6 +328,9 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 			case ModelPackage.SCREEN_FONT__ITALIC:
 				setItalic(ITALIC_EDEFAULT);
 				return;
+			case ModelPackage.SCREEN_FONT__AVAILABLE:
+				setAvailable(AVAILABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -301,6 +351,8 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 				return bold != BOLD_EDEFAULT;
 			case ModelPackage.SCREEN_FONT__ITALIC:
 				return italic != ITALIC_EDEFAULT;
+			case ModelPackage.SCREEN_FONT__AVAILABLE:
+				return AVAILABLE_EDEFAULT == null ? available != null : !AVAILABLE_EDEFAULT.equals(available);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,6 +375,8 @@ public class ScreenFontImpl extends EObjectImpl implements ScreenFont {
 		result.append(bold);
 		result.append(", italic: ");
 		result.append(italic);
+		result.append(", available: ");
+		result.append(available);
 		result.append(')');
 		return result.toString();
 	}
