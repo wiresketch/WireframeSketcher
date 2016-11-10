@@ -238,8 +238,8 @@ public class ModelXMLResourceImpl extends XMLResourceImpl implements ModelResour
 			object = object.eContainer();
 			if (object instanceof Insert)
 				insertedObject = true;
-			else if (object instanceof Master)
-				return insertedObject;
+			else if (object instanceof Master && !insertedObject)
+				return false;
 		}
 
 		return object instanceof Screen && getContents().contains(object);

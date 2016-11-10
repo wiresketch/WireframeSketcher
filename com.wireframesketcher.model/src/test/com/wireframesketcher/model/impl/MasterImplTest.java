@@ -1,9 +1,11 @@
 package com.wireframesketcher.model.impl;
 
-import junit.framework.TestCase;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin.Implementation;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -16,6 +18,7 @@ import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.Panel;
+import com.wireframesketcher.model.Placeholder;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.TextAlignment;
@@ -31,6 +34,8 @@ import com.wireframesketcher.model.overrides.Operation;
 import com.wireframesketcher.model.overrides.Overrides;
 import com.wireframesketcher.model.overrides.WidgetOverrides;
 import com.wireframesketcher.model.util.Persister;
+
+import junit.framework.TestCase;
 
 public class MasterImplTest extends TestCase {
 	private static class TestEcorePluginImplementation extends Implementation {
@@ -1451,5 +1456,203 @@ public class MasterImplTest extends TestCase {
 		wo = overrides.getWidgets().get(0);
 		assertEquals("1", wo.getRef());
 		assertEquals("Note", wo.getAttributes().get(ModelPackage.Literals.NOTE_SUPPORT__NOTE.getName()));
+	}
+
+	public void testOverridesInserts() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Placeholder placeholder = ModelFactory.eINSTANCE.createPlaceholder();
+		placeholder.setId(new Long(1));
+		placeholder.setX(0);
+		placeholder.setY(0);
+		placeholder.setWidth(100);
+		placeholder.setHeight(100);
+		a.getWidgets().add(placeholder);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen")).getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setId(new Long(11));
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+
+		persister.getResourceSet().createResource(URI.createURI("b.screen")).getContents().add(b);
+
+		Panel insertPanel = ModelFactory.eINSTANCE.createPanel();
+		insertPanel.setX(0);
+		insertPanel.setY(0);
+		insertPanel.setWidth(100);
+		insertPanel.setHeight(100);
+		bMaster.getInstance().getWidgets().add(insertPanel);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setId(new Long(1111));
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen")).getContents().add(c);
+		
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets().get(0);
+		Panel insertPanelInstance = (Panel) bMasterInstance.getInstance().getWidgets().get(1);
+		assertNotNull(insertPanelInstance);
+		insertPanelInstance.setBackground(ColorDesc.red);
+		
+		final Overrides overrides = cMaster.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		final WidgetOverrides widgetOverrides = overrides.getWidgets().get(0);
+		assertEquals(ColorDesc.red.toString(), widgetOverrides.getAttributes()
+				.get(ModelPackage.Literals.COLOR_BACKGROUND_SUPPORT__BACKGROUND.getName()));
+		assertEquals("1", widgetOverrides.getRef());
+		
+		// Force overrides to be reapplied
+		cMaster.setScreen(b);
+		
+		bMasterInstance = (Master) cMaster.getInstance().getWidgets().get(0);
+		insertPanelInstance = (Panel) bMasterInstance.getInstance().getWidgets().get(1);
+		assertNotNull(insertPanelInstance);
+		assertEquals(ColorDesc.red, insertPanelInstance.getBackground());
+	}
+
+	public void testOverridesNestingInserts() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Placeholder placeholder = ModelFactory.eINSTANCE.createPlaceholder();
+		placeholder.setId(new Long(1));
+		placeholder.setX(0);
+		placeholder.setY(0);
+		placeholder.setWidth(100);
+		placeholder.setHeight(100);
+		a.getWidgets().add(placeholder);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen")).getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setId(new Long(11));
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+
+		persister.getResourceSet().createResource(URI.createURI("b.screen")).getContents().add(b);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setId(new Long(111));
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen")).getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets().get(0);
+		Panel insertPanel = ModelFactory.eINSTANCE.createPanel();
+		insertPanel.setX(0);
+		insertPanel.setY(0);
+		insertPanel.setWidth(100);
+		insertPanel.setHeight(100);
+		bMasterInstance.getInstance().getWidgets().add(insertPanel);
+
+		Screen d = ModelFactory.eINSTANCE.createScreen();
+		Master dMaster = ModelFactory.eINSTANCE.createMaster();
+		dMaster.setId(new Long(1111));
+		dMaster.setX(20);
+		dMaster.setY(20);
+		dMaster.setScreen(c);
+		d.getWidgets().add(dMaster);
+		persister.getResourceSet().createResource(URI.createURI("d.screen")).getContents().add(d);
+		
+		Master cMasterInstance = (Master) dMaster.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets().get(0);
+		Panel insertPanelInstance = (Panel) bMasterInstance.getInstance().getWidgets().get(1);
+		assertNotNull(insertPanelInstance);
+		insertPanelInstance.setBackground(ColorDesc.red);
+		
+		Overrides overrides = dMaster.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides widgetOverrides = overrides.getWidgets().get(0);
+		assertEquals(ColorDesc.red.toString(), widgetOverrides.getAttributes()
+				.get(ModelPackage.Literals.COLOR_BACKGROUND_SUPPORT__BACKGROUND.getName()));
+		assertEquals("1", widgetOverrides.getRef());
+		
+		// Force overrides to be reapplied
+		dMaster.setScreen(c);
+		
+		cMasterInstance = (Master) dMaster.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets().get(0);
+		insertPanelInstance = (Panel) bMasterInstance.getInstance().getWidgets().get(1);
+		assertNotNull(insertPanelInstance);
+		assertEquals(ColorDesc.red, insertPanelInstance.getBackground());
+		
+		Button insertButton = ModelFactory.eINSTANCE.createButton();
+		insertButton.setX(0);
+		insertButton.setY(0);
+		insertButton.setWidth(100);
+		insertButton.setHeight(100);
+		bMasterInstance.getInstance().getWidgets().add(insertButton);
+		
+		Screen e = ModelFactory.eINSTANCE.createScreen();
+		Master eMaster = ModelFactory.eINSTANCE.createMaster();
+		eMaster.setId(new Long(1111));
+		eMaster.setX(20);
+		eMaster.setY(20);
+		eMaster.setScreen(d);
+		e.getWidgets().add(eMaster);
+		persister.getResourceSet().createResource(URI.createURI("e.screen")).getContents().add(e);
+		
+		Master dMasterInstance = (Master) eMaster.getInstance().getWidgets().get(0);
+		cMasterInstance = (Master) dMasterInstance.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets().get(0);
+		insertPanelInstance = (Panel) bMasterInstance.getInstance().getWidgets().get(1);
+		assertNotNull(insertPanelInstance);
+		insertPanelInstance.setForeground(ColorDesc.blue);
+		Button insertButtonInstance = (Button) bMasterInstance.getInstance().getWidgets().get(2);
+		assertNotNull(insertButtonInstance);
+		insertButtonInstance.setText("Override");
+
+		overrides = eMaster.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(2, overrides.getWidgets().size());
+		widgetOverrides = overrides.getWidgets().get(0);
+		assertEquals(ColorDesc.blue.toString(), widgetOverrides.getAttributes()
+				.get(ModelPackage.Literals.COLOR_FOREGROUND_SUPPORT__FOREGROUND.getName()));
+		assertEquals("1111/1", widgetOverrides.getRef());
+		widgetOverrides = overrides.getWidgets().get(1);
+		assertEquals("Override", widgetOverrides.getText());
+		assertEquals("1", widgetOverrides.getRef());
+		
+		// Force overrides to be reapplied
+		eMaster.setScreen(d);
+		
+		dMasterInstance = (Master) eMaster.getInstance().getWidgets().get(0);
+		cMasterInstance = (Master) dMasterInstance.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets().get(0);
+		insertPanelInstance = (Panel) bMasterInstance.getInstance().getWidgets().get(1);
+		assertNotNull(insertPanelInstance);
+		assertEquals(ColorDesc.blue, insertPanelInstance.getForeground());
+		assertEquals(ColorDesc.red, insertPanelInstance.getBackground());
+		insertButtonInstance = (Button) bMasterInstance.getInstance().getWidgets().get(2);
+		assertNotNull(insertButtonInstance);
+		assertEquals("Override", insertButtonInstance.getText());
+	}
+	
+	private void printObject(Persister persister, EObject object)
+	{
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		try {
+			persister.save(object, out);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		System.out.println(new String(out.toByteArray()));
 	}
 }

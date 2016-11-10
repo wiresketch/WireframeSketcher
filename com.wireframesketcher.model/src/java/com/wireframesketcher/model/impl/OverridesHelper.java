@@ -514,6 +514,32 @@ class OverridesHelper implements IInstanceStrategy {
 			return false;
 		}
 
+		private int getInsertWidgetDepth(Widget widget) {
+			EObject container = widget.eContainer();
+			if (!(container instanceof Insert))
+				container = container.eContainer();
+
+			Insert insert = (Insert) container;
+
+			int depth;
+
+			WidgetContainerOverrides overrides = (WidgetContainerOverrides) insert.eContainer();
+
+			if (overrides instanceof Overrides) {
+				depth = 1;
+			} else {
+				depth = 2;
+				WidgetOverrides widgetOverrides = (WidgetOverrides) overrides;
+				final String ref = widgetOverrides.getRef();
+				final int len = ref.length();
+				for (int i = 0; i < len; i++)
+					if (ref.charAt(i) == '/')
+						depth++;
+			}
+
+			return depth;
+		}
+
 		protected String getWidgetURI(Widget widget) {
 			String uri = null;
 			if (!isDirectContent(widget))
@@ -650,8 +676,11 @@ class OverridesHelper implements IInstanceStrategy {
 			}
 
 			// For insert do not include the immediate parent
-			if (isInsertWidget(sourceWidget))
-				uriPath.remove(1);
+			if (isInsertWidget(sourceWidget)) {
+				int depth = getInsertWidgetDepth(sourceWidget);
+				while(depth -- > 0)
+					uriPath.remove(1);
+			}
 
 			StringBuilder buf = new StringBuilder();
 
