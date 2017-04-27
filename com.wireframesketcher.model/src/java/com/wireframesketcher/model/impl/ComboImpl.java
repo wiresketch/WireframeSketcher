@@ -12,14 +12,19 @@ import com.wireframesketcher.model.ColorBorderSupport;
 import com.wireframesketcher.model.ColorDesc;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import com.wireframesketcher.model.Combo;
 import com.wireframesketcher.model.Font;
 import com.wireframesketcher.model.FontSupport;
+import com.wireframesketcher.model.Item;
+import com.wireframesketcher.model.ItemSupport;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
@@ -27,6 +32,7 @@ import com.wireframesketcher.model.SkinSupport;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.State;
 import com.wireframesketcher.model.StateSupport;
+import java.util.Collection;
 import com.wireframesketcher.model.WidgetDescriptor;
 
 /**
@@ -42,6 +48,7 @@ import com.wireframesketcher.model.WidgetDescriptor;
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getBackground <em>Background</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getItems <em>Items</em>}</li>
  *   <li>{@link com.wireframesketcher.model.impl.ComboImpl#getSkin <em>Skin</em>}</li>
  * </ul>
  * </p>
@@ -149,6 +156,15 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	 * @ordered
 	 */
 	protected URI link = LINK_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 	/**
 	 * The default value of the '{@link #getSkin() <em>Skin</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -342,6 +358,18 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.COMBO__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public URI getSkin() {
 		return skin;
 	}
@@ -376,6 +404,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		switch (featureID) {
 			case ModelPackage.COMBO__FONT:
 				return basicSetFont(null, msgs);
+			case ModelPackage.COMBO__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -400,6 +430,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return getAlpha();
 			case ModelPackage.COMBO__LINK:
 				return getLink();
+			case ModelPackage.COMBO__ITEMS:
+				return getItems();
 			case ModelPackage.COMBO__SKIN:
 				return getSkin();
 		}
@@ -411,6 +443,7 @@ public class ComboImpl extends WidgetImpl implements Combo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -431,6 +464,10 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return;
 			case ModelPackage.COMBO__LINK:
 				setLink((URI)newValue);
+				return;
+			case ModelPackage.COMBO__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 			case ModelPackage.COMBO__SKIN:
 				setSkin((URI)newValue);
@@ -465,6 +502,9 @@ public class ComboImpl extends WidgetImpl implements Combo {
 			case ModelPackage.COMBO__LINK:
 				setLink(LINK_EDEFAULT);
 				return;
+			case ModelPackage.COMBO__ITEMS:
+				getItems().clear();
+				return;
 			case ModelPackage.COMBO__SKIN:
 				setSkin(SKIN_EDEFAULT);
 				return;
@@ -492,6 +532,8 @@ public class ComboImpl extends WidgetImpl implements Combo {
 				return alpha != ALPHA_EDEFAULT;
 			case ModelPackage.COMBO__LINK:
 				return LINK_EDEFAULT == null ? link != null : !LINK_EDEFAULT.equals(link);
+			case ModelPackage.COMBO__ITEMS:
+				return items != null && !items.isEmpty();
 			case ModelPackage.COMBO__SKIN:
 				return SKIN_EDEFAULT == null ? skin != null : !SKIN_EDEFAULT.equals(skin);
 		}
@@ -538,6 +580,12 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		if (baseClass == LinkSupport.class) {
 			switch (derivedFeatureID) {
 				case ModelPackage.COMBO__LINK: return ModelPackage.LINK_SUPPORT__LINK;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (derivedFeatureID) {
+				case ModelPackage.COMBO__ITEMS: return ModelPackage.ITEM_SUPPORT__ITEMS;
 				default: return -1;
 			}
 		}
@@ -590,6 +638,12 @@ public class ComboImpl extends WidgetImpl implements Combo {
 		if (baseClass == LinkSupport.class) {
 			switch (baseFeatureID) {
 				case ModelPackage.LINK_SUPPORT__LINK: return ModelPackage.COMBO__LINK;
+				default: return -1;
+			}
+		}
+		if (baseClass == ItemSupport.class) {
+			switch (baseFeatureID) {
+				case ModelPackage.ITEM_SUPPORT__ITEMS: return ModelPackage.COMBO__ITEMS;
 				default: return -1;
 			}
 		}

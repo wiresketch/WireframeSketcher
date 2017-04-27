@@ -1088,13 +1088,22 @@ public interface ModelPackage extends EPackage {
 	int COMBO__LINK = WIDGET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBO__ITEMS = WIDGET_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Skin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMBO__SKIN = WIDGET_FEATURE_COUNT + 6;
+	int COMBO__SKIN = WIDGET_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Combo</em>' class.
@@ -1103,7 +1112,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 7;
+	int COMBO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.wireframesketcher.model.impl.LabelImpl <em>Label</em>}' class.

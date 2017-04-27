@@ -104,7 +104,7 @@
         defaultValueLiteral="square"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Checkbox" eSuperTypes="#//Widget #//BooleanSelectionSupport #//StateSupport #//LinkSupport #//FontSupport #//SkinSupport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Combo" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport #//SkinSupport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Combo" eSuperTypes="#//Widget #//StateSupport #//FontSupport #//ColorBorderSupport #//ColorBackgroundSupport #//ColorAlphaSupport #//LinkSupport #//ItemSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Widget #//FontSupport #//TextAlignmentSupport #//ColorForegroundSupport #//StateSupport #//IconSupport #//IconPositionSupport #//LinkSupport #//RotationSupport #//TextLinksSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Widget #//FontSupport #//StateSupport #//LinkSupport #//SkinSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Placeholder" eSuperTypes="#//Widget #//LinkSupport #//SkinSupport"/>

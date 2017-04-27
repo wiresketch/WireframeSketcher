@@ -152,6 +152,7 @@ public class ModelSwitch<T> {
 				if (result == null) result = caseColorBackgroundSupport(combo);
 				if (result == null) result = caseColorAlphaSupport(combo);
 				if (result == null) result = caseLinkSupport(combo);
+				if (result == null) result = caseItemSupport(combo);
 				if (result == null) result = caseSkinSupport(combo);
 				if (result == null) result = caseNoteSupport(combo);
 				if (result == null) result = defaultCase(theEObject);

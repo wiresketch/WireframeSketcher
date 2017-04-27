@@ -6,8 +6,6 @@
  */
 package com.wireframesketcher.model.impl;
 
-import com.wireframesketcher.model.LayoutParams;
-import com.wireframesketcher.model.ModelFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -16,16 +14,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.wireframesketcher.model.AnnotationSupport;
+import com.wireframesketcher.model.LayoutParams;
+import com.wireframesketcher.model.ModelFactory;
 import com.wireframesketcher.model.ModelPackage;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetDescriptor;
 
-import com.wireframesketcher.model.AnnotationSupport;
-
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Widget</b></em>'.
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Widget</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -93,9 +93,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	protected Long id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getX() <em>X</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getX()
 	 * @generated
 	 * @ordered
@@ -103,9 +103,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	protected static final int X_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getX() <em>X</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getX()
 	 * @generated
 	 * @ordered
@@ -113,9 +113,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	protected int x = X_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getY() <em>Y</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getY()
 	 * @generated
 	 * @ordered
@@ -123,9 +123,9 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	protected static final int Y_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getY()
 	 * @generated
 	 * @ordered
@@ -134,7 +134,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWidth()
 	 * @generated
 	 * @ordered
@@ -143,7 +144,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getWidth()
 	 * @generated
 	 * @ordered
@@ -152,7 +154,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getHeight()
 	 * @generated
 	 * @ordered
@@ -161,7 +164,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getHeight()
 	 * @generated
 	 * @ordered
@@ -170,7 +174,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getText()
 	 * @generated
 	 * @ordered
@@ -179,7 +184,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getText()
 	 * @generated
 	 * @ordered
@@ -337,7 +343,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	protected LayoutParams layoutParams = LAYOUT_PARAMS_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	protected WidgetImpl() {
 		super();
@@ -352,7 +359,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 	
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -444,7 +452,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getX() {
@@ -452,7 +461,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setX(int newX) {
@@ -463,7 +473,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getY() {
@@ -471,7 +482,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setY(int newY) {
@@ -482,7 +494,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getWidth() {
@@ -490,7 +503,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void setWidth(int newWidth) {
 		if((descriptor.getResizeMode().getValue() & ResizeMode.HORIZONTAL) == 0)
@@ -503,7 +517,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getHeight() {
@@ -511,7 +526,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void setHeight(int newHeight) {
 		if((descriptor.getResizeMode().getValue() & ResizeMode.VERTICAL) == 0)
@@ -524,7 +540,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getText() {
@@ -532,7 +549,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void setText(String newText) {
 		if(!descriptor.isTextEditable())
@@ -745,7 +763,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -788,7 +807,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -844,7 +864,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public void eUnset(int featureID) {
@@ -899,7 +920,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
@@ -941,7 +963,8 @@ public abstract class WidgetImpl extends EObjectImpl implements Widget {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
