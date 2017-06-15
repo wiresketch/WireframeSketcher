@@ -126,4 +126,16 @@ public interface Master extends Widget, LinkSupport {
 	 */
 	WidgetContainer getInstance();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns the source widget for the given widget instance. This method assumes that associated master screen was already instantiated and the instance attribute was initialized.
+	 * @param widget the instantiated widget
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	Widget getSourceWidget(Widget widget);
+
 } // Master

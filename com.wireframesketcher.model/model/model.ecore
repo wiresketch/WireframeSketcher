@@ -240,6 +240,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WidgetGroup" eSuperTypes="#//Widget #//WidgetContainer #//LinkSupport #//NameSupport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Master" eSuperTypes="#//Widget #//LinkSupport">
+    <eOperations name="getSourceWidget" eType="#//Widget">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the source widget for the given widget instance. This method assumes that associated master screen was already instantiated and the instance attribute was initialized."/>
+      </eAnnotations>
+      <eParameters name="widget" eType="#//Widget">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="the instantiated widget"/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="screen" eType="#//WidgetContainer">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Reference to the master screen file. Can be absolute to workspace or relative."/>

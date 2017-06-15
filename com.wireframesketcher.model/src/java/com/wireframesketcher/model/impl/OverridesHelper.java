@@ -372,6 +372,47 @@ class OverridesHelper implements IInstanceStrategy {
 		return ref != null && !ref.eIsProxy();
 	}
 
+	
+	/**
+	 * Maps the given widget to its source widget. The algorithm goes
+	 * upwards to find the overrides root and then maps the widget to its
+	 * source. Then it does this recursively on source widget until the
+	 * initial source is found.
+	 */
+	public static Widget getSourceWidget(Widget widget) {
+		EObject parent = widget.eContainer();
+		while (parent != null) {
+			if (parent instanceof MasterImpl
+					&& ((MasterImpl) parent).getInstanceStrategy() != INSTANCE_COPY)
+				break;
+			parent = parent.eContainer();
+		}
+
+		if (parent == null)
+			return widget;
+
+		MasterImpl master = (MasterImpl) parent;
+		OverridesHelper overridesHelper = (OverridesHelper) master
+				.getInstanceStrategy();
+
+		Map<EObject, EObject> reverseInsertCopies = overridesHelper
+				.getReverseInsertCopies();
+		if (reverseInsertCopies != null) {
+			Widget insertedWidget = (Widget) reverseInsertCopies
+					.get(widget);
+			if (insertedWidget != null)
+				return insertedWidget;
+		}
+
+		Widget sourceWidget = (Widget) overridesHelper.getReverseCopies()
+				.get(widget);
+
+		if (sourceWidget == null)
+			return null;
+
+		return getSourceWidget(sourceWidget);
+	}
+
 	static class Helper {
 		protected final WidgetContainer leftRoot, rightRoot;
 
@@ -564,46 +605,6 @@ class OverridesHelper implements IInstanceStrategy {
 				return sourceWidget.getId();
 
 			return null;
-		}
-
-		/**
-		 * Maps the given widget to its source widget. The algorithm goes
-		 * upwards to find the overrides root and then maps the widget to its
-		 * source. Then it does this recursively on source widget until the
-		 * initial source is found.
-		 */
-		protected Widget getSourceWidget(Widget widget) {
-			EObject parent = widget.eContainer();
-			while (parent != null) {
-				if (parent instanceof MasterImpl
-						&& ((MasterImpl) parent).getInstanceStrategy() != INSTANCE_COPY)
-					break;
-				parent = parent.eContainer();
-			}
-
-			if (parent == null)
-				return widget;
-
-			MasterImpl master = (MasterImpl) parent;
-			OverridesHelper overridesHelper = (OverridesHelper) master
-					.getInstanceStrategy();
-
-			Map<EObject, EObject> reverseInsertCopies = overridesHelper
-					.getReverseInsertCopies();
-			if (reverseInsertCopies != null) {
-				Widget insertedWidget = (Widget) reverseInsertCopies
-						.get(widget);
-				if (insertedWidget != null)
-					return insertedWidget;
-			}
-
-			Widget sourceWidget = (Widget) overridesHelper.getReverseCopies()
-					.get(widget);
-
-			if (sourceWidget == null)
-				return null;
-
-			return getSourceWidget(sourceWidget);
 		}
 
 		/**

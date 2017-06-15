@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.wireframesketcher.model.Button;
 import com.wireframesketcher.model.ButtonBar;
+import com.wireframesketcher.model.Checkbox;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.Label;
@@ -21,6 +22,7 @@ import com.wireframesketcher.model.Panel;
 import com.wireframesketcher.model.Placeholder;
 import com.wireframesketcher.model.Screen;
 import com.wireframesketcher.model.State;
+import com.wireframesketcher.model.Text;
 import com.wireframesketcher.model.TextAlignment;
 import com.wireframesketcher.model.TextField;
 import com.wireframesketcher.model.Widget;
@@ -1645,6 +1647,40 @@ public class MasterImplTest extends TestCase {
 		assertEquals("Override", insertButtonInstance.getText());
 	}
 	
+	public void testGetSourceWidget() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Button button = ModelFactory.eINSTANCE.createButton();
+		button.setId(new Long(1));
+		a.getWidgets().add(button);
+		Text text = ModelFactory.eINSTANCE.createText();
+		text.setId(new Long(2));
+		a.getWidgets().add(text);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Button buttonInstance = (Button) master.getInstance().getWidgets().get(0);
+		buttonInstance.setText("OK");
+		final Widget buttonSrc = master.getSourceWidget(buttonInstance);
+		assertEquals(button, buttonSrc);
+		
+		Text textInstance = (Text) master.getInstance().getWidgets().get(1);
+		textInstance.setText("Text");
+		final Widget textSrc = master.getSourceWidget(textInstance);
+		assertEquals(text, textSrc);
+	}
+
 	private void printObject(Persister persister, EObject object)
 	{
 		ByteArrayOutputStream out = new ByteArrayOutputStream();

@@ -3848,6 +3848,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getMaster_Overrides(), theOverridesPackage.getOverrides(), null, "overrides", null, 0, 1, Master.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMaster_Instance(), this.getWidgetContainer(), null, "instance", null, 0, 1, Master.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+		EOperation op = addEOperation(masterEClass, this.getWidget(), "getSourceWidget", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getWidget(), "widget", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImage_Src(), this.getURIDataType(), "src", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getImage_Grayscale(), ecorePackage.getEBoolean(), "grayscale", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3902,7 +3905,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(stateSupportEClass, StateSupport.class, "StateSupport", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStateSupport_State(), this.getState(), "state", null, 0, 1, StateSupport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(stateSupportEClass, ecorePackage.getEBoolean(), "isValidState", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(stateSupportEClass, ecorePackage.getEBoolean(), "isValidState", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getState(), "state", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(breadcrumbsEClass, Breadcrumbs.class, "Breadcrumbs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4131,7 +4134,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";																																																																			
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";																																																																					
 		addAnnotation
 		  (getNoteSupport_Note(), 
 		   source, 

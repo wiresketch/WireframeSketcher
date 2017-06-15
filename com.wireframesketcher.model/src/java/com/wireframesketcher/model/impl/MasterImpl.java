@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.wireframesketcher.model.LinkSupport;
 import com.wireframesketcher.model.Master;
 import com.wireframesketcher.model.ModelPackage;
+import com.wireframesketcher.model.Widget;
 import com.wireframesketcher.model.ResizeMode;
 import com.wireframesketcher.model.WidgetContainer;
 import com.wireframesketcher.model.WidgetDescriptor;
@@ -321,6 +322,15 @@ public class MasterImpl extends WidgetImpl implements Master {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MASTER__INSTANCE, newInstance, newInstance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Widget getSourceWidget(Widget widget) {
+		return OverridesHelper.getSourceWidget(widget);
 	}
 
 	/**
