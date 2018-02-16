@@ -101,7 +101,6 @@ public interface WidgetOverrides extends WidgetContainerOverrides, Reference {
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
-	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
@@ -114,7 +113,7 @@ public interface WidgetOverrides extends WidgetContainerOverrides, Reference {
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(Integer)
 	 * @see com.wireframesketcher.model.overrides.OverridesPackage#getWidgetOverrides_Width()
-	 * @model default="-1"
+	 * @model
 	 * @generated
 	 */
 	Integer getWidth();
@@ -131,7 +130,6 @@ public interface WidgetOverrides extends WidgetContainerOverrides, Reference {
 
 	/**
 	 * Returns the value of the '<em><b>Height</b></em>' attribute.
-	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Height</em>' attribute isn't clear,
@@ -144,7 +142,7 @@ public interface WidgetOverrides extends WidgetContainerOverrides, Reference {
 	 * @return the value of the '<em>Height</em>' attribute.
 	 * @see #setHeight(Integer)
 	 * @see com.wireframesketcher.model.overrides.OverridesPackage#getWidgetOverrides_Height()
-	 * @model default="-1"
+	 * @model
 	 * @generated
 	 */
 	Integer getHeight();

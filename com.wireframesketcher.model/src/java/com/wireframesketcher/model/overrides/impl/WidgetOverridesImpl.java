@@ -121,7 +121,7 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer WIDTH_EDEFAULT = new Integer(-1);
+	protected static final Integer WIDTH_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -139,7 +139,7 @@ public class WidgetOverridesImpl extends WidgetContainerOverridesImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer HEIGHT_EDEFAULT = new Integer(-1);
+	protected static final Integer HEIGHT_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.
 	 * <!-- begin-user-doc -->

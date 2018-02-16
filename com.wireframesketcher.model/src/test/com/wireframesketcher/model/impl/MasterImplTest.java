@@ -1681,6 +1681,74 @@ public class MasterImplTest extends TestCase {
 		assertEquals(text, textSrc);
 	}
 
+	public void testAutoSizeWidget()
+	{
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		Panel panel = ModelFactory.eINSTANCE.createPanel();
+		panel.setId(new Long(1));
+		panel.setX(10);
+		panel.setY(0);
+		panel.setWidth(200);
+		panel.setHeight(100);
+		panel.setText("Text");
+		a.getWidgets().add(panel);
+
+		persister.getResourceSet().createResource(URI.createURI("a.screen"))
+				.getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master master = ModelFactory.eINSTANCE.createMaster();
+		master.setX(20);
+		master.setY(20);
+		master.setScreen(a);
+		b.getWidgets().add(master);
+		persister.getResourceSet().createResource(URI.createURI("b.screen"))
+				.getContents().add(b);
+
+		Panel panelInstance = (Panel) master.getInstance()
+				.getWidgets().get(0);
+
+		// auto-size
+		panelInstance.setWidth(-1);
+		panelInstance.setHeight(-1);
+
+		Overrides overrides = master.getOverrides();
+
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides wo = overrides.getWidgets().get(0);
+		assertEquals("1", wo.getRef());
+		assertEquals(-1, wo.getWidth().intValue());
+		assertEquals(-1, wo.getHeight().intValue());
+
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		panelInstance = (Panel) master.getInstance().getWidgets()
+				.get(0);
+
+		// Test that the text delete is properly applied
+		assertEquals(-1, panelInstance.getWidth());
+		assertEquals(-1, panelInstance.getHeight());
+
+		panelInstance.setWidth(panel.getWidth());
+		panelInstance.setHeight(panel.getHeight());
+
+		assertNull(master.getOverrides());
+
+		// Force overrides to be reapplied
+		master.setScreen(a);
+
+		panelInstance = (Panel) master.getInstance().getWidgets()
+				.get(0);
+
+		// Test that the text delete is properly applied
+		assertEquals(panel.getWidth(), panelInstance.getWidth());
+		assertEquals(panel.getHeight(), panelInstance.getHeight());
+	}
+
 	private void printObject(Persister persister, EObject object)
 	{
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
