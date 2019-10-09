@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
@@ -251,6 +252,7 @@ class OverridesHelper implements IInstanceStrategy {
 			OverridesApplier applier = new OverridesApplier(master.getScreen(),
 					instance);
 			applier.applyOverrides(overrides);
+			setInsertCopies(applier.getInsertCopies());
 			if(applier.missingReferences)
 				staleOverrides = true;
 		} catch (Exception e) {
@@ -275,37 +277,6 @@ class OverridesHelper implements IInstanceStrategy {
 		return reverseCopies;
 	}
 
-	private <T extends EObject> T insertCopy(T insertedObject) {
-		Copier copier = new Copier();
-		@SuppressWarnings("unchecked")
-		T insertedObjectInstance = (T) copier.copy(insertedObject);
-		copier.copyReferences();
-
-		registerCopies(copier);
-
-		return insertedObjectInstance;
-	}
-
-	protected void registerCopies(Map<EObject, EObject> copies) {
-		if (insertCopies == null)
-			insertCopies = copies;
-		else
-			insertCopies.putAll(copies);
-
-		reverseInsertCopies = null;
-	}
-
-	private <T extends EObject> T reverseInsertCopy(T insertedObjectInstance) {
-		Copier copier = new Copier();
-		@SuppressWarnings("unchecked")
-		T insertedObject = (T) copier.copy(insertedObjectInstance);
-		copier.copyReferences();
-
-		registerCopies(computeReverseMap(copier));
-
-		return insertedObject;
-	}
-
 	private Map<EObject, EObject> getReverseInsertCopies() {
 		if (insertCopies == null)
 			return null;
@@ -316,18 +287,22 @@ class OverridesHelper implements IInstanceStrategy {
 
 	private static Map<EObject, EObject> computeReverseMap(
 			Map<EObject, EObject> map) {
-		Map<EObject, EObject> reverseMap = new HashMap<EObject, EObject>(
-				map.size());
+		final int size = map.size();
+		final Map<EObject, EObject> reverseMap = new HashMap<EObject, EObject>(size);
 
 		for (Entry<EObject, EObject> entry : map.entrySet())
 			reverseMap.put(entry.getValue(), entry.getKey());
+
+		if (size != reverseMap.size())
+			throw new IllegalStateException();
 
 		return reverseMap;
 	}
 
 	private void computeOverrides() {
-		setOverrides(new OverridesCalculator(master.getScreen(),
-				master.instance).calculateOverrides());
+		OverridesCalculator overridesCalculator = new OverridesCalculator(master.getScreen(), master.instance);
+		setOverrides(overridesCalculator.calculateOverrides());
+		setInsertCopies(overridesCalculator.getInsertCopies());
 		staleOverrides = false;
 	}
 
@@ -339,6 +314,11 @@ class OverridesHelper implements IInstanceStrategy {
 		} finally {
 			computingOverrides = false;
 		}
+	}
+
+	public void setInsertCopies(Map<EObject, EObject> insertCopies) {
+		this.insertCopies = insertCopies;
+		this.reverseInsertCopies = null;
 	}
 
 	private boolean updateOverrides(Notification notification) {
@@ -418,9 +398,22 @@ class OverridesHelper implements IInstanceStrategy {
 
 		private String leftUri;
 
+		private Map<EObject, EObject> insertCopies;
+
 		public Helper(WidgetContainer leftRoot, WidgetContainer rightRoot) {
 			this.leftRoot = leftRoot;
 			this.rightRoot = rightRoot;
+		}
+
+		protected void registerCopies(Map<EObject, EObject> copies) {
+			if (insertCopies == null)
+				insertCopies = copies;
+			else
+				insertCopies.putAll(copies);
+		}
+
+		public Map<EObject, EObject> getInsertCopies() {
+			return insertCopies;
 		}
 
 		protected String getItemURIFragment(Item item) {
@@ -555,32 +548,6 @@ class OverridesHelper implements IInstanceStrategy {
 			return false;
 		}
 
-		private int getInsertWidgetDepth(Widget widget) {
-			EObject container = widget.eContainer();
-			if (!(container instanceof Insert))
-				container = container.eContainer();
-
-			Insert insert = (Insert) container;
-
-			int depth;
-
-			WidgetContainerOverrides overrides = (WidgetContainerOverrides) insert.eContainer();
-
-			if (overrides instanceof Overrides) {
-				depth = 1;
-			} else {
-				depth = 2;
-				WidgetOverrides widgetOverrides = (WidgetOverrides) overrides;
-				final String ref = widgetOverrides.getRef();
-				final int len = ref.length();
-				for (int i = 0; i < len; i++)
-					if (ref.charAt(i) == '/')
-						depth++;
-			}
-
-			return depth;
-		}
-
 		protected String getWidgetURI(Widget widget) {
 			String uri = null;
 			if (!isDirectContent(widget))
@@ -665,6 +632,34 @@ class OverridesHelper implements IInstanceStrategy {
 
 			uriPath.add(id);
 			EObject parent = widget.eContainer();
+			
+			// For insert do not include the immediate parent(s)
+			if (isInsertWidget(sourceWidget)) {
+				Resource resource = sourceWidget.eResource();
+				if(resource == null)
+					throw new NullPointerException();
+				boolean insertParentFound = false;
+				while (parent != null && parent != leftRoot) {
+					if (parent instanceof Master) {
+						Master master = (Master) parent;
+						Widget sourceMaster = getSourceWidget(master);
+						if(sourceMaster == null)
+							return null;
+						Resource masterResource = sourceMaster.eResource();
+						if(masterResource == null)
+							throw new NullPointerException();
+						
+						if (!insertParentFound) {
+							if (masterResource == resource)
+								insertParentFound = true;
+						} else if (masterResource != resource) {
+							break;
+						}
+					}
+					parent = parent.eContainer();
+				}
+			}
+			
 			while (parent != null && parent != leftRoot) {
 				if (parent instanceof Master) {
 					Master master = (Master) parent;
@@ -674,13 +669,6 @@ class OverridesHelper implements IInstanceStrategy {
 					uriPath.add(id);
 				}
 				parent = parent.eContainer();
-			}
-
-			// For insert do not include the immediate parent
-			if (isInsertWidget(sourceWidget)) {
-				int depth = getInsertWidgetDepth(sourceWidget);
-				while(depth -- > 0)
-					uriPath.remove(1);
 			}
 
 			StringBuilder buf = new StringBuilder();
@@ -756,6 +744,17 @@ class OverridesHelper implements IInstanceStrategy {
 			if (overrides == null)
 				overrides = OverridesFactory.eINSTANCE.createOverrides();
 			return overrides;
+		}
+
+		private <T extends EObject> T reverseInsertCopy(T insertedObjectInstance) {
+			Copier copier = new Copier();
+			@SuppressWarnings("unchecked")
+			T insertedObject = (T) copier.copy(insertedObjectInstance);
+			copier.copyReferences();
+
+			registerCopies(computeReverseMap(copier));
+
+			return insertedObject;
 		}
 
 		private WidgetOverrides getWidgetOverrides(Widget widget) {
@@ -1285,6 +1284,17 @@ class OverridesHelper implements IInstanceStrategy {
 		public OverridesApplier(WidgetContainer leftRoot,
 				WidgetContainer rightRoot) {
 			super(leftRoot, rightRoot);
+		}
+
+		private <T extends EObject> T insertCopy(T insertedObject) {
+			Copier copier = new Copier();
+			@SuppressWarnings("unchecked")
+			T insertedObjectInstance = (T) copier.copy(insertedObject);
+			copier.copyReferences();
+
+			registerCopies(copier);
+
+			return insertedObjectInstance;
 		}
 
 		public void applyOverrides(Overrides overrides) {

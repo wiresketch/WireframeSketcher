@@ -1759,4 +1759,104 @@ public class MasterImplTest extends TestCase {
 		}
 		System.out.println(new String(out.toByteArray()));
 	}
+
+	public void testOverridesNestingInsertsWithGroups() {
+		Persister persister = new Persister();
+
+		Screen a = ModelFactory.eINSTANCE.createScreen();
+		WidgetGroup group = ModelFactory.eINSTANCE.createWidgetGroup();
+		group.setId(new Long(1));
+		group.setX(0);
+		group.setY(0);
+		
+		Button button1 = ModelFactory.eINSTANCE.createButton();
+		button1.setId(new Long(2));
+		button1.setX(0);
+		button1.setY(0);
+		button1.setWidth(50);
+		button1.setHeight(20);
+		button1.setText("Button 1");
+		Button button2 = ModelFactory.eINSTANCE.createButton();
+		button2.setId(new Long(3));
+		button2.setX(100);
+		button2.setY(0);
+		button2.setWidth(50);
+		button2.setHeight(20);
+		button2.setText("Button 2");
+		
+		group.getWidgets().add(button1);
+		group.getWidgets().add(button2);
+		a.getWidgets().add(group);
+		
+		persister.getResourceSet().createResource(URI.createURI("a.screen")).getContents().add(a);
+
+		Screen b = ModelFactory.eINSTANCE.createScreen();
+		Master bMaster = ModelFactory.eINSTANCE.createMaster();
+		bMaster.setId(new Long(11));
+		bMaster.setX(20);
+		bMaster.setY(20);
+		bMaster.setScreen(a);
+		b.getWidgets().add(bMaster);
+
+		Button insertButton = ModelFactory.eINSTANCE.createButton();
+		insertButton.setId(new Long(12));
+		insertButton.setX(100);
+		insertButton.setY(0);
+		insertButton.setWidth(50);
+		insertButton.setHeight(20);
+		insertButton.setText("Insert Button");
+
+		((WidgetGroup) bMaster.getInstance().getWidgets().get(0)).getWidgets().add(insertButton);
+
+		persister.getResourceSet().createResource(URI.createURI("b.screen")).getContents().add(b);
+
+		Screen c = ModelFactory.eINSTANCE.createScreen();
+		Master cMaster = ModelFactory.eINSTANCE.createMaster();
+		cMaster.setId(new Long(111));
+		cMaster.setX(20);
+		cMaster.setY(20);
+		cMaster.setScreen(b);
+		c.getWidgets().add(cMaster);
+		persister.getResourceSet().createResource(URI.createURI("c.screen")).getContents().add(c);
+
+		Master bMasterInstance = (Master) cMaster.getInstance().getWidgets().get(0);
+		Button insertButtonInstance = (Button) ((WidgetGroup) bMasterInstance.getInstance().getWidgets().get(0)).getWidgets().get(2);
+		assertEquals("Insert Button", insertButtonInstance.getText());
+		insertButtonInstance.setText("Modified Insert Button");
+		
+		cMaster.setScreen(b);
+		
+		bMasterInstance = (Master) cMaster.getInstance().getWidgets().get(0);
+		insertButtonInstance = (Button) ((WidgetGroup) bMasterInstance.getInstance().getWidgets().get(0)).getWidgets().get(2);
+		assertEquals("Modified Insert Button", insertButtonInstance.getText());
+		
+		Screen d = ModelFactory.eINSTANCE.createScreen();
+		Master dMaster = ModelFactory.eINSTANCE.createMaster();
+		dMaster.setId(new Long(1111));
+		cMaster.setX(20);
+		dMaster.setY(20);
+		dMaster.setScreen(c);
+		d.getWidgets().add(dMaster);
+		persister.getResourceSet().createResource(URI.createURI("d.screen")).getContents().add(d);
+
+		Master cMasterInstance = (Master) dMaster.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets().get(0);
+		insertButtonInstance = (Button) ((WidgetGroup) bMasterInstance.getInstance().getWidgets().get(0)).getWidgets().get(2);
+		assertEquals("Modified Insert Button", insertButtonInstance.getText());
+		insertButtonInstance.setText("Modified Insert Button 2");
+
+		Overrides overrides = dMaster.getOverrides();
+		assertNotNull(overrides);
+		assertEquals(1, overrides.getWidgets().size());
+		WidgetOverrides widgetOverrides = overrides.getWidgets().get(0);
+		assertEquals("111/1", widgetOverrides.getRef());
+		assertEquals("Modified Insert Button 2", widgetOverrides.getText());
+		
+		dMaster.setScreen(c);
+		
+		cMasterInstance = (Master) dMaster.getInstance().getWidgets().get(0);
+		bMasterInstance = (Master) cMasterInstance.getInstance().getWidgets().get(0);
+		insertButtonInstance = (Button) ((WidgetGroup) bMasterInstance.getInstance().getWidgets().get(0)).getWidgets().get(2);
+		assertEquals("Modified Insert Button 2", insertButtonInstance.getText());
+	}
 }
