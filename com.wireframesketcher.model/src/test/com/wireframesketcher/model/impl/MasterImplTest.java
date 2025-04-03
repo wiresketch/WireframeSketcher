@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.wireframesketcher.model.Button;
 import com.wireframesketcher.model.ButtonBar;
-import com.wireframesketcher.model.Checkbox;
 import com.wireframesketcher.model.ColorDesc;
 import com.wireframesketcher.model.Item;
 import com.wireframesketcher.model.Label;
